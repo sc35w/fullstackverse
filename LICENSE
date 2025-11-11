@@ -1,0 +1,73 @@
+PRIVATE REPOSITORY LICENSE (PRL) v1.0
+
+Copyright (c) 2025 Sachin Choudhary
+All rights reserved.
+
+This Private Repository License ("License") is a legal agreement between
+the Owner listed above ("Owner") and the recipient ("Licensee") who has
+been granted access to the repository named "Fullstackverse" ("Repository").
+
+1. Definitions
+   a. "Confidential Information" means source code, assets, documentation,
+      designs, know-how, and any non-public information related to the Repository.
+   b. "Internal Use" means use by Licensee solely for Licensee's internal,
+      non-commercial evaluation, development, testing, and maintenance.
+
+2. Grant of License
+   Subject to the terms and conditions of this License, Owner hereby grants
+   Licensee a revocable, non-transferable, non-exclusive license to access
+   and use the Repository solely for Internal Use.
+
+3. Restrictions
+   Licensee shall NOT:
+     a. distribute, sublicense, sell, lease, or otherwise make the Repository
+        (or any portion thereof) available to any third party;
+     b. publish, release, or deploy the Repository in a production environment
+        accessible by the public or third parties without prior written consent
+        from Owner;
+     c. remove or alter any copyright, patent, trademark, or other proprietary
+        notices contained in the Repository;
+     d. reverse engineer, decompile, or attempt to derive the source code
+        beyond what is reasonably necessary for the permitted Internal Use.
+
+4. Confidentiality
+   Licensee shall treat the Repository and its contents as Confidential
+   Information and shall take reasonable measures to protect it, at least
+   as stringent as those used to protect Licensee's own confidential materials.
+
+5. Modifications and Derivative Works
+   Licensee may create modifications or derivative works for Internal Use.
+   All modifications and derivative works based on the Repository remain subject
+   to this License. Ownership of the original Owner's pre-existing IP is not
+   affected.
+
+6. Attribution
+   Licensee shall retain Owner's copyright and attribution notices in any
+   copies or substantial portions of the Repository used internally.
+
+7. Termination
+   This License and the rights granted hereunder will terminate immediately
+   upon Licensee's breach of any term herein or upon Owner's written notice.
+   Upon termination, Licensee shall cease all use and destroy or return all
+   Confidential Information in its possession.
+
+8. Warranty Disclaimer
+   THE REPOSITORY IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS
+   OR IMPLIED, INCLUDING BUT NOT LIMITED TO MERCHANTABILITY, FITNESS FOR A
+   PARTICULAR PURPOSE, OR NON-INFRINGEMENT.
+
+9. Limitation of Liability
+   IN NO EVENT SHALL OWNER BE LIABLE FOR ANY INDIRECT, INCIDENTAL, SPECIAL,
+   CONSEQUENTIAL OR PUNITIVE DAMAGES ARISING OUT OF ACCESS TO OR USE OF THE
+   REPOSITORY.
+
+10. Governing Law
+    This License shall be governed by and construed in accordance with the laws
+    of India without regard to its conflicts of law provisions.
+
+11. Contact
+    For permissions, questions, or commercial licensing inquiries contact:
+    contact@fullstakverse.com
+
+By accessing the Repository, you acknowledge that you have read,
+understand, and agree to be bound by the terms of this License.
