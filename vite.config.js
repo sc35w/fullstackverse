@@ -190,6 +190,8 @@ logger.error = (msg, options) => {
 }
 
 export default defineConfig({
+	// Use relative paths so the build can be hosted from a subdirectory or shared hosting
+	base: './',
 	customLogger: logger,
 	plugins: [
 		...(isDev ? [inlineEditPlugin(), editModeDevPlugin()] : []),
