@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-DYSB28PKNS"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-DYSB28PKNS');
+</script>
+		<meta charset="UTF-8" />
+		<link rel="icon" type="image/svg+xml" href="/vite.svg" />
+		<meta name="generator" content="FullStackverse" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>FullStackverse</title>
+		<script>
+			// Restore the path 404.html stashed before redirecting here (see public/404.html).
+			(function () {
+				var redirectPath = sessionStorage.getItem('spa-redirect-path');
+				if (redirectPath) {
+					sessionStorage.removeItem('spa-redirect-path');
+					history.replaceState(null, '', location.pathname.replace(/\/$/, '') + redirectPath);
+				}
+			})();
+		</script>
+	</head>
+	<body>
+		<div id="root"></div>
+		<script type="module" src="/src/main.jsx"></script>
+	</body>
+</html>

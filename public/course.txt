@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- Google Tag Manager -->
+  <script>(function (w, d, s, l, i) {
+      w[l] = w[l] || []; w[l].push({
+        'gtm.start':
+          new Date().getTime(), event: 'gtm.js'
+      }); var f = d.getElementsByTagName(s)[0],
+        j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+          'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+    })(window, document, 'script', 'dataLayer', 'GTM-M5Q5VFPT');</script>
+  <!-- End Google Tag Manager -->
+
+  <meta charset="UTF-8" />
+  <meta name="google-site-verification" content="CGlTxca4--6H1ibbwYj1zxtwJXKaSOKhNxIgXMmWAwQ" />
+
+  <!-- FAVICON - Use PNG as primary (more reliable cross-browser) -->
+  <link rel="icon" type="image/png" sizes="32x32" href="/logo.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/logo.png" />
+  <link rel="icon" href="/logo.png" />
+  <link rel="shortcut icon" href="/logo.png" type="image/png" />
+  <!-- Apple Touch Icon -->
+  <link rel="apple-touch-icon" href="/logo.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/logo.png" />
+  <!-- Android/Chrome -->
+  <link rel="icon" type="image/png" sizes="192x192" href="/logo.png" />
+  <!-- Web Manifest -->
+  <link rel="manifest" href="/site.webmanifest" />
+  <!-- Theme color -->
+  <meta name="theme-color" content="#E85749" />
+  <meta name="msapplication-TileColor" content="#E85749" />
+  <meta name="msapplication-TileImage" content="/logo.png" />
+
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-3PWJCM3KRT"></script>
+  <script type="text/javascript" src="//widget.trustpilot.com/bootstrap/v5/tp.widget.bootstrap.min.js" async></script>
+
+  <script type="text/javascript">
+    (function (c, l, a, r, i, t, y) {
+      c[a] = c[a] || function () { (c[a].q = c[a].q || []).push(arguments) };
+      t = l.createElement(r); t.async = 1; t.src = "https://www.clarity.ms/tag/" + i;
+      y = l.getElementsByTagName(r)[0]; y.parentNode.insertBefore(t, y);
+    })(window, document, "clarity", "script", "tqjy9y6iar");
+  </script>
+
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'G-3PWJCM3KRT');
+  </script>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+  <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.min.js"></script>
+
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap');
+  </style>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Launched Global</title>
+  <script type="module" crossorigin src="/assets/index-DcpxPXJM.js"></script>
+  <link rel="stylesheet" crossorigin href="/assets/index-BI92qRT-.css">
+</head>
+
+<body>
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-M5Q5VFPT" height="0" width="0"
+      style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
+
+  <iframe id="iframe" class="iframe" style="
+        width: 100vw;
+        height: 100vh;
+        border: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 10000;
+        display: none;
+      " src="https://upskill.launchedglobal.in/js-sdks/signup-sdk/iframe.php?subdomain=launched"></iframe>
+
+  <div id="root"></div>
+
+  <!-- Meta Pixel Code -->
+  <script>
+    !(function (f, b, e, v, n, t, s) {
+      if (f.fbq) return;
+      n = f.fbq = function () {
+        n.callMethod
+          ? n.callMethod.apply(n, arguments)
+          : n.queue.push(arguments);
+      };
+      if (!f._fbq) f._fbq = n;
+      n.push = n;
+      n.loaded = !0;
+      n.version = '2.0';
+      n.queue = [];
+      t = b.createElement(e);
+      t.async = !0;
+      t.src = v;
+      s = b.getElementsByTagName(e)[0];
+      s.parentNode.insertBefore(t, s);
+    })(
+      window,
+      document,
+      'script',
+      'https://connect.facebook.net/en_US/fbevents.js'
+    );
+    fbq('init', '997566522354053');
+    fbq('track', 'PageView');
+  </script>
+  <noscript><img height="1" width="1" style="display: none"
+      src="https://www.facebook.com/tr?id=997566522354053&ev=PageView&noscript=1" /></noscript>
+
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-RBT4ZDHFZQ"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag('js', new Date());
+    gtag('config', 'G-RBT4ZDHFZQ');
+  </script>
+
+
+  <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+
+  <!--Start of Tawk.to Script (disabled/commented out)-->
+  <!-- <script type="text/javascript">
+      var Tawk_API = Tawk_API || {},
+        Tawk_LoadStart = new Date();
+      (function () {
+        var s1 = document.createElement('script'),
+          s0 = document.getElementsByTagName('script')[0];
+        s1.async = true;
+        s1.src = 'https://embed.tawk.to/67c924bd26ead2190d020abd/1ilkrf1su';
+        s1.charset = 'UTF-8';
+        s1.setAttribute('crossorigin', '*');
+        s0.parentNode.insertBefore(s1, s0);
+      })();
+    </script> -->
+  <!--End of Tawk.to Script-->
+</body>
+
+</html>

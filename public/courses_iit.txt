@@ -1,0 +1,770 @@
+Become skilled in the field of data science and artificial
+intelligence by enrolling for this course
+Data Science &
+Artificial Intelligence
+Executive Post Graduate
+Certification IN
+sales@intellipaat.com www.intellipaat.comIND: +91 7022374614 US: 1-800-216-8930
+Learners
+10 Million
+Mentorship
+1:1 Personlized
+Salary Hike
+55% Average
+Master machine learning and artificial intelligence skills with this advanced data science
+and artificial intelligence course from iHUB IIT Roorkee. Learn from IIT faculty and industry
+experts with 1:1 mentorship in this intensive online bootcamp. The top 2 performers from
+each batch may get a fellowship worth Rs. 80,000, plus the opportunity to showcase their
+startup ideas and secure incubation support of up to Rs. 50 Lakhs for their startup from
+iHUB DivyaSampark, IIT Roorkee.
+Data Science and AI
+Executive Post Graduate
+Certification in
+Page - 1
+sales@intellipaat.comUS: 1-800-216-8930 www.intellipaat.comIND: +91 7022374614
+Aspiring Students
+10 Million+ Industry-expert Instructors
+1,000+ Hiring Partners
+400+
+Corporates Upskilled
+500+ Average Salary Hike
+55% Countries’ Learners
+155+
+Our Credentials
+Hottest Job of 21st Century
+28.8% CAGR in Indian Analytics Industry
+Growing Analytics Industry
+50% of the Data Scientists have a
+Master's Degree
+Popular Degree
+Data Scientists are equipped with various
+relevant skills which fetch them lucrative
+job offers
+Skill Development
+There is a global estimate of 2.7 million job
+postings for analytics and data science roles
+by 2022
+2.7 Million Job Postings
+There is a global estimate of 2.7 million job
+postings for analytics and data science roles
+by 2022
+2.7 Million Job Postings
+Data Science and Artificial Intelligence is a
+budding field; a head start will prove to be
+beneficial
+
+Future-oriented Career
+By 2022, India & US will face a demand
+supply gap of 200,000 Data Science
+professionals
+High Demand
+Become an expert in Data Science and Artificial Intelligence with iHUB IIT Roorkee. Build a
+strong foundation by learning in-demand skills, solving real-world challenges, and working on
+real-world projects. A flexible learning environment and 24/7 support make this course perfect
+for beginners and professionals alike.
+About Program
+sales@intellipaat.comUS: 1-800-216-8930 www.intellipaat.comIND: +91 7022374614
+Key Highlights
+620 Hrs of Applied Learning
+218 Hrs of Self-paced Learning Learn from IIT Faculty & Industry Practitioners
+One-on-One with Industry Mentors50+ Industry Projects & Case Studies
+Dedicated Learning Management Team24*7 Support
+No-Cost EMI Option1:1 Mock Interview
+Designed for Working Professionals and Freshers
+Up to Rs. 50 Lakhs startup Incubation Support*
+iHUB DivyaSampark, IIT Roorkee Certification
+90+ Live Sessions Across 11 months
+2 Days Campus Immersion at iHUB, IIT Roorkee
+3 Guaranteed Job Interviews upon movement
+to Placement Pool
+Get trained by top industry experts
+Instructor-led Training
+To help you with your learning needs
+Dedicated Learning Management
+Team
+Learn at your own pace with
+world-class content
+Self-paced videos
+Get real-world experience through
+projects
+Projects and Exercises
+Get a sense of how real projects are built
+Hackathons
+Improve your professional network and learn from
+peers
+Peer Networking and Group Learning
+Get involved in group activities to
+solve real-world problems
+Gamified Learning
+Hands-on exercises, project work,
+quizzes, and capstone projects
+1:1 Personalized Learning
+Program Pedagogy
+Online Bootcamp
+Learning Format
+Live Classes
+11 Months
+iHUB, IIT Roorkee
+Campus Immersion
+Certification
+Executive PG
+Page - 2
+Page - 3
+sales@intellipaat.comUS: 1-800-216-8930 www.intellipaat.comIND: +91 7022374614
+Who Can Apply for the Course?
+Application Process
+The application process consists of three simple steps. Candidates have to submit their application.
+An offer of admission will be made to the selected candidates, and their application will be accepted
+upon the payment of the admission fee.
+SUBMIT APPLICATION
+Tell us a bit about yourself and why you want to join
+ADMISSION TEST & APPLICATION REVIEW
+Clear the admission test and have a personal interview
+
+with our interview panel
+ADMISSION LETTER
+Shortlisted candidates would be offered the admission letter
+Individuals with a bachelor’s degree and a strong interest in learning AI and data science
+IT professionals looking to make a career transition as data scientists and artificial intelligence engineers
+Software Developer, Project managers, Non-Technical Professionals & Entry-level professionals looking to
+build their careers in artificial intelligence and data science
+Undergraduate freshers with an interest in Data Science & AI
+1
+2
+3
+Page - 4
+sales@intellipaat.comUS: 1-800-216-8930 www.intellipaat.comIND: +91 7022374614
+Learning Path
+Live Courses
+Self-paced Course
+Data Science At Scale with Spark
+Excel Analytics
+Live Courses
+Self-paced
+Industry Expert
+Academy Faculty
+Executive Post Graduate Certification
+in Data Science & Artificial Intelligence
+Start of the Course1
+Preparatory Session -
+Linux and Python
+Data Transformation
+Using SQL Python Libraries For
+Data Science Inferential
+Analytics
+Machine LearningSupervised LearningUnsupervised
+Learning
+Advanced Machine
+Learning Algorithms
+2 3 4
+5
+8
+67
+Deep Learning
+Using TensorFlow
+9
+Natural Language
+Processing
+Fundamentals of
+Generative AI Frameworks
+Prompt Engineering &
+Application-Based
+Generative AI
+Agentic Foundations
+for Machine Learning
+Workflows
+Intelligent Agent-Driven
+Modeling and Evaluation
+10
+13 14
+1112
+Power BI
+15
+MLOpsData Science
+Capstone Project
+Business Case
+Studies
+161718
+Page - 5
+sales@intellipaat.comUS: 1-800-216-8930 www.intellipaat.comIND: +91 7022374614
+Program Curriculum
+Module 1
+Preparatory Sessions – Python & Linux
+Python
+Introduction to Python and IDEs
+
+Python Basics
+
+Object Oriented Programming
+
+Hands-on Sessions And Assignments for Practice
+Linux
+Introduction to Linux
+
+Linux Basics
+
+Hands-on Sessions And Assignments for Practice
+Python Libraries For Data Science
+Data Handling with NumPy
+
+Data Manipulation Using Pandas
+
+Data Preprocessing
+
+Data Visualization
+Module 3
+Data Transformation Using SQL
+SQL Basics
+
+Advanced SQL
+
+Deep Dive into User Defined Functions
+
+SQL Optimization and Performance
+Module 2
+Inferential Analytics
+Statistics and Descriptive Analytics using Python
+
+Python for Descriptive, Diagnostic, and Inferential Statistics
+
+Prescriptive Analytics
+Module 4
+Machine Learning
+Introduction to Machine learning
+Regression
+Classification
+Clustering
+Module 5
+Supervised Learning
+Module 6
+Linear Regression
+
+Logistic Regression
+
+Decision Tree
+
+Random Forest
+
+Support Vector Machine
+
+K-Nearest Neighbors
+
+Time Series Forecasting
+
+Performance Metrics
+
+Classification reports
+
+Confusion matrix
+Unsupervised Learning
+Module 7
+K-means
+
+Dimensionality reduction
+
+Linear Discriminant Analysis
+
+Principal Component Analysis
+Advanced Machine Learning Algorithms
+Module 8
+Bagging And Boosting Algorithms
+
+Other Machine Learning Algorithms
+
+Predictive Analytics And Machine Learning
+
+Cognitive Science and Analytics
+Data Science At Scale with spark
+Module 9
+Introduction to Big Data And Spark
+
+RDDs
+
+Advanced Concepts & Spark-Hive
+Deep Learning Using TensorFlow
+Module 10
+Artificial Intelligence Basics
+
+Neural Networks
+
+Deep Learning
+Page - 6
+sales@intellipaat.comUS: 1-800-216-8930 www.intellipaat.comIND: +91 7022374614
+Program Curriculum
+Natural Language Processing
+Text Mining, Cleaning, and Pre-processing
+
+Text classification, NLTK, sentiment analysis, etc
+
+Sentence Structure, Sequence Tagging, Sequence Tasks, and
+Language Modeling
+
+AI Chatbots and Recommendations Engine
+Module 11 Get to know how to autonomously evaluate multiple models
+and summarise results.
+
+Get introduced to API-based tools via MCP (Model Context
+Protocol)
+
+Hands-on: Learn to build agents for:
+Fundamentals of Generative AI Frameworks
+LSTM
+
+Transformers
+
+BERT
+
+GPT
+
+LLM
+
+VAEs
+
+Langchain
+Module 12
+Prompt Engineering & Application-Based
+Generative AI
+Module 13
+Prompt Engineering
+
+Image-Based Applications of Generative AI
+
+Text-Based Applications of Generative AI
+
+Audio-Based Applications of Generative AI
+Agentic Foundations for Machine Learning
+Workflows
+Module 14
+Understand the meaning of Agentic AI, and why it matters for ML
+workflows
+
+Know the role of reasoning, memory, and tool use in building AI
+agents
+
+Understand Reasoning + Action (ReAct) + Toolformer + CoT
+prompting
+
+Learn to build Agno or LangChain Agents with Pandas for data
+preprocessing and Scikit-learn for model selection and training
+
+Hands-on
+
+Power BI
+Module 16
+Power BI Basics
+
+DAX
+
+Data Visualization with Analytics
+
+Hands-on Exercise
+MLOps
+Module 17
+Introduction to MLOps
+
+Deploying Machine Learning Models
+Data Science Capstone Project
+Module 18
+Business Case Studies
+Module 19
+Recommendation Engine
+
+Rating Predictions
+
+Census
+
+Housing
+
+Object Detection
+
+Stock Market Analysis
+
+Banking Problem
+
+AI Chatbot
+Excel Analytics
+Module 20
+Excel Fundamentals
+
+Excel For Data Analytics
+
+Data Visualization with Excel
+
+Excel Power Tools
+
+Classification Problems using Excel
+
+Information Measure in Excel
+
+Regression Problems Using ExcelIntelligent Agent-Driven Modeling and Evaluation
+Module 15
+Learn to add decision logic for model suggestion &
+hyperparameter selection
+
+Decide how to use memory and intermediate outputs for model
+building
+Page - 7
+sales@intellipaat.comUS: 1-800-216-8930 www.intellipaat.comIND: +91 7022374614
+Program Curriculum
+Tools to Master
+Python
+
+GIT
+
+Story Telling
+
+PySpark
+Data Science
+
+MLOps
+
+Machine Learning
+
+Model
+
+Data Analysis
+
+Data Wrangling
+
+Prediction algorithms
+
+Data visualization
+AI
+
+SQL
+
+NLP
+
+Azure Data Factory
+Skills to Master
+Page - 8
+sales@intellipaat.comUS: 1-800-216-8930 www.intellipaat.comIND: +91 7022374614
+Course Projects
+Intermediate
+Stock Price Prediction
+Forecasting a stock price based on time series
+analysis and forecasting using ARIMA, Seasonal
+ARIMA and other deep learning techniques to
+forecast stock prices based on historical data points.
+Beginner
+Real Estate Analytics
+Real Estate Analytics will involve supervised learning
+with an ensemble of various regression algorithms
+where we will optimize the predictions based on the
+error rate.
+Beginner
+Recommendation Engine
+In the Recommendation Engine project, we will use
+singular value decomposition to draw out relevant
+recommendations for music and movie selections
+based on the historical data points.
+Intermediate
+Weather Forecasting
+Ensemble of supervised machine learning algorithms
+to predict and forecast the weather based on
+historical data points, & optimization of the model to
+reduce the error in predictions using hyperparameter
+tuning and other data modeling techniques.
+Intermediate
+Image Classification
+The project involves processing image data that is
+fed to the convolutional neural networks which then
+efficiently predicts the species of the input that is
+provided during the predictions.
+Advance
+Gesture Recognition
+In this computer vision project, we will extract frames
+in real time and feed it to an already trained neural
+network that will correctly classify the gesture that is
+most relevant to the specified frame in real time.
+Advance
+American Sign Language Recognition
+In this project we will use computer vision and deep
+learning to feed real time frames that will correctly
+predict the ASL references to the signs made in the
+video and generate the audio for the same as well.
+Advance
+Sentiment Analysis
+Classic NLP problem encompasses processing
+textual data and then feeding the information to the
+deep learning model which then processes and
+predicts the sentiment associated with the text in
+both supervised and unsupervised learning settings.
+Advance
+Housing Price Prediction
+In this project on housing price prediction, get
+practical exposure to how to work with a house price
+dataset and predict the sale price for each house
+with 79 explanatory variables describing every
+aspect of the houses.
+Beginner
+Solar Power Efficiency
+The project will encompass three target variables
+that we will predict using the supervised machine
+learning algorithms for regression problems and
+minimize the error by tuning the hyperparameters.
+Projects cover the following industries:
+Retail Social Media Supply Chain Entrepreneurship E-commerce Banking Healthcare Insurance
+Page - 9
+sales@intellipaat.comUS: 1-800-216-8930 www.intellipaat.comIND: +91 7022374614
+Course Advisors / Faculty
+Dr. Sudeb Das Gupta
+Professor at IIT Roorkee
+Dr. Sudeb Dasgupta is currently working as Professor at IIT Roorkee. He has completed his PhD
+from Banaras Hindu University in Electronics Engineering and has more than 20 years of
+teaching experience.
+Dr. Balasubramanian R
+Professor at IIT Roorkee
+Dr. Balasubramanian R, is currently working as Professor at IIT Roorkee. He has completed his PhD from IIT
+Madras in Mathematics and Computer Science and has more than 20 years of teaching experience. HIs
+areas of interest include computer vision, machine learning, pattern recognition, deep learning, etc.
+Dr. Narendra S. Chaudhari
+Professor at IIT Indore
+Dr. Narendra Chaudhari, Professor of Computer Science and Engineering at IIT Indore, Dr. Narendra
+Chaudhari, a Professor at IIT Indore, specializes in network security, mobile computing, and machine
+learning. He holds a Ph.D. from IIT Bombay and has previously served as the Director of VNIT Nagpur and
+Vice Chancellor of Uttarakhand Technical University
+Dr. Sushanta Karmakar
+Associate Professor at IIT Guwahati
+Dr. Sushanta Karmakar is currently working as Associate Professor, at IIT Guwahati. He has completed his
+PhD from IIT Kharagpur from the Computer Science and Engineering department and has over 15 years of
+teaching experience.
+Chandresh Kumar Maurya
+Professor at IIT Indore
+Chandresh Maurya, a dynamic professor at IIT Indore with over 12 years of experience, excels in driving
+innovation and growth through his expertise in multimodal data processing, AI, ML, and DL. He has a proven
+track record of leading cross-functional teams and managing complex projects to deliver impactful
+solutions. His strategic vision and ability to tackle challenges have consistently enhanced operational
+efficiency and advanced research in Speech and NLP.
+Madhu Babu Cherukuri
+Sr. Data Scientist at Intel Corporation
+He carries over 15 years of expertise in handling various analytics projects, using several types of ML
+algorithms in multiple business domains. He also comes with extensive knowledge in SAS, SQL, R, Python
+and is proficient in Big Data Environment.
+Phaneendra Akula
+Senior Manager, Data Science at Sunrise Systems
+Mr. Akula is presently working at Sunrise Biztech Systems Private Limited. He has 9+ years of experience in
+the field of Data Science and has worked in many prestigious companies like Genpact, TCS, and Tesco. He
+is also a research scholar and a speaker.
+Page - 10
+sales@intellipaat.comUS: 1-800-216-8930 www.intellipaat.comIND: +91 7022374614
+Course Advisors / Faculty
+Vishwath Parthasarathy
+Data Scientist-III at InMobi
+Mr. Parthasarathy is currently working as a Data Scientist-III at InMobi. He has also worked at Amazon and
+PipeCandy. His expertise extends to Machine Learning, Deep Learning, MLOps, and Algorithmic Trading. He
+has been working since 2017 as a Data Scientist.
+Anurag Singh
+Principal AI Architect at Schneider Electric Hub
+Mr. Singh works at Schneider Electric Hub as a Principal AI Architect. He started as a Software Engineer in
+2007 and has been working as Data Scientist since 2018. He specializes in Big Data, Data Science, Machine
+Learning, and AI System Architecture.
+Nishkam Shivam
+Senior Data Scientist at Bristlecone
+A Senior Data Scientist in the field of Analytics and AI, Mr. Nishkam Shivam is presently working at
+Bristlecone. He has 9+ years of experience in this particular field and has also worked in renowned
+companies like Accenture, Walmart, Emeritus, and many more.
+Page - 11
+sales@intellipaat.comUS: 1-800-216-8930 www.intellipaat.comIND: +91 7022374614
+Some of their current employers include
+25%
+
+6-9 years
+15%
+
+9-12 years
+13%
+
+12+ years
+20%
+
+0-3 years
+27%
+
+3-6 years
+20%
+27%
+25%
+15%
+13%
+Work Experience
+Meet the Batch
+50% Information Technology
+17% - BPO/ KPO
+6% - Others
+10% - Consulting
+5% - Healthcare
+12% - BFSI
+Industries Our Learners Come From
+Career Services
+Intellipaat
+Career-oriented Sessions
+Attend 10+ career-oriented sessions
+by industry mentors and prepare
+your career trajectory
+Craft a resume highlighting Data
+Science & AI and a LinkedIn profile to
+make an impression on top employers
+Profile Building Get exclusive access to 200 job
+postings per month on Intellipaat’s
+job portal
+Dedicated Job Portal Access
+1:1 Mentoring Sessions
+Get 1:1 guidance at every step in
+your career transition to Data
+Science and AI
+Job Fairs
+Job fairs are conducted regularly to
+introduce learners to major
+organizations
+Placement Assistance
+Placement opportunities are provided once the
+learner is moved to the placement pool upon
+clearing Placement Readiness Test (PRT)**
+Hackathons
+Work in teams and get exclusive
+access to hackathons
+Mock Interview Preparation
+Prepare yourself with mock
+interviews including the most asked
+questions by top employers
+What Makes Us Tick
+Page - 12
+sales@intellipaat.comUS: 1-800-216-8930 www.intellipaat.comIND: +91 7022374614
+Learner Reviews
+Webinars
+500+ Job Shares
+600+ Hiring Partners
+400+ Avg. Salary Hike
+55%
+The training and support team are
+highly cooperative. The best thing
+about it is the prompt support. The
+trainers are well-versed with the
+concepts and great content.
+Assistant Professor at EWIT
+Anoop Prasad
+I am happy to have enrolled in this
+data science program. The syllabus is
+organized and the course is well
+designed. Best features are the 24*7
+support and trainers who are domain
+experts.
+Data Analyst at Amazon
+Manas Ranjan
+Intellipaat offers a well curated rich
+learning content which I liked the most.
+The set of PPTs, PDFs, and other course
+material were of highest quality, due to
+which my learning was great too.
+Technical Delivery Lead
+Shreyash Limbhetwala
+* Past record is no guarantee of future job prospects | ** Placement Assistance doesn’t guarantee you a job
+*
+Page - 13
+sales@intellipaat.comUS: 1-800-216-8930 www.intellipaat.comIND: +91 7022374614
+Career Transitions
+To
+
+Senior Technical
+Associate
+From
+
+Technical AnalystSenior Technical Associate
+Gaurav Saboo
+To
+
+Data Scientist
+From
+
+Customer Service
+AgentData Scientist
+Melwin Rodrigues
+To
+
+Machine Learning
+Engineer
+From
+
+B.Tech - Civil
+EngineeringMachine Learning Engineer
+D Rajesh Sahoo
+To
+
+Data Scientist
+From
+
+B.com Graduate
+Data Scientist
+Ankit Kumar
+To
+
+Data Scientist
+From
+
+Aircraft Maintenance
+EngineerData Scientist
+Mahesh Chowdary
+To
+
+Big Data Developer
+From
+
+Computer Technical
+SpecialistBig Data Developer
+Jeanette Masso
+To
+
+Data Scientist
+From
+
+Manager Analytics &
+Data ScienceData Scientist
+Prosenjeet Saha
+Successful Transitions
+Glimpse of our
+4.384.54.6
+Page - 14
+sales@intellipaat.comUS: 1-800-216-8930 www.intellipaat.comIND: +91 7022374614
+Program Partners
+Intellipaat is one of the leading online training providers, with more than 10 million learners in
+over 155 countries. We are on a mission to democratize education because we believe that
+everyone has the right to quality education.
+
+We create courses in collaboration with top universities and MNCs focused on employability,
+including iHUB IIT Roorkee, EICT IIT Guwahati, IITM Pravartak, IIM Ranchi, IIT Jammu, VNIT Nagpur,
+IU Germany, University of Essex, University of Liverpool, Microsoft, and others.
+
+Our courses come with 24/7 support and are delivered by Subject Matter Experts (SMEs). These
+courses help learners increase their employability, and our outstanding career services help
+them jump-start their careers in their dream jobs.
+About Intellipaat
+iHUB DivyaSampark, IIT Roorkee aims to enable an innovative ecosystem in new-age technologies like
+AI, ML, Drones, Robots, and data analytics (often called CPS technologies). It aims to do this by
+promoting and enhancing core competencies, capacity building, and manpower training to provide
+solutions for national strategic sectors and become a significant contributor to Digital India.
+Upon the completion of this program, you will:
+Certification from iHUB DivyaSampark, IIT Roorkee
+About iHUB DivyaSampark, IIT Roorkee
+When it comes to new-age technologies and tools, Microsoft is the biggest names and leading
+innovators. The course is led by experts who will walk you through all of the necessary skills in the
+domain and get you started on projects relevant to various organisations.
+Collaboration with Microsoft
+sales@intellipaat.com
+
+www.intellipaat.com
+INDIA
+
+6th Floor, Primeco Towers, Arekere Gate Junction, Bannerghatta
+Main Road, Bengaluru, Karnataka 560076, India
+Phone No: +91-7022374614
+USA
+
+INTELLIPAAT INC
+
+300 DELAWARE AVE STE 210-207
+
+WILMINGTON, DE 19801
+Contact Us
+10 Million Learners & 500+ Corporates across 155+ countries
+upskilling on Intellipaat Platform
