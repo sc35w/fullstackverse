@@ -145,8 +145,8 @@ export default function SkillVersePrivacyPolicyPage() {
             </h3>
             <p className="text-gray-700 text-sm leading-relaxed">
               For privacy requests or questions (including access, corrections, or opt-outs), contact us at
-              <a href="mailto:contact@fullstackverse.com" className="text-red-600 font-semibold ml-1">
-                contact@fullstackverse.com
+              <a href="mailto:fullstackverse2021@gmail.com" className="text-red-600 font-semibold ml-1">
+                fullstackverse2021@gmail.com
               </a>
               .
             </p>

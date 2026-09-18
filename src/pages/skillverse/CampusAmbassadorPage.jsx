@@ -459,13 +459,13 @@ const CampusAmbassadorPage = () => {
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="text-3xl font-bold text-gray-900 mb-8">Have Questions? We're Here to Help!</h2>
           <div className="flex flex-wrap justify-center gap-6">
-            <a href="tel:9398165155" className="flex items-center gap-2 bg-white px-6 py-3 rounded-lg shadow-md hover:shadow-lg transition-shadow">
+            <a href="tel:8296548156" className="flex items-center gap-2 bg-white px-6 py-3 rounded-lg shadow-md hover:shadow-lg transition-shadow">
               <Phone className="h-5 w-5 text-red-600" />
-              <span className="text-gray-900">9398165155</span>
+              <span className="text-gray-900">8296548156</span>
             </a>
-            <a href="mailto:contact@fullstackverse.com" className="flex items-center gap-2 bg-white px-6 py-3 rounded-lg shadow-md hover:shadow-lg transition-shadow">
+            <a href="mailto:fullstackverse2021@gmail.com" className="flex items-center gap-2 bg-white px-6 py-3 rounded-lg shadow-md hover:shadow-lg transition-shadow">
               <Mail className="h-5 w-5 text-red-600" />
-              <span className="text-gray-900">contact@fullstackverse.com</span>
+              <span className="text-gray-900">fullstackverse2021@gmail.com</span>
             </a>
           </div>
         </div>

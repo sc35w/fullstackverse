@@ -65,13 +65,13 @@ const Header = () => {
   const handleContact = (type) => {
     if (type === "phone") {
       // use plain local display number for dialing links per request
-      window.open("tel:9398165155", "_self");
+      window.open("tel:8296548156", "_self");
     } else if (type === "email") {
-      window.open("mailto:contact@fullstackverse.com", "_self");
+      window.open("mailto:fullstackverse2021@gmail.com", "_self");
     } else if (type === "whatsapp") {
-      // Updated WhatsApp number: +919398165155 (use wa.me format without '+')
+      // Updated WhatsApp number: +918296548156 (use wa.me format without '+')
       window.open(
-        "https://wa.me/919398165155?text=Hello%20Fullstackverse,%20I%27d%20like%20to%20discuss%20my%20project%20idea.",
+        "https://wa.me/918296548156?text=Hello%20Fullstackverse,%20I%27d%20like%20to%20discuss%20my%20project%20idea.",
         "_blank"
       );
     }
@@ -187,7 +187,7 @@ const Header = () => {
           {/* Desktop Actions */}
           <div className="hidden items-center gap-2 lg:flex shrink-0">
             <a
-              href="tel:9398165155"
+              href="tel:8296548156"
               className="btn"
               style={{ backgroundColor: 'hsl(var(--primary-h) var(--primary-s) var(--primary-l))', color: 'white', textDecoration: 'none' }}
             >
@@ -282,7 +282,7 @@ const Header = () => {
               ))}
               <div className="mt-1 flex flex-col sm:flex-row gap-2 px-1 pb-2">
                 <a
-                  href="tel:9398165155"
+                  href="tel:8296548156"
                   className="btn flex-1"
                   style={{ backgroundColor: 'hsl(var(--primary-h) var(--primary-s) var(--primary-l))', color: 'white', textDecoration: 'none' }}
                   onClick={() => setIsMenuOpen(false)}

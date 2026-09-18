@@ -40,19 +40,19 @@ const Footer = () => {
             </p>
             <div className="flex space-x-4">
               <a
-                href="tel:9398165155"
+                href="tel:8296548156"
                 className="text-gray-600 hover:text-blue-600 transition-colors"
               >
                 <Phone className="h-5 w-5" />
               </a>
               <a
-                href="mailto:contact@fullstackverse.com"
+                href="mailto:fullstackverse2021@gmail.com"
                 className="text-gray-600 hover:text-blue-600 transition-colors"
               >
                 <Mail className="h-5 w-5" />
               </a>
               <a
-                href="https://wa.me/919398165155"
+                href="https://wa.me/918296548156"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-gray-600 hover:text-green-500 transition-colors"
@@ -102,11 +102,11 @@ const Footer = () => {
             <div className="space-y-3">
               <div className="flex items-center space-x-3">
                 <Phone className="h-4 w-4 text-gray-600" />
-                <span className="text-gray-600 text-sm">9398165155</span>
+                <span className="text-gray-600 text-sm">8296548156</span>
               </div>
               <div className="flex items-center space-x-3">
                 <Mail className="h-4 w-4 text-gray-600" />
-                <span className="text-gray-600 text-sm">contact@fullstackverse.com</span>
+                <span className="text-gray-600 text-sm">fullstackverse2021@gmail.com</span>
               </div>
               <div className="flex items-start space-x-3">
                 <MapPin className="h-4 w-4 text-gray-600 mt-0.5" />

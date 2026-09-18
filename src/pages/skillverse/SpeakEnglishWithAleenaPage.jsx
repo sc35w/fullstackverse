@@ -797,7 +797,7 @@ export default function SpeakEnglishPage() {
                         </div>
                         <div className="flex justify-between">
                             <span className="font-medium text-black">Phone</span>
-                            <span className="text-black">9398165155</span>
+                            <span className="text-black">8296548156</span>
                         </div>
                     </div>
                     <div className="mt-6 text-center">
@@ -818,7 +818,7 @@ export default function SpeakEnglishPage() {
                 
                 {/* Contact and Terms */}
                 <div className="text-center text-sm text-black">
-                    <p className="mb-2"><strong>Contact Us:</strong> support@skillverse.com | 9398165155</p>
+                    <p className="mb-2"><strong>Contact Us:</strong> support@skillverse.com | 8296548156</p>
                     <p><strong>Terms & Conditions:</strong> You agree to share information entered on this page with SkillVerse and Razorpay, adhering to applicable laws.</p>
                 </div>
                 

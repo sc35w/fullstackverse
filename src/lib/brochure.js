@@ -59,7 +59,7 @@ export async function downloadDataAnalyticsBrochure() {
     </div>
     
     <div style="margin-top:20px;padding-top:16px;border-top:2px solid #e5e7eb;color:#6b7280;font-size:13px;line-height:1.6">
-      <div><strong>Contact Us:</strong> contact@fullstackverse.com</div>
+      <div><strong>Contact Us:</strong> fullstackverse2021@gmail.com</div>
       <div style="margin-top:6px"><strong>Program by:</strong> SkillVerse by Fullstackverse</div>
       <div style="margin-top:10px;color:#9ca3af;font-size:11px">© ${new Date().getFullYear()} SkillVerse. All rights reserved.</div>
     </div>

@@ -65,21 +65,21 @@ const SkillVerseFooter = () => {
             </p>
             <div className="flex space-x-4">
               <a
-                href="tel:9398165155"
+                href="tel:8296548156"
                 className="text-gray-600 hover:text-red-500 transition-colors"
                 title="Call us"
               >
                 <Phone className="h-5 w-5" />
               </a>
               <a
-                href="mailto:contact@fullstackverse.com"
+                href="mailto:fullstackverse2021@gmail.com"
                 className="text-gray-600 hover:text-red-500 transition-colors"
                 title="Email us"
               >
                 <Mail className="h-5 w-5" />
               </a>
               <a
-                href="https://wa.me/919398165155?text=Hello%20SkillVerse,%20I%27d%20like%20to%20learn%20more"
+                href="https://wa.me/918296548156?text=Hello%20SkillVerse,%20I%27d%20like%20to%20learn%20more"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-gray-600 hover:text-orange-500 transition-colors"
@@ -190,15 +190,15 @@ const SkillVerseFooter = () => {
                 <Phone className="h-4 w-4 mt-0.5 text-red-500" />
                 <div>
                   <div className="font-semibold text-gray-900">Call Us</div>
-                  <a href="tel:9398165155" className="hover:text-red-500">9398165155</a>
+                  <a href="tel:8296548156" className="hover:text-red-500">8296548156</a>
                 </div>
               </div>
               <div className="flex items-start gap-2 text-sm text-gray-600">
                 <Mail className="h-4 w-4 mt-0.5 text-red-500" />
                 <div>
                   <div className="font-semibold text-gray-900">Email</div>
-                  <a href="mailto:contact@fullstackverse.com" className="hover:text-orange-500">
-                    contact@fullstackverse.com
+                  <a href="mailto:fullstackverse2021@gmail.com" className="hover:text-orange-500">
+                    fullstackverse2021@gmail.com
                   </a>
                 </div>
               </div>

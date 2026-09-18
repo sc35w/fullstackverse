@@ -1625,7 +1625,7 @@ const CoursePage = () => {
                 <div className="mt-4 flex flex-col items-center gap-2">
                   <span className="text-xs text-slate-500">Facing financial hardship?</span>
                   <a
-                    href="https://wa.me/919398165155?text=Hi%20Fullstackverse%2C%20I%20would%20like%20to%20apply%20for%20a%20scholarship%20for%20the%20Data%20Science%20Internship%20due%20to%20financial%20hardship."
+                    href="https://wa.me/918296548156?text=Hi%20Fullstackverse%2C%20I%20would%20like%20to%20apply%20for%20a%20scholarship%20for%20the%20Data%20Science%20Internship%20due%20to%20financial%20hardship."
                     target="_blank"
                     rel="noopener noreferrer"
                     className="inline-flex items-center gap-2 px-4 py-2 bg-green-500 text-white rounded-lg font-semibold shadow hover:bg-green-600 transition text-sm"

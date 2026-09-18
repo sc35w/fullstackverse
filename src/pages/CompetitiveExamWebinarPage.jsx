@@ -437,7 +437,7 @@ const CompetitiveExamWebinarPage = () => {
               <div className="text-xl font-semibold">7 PM - 9 PM Live Session</div>
               <p className="text-sm text-white/80 mt-2">Limited Seats Available</p>
               <div className="mt-4 space-y-2 text-xs text-white/70">
-                <p>For queries: support@webinar.com | WhatsApp: +91 9398165155</p>
+                <p>For queries: support@webinar.com | WhatsApp: +91 8296548156</p>
                 <p className="flex flex-wrap gap-2">
                   <span>Privacy Policy</span>
                   <span>Terms & Conditions</span>
@@ -470,7 +470,7 @@ const CompetitiveExamWebinarPage = () => {
                 {hasEnded ? "Webinar Ended" : "Register & Pay - ₹399"}
               </button>
               <p className="text-xs text-slate-500">
-                Need help? Email support@webinar.com or WhatsApp +91 9398165155.
+                Need help? Email support@webinar.com or WhatsApp +91 8296548156.
               </p>
             </div>
             <div className="rounded-3xl bg-white border border-slate-200 shadow-xl p-6 space-y-3">

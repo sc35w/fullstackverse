@@ -17,12 +17,12 @@ const SkillVerseHeader = () => {
 
   const handleContact = (type) => {
     if (type === "phone") {
-      window.open("tel:9398165155", "_self");
+      window.open("tel:8296548156", "_self");
     } else if (type === "email") {
-      window.open("mailto:contact@fullstackverse.com", "_self");
+      window.open("mailto:fullstackverse2021@gmail.com", "_self");
     } else if (type === "whatsapp") {
       window.open(
-        "https://wa.me/919398165155?text=Hello%20SkillVerse,%20I%27d%20like%20to%20learn%20more%20about%20your%20courses.",
+        "https://wa.me/918296548156?text=Hello%20SkillVerse,%20I%27d%20like%20to%20learn%20more%20about%20your%20courses.",
         "_blank"
       );
     }
