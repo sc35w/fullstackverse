@@ -1,99 +1,60 @@
 /**
- * Full Google Apps Script Web App
- * - Accepts HTTP POST (JSON or form-encoded)
- * - Dispatches by `action`: submit_contact (default), submit_webinar, send_webinar_email
- * - Normalizes fields and appends to a sheet
- * - Uses LockService to avoid race conditions
- * - Optional API key protection
- * - Basic validation and truncation
- * - Test helpers for editor runs
+ * Fullstackverse form intake — Google Apps Script Web App
  *
- * Configuration: edit constants below before deploying.
+ * SETUP (do this from scratch, don't reuse an old deployment):
+ * 1. Open the Google Sheet you want submissions written to.
+ * 2. Extensions > Apps Script. This creates a script BOUND to that sheet
+ *    (no spreadsheet ID to configure — it always writes to the sheet it's
+ *    opened from).
+ * 3. Delete the boilerplate `myFunction() {}` and paste this whole file in.
+ * 4. Save (Ctrl/Cmd+S).
+ * 5. Deploy > New deployment > gear icon > select type "Web app".
+ *    - Execute as: Me
+ *    - Who has access: Anyone
+ * 6. Click Deploy, copy the /exec URL, set it as VITE_GOOGLE_APPS_SCRIPT_URL.
+ *
+ * If you ever change the code, redeploy via Deploy > Manage deployments >
+ * edit (pencil) > Version: New version > Deploy — the URL stays the same.
  */
 
-/* ============================
-   CONFIGURATION
-   ============================ */
-// Replace with your Spreadsheet ID (keeps script independent from bound spreadsheets)
-const SPREADSHEET_ID = '1UHIHjJ-uxTRvgvRv2lgOKW74NY-SUoJ1HGn9x8yNTkU';
-
-// Contact / RFP submissions sheet
-const SHEET_NAME = 'Submissions-fullstackverse';
-const HEADER_ROW = [
-  'Timestamp',
-  'Full Name',
-  'Email',
-  'Contact Number',
-  'Project Description',
-  'Budget',
-  'Type',
-  'Client IP'
+const CONTACT_SHEET_NAME = 'Submissions';
+const CONTACT_HEADERS = [
+  'Timestamp', 'Full Name', 'Email', 'Contact Number',
+  'Project Description', 'Budget', 'Type', 'Source'
 ];
 
-// Webinar / workshop registrations sheet
-const WEBINAR_SHEET_NAME = 'WebinarRegistrations-fullstackverse';
-const WEBINAR_HEADER_ROW = [
-  'Timestamp',
-  'Webinar Slug',
-  'Name',
-  'Email',
-  'Phone',
-  'Client IP'
+const WEBINAR_SHEET_NAME = 'WebinarRegistrations';
+const WEBINAR_HEADERS = [
+  'Timestamp', 'Webinar Slug', 'Name', 'Email', 'Phone', 'Source'
 ];
-
-// Optional security: set a secret API key string to require it in requests (or null to disable)
-const API_KEY = null; // e.g. 'my-super-secret-key'
-
-// Limits
-const MAX_DESCRIPTION_LENGTH = 2000; // truncate long text to this length
-const RATE_LIMIT_WINDOW_MS = 60 * 1000; // window length for rate limiting (1 minute)
-const RATE_LIMIT_MAX_PER_WINDOW = 30; // max submissions per IP (basic throttle)
 
 /* ============================
    ENTRY POINT
    ============================ */
 
-/**
- * doPost(e) - Web app POST handler
- * @param {Object} e - Apps Script event object
- * @returns {ContentService.TextOutput} JSON response
- */
 function doPost(e) {
   try {
-    if (!e) {
-      // Friendly response when run from editor without an event object.
-      return jsonResponse({ success: false, message: 'No event object (e). Run test helper or POST to the web app URL.' });
+    const payload = parseBody(e);
+    if (!payload) {
+      return jsonResponse({ success: false, message: 'No JSON payload found in request body.' });
     }
 
-    // 1) Optional API key protection
-    if (API_KEY) {
-      const providedApiKey = getApiKeyFromEvent(e);
-      if (providedApiKey !== API_KEY) {
-        Logger.log('Rejected request due to invalid API key.');
-        return jsonResponse({ success: false, message: 'Invalid API key' });
-      }
-    }
-
-    // 2) Extract payload (handles JSON body and form encoded parameters)
-    const payload = extractPayload(e);
-    if (!payload || Object.keys(payload).length === 0) {
-      return jsonResponse({ success: false, message: 'No payload found in request.' });
-    }
-
-    // 3) Dispatch by action
-    if (payload.action === 'send_webinar_email') {
-      return handleSendWebinarEmail(payload);
-    }
-    if (payload.action === 'submit_webinar') {
-      return handleSubmitWebinar(e, payload);
-    }
-    // Default (and 'submit_contact'): contact / RFP form submission
-    return handleSubmitContact(e, payload);
+    if (payload.action === 'send_webinar_email') return sendWebinarEmail(payload);
+    if (payload.action === 'submit_webinar') return appendWebinar(payload);
+    return appendContact(payload);
   } catch (err) {
-    // Log full error server-side but return a generic message to clients to avoid leaking internals
     Logger.log('doPost error: ' + (err && err.stack ? err.stack : err));
-    // Optional: sendAlertOnError(err); // uncomment and implement notification if desired
-    return jsonResponse({ success: false, message: 'Internal server error' });
+    return jsonResponse({ success: false, message: 'Server error — check the Executions log.' });
+  }
+}
+
+function parseBody(e) {
+  if (!e || !e.postData || !e.postData.contents) return null;
+  try {
+    const parsed = JSON.parse(e.postData.contents);
+    return (parsed && typeof parsed === 'object') ? parsed : null;
+  } catch (err) {
+    return null;
   }
 }
 
@@ -101,46 +62,27 @@ function doPost(e) {
    CONTACT / RFP SUBMISSIONS
    ============================ */
 
-/** Handle a contact/RFP form submission: validates, then appends a row to SHEET_NAME. */
-function handleSubmitContact(e, payload) {
-  const normalized = normalizePayload(payload);
+function appendContact(p) {
+  const fullName = str(p.full_name);
+  const email = str(p.email);
 
-  const validationError = validateData(normalized);
-  if (validationError) {
-    return jsonResponse({ success: false, message: 'Validation error: ' + validationError });
-  }
+  if (!fullName) return jsonResponse({ success: false, message: 'Full name is required' });
+  if (!isValidEmail(email)) return jsonResponse({ success: false, message: 'Valid email is required' });
 
-  const clientIp = getClientIp(e) || '';
-  if (isRateLimited(clientIp)) {
-    Logger.log('Rate limit triggered for IP: ' + clientIp);
-    return jsonResponse({ success: false, message: 'Too many submissions. Try again later.' });
-  }
-
-  const ss = SpreadsheetApp.openById(SPREADSHEET_ID);
   const lock = LockService.getScriptLock();
-  lock.waitLock(10000); // wait up to 10s
-
+  lock.waitLock(10000);
   try {
-    let sheet = ss.getSheetByName(SHEET_NAME);
-    if (!sheet) {
-      sheet = ss.insertSheet(SHEET_NAME);
-      sheet.appendRow(HEADER_ROW);
-      const headerRange = sheet.getRange(1, 1, 1, HEADER_ROW.length);
-      headerRange.setFontWeight('bold').setBackground('#f3f3f3');
-    }
-
-    const row = [
+    const sheet = getOrCreateSheet(CONTACT_SHEET_NAME, CONTACT_HEADERS);
+    sheet.appendRow([
       new Date(),
-      normalized.full_name || '',
-      normalized.email || '',
-      normalized.contact_number || '',
-      truncate(normalized.project_description || '', MAX_DESCRIPTION_LENGTH),
-      normalized.budget || '',
-      normalized.type || '',
-      clientIp // last column for simple audit
-    ];
-
-    sheet.appendRow(row);
+      fullName,
+      email,
+      str(p.contact_number),
+      str(p.project_description),
+      str(p.budget),
+      str(p.type),
+      str(p.source),
+    ]);
   } finally {
     lock.releaseLock();
   }
@@ -152,44 +94,27 @@ function handleSubmitContact(e, payload) {
    WEBINAR / WORKSHOP REGISTRATIONS
    ============================ */
 
-/** Handle a webinar/workshop registration: validates, then appends a row to WEBINAR_SHEET_NAME. */
-function handleSubmitWebinar(e, payload) {
-  const name = payload.name ? String(payload.name).trim() : '';
-  const email = payload.email ? String(payload.email).trim() : '';
-  const phone = payload.phone ? String(payload.phone).trim() : '';
-  const webinarSlug = payload.webinar_slug ? String(payload.webinar_slug).trim() : '';
+function appendWebinar(p) {
+  const name = str(p.name);
+  const email = str(p.email);
+  const phone = str(p.phone);
 
-  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-  if (!name) {
-    return jsonResponse({ success: false, message: 'Name is required' });
-  }
-  if (!email || !emailRegex.test(email)) {
-    return jsonResponse({ success: false, message: 'Valid email is required' });
-  }
-  if (!phone) {
-    return jsonResponse({ success: false, message: 'Phone is required' });
-  }
+  if (!name) return jsonResponse({ success: false, message: 'Name is required' });
+  if (!isValidEmail(email)) return jsonResponse({ success: false, message: 'Valid email is required' });
+  if (!phone) return jsonResponse({ success: false, message: 'Phone is required' });
 
-  const clientIp = getClientIp(e) || '';
-  if (isRateLimited(clientIp)) {
-    Logger.log('Rate limit triggered for IP: ' + clientIp);
-    return jsonResponse({ success: false, message: 'Too many submissions. Try again later.' });
-  }
-
-  const ss = SpreadsheetApp.openById(SPREADSHEET_ID);
   const lock = LockService.getScriptLock();
   lock.waitLock(10000);
-
   try {
-    let sheet = ss.getSheetByName(WEBINAR_SHEET_NAME);
-    if (!sheet) {
-      sheet = ss.insertSheet(WEBINAR_SHEET_NAME);
-      sheet.appendRow(WEBINAR_HEADER_ROW);
-      const headerRange = sheet.getRange(1, 1, 1, WEBINAR_HEADER_ROW.length);
-      headerRange.setFontWeight('bold').setBackground('#f3f3f3');
-    }
-
-    sheet.appendRow([new Date(), webinarSlug, name, email, phone, clientIp]);
+    const sheet = getOrCreateSheet(WEBINAR_SHEET_NAME, WEBINAR_HEADERS);
+    sheet.appendRow([
+      new Date(),
+      str(p.webinar_slug),
+      name,
+      email,
+      phone,
+      str(p.source),
+    ]);
   } finally {
     lock.releaseLock();
   }
@@ -201,18 +126,16 @@ function handleSubmitWebinar(e, payload) {
    WEBINAR CONFIRMATION EMAIL
    ============================ */
 
-/** Handle the "send_webinar_email" action: emails the registrant via MailApp. */
-function handleSendWebinarEmail(payload) {
+function sendWebinarEmail(p) {
+  const email = str(p.email);
+  const name = str(p.name);
+
+  if (!isValidEmail(email)) {
+    return jsonResponse({ success: false, message: 'Valid email is required' });
+  }
+
   try {
-    var email = payload.email ? String(payload.email).trim() : '';
-    var name = payload.name ? String(payload.name).trim() : '';
-
-    var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!email || !emailRegex.test(email)) {
-      return jsonResponse({ success: false, message: 'Valid email is required' });
-    }
-
-    var htmlBody = ''
+    const htmlBody = ''
       + '<div style="font-family: Arial, sans-serif; background:#f4f6f9; padding:25px">'
       + '  <div style="max-width:600px; margin:auto; background:white; border-radius:10px; padding:30px">'
       + '    <h2 style="color:#2563eb; margin-top:0">Welcome ' + (name || 'to SkillVerse') + ' 🚀</h2>'
@@ -239,7 +162,7 @@ function handleSendWebinarEmail(payload) {
 
     return jsonResponse({ success: true });
   } catch (err) {
-    Logger.log('handleSendWebinarEmail error: ' + (err && err.stack ? err.stack : err));
+    Logger.log('sendWebinarEmail error: ' + (err && err.stack ? err.stack : err));
     return jsonResponse({ success: false, message: 'Failed to send email' });
   }
 }
@@ -248,243 +171,62 @@ function handleSendWebinarEmail(payload) {
    HELPERS
    ============================ */
 
-/** Respond with JSON text output */
+function getOrCreateSheet(name, headers) {
+  const ss = SpreadsheetApp.getActiveSpreadsheet();
+  let sheet = ss.getSheetByName(name);
+  if (!sheet) {
+    sheet = ss.insertSheet(name);
+    sheet.appendRow(headers);
+    sheet.getRange(1, 1, 1, headers.length).setFontWeight('bold').setBackground('#f3f3f3');
+  }
+  return sheet;
+}
+
+function str(v) {
+  return v === null || v === undefined ? '' : String(v).trim();
+}
+
+function isValidEmail(v) {
+  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v);
+}
+
 function jsonResponse(obj) {
   return ContentService.createTextOutput(JSON.stringify(obj)).setMimeType(ContentService.MimeType.JSON);
 }
 
-/** Safe JSON parse, returns {} on failure */
-function tryParseJsonSafe(s) {
-  try {
-    return s ? JSON.parse(s) : {};
-  } catch (e) {
-    return {};
-  }
-}
-
-/** Extract payload from event (supports JSON body and form-encoded parameters) */
-function extractPayload(e) {
-  // 1) JSON body (common for fetch / curl)
-  if (e.postData && e.postData.contents) {
-    const parsed = tryParseJsonSafe(e.postData.contents);
-    if (parsed && Object.keys(parsed).length > 0) return parsed;
-    // if parse failed or empty, fall through to check parameters
-  }
-
-  // 2) Form-encoded HTML form submission
-  if (e.parameter && Object.keys(e.parameter).length > 0) {
-    // e.parameter contains single-value params; map them into a plain object
-    var out = {};
-    for (var k in e.parameter) {
-      out[k] = e.parameter[k];
-    }
-    return out;
-  }
-
-  // 3) Nothing found
-  return {};
-}
-
-/** Normalize common field names to a consistent shape */
-function normalizePayload(payload) {
-  var out = {};
-
-  // helper to safely coerce and trim string values
-  function s(v) { return v ? String(v).trim() : ''; }
-
-  // common name variants (trimmed)
-  out.full_name = s(payload.full_name || payload.fullName || payload.name || payload.fullname);
-  out.email = s(payload.email || payload.email_address || payload.emailAddress);
-  // normalize contact number to digits only for consistent storage/search (remove non-digits)
-  out.contact_number = s(payload.contact_number || payload.contact || payload.phone || payload.phone_number || payload.phoneNumber).replace(/\D/g, '');
-  out.project_description = s(payload.project_description || payload.projectDescription || payload.description);
-  out.budget = s(payload.budget || payload.estimate || payload.project_budget);
-  out.type = s(payload.type || payload.project_type || payload.category);
-  return out;
-}
-
-/** Very basic validation; return null if OK or string message on error */
-function validateData(data) {
-  if (!data) return 'No data';
-  // Email format (if provided)
-  if (data.email) {
-    var email = String(data.email).trim();
-    var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!emailRegex.test(email)) return 'Invalid email format';
-  }
-  // Contact digits (if provided)
-  if (data.contact_number) {
-    var digits = String(data.contact_number).replace(/\D/g, '');
-    if (digits.length > 0 && (digits.length < 6 || digits.length > 20)) return 'Contact number length looks invalid';
-  }
-  // Optionally require a name or description - uncomment below if needed:
-  // if (!data.full_name) return 'Full name is required';
-  // if (!data.project_description) return 'Project description is required';
-  return null;
-}
-
-/** Truncate string safely */
-function truncate(s, max) {
-  s = String(s || '');
-  return s.length > max ? s.slice(0, max - 3) + '...' : s;
-}
-
-/** Extract API key from event (either parameter or JSON body) */
-function getApiKeyFromEvent(e) {
-  // check parameters
-  if (e.parameter && e.parameter.api_key) return e.parameter.api_key;
-  // check JSON body
-  if (e.postData && e.postData.contents) {
-    var parsed = tryParseJsonSafe(e.postData.contents);
-    if (parsed && parsed.api_key) return parsed.api_key;
-  }
-  return null;
-}
-
-/** Attempt to find client IP from event (best-effort; may not be available for anonymous web app) */
-function getClientIp(e) {
-  // Some proxies or clients might include an ip header in parameters (rare)
-  if (e.parameter && e.parameter.client_ip) return e.parameter.client_ip;
-  // If postData has an 'x-forwarded-for' in raw contents it must be parsed by client; otherwise unknown
-  // Apps Script does NOT reliably expose client IP. This field will often be empty.
-  return '';
-}
-
 /* ============================
-   Basic rate limiting (by IP) - best-effort using PropertiesService
-   Note: Not bulletproof; PropertiesService is shared across executions and not real-time.
+   TEST HELPERS (run from Editor toolbar to sanity-check)
    ============================ */
 
-/** Check and increment rate counter for ip; returns true if rate limited */
-function isRateLimited(ip) {
-  if (!ip) return false; // cannot rate limit unknown IPs here
-
-  // Use a script lock to avoid race conditions when reading/updating PropertiesService
-  var lock = LockService.getScriptLock();
-  try {
-    lock.waitLock(5000);
-    var props = PropertiesService.getScriptProperties();
-    var key = 'rate:' + ip;
-    var raw = props.getProperty(key);
-    var now = Date.now();
-    if (!raw) {
-      var obj = { count: 1, windowStart: now };
-      props.setProperty(key, JSON.stringify(obj));
-      return false;
-    }
-    var obj = JSON.parse(raw);
-    if (now - obj.windowStart <= RATE_LIMIT_WINDOW_MS) {
-      obj.count = (obj.count || 0) + 1;
-      props.setProperty(key, JSON.stringify(obj));
-      if (obj.count > RATE_LIMIT_MAX_PER_WINDOW) return true;
-      return false;
-    } else {
-      // reset window
-      obj = { count: 1, windowStart: now };
-      props.setProperty(key, JSON.stringify(obj));
-      return false;
-    }
-  } catch (e) {
-    // If rate limiting fails for any reason, err on side of allowing
-    Logger.log('Rate limit check failed: ' + e);
-    return false;
-  } finally {
-    try { lock.releaseLock(); } catch (releaseErr) { /* ignore release errors */ }
-  }
-}
-
-/* ============================
-   Optional: Error notification hook (uncomment to use)
-   ============================ */
-// function sendAlertOnError(err) {
-//   try {
-//     var subject = 'Web App Error: Submission handler';
-//     var body = 'Error: ' + (err && err.stack ? err.stack : err) + '\n\n' + 'Time: ' + new Date().toISOString();
-//     MailApp.sendEmail('your-email@example.com', subject, body);
-//   } catch (mailErr) {
-//     Logger.log('Failed to send error email: ' + mailErr);
-//   }
-// }
-
-/* ============================
-   TEST HELPERS (run from Editor)
-   ============================ */
-
-/** Simulate a contact/RFP JSON POST in editor */
 function testDoPostContact() {
-  var fakeEvent = {
+  const fakeEvent = {
     postData: {
       contents: JSON.stringify({
-        action: 'submit_contact',
         full_name: 'Test User',
         email: 'test@example.com',
-        contact_number: '+1-555-555-5555',
-        project_description: 'This is a test submission from testDoPostContact()',
+        contact_number: '9876543210',
+        project_description: 'Test submission from testDoPostContact()',
         budget: '1000',
-        type: 'Website'
-        // api_key: 'if you use API_KEY, include it here'
-      })
-    }
+        type: 'Website',
+        source: 'Editor Test',
+      }),
+    },
   };
-  var resp = doPost(fakeEvent);
-  Logger.log(resp.getContent());
+  Logger.log(doPost(fakeEvent).getContent());
 }
 
-/** Simulate a webinar registration JSON POST in editor */
 function testDoPostWebinar() {
-  var fakeEvent = {
+  const fakeEvent = {
     postData: {
       contents: JSON.stringify({
         action: 'submit_webinar',
         webinar_slug: 'test-webinar',
         name: 'Test User',
         email: 'test@example.com',
-        phone: '9876543210'
-      })
-    }
+        phone: '9876543210',
+        source: 'Editor Test',
+      }),
+    },
   };
-  var resp = doPost(fakeEvent);
-  Logger.log(resp.getContent());
+  Logger.log(doPost(fakeEvent).getContent());
 }
-
-/** Simulate form-encoded POST in editor */
-function testDoPostForm() {
-  var fakeEvent = {
-    parameter: {
-      full_name: 'Form User',
-      email: 'form@example.com',
-      project_description: 'Form-encoded submission test',
-      contact_number: '1234567890'
-    }
-  };
-  var resp = doPost(fakeEvent);
-  Logger.log(resp.getContent());
-}
-
-/** Utility to reset the contact sheet to a clean state (runs from editor) */
-function setupHeaders() {
-  var ss = SpreadsheetApp.openById(SPREADSHEET_ID);
-  var sheet = ss.getSheetByName(SHEET_NAME);
-  if (!sheet) sheet = ss.insertSheet(SHEET_NAME);
-  sheet.clear();
-  sheet.appendRow(HEADER_ROW);
-  var headerRange = sheet.getRange(1, 1, 1, HEADER_ROW.length);
-  headerRange.setFontWeight('bold').setBackground('#f3f3f3');
-  Logger.log('Headers reset on sheet: ' + SHEET_NAME);
-}
-
-/** Utility to reset the webinar sheet to a clean state (runs from editor) */
-function setupWebinarHeaders() {
-  var ss = SpreadsheetApp.openById(SPREADSHEET_ID);
-  var sheet = ss.getSheetByName(WEBINAR_SHEET_NAME);
-  if (!sheet) sheet = ss.insertSheet(WEBINAR_SHEET_NAME);
-  sheet.clear();
-  sheet.appendRow(WEBINAR_HEADER_ROW);
-  var headerRange = sheet.getRange(1, 1, 1, WEBINAR_HEADER_ROW.length);
-  headerRange.setFontWeight('bold').setBackground('#f3f3f3');
-  Logger.log('Headers reset on sheet: ' + WEBINAR_SHEET_NAME);
-}
-
-/* ============================
-   END OF FILE
-   ============================ */

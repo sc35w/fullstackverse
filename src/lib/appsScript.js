@@ -12,7 +12,12 @@ export async function submitToAppsScript(action, data) {
   const res = await fetch(APPS_SCRIPT_URL, {
     method: 'POST',
     headers: { 'Content-Type': 'text/plain;charset=utf-8' },
-    body: JSON.stringify({ action, ...data }),
+    body: JSON.stringify({
+      action,
+      ...data,
+      // Which page/form this submission came from, for tracking in the sheet.
+      source: `${document.title} (${window.location.pathname})`,
+    }),
   });
 
   let json = null;
