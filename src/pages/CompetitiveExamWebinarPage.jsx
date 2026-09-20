@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
-import { supabase } from "@/lib/supabaseClient";
+import { submitToAppsScript } from "@/lib/appsScript";
 import { asset } from "@/lib/utils";
 import { COMPETITIVE_EXAM_WEBINAR_DATETIME } from "@/lib/workshopDates";
 
@@ -57,16 +57,12 @@ const CompetitiveExamWebinarPage = () => {
     try {
       setIsSubmitting(true);
 
-      const { error: insertError } = await supabase.from("webinar").insert({
+      await submitToAppsScript('submit_webinar', {
         webinar_slug: WORKSHOP_SLUG,
         name,
         email,
         phone,
       });
-
-      if (insertError) {
-        throw insertError;
-      }
 
       setSuccessMessage(
         "Registration successful! Your data has been submitted. Scan the QR code to pay."

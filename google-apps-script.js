@@ -1,6 +1,7 @@
 /**
  * Full Google Apps Script Web App
  * - Accepts HTTP POST (JSON or form-encoded)
+ * - Dispatches by `action`: submit_contact (default), submit_webinar, send_webinar_email
  * - Normalizes fields and appends to a sheet
  * - Uses LockService to avoid race conditions
  * - Optional API key protection
@@ -16,7 +17,7 @@
 // Replace with your Spreadsheet ID (keeps script independent from bound spreadsheets)
 const SPREADSHEET_ID = '1UHIHjJ-uxTRvgvRv2lgOKW74NY-SUoJ1HGn9x8yNTkU';
 
-// Sheet and header configuration
+// Contact / RFP submissions sheet
 const SHEET_NAME = 'Submissions-fullstackverse';
 const HEADER_ROW = [
   'Timestamp',
@@ -26,6 +27,17 @@ const HEADER_ROW = [
   'Project Description',
   'Budget',
   'Type',
+  'Client IP'
+];
+
+// Webinar / workshop registrations sheet
+const WEBINAR_SHEET_NAME = 'WebinarRegistrations-fullstackverse';
+const WEBINAR_HEADER_ROW = [
+  'Timestamp',
+  'Webinar Slug',
+  'Name',
+  'Email',
+  'Phone',
   'Client IP'
 ];
 
@@ -68,65 +80,121 @@ function doPost(e) {
       return jsonResponse({ success: false, message: 'No payload found in request.' });
     }
 
-    // 2b) Dedicated action: send webinar registration confirmation email
+    // 3) Dispatch by action
     if (payload.action === 'send_webinar_email') {
       return handleSendWebinarEmail(payload);
     }
-
-    // 3) Normalize fields
-    const normalized = normalizePayload(payload);
-
-    // 4) Basic validation
-    const validationError = validateData(normalized);
-    if (validationError) {
-      return jsonResponse({ success: false, message: 'Validation error: ' + validationError });
+    if (payload.action === 'submit_webinar') {
+      return handleSubmitWebinar(e, payload);
     }
-
-    // 5) Basic rate limiting by client IP (best-effort)
-    const clientIp = getClientIp(e) || '';
-    if (isRateLimited(clientIp)) {
-      Logger.log('Rate limit triggered for IP: ' + clientIp);
-      return jsonResponse({ success: false, message: 'Too many submissions. Try again later.' });
-    }
-
-    // 6) Append to spreadsheet (use lock to avoid race conditions)
-    const ss = SpreadsheetApp.openById(SPREADSHEET_ID);
-    const lock = LockService.getScriptLock();
-    lock.waitLock(10000); // wait up to 10s
-
-    try {
-      let sheet = ss.getSheetByName(SHEET_NAME);
-      if (!sheet) {
-        sheet = ss.insertSheet(SHEET_NAME);
-        sheet.appendRow(HEADER_ROW);
-        const headerRange = sheet.getRange(1, 1, 1, HEADER_ROW.length);
-        headerRange.setFontWeight('bold').setBackground('#f3f3f3');
-      }
-
-      const row = [
-        new Date(),
-        normalized.full_name || '',
-        normalized.email || '',
-        normalized.contact_number || '',
-        truncate(normalized.project_description || '', MAX_DESCRIPTION_LENGTH),
-        normalized.budget || '',
-        normalized.type || '',
-        clientIp // last column for simple audit
-      ];
-
-      sheet.appendRow(row);
-    } finally {
-      lock.releaseLock();
-    }
-
-  return jsonResponse({ success: true, message: 'Form submitted successfully' });
-
+    // Default (and 'submit_contact'): contact / RFP form submission
+    return handleSubmitContact(e, payload);
   } catch (err) {
     // Log full error server-side but return a generic message to clients to avoid leaking internals
     Logger.log('doPost error: ' + (err && err.stack ? err.stack : err));
     // Optional: sendAlertOnError(err); // uncomment and implement notification if desired
     return jsonResponse({ success: false, message: 'Internal server error' });
   }
+}
+
+/* ============================
+   CONTACT / RFP SUBMISSIONS
+   ============================ */
+
+/** Handle a contact/RFP form submission: validates, then appends a row to SHEET_NAME. */
+function handleSubmitContact(e, payload) {
+  const normalized = normalizePayload(payload);
+
+  const validationError = validateData(normalized);
+  if (validationError) {
+    return jsonResponse({ success: false, message: 'Validation error: ' + validationError });
+  }
+
+  const clientIp = getClientIp(e) || '';
+  if (isRateLimited(clientIp)) {
+    Logger.log('Rate limit triggered for IP: ' + clientIp);
+    return jsonResponse({ success: false, message: 'Too many submissions. Try again later.' });
+  }
+
+  const ss = SpreadsheetApp.openById(SPREADSHEET_ID);
+  const lock = LockService.getScriptLock();
+  lock.waitLock(10000); // wait up to 10s
+
+  try {
+    let sheet = ss.getSheetByName(SHEET_NAME);
+    if (!sheet) {
+      sheet = ss.insertSheet(SHEET_NAME);
+      sheet.appendRow(HEADER_ROW);
+      const headerRange = sheet.getRange(1, 1, 1, HEADER_ROW.length);
+      headerRange.setFontWeight('bold').setBackground('#f3f3f3');
+    }
+
+    const row = [
+      new Date(),
+      normalized.full_name || '',
+      normalized.email || '',
+      normalized.contact_number || '',
+      truncate(normalized.project_description || '', MAX_DESCRIPTION_LENGTH),
+      normalized.budget || '',
+      normalized.type || '',
+      clientIp // last column for simple audit
+    ];
+
+    sheet.appendRow(row);
+  } finally {
+    lock.releaseLock();
+  }
+
+  return jsonResponse({ success: true, message: 'Form submitted successfully' });
+}
+
+/* ============================
+   WEBINAR / WORKSHOP REGISTRATIONS
+   ============================ */
+
+/** Handle a webinar/workshop registration: validates, then appends a row to WEBINAR_SHEET_NAME. */
+function handleSubmitWebinar(e, payload) {
+  const name = payload.name ? String(payload.name).trim() : '';
+  const email = payload.email ? String(payload.email).trim() : '';
+  const phone = payload.phone ? String(payload.phone).trim() : '';
+  const webinarSlug = payload.webinar_slug ? String(payload.webinar_slug).trim() : '';
+
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  if (!name) {
+    return jsonResponse({ success: false, message: 'Name is required' });
+  }
+  if (!email || !emailRegex.test(email)) {
+    return jsonResponse({ success: false, message: 'Valid email is required' });
+  }
+  if (!phone) {
+    return jsonResponse({ success: false, message: 'Phone is required' });
+  }
+
+  const clientIp = getClientIp(e) || '';
+  if (isRateLimited(clientIp)) {
+    Logger.log('Rate limit triggered for IP: ' + clientIp);
+    return jsonResponse({ success: false, message: 'Too many submissions. Try again later.' });
+  }
+
+  const ss = SpreadsheetApp.openById(SPREADSHEET_ID);
+  const lock = LockService.getScriptLock();
+  lock.waitLock(10000);
+
+  try {
+    let sheet = ss.getSheetByName(WEBINAR_SHEET_NAME);
+    if (!sheet) {
+      sheet = ss.insertSheet(WEBINAR_SHEET_NAME);
+      sheet.appendRow(WEBINAR_HEADER_ROW);
+      const headerRange = sheet.getRange(1, 1, 1, WEBINAR_HEADER_ROW.length);
+      headerRange.setFontWeight('bold').setBackground('#f3f3f3');
+    }
+
+    sheet.appendRow([new Date(), webinarSlug, name, email, phone, clientIp]);
+  } finally {
+    lock.releaseLock();
+  }
+
+  return jsonResponse({ success: true, message: 'Registration submitted successfully' });
 }
 
 /* ============================
@@ -342,18 +410,36 @@ function isRateLimited(ip) {
    TEST HELPERS (run from Editor)
    ============================ */
 
-/** Simulate JSON POST in editor */
-function testDoPost() {
+/** Simulate a contact/RFP JSON POST in editor */
+function testDoPostContact() {
   var fakeEvent = {
     postData: {
       contents: JSON.stringify({
+        action: 'submit_contact',
         full_name: 'Test User',
         email: 'test@example.com',
         contact_number: '+1-555-555-5555',
-        project_description: 'This is a test submission from testDoPost()',
+        project_description: 'This is a test submission from testDoPostContact()',
         budget: '1000',
         type: 'Website'
         // api_key: 'if you use API_KEY, include it here'
+      })
+    }
+  };
+  var resp = doPost(fakeEvent);
+  Logger.log(resp.getContent());
+}
+
+/** Simulate a webinar registration JSON POST in editor */
+function testDoPostWebinar() {
+  var fakeEvent = {
+    postData: {
+      contents: JSON.stringify({
+        action: 'submit_webinar',
+        webinar_slug: 'test-webinar',
+        name: 'Test User',
+        email: 'test@example.com',
+        phone: '9876543210'
       })
     }
   };
@@ -375,7 +461,7 @@ function testDoPostForm() {
   Logger.log(resp.getContent());
 }
 
-/** Utility to reset the sheet to a clean state (runs from editor) */
+/** Utility to reset the contact sheet to a clean state (runs from editor) */
 function setupHeaders() {
   var ss = SpreadsheetApp.openById(SPREADSHEET_ID);
   var sheet = ss.getSheetByName(SHEET_NAME);
@@ -387,7 +473,18 @@ function setupHeaders() {
   Logger.log('Headers reset on sheet: ' + SHEET_NAME);
 }
 
+/** Utility to reset the webinar sheet to a clean state (runs from editor) */
+function setupWebinarHeaders() {
+  var ss = SpreadsheetApp.openById(SPREADSHEET_ID);
+  var sheet = ss.getSheetByName(WEBINAR_SHEET_NAME);
+  if (!sheet) sheet = ss.insertSheet(WEBINAR_SHEET_NAME);
+  sheet.clear();
+  sheet.appendRow(WEBINAR_HEADER_ROW);
+  var headerRange = sheet.getRange(1, 1, 1, WEBINAR_HEADER_ROW.length);
+  headerRange.setFontWeight('bold').setBackground('#f3f3f3');
+  Logger.log('Headers reset on sheet: ' + WEBINAR_SHEET_NAME);
+}
+
 /* ============================
    END OF FILE
    ============================ */
-AA

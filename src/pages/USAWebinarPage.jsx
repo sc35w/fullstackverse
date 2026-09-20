@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { supabase } from "@/lib/supabaseClient";
+import { submitToAppsScript } from "@/lib/appsScript";
 import { asset } from "@/lib/utils";
 import { USA_WEBINAR_DATETIME } from "@/lib/workshopDates";
 
@@ -296,35 +296,16 @@ const USAWebinarPage = () => {
     try {
       setIsSubmitting(true);
 
-      /* 1️⃣ Insert into Supabase */
-      const { error: insertError } = await supabase
-        .from("webinar")
-        .insert({
-          webinar_slug: WORKSHOP_SLUG,
-          name,
-          email,
-          phone,
-        });
-
-      if (insertError) throw insertError;
+      /* 1️⃣ Submit registration via Google Apps Script */
+      await submitToAppsScript('submit_webinar', {
+        webinar_slug: WORKSHOP_SLUG,
+        name,
+        email,
+        phone,
+      });
 
       /* 2️⃣ Trigger confirmation email via Google Apps Script */
-      const appsScriptUrl = import.meta.env.VITE_GOOGLE_APPS_SCRIPT_URL;
-      if (appsScriptUrl) {
-        const res = await fetch(appsScriptUrl, {
-          method: "POST",
-          // text/plain avoids a CORS preflight; Apps Script still parses the JSON body.
-          headers: {
-            "Content-Type": "text/plain;charset=utf-8",
-          },
-          body: JSON.stringify({ action: "send_webinar_email", name, email }),
-        });
-
-        if (!res.ok) {
-          const msg = await res.text();
-          throw new Error(msg || "Confirmation email failed to send");
-        }
-      }
+      await submitToAppsScript('send_webinar_email', { name, email });
 
       /* 3️⃣ Success */
       setSuccessMessage(

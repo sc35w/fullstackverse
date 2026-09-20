@@ -1,6 +1,6 @@
 import React, { useEffect, useMemo, useState } from "react";
 import { Helmet } from "react-helmet";
-import { supabase } from "@/lib/supabaseClient";
+import { submitToAppsScript } from "@/lib/appsScript";
 import { asset } from "@/lib/utils";
 import {
   Dialog,
@@ -655,16 +655,12 @@ const CoursePage = () => {
     try {
       setIsSubmitting(true);
 
-      const { error: insertError } = await supabase.from("webinar").insert({
+      await submitToAppsScript('submit_webinar', {
         webinar_slug: COURSE_SLUG,
         name,
         email,
         phone,
       });
-
-      if (insertError) {
-        throw insertError;
-      }
 
       setSuccessMessage(
         "Registration successful! Your data has been submitted. Scan the QR code to pay."

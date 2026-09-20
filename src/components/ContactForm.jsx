@@ -4,13 +4,7 @@ import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { Label } from '@/components/ui/label';
 import { useToast } from '@/components/ui/use-toast';
-import { createClient } from '@supabase/supabase-js';
-
-// Initialize Supabase client
-const supabase = createClient(
-  import.meta.env.VITE_SUPABASE_URL,
-  import.meta.env.VITE_SUPABASE_ANON_KEY
-);
+import { submitToAppsScript } from '@/lib/appsScript';
 
 const ContactForm = ({ title = "Business Requirement Form", type = "business" }) => {
   const [formData, setFormData] = useState({
@@ -92,28 +86,19 @@ const ContactForm = ({ title = "Business Requirement Form", type = "business" })
         type: type
       };
 
-      const { data, error } = await supabase
-        .from('contact_submissions')
-        .insert([payload])
-        .select();
+      await submitToAppsScript('submit_contact', payload);
 
-      if (error) {
-        throw new Error(error.message);
-      }
-
-      if (data) {
-        toast({
-          title: "Form Submitted Successfully!",
-          description: "We'll get back to you within 24 hours.",
-        });
-        setFormData({
-          full_name: '',
-          email: '',
-          contact_number: '',
-          project_description: '',
-          budget: ''
-        });
-      }
+      toast({
+        title: "Form Submitted Successfully!",
+        description: "We'll get back to you within 24 hours.",
+      });
+      setFormData({
+        full_name: '',
+        email: '',
+        contact_number: '',
+        project_description: '',
+        budget: ''
+      });
     } catch (error) {
       console.error('Submission Error:', error);
       toast({

@@ -4,7 +4,7 @@ import { Button } from "../../components/ui/button";
 import { Input } from "../../components/ui/input";
 import { Label } from "../../components/ui/label";
 import { useToast } from "../../components/ui/use-toast";
-import { supabase } from "../../lib/supabaseClient";
+import { submitToAppsScript } from "../../lib/appsScript";
 import {
   Rocket,
   GraduationCap,
@@ -129,18 +129,14 @@ export default function SkillVerseHomePage() {
     setLoading(true);
 
     try {
-      const { error } = await supabase.from("contact_submissions").insert([
-        {
-          full_name: formData.fullName,
-          contact_number: formData.phone,
-          email: formData.email,
-          project_description: `Service interested: ${formData.service}`,
-          budget: "To be discussed",
-          type: "SkillVerse Quick Apply",
-        },
-      ]);
-
-      if (error) throw error;
+      await submitToAppsScript('submit_contact', {
+        full_name: formData.fullName,
+        contact_number: formData.phone,
+        email: formData.email,
+        project_description: `Service interested: ${formData.service}`,
+        budget: "To be discussed",
+        type: "SkillVerse Quick Apply",
+      });
 
       toast({
         title: "Success!",

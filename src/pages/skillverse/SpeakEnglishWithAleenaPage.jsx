@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { supabase } from "@/lib/supabaseClient";
+import { submitToAppsScript } from "@/lib/appsScript";
 import { asset } from "@/lib/utils";
 import { ENGLISH_SPEAKING_WORKSHOP_DATETIME } from "@/lib/workshopDates";
 import { Check, Star, Lock, Clock, Minus, Plus, ChevronDown, ChevronUp, Instagram, Linkedin, Youtube, Mail } from "lucide-react";
@@ -64,18 +64,12 @@ export default function SpeakEnglishPage() {
     try {
       setIsSubmitting(true);
 
-      const { error: insertError } = await supabase
-        .from("webinar")
-        .insert({
-          webinar_slug: WORKSHOP_SLUG,
-          name,
-          email,
-          phone,
-        });
-
-      if (insertError) {
-        throw insertError;
-      }
+      await submitToAppsScript('submit_webinar', {
+        webinar_slug: WORKSHOP_SLUG,
+        name,
+        email,
+        phone,
+      });
 
       setSuccessMessage("Registration successful! Your data has been submitted. Scan the QR code to pay.");
       setShowForm(false);

@@ -5,7 +5,7 @@ import { Input } from '../../components/ui/input';
 import { Label } from '../../components/ui/label';
 import { Textarea } from '../../components/ui/textarea';
 import { useToast } from '../../components/ui/use-toast';
-import { supabase } from '../../lib/supabaseClient';
+import { submitToAppsScript } from '../../lib/appsScript';
 import {
   Award,
   Gift,
@@ -123,18 +123,14 @@ const CampusAmbassadorPage = () => {
     setLoading(true);
 
     try {
-      const { error } = await supabase.from('contact_submissions').insert([
-        {
-          full_name: formData.full_name,
-          contact_number: formData.contact_number,
-          email: formData.email,
-          project_description: `Campus Ambassador Application - College: ${formData.college}, Course: ${formData.course}, Year: ${formData.year}, Why: ${formData.why_join}`,
-          budget: 'Campus Ambassador',
-          type: 'Campus Ambassador Application',
-        },
-      ]);
-
-      if (error) throw error;
+      await submitToAppsScript('submit_contact', {
+        full_name: formData.full_name,
+        contact_number: formData.contact_number,
+        email: formData.email,
+        project_description: `Campus Ambassador Application - College: ${formData.college}, Course: ${formData.course}, Year: ${formData.year}, Why: ${formData.why_join}`,
+        budget: 'Campus Ambassador',
+        type: 'Campus Ambassador Application',
+      });
 
       toast({
         title: 'Application Submitted! 🎉',

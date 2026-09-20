@@ -1,9 +1,7 @@
 import React, { useEffect, useState } from "react";
-import { supabase } from "@/lib/supabaseClient";
+import { submitToAppsScript } from "@/lib/appsScript";
 import { asset } from "@/lib/utils";
 
-// Simple local registration record type for now. In production,
-// wire this to your backend / Supabase `webinar` table.
 const WEBINAR_SLUG = "ai-agent-human-intern";
 const WEBINAR_DATETIME = new Date("2025-12-10T14:30:00+05:30");
 
@@ -52,19 +50,12 @@ const WebinarPage = () => {
     try {
       setIsSubmitting(true);
 
-      // Insert into webinar table (no auth required for now)
-      const { error: insertError } = await supabase
-        .from('webinar')
-        .insert({
-          webinar_slug: WEBINAR_SLUG,
-          name,
-          email,
-          phone,
-        });
-
-      if (insertError) {
-        throw insertError;
-      }
+      await submitToAppsScript('submit_webinar', {
+        webinar_slug: WEBINAR_SLUG,
+        name,
+        email,
+        phone,
+      });
 
       setSuccessMessage("Registration successful! Your data has been submitted. Scan the QR code to pay.");
       setShowForm(false);
