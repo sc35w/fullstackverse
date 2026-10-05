@@ -190,9 +190,8 @@ logger.error = (msg, options) => {
 }
 
 export default defineConfig({
-	// GitHub Pages serves this project from /<repo-name>/, so assets must be
-	// requested with that prefix in production; dev server stays at '/'.
-	base: process.env.NODE_ENV === 'production' ? '/fullstackverse/' : '/',
+	// Served from the root of the custom domain www.fullstackverse.in (see public/CNAME).
+	base: '/',
 	customLogger: logger,
 	plugins: [
 		...(isDev ? [inlineEditPlugin(), editModeDevPlugin()] : []),
