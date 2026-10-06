@@ -2,13 +2,13 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { ArrowRight, Rocket, Users, Calendar, MapPin, Mic } from "lucide-react";
 import { PageHero, Section } from "../../components/site/blocks";
+import { formatEventDateTime, nextEventDate } from "@/lib/workshopDates";
 
 const workshops = [
   {
     id: "speak-english",
     title: "Speak English Confidently",
     description: "Master the art of English speaking with our expert instructor. Boost your confidence and communication skills.",
-    date: "Upcoming Batches",
     duration: "Self-Paced + Live",
     mode: "Online",
     link: "/skillverse/speak-english",
@@ -18,7 +18,6 @@ const workshops = [
     id: "usa-webinar",
     title: "USA Study Webinar",
     description: "Learn about studying in top US universities. Get insights on admissions, scholarships, and visa process.",
-    date: "Every Weekend",
     duration: "2 hours",
     mode: "Online",
     link: "/skillverse/usa-webinar"
@@ -27,7 +26,6 @@ const workshops = [
     id: "agent-ai",
     title: "Agent AI Workshop",
     description: "Hands-on workshop on building AI agents. Learn to create intelligent automation systems.",
-    date: "Upcoming Batches",
     duration: "4 hours",
     mode: "Hybrid",
     link: "/skillverse/agent-ai-workshop"
@@ -36,7 +34,6 @@ const workshops = [
     id: "robotics",
     title: "Robotics Workshop",
     description: "Build and program robots. Perfect for students interested in robotics and automation.",
-    date: "Monthly Batches",
     duration: "Full Day",
     mode: "Offline",
     link: "/skillverse/robotics-workshop"
@@ -45,7 +42,6 @@ const workshops = [
     id: "competitive-exam",
     title: "Competitive Exam Webinar",
     description: "Strategies and tips for cracking competitive exams. Expert guidance and resources.",
-    date: "Bi-weekly",
     duration: "1.5 hours",
     mode: "Online",
     link: "/skillverse/competitive-exam-webinar"
@@ -76,7 +72,7 @@ export default function SkillVerseWorkshopsPage() {
                 <p className="mt-4 text-[15px] leading-relaxed text-ink-2">{workshop.description}</p>
               </div>
               <dl className="spec md:col-span-4">
-                <div><dt className="flex items-center gap-2"><Calendar className="h-3.5 w-3.5" />Schedule</dt><dd>{workshop.date}</dd></div>
+                <div><dt className="flex items-center gap-2"><Calendar className="h-3.5 w-3.5" />Schedule</dt><dd>{formatEventDateTime(nextEventDate())}</dd></div>
                 <div><dt className="flex items-center gap-2"><Users className="h-3.5 w-3.5" />Duration</dt><dd>{workshop.duration}</dd></div>
                 <div><dt className="flex items-center gap-2"><MapPin className="h-3.5 w-3.5" />Mode</dt><dd>{workshop.mode}</dd></div>
               </dl>
