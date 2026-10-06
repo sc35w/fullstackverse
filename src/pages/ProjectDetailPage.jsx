@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Suspense } from 'react';
 import { Helmet } from 'react-helmet';
 import { Link, Navigate, useParams } from 'react-router-dom';
 import { ArrowRight, Building2, CheckCircle2, ChevronRight, Layers, Lightbulb, MonitorSmartphone, AlertTriangle } from 'lucide-react';
@@ -6,12 +6,15 @@ import { ContactDialogButton, CtaBand, Section, SectionHeading } from '@/compone
 import ProjectMockup from '@/components/site/ProjectMockup';
 import ProjectCard from '@/components/site/ProjectCard';
 import { getProject, projects } from '@/lib/portfolio';
+import { getDashboard } from '@/dashboards';
+import DashboardBoundary from '@/components/dash/DashboardBoundary';
 
 const ProjectDetailPage = () => {
   const { slug } = useParams();
   const project = getProject(slug);
   if (!project) return <Navigate to="/portfolio" replace />;
 
+  const Dashboard = getDashboard(project.slug);
   const index = projects.indexOf(project);
   const related = [1, 2, 3].map((n) => projects[(index + n) % projects.length]);
 
@@ -74,6 +77,33 @@ const ProjectDetailPage = () => {
           ))}
         </div>
       </div>
+
+      {/* Interactive demo dashboard */}
+      {Dashboard && (
+        <Section className="!pb-0" id="demo">
+          <div className="mb-6 grid gap-4 lg:grid-cols-[1fr_auto] lg:items-end">
+            <div>
+              <div className="nb-eyebrow mb-3">Interactive demo</div>
+              <h2 className="nb-h2">Try {project.name}</h2>
+              <p className="nb-lead mt-3 max-w-3xl">
+                A working dashboard prototype with realistic sample data. Switch views, change the date range, filter, and act on records
+                the way the real product's users would.
+              </p>
+            </div>
+          </div>
+          <DashboardBoundary key={project.slug}>
+          <Suspense
+            fallback={
+              <div className="flex min-h-[640px] items-center justify-center rounded-2xl border border-slate-200 bg-[#F7F8FA] text-sm text-slate-500">
+                Loading interactive demo…
+              </div>
+            }
+          >
+            <Dashboard project={project} />
+          </Suspense>
+          </DashboardBoundary>
+        </Section>
+      )}
 
       {/* Tech stack */}
       <Section className="!pb-0">

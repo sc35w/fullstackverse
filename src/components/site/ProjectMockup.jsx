@@ -149,8 +149,8 @@ function VideoScreen({ project }) {
         <div className="relative aspect-video overflow-hidden rounded-lg bg-slate-800">
           <div className="absolute inset-x-0 bottom-0 h-1/3 bg-slate-700" />
           {boxes.map((b, i) => (
-            <div key={i} className="absolute rounded-sm border-2" style={{ left: b.l, top: b.t, width: b.w, height: b.h, borderColor: i === 1 ? '#F59E0B' : accent }}>
-              <span className="absolute -top-3 left-0 rounded-sm px-1 text-[7px] font-bold text-white" style={{ background: i === 1 ? '#F59E0B' : accent }}>
+            <div key={i} className="absolute rounded-[2px] border-2" style={{ left: b.l, top: b.t, width: b.w, height: b.h, borderColor: i === 1 ? '#F59E0B' : accent }}>
+              <span className="absolute -top-3 left-0 rounded-[2px] px-1 text-[7px] font-bold text-white" style={{ background: i === 1 ? '#F59E0B' : accent }}>
                 {['person', 'alert', 'object'][i]}
               </span>
             </div>
@@ -170,7 +170,7 @@ function VideoScreen({ project }) {
       </div>
       <div className="flex gap-1 px-3 pb-3">
         {[...Array(16)].map((_, i) => (
-          <div key={i} className="h-3 flex-1 rounded-sm" style={{ background: [3, 4, 9].includes(i) ? accent : '#E2E8F0' }} />
+          <div key={i} className="h-3 flex-1 rounded-[2px]" style={{ background: [3, 4, 9].includes(i) ? accent : '#E2E8F0' }} />
         ))}
       </div>
     </BrowserFrame>
