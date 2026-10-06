@@ -1,7 +1,6 @@
 import React from 'react';
 import { Cloud, Code2, Database, Settings, Shield } from 'lucide-react';
 import ServicePage from '@/components/site/ServicePage';
-import { softwareDemos } from '@/lib/demos';
 
 const SoftwareDevelopmentPage = () => (
   <ServicePage
@@ -38,10 +37,15 @@ const SoftwareDevelopmentPage = () => (
     }}
     portfolio={{
       title: 'Software Solutions',
-      lead: "Live software applications we've developed",
-      items: softwareDemos,
-      shape: 'landscape',
-      fallbackImage: 'https://images.unsplash.com/photo-1648134859182-98df6e93ef58',
+      lead: 'Business software we have designed',
+      projects: [
+        'pipetrack-sales-activity-tracker',
+        'gatepass-visitor-management',
+        'fieldpro-service-operations',
+        'campusly-school-erp',
+        'floodwatch-rainfall-monitoring-dashboard',
+        'framewise-video-annotation-platform',
+      ],
     }}
     testimonials={{
       title: 'Software Development Success Stories',

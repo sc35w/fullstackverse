@@ -14,6 +14,7 @@ const services = [
 
 const company = [
   { name: 'About Us', href: '/about' },
+  { name: 'Portfolio', href: '/portfolio' },
   { name: 'Request for Proposal', href: '/rfp' },
   { name: 'SkillVerse', href: '/skillverse' },
   { name: 'Privacy Policy', href: '#' },

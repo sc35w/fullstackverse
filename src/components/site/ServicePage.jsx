@@ -1,13 +1,15 @@
 // Shared layout for the service pages (web, app, game, software, AI).
 import React from 'react';
 import { Helmet } from 'react-helmet';
+import { Link } from 'react-router-dom';
 import { ArrowRight } from 'lucide-react';
+import ProjectCard from './ProjectCard';
+import { getProject } from '@/lib/portfolio';
 import {
   ContactDialogButton,
   CtaBand,
   FeatureGrid,
   PageHero,
-  PortfolioGrid,
   Section,
   SectionHeading,
   StatsBand,
@@ -59,7 +61,16 @@ export default function ServicePage({ meta, hero, features, technologies, portfo
 
       <Section>
         <SectionHeading title={portfolio.title} lead={portfolio.lead} />
-        <PortfolioGrid items={portfolio.items} shape={portfolio.shape} fallbackImage={portfolio.fallbackImage} />
+        <div className="grid gap-x-8 gap-y-12 md:grid-cols-2 lg:grid-cols-3">
+          {portfolio.projects.map((slug) => (
+            <ProjectCard key={slug} project={getProject(slug)} />
+          ))}
+        </div>
+        <div className="mt-12 text-center">
+          <Link to="/portfolio" className="btn-outline">
+            View full portfolio <ArrowRight className="h-4 w-4" />
+          </Link>
+        </div>
       </Section>
 
       {stats && <StatsBand stats={stats} />}

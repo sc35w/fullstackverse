@@ -1,7 +1,6 @@
 import React from 'react';
 import { Gauge, Layers, Server, Smartphone } from 'lucide-react';
 import ServicePage from '@/components/site/ServicePage';
-import { mobileDemos } from '@/lib/demos';
 
 const AppDevelopmentPage = () => (
   <ServicePage
@@ -29,10 +28,15 @@ const AppDevelopmentPage = () => (
     }}
     portfolio={{
       title: 'Our Portfolio',
-      lead: 'Mobile experiences we have designed and built',
-      items: mobileDemos,
-      shape: 'portrait',
-      fallbackImage: 'https://images.unsplash.com/photo-1531058020387-3be344556be6?auto=format&fit=crop&w=1200&q=80',
+      lead: 'Mobile apps we have designed',
+      projects: [
+        'bazaarly-classifieds-marketplace',
+        'buildbridge-contractor-network-app',
+        'paynest-digital-wallet-app',
+        'dashdrop-same-day-courier-app',
+        'tradelink-distributor-ordering-app',
+        'nestfinder-rental-property-platform',
+      ],
     }}
     testimonials={{
       title: 'App Development Success Stories',

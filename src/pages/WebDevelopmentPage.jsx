@@ -2,7 +2,6 @@
 import React from 'react';
 import { Code, Globe, Smartphone, Zap } from 'lucide-react';
 import ServicePage from '@/components/site/ServicePage';
-import { webDemos } from '@/lib/demos';
 
 const WebDevelopmentPage = () => (
   <ServicePage
@@ -30,10 +29,15 @@ const WebDevelopmentPage = () => (
     }}
     portfolio={{
       title: 'Our Portfolio',
-      lead: '20+ successful web projects delivered',
-      items: webDemos,
-      shape: 'landscape',
-      fallbackImage: 'https://images.unsplash.com/photo-1529101091764-c3526daf38fe?auto=format&fit=crop&w=1460&q=80',
+      lead: 'Websites and web platforms we have designed',
+      projects: [
+        'gridmind-energy-automation-website',
+        'portlane-freight-forwarding-website',
+        'atelier-nine-interior-studio-website',
+        'casaloom-home-decor-store',
+        'kalaghar-artisan-jewellery-store',
+        'sparesphere-industrial-parts-marketplace',
+      ],
     }}
     testimonials={{
       title: 'Web Development Success Stories',

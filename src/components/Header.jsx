@@ -17,6 +17,7 @@ const navigation = [
   { id: "home", name: "Home", href: "/" },
   { id: "about", name: "About", href: "/about" },
   { id: "services", name: "Our Services", dropdown: services },
+  { id: "portfolio", name: "Portfolio", href: "/portfolio" },
   { id: "rfp", name: "Request for Proposal", href: "/rfp" },
   { id: "skillverse", name: "SkillVerse", href: "/skillverse" },
 ];
@@ -42,7 +43,7 @@ const Header = () => {
     return () => document.removeEventListener("mousedown", onClick);
   }, []);
 
-  const isActive = (href) => location.pathname === href;
+  const isActive = (href) => location.pathname === href || (href !== "/" && location.pathname.startsWith(`${href}/`));
   const servicesActive = services.some((s) => isActive(s.href));
 
   return (

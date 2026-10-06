@@ -1,5 +1,6 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import ScrollToTop from '@/components/ScrollToTop';
 import { MotionConfig } from 'framer-motion';
 import { Toaster } from '@/components/ui/toaster';
 import Header from '@/components/Header';
@@ -13,6 +14,8 @@ import AboutUsPage from '@/pages/AboutUsPage';
 import AIServicesPage from '@/pages/AIServicesPage';
 import SoftwareDevelopmentPage from '@/pages/SoftwareDevelopmentPage';
 import RFPPage from '@/pages/RFPPage';
+import PortfolioPage from '@/pages/PortfolioPage';
+import ProjectDetailPage from '@/pages/ProjectDetailPage';
 import WebinarPage from '@/pages/WebinarPage';
 import AgentAIWorkshopPage from '@/pages/AgentAIWorkshopPage.jsx';
 import RoboticsWorkshopPage from '@/pages/RoboticsWorkshopPage';
@@ -42,6 +45,7 @@ function App() {
     // site-wide, so the existing landing pages stay calm and simple.
     <MotionConfig reducedMotion="always">
     <Router basename={import.meta.env.BASE_URL}>
+      <ScrollToTop />
       <Routes>
         {/* SkillVerse Routes */}
         <Route
@@ -89,6 +93,8 @@ function App() {
                   <Route path="/software-development" element={<SoftwareDevelopmentPage />} />
                   <Route path="/about" element={<AboutUsPage />} />
                   <Route path="/rfp" element={<RFPPage />} />
+                  <Route path="/portfolio" element={<PortfolioPage />} />
+                  <Route path="/portfolio/:slug" element={<ProjectDetailPage />} />
                   <Route path="/webinar" element={<WebinarPage />} />
                 </Routes>
               </main>

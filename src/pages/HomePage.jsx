@@ -14,6 +14,8 @@ import {
   TestimonialGrid,
 } from '@/components/site/blocks';
 import { asset } from '@/lib/utils';
+import { projects } from '@/lib/portfolio';
+import ProjectCard from '@/components/site/ProjectCard';
 
 const stats = [
   { label: 'Clients Served', value: '500+' },
@@ -140,6 +142,23 @@ const HomePage = () => (
     </Section>
 
     <Section>
+      <SectionHeading
+        title="Featured projects"
+        lead="Product concepts from our portfolio, showing what we can design and build for your business"
+      />
+      <div className="grid gap-x-8 gap-y-12 md:grid-cols-2">
+        {['vigilo-ai-safety-monitoring', 'casaloom-home-decor-store', 'dashdrop-same-day-courier-app', 'campusly-school-erp'].map((slug) => (
+          <ProjectCard key={slug} project={projects.find((p) => p.slug === slug)} />
+        ))}
+      </div>
+      <div className="mt-12 text-center">
+        <Link to="/portfolio" className="btn-outline">
+          View full portfolio <ArrowRight className="h-4 w-4" />
+        </Link>
+      </div>
+    </Section>
+
+    <Section tone="soft">
       <SectionHeading
         title="What Our Clients Say"
         lead="Trusted by businesses worldwide for delivering exceptional digital solutions"

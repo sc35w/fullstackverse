@@ -1,7 +1,6 @@
 import React from 'react';
 import { Bot, Brain, Cpu, Target, Zap } from 'lucide-react';
 import ServicePage from '@/components/site/ServicePage';
-import { aiDemos } from '@/lib/demos';
 
 const AIServicesPage = () => (
   <ServicePage
@@ -31,10 +30,12 @@ const AIServicesPage = () => (
     }}
     portfolio={{
       title: 'AI Solutions Portfolio',
-      lead: 'Interactive demos of our AI implementations',
-      items: aiDemos,
-      shape: 'landscape',
-      fallbackImage: 'https://images.unsplash.com/photo-1678995635432-d9e89c7a8fc5?auto=format&fit=crop&w=1460&q=80',
+      lead: 'AI products we have designed',
+      projects: [
+        'vigilo-ai-safety-monitoring',
+        'framewise-video-annotation-platform',
+        'respira-ai-respiratory-screening',
+      ],
     }}
     stats={[
       { value: '100+', label: 'AI Models Deployed' },

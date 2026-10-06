@@ -1,7 +1,6 @@
 import React from 'react';
 import { Gamepad2, Trophy, Users, Zap } from 'lucide-react';
 import ServicePage from '@/components/site/ServicePage';
-import { gameDemos } from '@/lib/demos';
 
 const GameDevelopmentPage = () => (
   <ServicePage
@@ -28,11 +27,13 @@ const GameDevelopmentPage = () => (
       ],
     }}
     portfolio={{
-      title: 'Playable Games',
-      lead: 'Try our games directly in your browser',
-      items: gameDemos,
-      shape: 'square',
-      fallbackImage: 'https://images.unsplash.com/photo-1549500379-1938ee1fc6a8?auto=format&fit=crop&w=1200&q=80',
+      title: 'Game Concepts',
+      lead: 'Game concepts designed by our team',
+      projects: [
+        'rangoli-rush-puzzle-game',
+        'gully-strikers-cricket-game',
+        'lexiquest-learning-game',
+      ],
     }}
     testimonials={{
       title: 'Game Development Success Stories',

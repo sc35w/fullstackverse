@@ -1,6 +1,6 @@
 // Layout building blocks for the nextbrain-style design system.
-import React, { useState } from 'react';
-import { ArrowUpRight, ImageOff, Star } from 'lucide-react';
+import React from 'react';
+import { ArrowUpRight, Star } from 'lucide-react';
 import { Dialog, DialogContent, DialogTrigger } from '@/components/ui/dialog';
 import ContactForm from '@/components/ContactForm';
 import { cn } from '@/lib/utils';
@@ -194,88 +194,6 @@ export function TestimonialGrid({ items }) {
     <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
       {items.map((t) => (
         <TestimonialCard key={t.name + t.quote} {...t} />
-      ))}
-    </div>
-  );
-}
-
-const mediaAspect = {
-  landscape: 'aspect-video',
-  portrait: 'aspect-[9/16]',
-  square: 'aspect-square',
-};
-
-// Portfolio / demo card. Accepts the item shape used in src/lib/demos.js.
-export function PortfolioCard({ item, shape = 'landscape', fallbackImage }) {
-  const { title, description, url, media, badges, category, genre, platform, status } = item;
-  const meta = [category, genre, platform].filter(Boolean);
-  // Some demo images are hosted externally; show a neutral panel if one fails.
-  const [imageFailed, setImageFailed] = useState(false);
-  const Wrapper = url ? 'a' : 'div';
-  const wrapperProps = url ? { href: url, target: '_blank', rel: 'noopener noreferrer' } : {};
-  return (
-    <Wrapper {...wrapperProps} className="group block h-full overflow-hidden rounded-2xl border border-nb-line bg-white transition-shadow hover:shadow-lg">
-      <div className={cn('relative overflow-hidden bg-nb-soft', mediaAspect[shape])}>
-        {media?.type === 'video' ? (
-          <video
-            src={media.src}
-            poster={media.poster}
-            autoPlay
-            loop
-            muted
-            playsInline
-            preload="metadata"
-            className="absolute inset-0 h-full w-full object-cover"
-          />
-        ) : imageFailed ? (
-          <div className="absolute inset-0 flex flex-col items-center justify-center gap-2 text-slate-400">
-            <ImageOff className="h-7 w-7" />
-            <span className="px-4 text-center text-xs font-medium">{title}</span>
-          </div>
-        ) : (
-          <img
-            onError={() => setImageFailed(true)}
-            src={media?.src || fallbackImage}
-            alt={media?.alt || `${title} preview`}
-            loading="lazy"
-            decoding="async"
-            className="absolute inset-0 h-full w-full object-cover"
-          />
-        )}
-        {status && (
-          <span className="absolute left-3 top-3 rounded-full bg-white/95 px-2.5 py-0.5 text-xs font-semibold text-nb-blue">
-            {status}
-          </span>
-        )}
-      </div>
-      <div className="p-5">
-        <h3 className="font-semibold text-nb-text group-hover:text-nb-blue">{title}</h3>
-        {meta.length > 0 && <p className="mt-1 text-xs text-slate-500">{meta.join(' · ')}</p>}
-        {description && <p className="mt-2 text-sm leading-relaxed text-nb-muted">{description}</p>}
-        {badges?.length ? (
-          <div className="mt-3 flex flex-wrap gap-1.5">
-            {badges.map((b) => (
-              <span key={b} className="nb-chip">
-                {b}
-              </span>
-            ))}
-          </div>
-        ) : null}
-      </div>
-    </Wrapper>
-  );
-}
-
-export function PortfolioGrid({ items, shape = 'landscape', fallbackImage }) {
-  const cols = {
-    landscape: 'sm:grid-cols-2 lg:grid-cols-3',
-    portrait: 'grid-cols-2 md:grid-cols-3 xl:grid-cols-4',
-    square: 'sm:grid-cols-2 lg:grid-cols-4',
-  }[shape];
-  return (
-    <div className={cn('grid gap-5', cols)}>
-      {items.map((item, i) => (
-        <PortfolioCard key={`${item.title}-${i}`} item={item} shape={shape} fallbackImage={fallbackImage} />
       ))}
     </div>
   );
