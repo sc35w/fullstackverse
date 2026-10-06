@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { submitToAppsScript } from "@/lib/appsScript";
 import { asset } from "@/lib/utils";
-import { ROBOTICS_WORKSHOP_DATETIME } from "@/lib/workshopDates";
+import { ROBOTICS_WORKSHOP_DATETIME, formatEventDate, formatEventDateTime } from "@/lib/workshopDates";
 
 const WORKSHOP_SLUG = "robotics-workshop";
 const WORKSHOP_DATETIME = ROBOTICS_WORKSHOP_DATETIME;
@@ -89,13 +89,7 @@ const RoboticsWorkshopPage = () => {
                   Live Robotics Workshop Starts In
                 </p>
                 <p className="text-sm text-slate-100">
-                  {WORKSHOP_DATETIME.toLocaleString(undefined, {
-                    weekday: "short",
-                    month: "short",
-                    day: "2-digit",
-                    hour: "2-digit",
-                    minute: "2-digit",
-                  })}
+                  {formatEventDateTime(WORKSHOP_DATETIME)}
                 </p>
               </div>
             </div>
@@ -275,7 +269,7 @@ const RoboticsWorkshopPage = () => {
                 <div className="panel text-center p-4 bg-blue-50 border-blue-200">
                   <div className="text-xs font-bold text-blue-600 uppercase tracking-wider mb-1">DATE</div>
                   <div className="text-lg font-bold text-slate-900">
-                    {WORKSHOP_DATETIME.toLocaleDateString()}
+                    {formatEventDate(WORKSHOP_DATETIME)}
                   </div>
                 </div>
                 <div className="panel text-center p-4 bg-emerald-50 border-emerald-200">
@@ -345,6 +339,25 @@ const RoboticsWorkshopPage = () => {
 
             {/* Right Column - Built by Specialists Section */}
             <div className="lg:sticky lg:top-24 space-y-6">
+              {/* Workshop video (source: tools/video/robotics-workshop.html) */}
+              <figure>
+                <video
+                  className="block aspect-video w-full border border-line bg-surface"
+                  controls
+                  muted
+                  playsInline
+                  preload="metadata"
+                  poster={asset("videos/robotics-workshop-poster.webp")}
+                >
+                  <source src={asset("videos/robotics-workshop.mp4")} type="video/mp4" />
+                  Your browser does not support the video tag.
+                </video>
+                <figcaption className="meta mt-3 flex justify-between gap-4">
+                  <span>FIG. 01 — The robot you build in 2 days</span>
+                  <span>0:32</span>
+                </figcaption>
+              </figure>
+
               {/* Expert team overview */}
               <section className="bg-slate-50 py-10 lg:py-14 relative overflow-hidden rounded-3xl border border-slate-200 shadow-xl">
                 <div className="absolute top-0 right-0 w-64 h-64 bg-blue-100 rounded-full blur-3xl"></div>

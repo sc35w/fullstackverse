@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { submitToAppsScript } from "@/lib/appsScript";
 import { asset } from "@/lib/utils";
-import { ENGLISH_SPEAKING_WORKSHOP_DATETIME } from "@/lib/workshopDates";
+import { ENGLISH_SPEAKING_WORKSHOP_DATETIME, formatEventDate, formatEventDateTime } from "@/lib/workshopDates";
 import { Check, Star, Lock, Clock, Minus, Plus, ChevronDown, ChevronUp, Instagram, Linkedin, Youtube, Mail } from "lucide-react";
 
 // Placeholder for images
@@ -176,7 +176,7 @@ export default function SpeakEnglishPage() {
                    
                    <div className="text-left mb-4">
                       <h3 className="text-lg text-white leading-normal">
-                         Reserve a seat by <span className="text-yellow-500 font-bold">{WORKSHOP_DATETIME.toLocaleDateString()}</span> to unlock <br/><span className="font-bold">Bonuses worth Rs. 18,000</span>
+                         Reserve a seat by <span className="text-yellow-500 font-bold">{formatEventDate(WORKSHOP_DATETIME)}</span> to unlock <br/><span className="font-bold">Bonuses worth Rs. 18,000</span>
                       </h3>
                    </div>
 
@@ -233,7 +233,7 @@ export default function SpeakEnglishPage() {
                     <span className="block text-sm line-through mt-1 opacity-80">Rs 20,000</span>
                 </button>
                 <p className="mt-6 font-medium text-gray-800">
-                    Enroll in this course by <span className="text-blue-600 font-bold">{WORKSHOP_DATETIME.toLocaleDateString()}</span> to unlock <span className="font-bold">Bonuses worth Rs 18,000</span>
+                    Enroll in this course by <span className="text-blue-600 font-bold">{formatEventDate(WORKSHOP_DATETIME)}</span> to unlock <span className="font-bold">Bonuses worth Rs 18,000</span>
                 </p>
               </div>
            </div>
@@ -297,7 +297,7 @@ export default function SpeakEnglishPage() {
               </button>
 
               <div className="border-2 rounded-[14px] border-dashed mt-5 border-ink font-medium w-full md:w-2/5 mx-auto text-center p-2 text-gray-100 text-sm">
-                ATTENTION: Register before midnight of <span className="font-bold">{WORKSHOP_DATETIME.toLocaleDateString()}</span>, to unlock bonuses.<br/>
+                ATTENTION: Register before midnight of <span className="font-bold">{formatEventDate(WORKSHOP_DATETIME)}</span>, to unlock bonuses.<br/>
                 This is a never heard before offer.
               </div>
 
@@ -429,7 +429,7 @@ export default function SpeakEnglishPage() {
                         <span className="text-xl font-medium">Join Now</span>
                     </button>
                     <div className="border-2 rounded-[14px] border-dashed border-ink font-bold my-8 w-[90%] md:w-[60%] mx-auto text-center p-3 text-ink bg-slate-100 text-sm md:text-base">
-                        ATTENTION: Register before midnight of <span className="font-bold">{WORKSHOP_DATETIME.toLocaleDateString()}</span>, to unlock bonuses.<br/>
+                        ATTENTION: Register before midnight of <span className="font-bold">{formatEventDate(WORKSHOP_DATETIME)}</span>, to unlock bonuses.<br/>
                         This is a never heard before offer.
                     </div>
                 </div>
@@ -532,7 +532,7 @@ export default function SpeakEnglishPage() {
                                 </div>
                                 <div className="flex items-start text-ink">
                                     <Check className="w-5 h-5 mr-2 mt-1 flex-shrink-0" />
-                                    <span>The launch offer expires on midnight of: <b>{WORKSHOP_DATETIME.toLocaleDateString()}</b></span>
+                                    <span>The launch offer expires on midnight of: <b>{formatEventDate(WORKSHOP_DATETIME)}</b></span>
                                 </div>
                             </nav>
                             <p className="text-gray-500 my-4 text-sm">

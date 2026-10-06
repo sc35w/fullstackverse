@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { submitToAppsScript } from "@/lib/appsScript";
 import { asset } from "@/lib/utils";
-import { AGENT_AI_WORKSHOP_DATETIME } from "@/lib/workshopDates";
+import { AGENT_AI_WORKSHOP_DATETIME, formatEventDate, formatEventDateTime } from "@/lib/workshopDates";
 
 const WORKSHOP_SLUG = "ai-agent-human-intern";
 const WORKSHOP_DATETIME = AGENT_AI_WORKSHOP_DATETIME;
@@ -89,13 +89,7 @@ const AgentAIWorkshopPage = () => {
                   Live AI Agents Workshop Starts In
                 </p>
                 <p className="text-sm text-slate-100">
-                  {WORKSHOP_DATETIME.toLocaleString(undefined, {
-                    weekday: "short",
-                    month: "short",
-                    day: "2-digit",
-                    hour: "2-digit",
-                    minute: "2-digit",
-                  })}
+                  {formatEventDateTime(WORKSHOP_DATETIME)}
                 </p>
               </div>
             </div>
@@ -275,7 +269,7 @@ const AgentAIWorkshopPage = () => {
                 <div className="panel text-center p-4 bg-blue-50 border-blue-200">
                   <div className="text-xs font-bold text-blue-600 uppercase tracking-wider mb-1">DATE</div>
                   <div className="text-lg font-bold text-slate-900">
-                    {WORKSHOP_DATETIME.toLocaleDateString()}
+                    {formatEventDate(WORKSHOP_DATETIME)}
                   </div>
                 </div>
                 <div className="panel text-center p-4 bg-emerald-50 border-emerald-200">

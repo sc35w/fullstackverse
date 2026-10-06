@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { submitToAppsScript } from "@/lib/appsScript";
 import { asset } from "@/lib/utils";
-import { USA_WEBINAR_DATETIME } from "@/lib/workshopDates";
+import { USA_WEBINAR_DATETIME, formatEventDate, formatEventDateTime, EVENT_TIME_LABEL } from "@/lib/workshopDates";
 
 const WORKSHOP_SLUG = "study-usa-green-card-roadmap";
 const WORKSHOP_DATETIME = USA_WEBINAR_DATETIME;
@@ -305,7 +305,13 @@ const USAWebinarPage = () => {
       });
 
       /* 2️⃣ Trigger confirmation email via Google Apps Script */
-      await submitToAppsScript('send_webinar_email', { webinar_slug: WORKSHOP_SLUG, name, email });
+      await submitToAppsScript('send_webinar_email', {
+        webinar_slug: WORKSHOP_SLUG,
+        name,
+        email,
+        event_date: formatEventDate(WORKSHOP_DATETIME),
+        event_time: EVENT_TIME_LABEL,
+      });
 
       /* 3️⃣ Success */
       setSuccessMessage(
@@ -340,13 +346,7 @@ const USAWebinarPage = () => {
                   USA Study to Green Card Masterclass Starts In
                 </p>
                 <p className="text-sm text-slate-100">
-                  {WORKSHOP_DATETIME.toLocaleString(undefined, {
-                    weekday: "short",
-                    month: "short",
-                    day: "2-digit",
-                    hour: "2-digit",
-                    minute: "2-digit",
-                  })}
+                  {formatEventDateTime(WORKSHOP_DATETIME)}
                 </p>
               </div>
             </div>

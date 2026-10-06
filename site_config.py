@@ -60,14 +60,16 @@ FORMS = {
 
     # Events registered via `submit_webinar`, keyed by the page's webinar_slug.
     # date/time/meet_url/whatsapp_group are only needed for events that send a
-    # confirmation email (currently the USA webinar).
+    # confirmation email (currently the USA webinar). Pages always show the event
+    # as "tomorrow, 8 PM IST" and send that date with the email request; the
+    # date/time here are only a fallback for older callers.
     "events": {
         "ai-agent-human-intern": {"title": "Build Your First AI Agent"},
         "robotics-workshop": {"title": "Build Your First Robot"},
         "study-usa-green-card-roadmap": {
             "title": "USA Webinar – SkillVerse Masterclass",
-            "date": "Saturday, 14 February",
-            "time": "11:00 AM – 1:00 PM",
+            "date": "Tomorrow",
+            "time": "8:00 PM – 10:00 PM",
             "timezone": "Asia/Kolkata",
             "meet_url": "https://meet.google.com/buw-yewo-zxr",
             "whatsapp_group": "https://chat.whatsapp.com/GK4oAZtp21oGvkEGyZvku1?mode=gi_t",

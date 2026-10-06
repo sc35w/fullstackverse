@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { submitToAppsScript } from "@/lib/appsScript";
 import { asset } from "@/lib/utils";
+import { WEBINAR_DATETIME, formatEventDate, formatEventDateTime } from "@/lib/workshopDates";
 
 const WEBINAR_SLUG = "ai-agent-human-intern";
-const WEBINAR_DATETIME = new Date("2025-12-10T14:30:00+05:30");
 
 const WebinarPage = () => {
   const [now, setNow] = useState(new Date());
@@ -88,13 +88,7 @@ const WebinarPage = () => {
                   Live AI Agents Webinar Starts In
                 </p>
                 <p className="text-sm text-slate-100">
-                  {WEBINAR_DATETIME.toLocaleString(undefined, {
-                    weekday: "short",
-                    month: "short",
-                    day: "2-digit",
-                    hour: "2-digit",
-                    minute: "2-digit",
-                  })}
+                  {formatEventDateTime(WEBINAR_DATETIME)}
                 </p>
               </div>
             </div>
@@ -274,7 +268,7 @@ const WebinarPage = () => {
                 <div className="panel text-center p-4 bg-blue-50 border-blue-200">
                   <div className="text-xs font-bold text-blue-600 uppercase tracking-wider mb-1">DATE</div>
                   <div className="text-lg font-bold text-slate-900">
-                    {WEBINAR_DATETIME.toLocaleDateString()}
+                    {formatEventDate(WEBINAR_DATETIME)}
                   </div>
                 </div>
                 <div className="panel text-center p-4 bg-emerald-50 border-emerald-200">

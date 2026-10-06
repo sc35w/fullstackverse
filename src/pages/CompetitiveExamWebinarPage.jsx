@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import { submitToAppsScript } from "@/lib/appsScript";
 import { asset } from "@/lib/utils";
-import { COMPETITIVE_EXAM_WEBINAR_DATETIME } from "@/lib/workshopDates";
+import { COMPETITIVE_EXAM_WEBINAR_DATETIME, formatEventDate, formatEventDateTime } from "@/lib/workshopDates";
 
 const WORKSHOP_SLUG = "competitive-exam-masterclass";
 const WORKSHOP_DATETIME = COMPETITIVE_EXAM_WEBINAR_DATETIME;
@@ -95,13 +95,7 @@ const CompetitiveExamWebinarPage = () => {
                   Competitive Exam Webinar Starts In
                 </p>
                 <p className="text-sm text-slate-100">
-                  {WORKSHOP_DATETIME.toLocaleString(undefined, {
-                    weekday: "short",
-                    month: "short",
-                    day: "2-digit",
-                    hour: "2-digit",
-                    minute: "2-digit",
-                  })}
+                  {formatEventDateTime(WORKSHOP_DATETIME)}
                 </p>
               </div>
             </div>
@@ -149,7 +143,7 @@ const CompetitiveExamWebinarPage = () => {
                   </span>
                 </h1>
                 <div className="text-xl sm:text-2xl font-semibold text-slate-700">
-                  Live: 7 PM – 9 PM | Online Interactive Session
+                  Live: 8 PM – 10 PM IST | Online Interactive Session
                 </div>
                 <p className="text-base sm:text-lg text-slate-600 max-w-2xl">
                   Saket Choudhary has cracked IIT JEE, SSC CGL, SBI PO, SEBI Grade A, and more. He shares the exact playbooks, schedules, and mindset shifts that helped him convert India&apos;s toughest exams.
@@ -191,7 +185,7 @@ const CompetitiveExamWebinarPage = () => {
               </div>
             </div>
 
-            <div className="relative lg:h-[520px] flex items-center justify-center">
+            <div className="relative flex justify-center">
               <div className="absolute -top-8 -left-6 h-24 w-24 rounded-full bg-amber-300/30 blur-2xl" />
               <div className="absolute -bottom-10 -right-8 h-28 w-28 rounded-full bg-blue-300/30 blur-2xl" />
               <div className="relative w-full max-w-xl lg:max-w-none space-y-6">
@@ -430,7 +424,7 @@ const CompetitiveExamWebinarPage = () => {
 
             <div className="rounded-3xl bg-slate-900 text-white p-6 border border-slate-800 shadow-lg">
               <div className="text-sm uppercase tracking-[0.22em] text-amber-300 mb-3">Session Logistics</div>
-              <div className="text-xl font-semibold">7 PM - 9 PM Live Session</div>
+              <div className="text-xl font-semibold">8 PM – 10 PM IST Live Session</div>
               <p className="text-sm text-white/80 mt-2">Limited Seats Available</p>
               <div className="mt-4 space-y-2 text-xs text-white/70">
                 <p>For queries: info@fullstackverse.in | WhatsApp: +91 8296548156</p>

@@ -47,8 +47,8 @@ const CONFIG = {
     },
     "study-usa-green-card-roadmap": {
       "title": "USA Webinar \u2013 SkillVerse Masterclass",
-      "date": "Saturday, 14 February",
-      "time": "11:00 AM \u2013 1:00 PM",
+      "date": "Tomorrow",
+      "time": "8:00 PM \u2013 10:00 PM",
       "timezone": "Asia/Kolkata",
       "meetUrl": "https://meet.google.com/buw-yewo-zxr",
       "whatsappGroup": "https://chat.whatsapp.com/GK4oAZtp21oGvkEGyZvku1?mode=gi_t"
@@ -202,7 +202,9 @@ function handleConfirmationEmail(p) {
   const name = str(p.name);
   // The USA webinar page is the original caller and does not always send a slug.
   const slug = str(p.webinar_slug) || 'study-usa-green-card-roadmap';
-  const event = CONFIG.events[slug];
+  // Pages show a rolling date (tomorrow, 8 PM IST) and send it; CONFIG dates are the fallback.
+  const event = CONFIG.events[slug] && Object.assign({}, CONFIG.events[slug],
+    str(p.event_date) ? { date: str(p.event_date), time: str(p.event_time) || CONFIG.events[slug].time, timezone: 'Asia/Kolkata (IST)' } : {});
 
   if (!isValidEmail(email)) return json({ success: false, message: 'Valid email is required' });
   if (!event) return json({ success: false, message: 'Unknown event' });
