@@ -110,7 +110,7 @@ export default function AtelierNineDashboard({ project }) {
             <div className="mt-5 space-y-3">
               <label className="block text-sm">
                 <span className="text-slate-600">Discovery call slot</span>
-                <select className="nb-input mt-1" value={slot} onChange={(e) => setSlot(e.target.value)}>
+                <select className="field mt-1" value={slot} onChange={(e) => setSlot(e.target.value)}>
                   {['Tue 11:00', 'Tue 16:00', 'Wed 12:30', 'Thu 10:00', 'Fri 15:30'].map((s) => <option key={s}>{s}</option>)}
                 </select>
               </label>

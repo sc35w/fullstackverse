@@ -1,7 +1,8 @@
 import React from 'react';
 import { Helmet } from 'react-helmet';
-import { ArrowRight, Check } from 'lucide-react';
-import { ContactDialogButton, CtaBand, PageHero, Section, SectionHeading, StatsBand } from '@/components/site/blocks';
+import { ArrowRight } from 'lucide-react';
+import { ContactDialogButton, CtaBand, Eyebrow, PageHero, Section, SectionHeading, StatsBand } from '@/components/site/blocks';
+import EditorialImage, { PHOTOS } from '@/components/site/EditorialImage';
 
 const services = [
   'Apps', 'Web Apps', 'IoT Projects', 'Websites', 'AI & Data Services',
@@ -28,59 +29,63 @@ const AboutUsPage = () => (
     </Helmet>
 
     <PageHero
+      eyebrow="About"
       title="About"
       highlight="Fullstackverse"
       lead="Your End-to-End Digital Partner, innovating the future with AI, Apps & Automation"
     />
 
     <Section>
-      <div className="grid items-center gap-12 lg:grid-cols-2">
-        <div className="space-y-10">
+      <div className="grid gap-14 lg:grid-cols-12">
+        <div className="lg:col-span-3">
+          <Eyebrow index="01">Purpose</Eyebrow>
+        </div>
+        <div className="space-y-16 lg:col-span-5">
           <div>
-            <div className="nb-eyebrow mb-3">Mission</div>
-            <h2 className="nb-h2">Our Mission</h2>
-            <p className="nb-lead mt-4">
+            <h2 className="display-2">Our Mission</h2>
+            <p className="lead mt-6">
               To empower businesses with cutting-edge digital solutions that drive growth, efficiency, and
               innovation. We believe in transforming ideas into reality through the power of technology.
             </p>
           </div>
-          <div>
-            <div className="nb-eyebrow mb-3">Vision</div>
-            <h2 className="nb-h2">Our Vision</h2>
-            <p className="nb-lead mt-4">
+          <div className="border-t border-line pt-10">
+            <h2 className="display-2">Our Vision</h2>
+            <p className="lead mt-6">
               To be the leading digital transformation partner, helping businesses worldwide harness the full
               potential of AI, automation, and modern technology.
             </p>
           </div>
         </div>
-        <img
-          className="h-72 w-full rounded-2xl object-cover sm:h-96"
-          alt="Fullstackverse team working on innovative technology solutions"
-          src="https://images.unsplash.com/photo-1681184025442-1517cb9319c1?auto=format&fit=crop&w=1200&q=80"
-          loading="lazy"
-        />
+        <div className="lg:col-span-4">
+          <EditorialImage src={PHOTOS.lab} alt="Fullstackverse team working on innovative technology solutions" caption="Engineering in practice" />
+        </div>
       </div>
     </Section>
 
-    <StatsBand eyebrow="Our Impact" title="Numbers that speak for our success" stats={stats} />
+    <StatsBand index="02" eyebrow="Our Impact" title="Numbers that speak for our success" stats={stats} />
 
-    <Section tone="soft">
-      <SectionHeading title="Our Services" lead="Comprehensive digital solutions for every need" />
-      <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-4">
-        {services.map((service) => (
-          <div key={service} className="flex items-center gap-3 rounded-xl bg-white px-4 py-3.5">
-            <Check className="h-4 w-4 shrink-0 text-nb-blue" strokeWidth={3} />
-            <span className="text-sm font-medium text-nb-text">{service}</span>
-          </div>
+    <Section>
+      <SectionHeading index="03" eyebrow="Services" title="Our Services" lead="Comprehensive digital solutions for every need" />
+      <ol className="grid border-t border-line sm:grid-cols-2 sm:gap-x-10 lg:grid-cols-3">
+        {services.map((service, i) => (
+          <li key={service} className="flex items-baseline gap-5 border-b border-line py-5">
+            <span className="meta w-8 shrink-0">{String(i + 1).padStart(2, '0')}</span>
+            <span className="font-display text-xl tracking-[-0.02em] text-ink">{service}</span>
+          </li>
         ))}
-      </div>
+      </ol>
     </Section>
+
+    <div className="wrap pb-20 md:pb-28">
+      <EditorialImage src={PHOTOS.drawings} alt="Engineer reviewing technical drawings" caption="From drawing board to production" index="02" ratio="aspect-[16/9] md:aspect-[21/9]" />
+    </div>
 
     <CtaBand
+      index="04"
       title="Ready to Work With Us?"
       lead="Let's discuss how we can help transform your business with innovative digital solutions"
     >
-      <ContactDialogButton className="btn-light">
+      <ContactDialogButton className="btn btn-inverse">
         Get In Touch <ArrowRight className="h-4 w-4" />
       </ContactDialogButton>
     </CtaBand>

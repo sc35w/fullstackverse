@@ -102,7 +102,7 @@ export default function NestFinderDashboard({ project }) {
                 <div className="mb-2 text-xs font-semibold text-slate-700">{new Date(`${d}T00:00:00`).toLocaleDateString('en-IN', { weekday: 'short', day: 'numeric', month: 'short' })}</div>
                 <div className="space-y-2">
                   {visits.filter((v) => v.date === d).map((v) => (
-                    <div key={v.id} className={cn('rounded-md border bg-white p-2 text-[11px]', v.status === 'Requested' ? 'border-[#fab219]' : 'border-slate-200')}>
+                    <div key={v.id} className={cn('rounded-md border bg-white p-2 text-[11px]', v.status === 'Requested' ? 'border-[#C29331]' : 'border-slate-200')}>
                       <div className="font-semibold text-slate-900">{v.slot} · {v.visitor}</div>
                       <div className="truncate text-slate-500">{v.property}</div>
                       <div className="mt-1.5">
@@ -127,7 +127,7 @@ export default function NestFinderDashboard({ project }) {
             {TICKET_FLOW.map((col) => (
               <div key={col} className="rounded-xl bg-slate-100/70 p-2">
                 <div className="mb-2 flex items-center justify-between px-1 text-xs font-semibold text-slate-700">
-                  {col} <span className="rounded-full bg-white px-2 text-slate-500">{tickets.filter((t) => t.status === col).length}</span>
+                  {col} <span className="rounded-sm bg-white px-2 text-slate-500">{tickets.filter((t) => t.status === col).length}</span>
                 </div>
                 <div className="space-y-2">
                   {tickets.filter((t) => t.status === col).map((t) => (

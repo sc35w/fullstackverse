@@ -64,11 +64,11 @@ export default function GatePassDashboard({ project }) {
             <div className="space-y-4">
               <Panel title="New check-in" subtitle="The resident gets an approve/deny notification">
                 <form onSubmit={checkIn} className="grid grid-cols-[1fr_96px] gap-2 sm:grid-cols-[1fr_1fr_96px]">
-                  <input className="nb-input col-span-2 text-sm sm:col-span-3" placeholder="Visitor name" value={form.name} onChange={(e) => setForm({ ...form, name: e.target.value })} />
-                  <select className="nb-input text-sm" value={form.type} onChange={(e) => setForm({ ...form, type: e.target.value })}>
+                  <input className="field col-span-2 text-sm sm:col-span-3" placeholder="Visitor name" value={form.name} onChange={(e) => setForm({ ...form, name: e.target.value })} />
+                  <select className="field text-sm" value={form.type} onChange={(e) => setForm({ ...form, type: e.target.value })}>
                     {['Guest', 'Delivery', 'Service', 'Cab'].map((t) => <option key={t}>{t}</option>)}
                   </select>
-                  <input className="nb-input text-sm" placeholder="Flat" value={form.flat} onChange={(e) => setForm({ ...form, flat: e.target.value })} />
+                  <input className="field text-sm" placeholder="Flat" value={form.flat} onChange={(e) => setForm({ ...form, flat: e.target.value })} />
                   <Btn type="submit" size="md" className="col-span-2 sm:col-span-1">Notify resident</Btn>
                 </form>
               </Panel>
@@ -76,7 +76,7 @@ export default function GatePassDashboard({ project }) {
                 {pending.length === 0 && <p className="py-6 text-center text-sm text-slate-500">No one waiting.</p>}
                 <ul className="space-y-2">
                   {pending.map((p) => (
-                    <li key={p.id} className={cn('flex flex-wrap items-center gap-2 rounded-lg border p-2.5', p.fresh ? 'border-[#2a78d6]/40 bg-blue-50/40' : 'border-slate-200')}>
+                    <li key={p.id} className={cn('flex flex-wrap items-center gap-2 rounded-lg border p-2.5', p.fresh ? 'border-ink bg-surface-alt/60' : 'border-slate-200')}>
                       <div className="min-w-0 flex-1">
                         <div className="text-sm font-semibold text-slate-900">{p.name}</div>
                         <div className="text-xs text-slate-500">{p.type} · Flat {p.flat}</div>
@@ -142,7 +142,7 @@ export default function GatePassDashboard({ project }) {
                   </div>
                   <div className="flex gap-[3px]">
                     {s.attendance.map((a, i) => (
-                      <span key={i} title={a ? 'Present' : 'Absent'} className="h-4 flex-1 rounded-[2px]" style={{ background: a ? '#0ca30c' : '#E2E8F0' }} />
+                      <span key={i} title={a ? 'Present' : 'Absent'} className="h-4 flex-1 rounded-[2px]" style={{ background: a ? '#56603A' : '#E2E8F0' }} />
                     ))}
                   </div>
                   <div className="text-right text-xs font-semibold tabular-nums text-slate-700">{Math.round((present / s.attendance.length) * 100)}%</div>

@@ -14,7 +14,7 @@ const channels = [
 
 export default function SkillVerseContactPage() {
   return (
-    <div className="bg-white">
+    <div className="bg-canvas">
       <Helmet>
         <title>Contact Us - SkillVerse</title>
         <meta
@@ -32,19 +32,19 @@ export default function SkillVerseContactPage() {
       <Section tone="soft">
         <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
           {channels.map(({ icon: Icon, title, lines, href, external }) => (
-            <div key={title} className="nb-card">
-              <span className="nb-icon mb-4">
+            <div key={title} className="panel">
+              <span className="icon-box mb-4">
                 <Icon className="h-5 w-5" />
               </span>
-              <h2 className="text-lg font-semibold text-nb-text">{title}</h2>
-              <div className="mt-2 space-y-1 text-sm text-nb-muted">
+              <h2 className="text-lg font-semibold text-ink">{title}</h2>
+              <div className="mt-2 space-y-1 text-sm text-ink-2">
                 {lines.map((line) =>
                   href ? (
                     <a
                       key={line}
                       href={href(line)}
                       {...(external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
-                      className="block font-medium text-nb-blue hover:underline [overflow-wrap:anywhere]"
+                      className="block font-medium text-ink hover:underline [overflow-wrap:anywhere]"
                     >
                       {line}
                     </a>
@@ -61,9 +61,9 @@ export default function SkillVerseContactPage() {
       <Section>
         <div className="grid items-center gap-10 lg:grid-cols-2">
           <div>
-            <div className="nb-eyebrow mb-3">Get started</div>
-            <h2 className="nb-h2">Quick Apply</h2>
-            <p className="nb-lead mt-4">
+            <div className="eyebrow mb-3">Get started</div>
+            <h2 className="display-2">Quick Apply</h2>
+            <p className="lead mt-4">
               Your journey starts here! Share your details and the program you are interested in, and we will call you back.
             </p>
           </div>

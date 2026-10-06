@@ -685,14 +685,14 @@ const CoursePage = () => {
       </Helmet>
 
       <section className="relative overflow-hidden">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(191,219,254,0.6),transparent_55%),radial-gradient(circle_at_bottom,_rgba(129,140,248,0.5),transparent_55%)]" />
+        <div className="absolute inset-0" />
         <div className="absolute -left-24 top-16 h-64 w-64 rounded-full bg-blue-200/40 blur-3xl" />
         <div className="absolute -right-24 bottom-0 h-72 w-72 rounded-full bg-indigo-300/30 blur-3xl" />
 
-        <div className="relative container pt-10 pb-16 lg:pt-14 lg:pb-20">
+        <div className="relative wrap pt-10 pb-16 lg:pt-14 lg:pb-20">
           <div className="grid gap-10 lg:grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)] items-start">
             <div className="space-y-8 order-1 lg:order-1">
-              <div className="inline-flex items-center gap-3 rounded-full bg-nb-blue px-6 py-3 text-sm font-bold text-white shadow-xl border-2 border-white/20">
+              <div className="inline-flex items-center gap-3 rounded-sm bg-ink px-6 py-3 text-sm font-bold text-white shadow-xl border-2 border-white/20">
                 <span className="h-3 w-3 rounded-full bg-white animate-pulse shadow-lg" />
                 <span className="uppercase tracking-[0.22em] text-xs lg:text-sm">Certificate Program</span>
                 <span className="h-1 w-1 rounded-full bg-white/60" />
@@ -702,12 +702,12 @@ const CoursePage = () => {
               <div className="space-y-4">
                 <h1 className="text-4xl lg:text-5xl xl:text-[3.5rem] font-black text-slate-900 leading-tight">
                   Build Industry-Ready Data Science Skills in 12 Weeks
-                  <span className="block text-transparent bg-clip-text nb-gradient-text">
+                  <span className="block text-emph">
                     Invest in mentor-led mastery
                   </span>
                 </h1>
                 <div className="flex flex-wrap items-center gap-3 mt-2">
-                  <span className="inline-block bg-green-100 text-green-700 font-bold px-4 py-1 rounded-full border border-green-300 text-lg animate-bounce shadow">All-Inclusive Fee: ₹17,990</span>
+                  <span className="inline-block bg-green-100 text-green-700 font-bold px-4 py-1 rounded-sm border border-green-300 text-lg animate-bounce shadow">All-Inclusive Fee: ₹17,990</span>
                   <span className="text-xs text-slate-500 font-semibold">(No hidden charges)</span>
                 </div>
                 <p className="text-xl lg:text-2xl text-slate-700 leading-relaxed max-w-3xl">
@@ -719,7 +719,7 @@ const CoursePage = () => {
               <div className="flex flex-col gap-4 sm:flex-row sm:items-center">
                 <button
                   onClick={handleRegisterClick}
-                  className="group relative inline-flex items-center justify-center px-8 py-4 text-lg font-bold text-white bg-nb-blue rounded-xl shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105"
+                  className="group relative inline-flex items-center justify-center px-8 py-4 text-lg font-bold text-white bg-ink rounded-xl shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105"
                 >
                   <span>Apply for the next cohort</span>
                   <svg
@@ -743,7 +743,7 @@ const CoursePage = () => {
                 {stats.map((stat) => (
                   <div
                     key={stat.label}
-                    className="rounded-xl border border-white/40 bg-white/70 backdrop-blur shadow-sm shadow-slate-200/70 px-4 py-5"
+                    className="rounded-xl border border-white/40 bg-white/70 shadow-sm shadow-slate-200/70 px-4 py-5"
                   >
                     <div className="flex items-center gap-3">
                       <span className="flex h-10 w-10 items-center justify-center rounded-full bg-blue-100 text-blue-600">
@@ -785,15 +785,15 @@ const CoursePage = () => {
                       href={youtubeWatchUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2 rounded-full bg-red-600 px-5 py-2 text-sm font-semibold text-white hover:bg-red-700 transition"
+                      className="inline-flex items-center gap-2 rounded-sm bg-red-600 px-5 py-2 text-sm font-semibold text-white hover:bg-red-700 transition"
                     >
                       Watch on YouTube
                     </a>
                   </div>
                 )}
               </div>
-              <div className="relative aspect-[4/5] rounded-3xl bg-nb-ink shadow-2xl overflow-hidden border border-slate-700/40">
-                <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(96,165,250,0.3),transparent_60%)]" />
+              <div className="relative aspect-[4/5] rounded-3xl bg-ink shadow-2xl overflow-hidden border border-slate-700/40">
+                <div className="absolute inset-0" />
                 <div className="relative h-full flex flex-col justify-between p-8">
                   <div>
                     <div className="text-white/80 text-xs uppercase tracking-[0.28em] mb-6">
@@ -831,10 +831,10 @@ const CoursePage = () => {
 
             <div className="order-2 lg:order-3 lg:col-span-2 bg-slate-50 rounded-3xl border border-slate-200 shadow-xl shadow-slate-200/60 p-6 space-y-8">
               <div className="space-y-3">
-                <span className="inline-flex items-center gap-2 rounded-full bg-white/70 px-4 py-2 text-xs font-semibold uppercase tracking-[0.28em] text-blue-500 shadow-sm">
+                <span className="inline-flex items-center gap-2 rounded-sm bg-white/70 px-4 py-2 text-xs font-semibold uppercase tracking-[0.28em] text-blue-500 shadow-sm">
                   🎁 Included Toolkit
                 </span>
-                <span className="inline-block bg-green-50 text-green-700 font-bold px-3 py-1 rounded-full border border-green-200 animate-pulse text-base">
+                <span className="inline-block bg-green-50 text-green-700 font-bold px-3 py-1 rounded-sm border border-green-200 animate-pulse text-base">
                   Internship Fee: ₹17,990
                 </span>
                 <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
@@ -887,11 +887,11 @@ const CoursePage = () => {
       </section>
 
       <section className="py-12">
-        <div className="container">
+        <div className="wrap">
           <div className="grid gap-6 md:grid-cols-[0.9fr_1.2fr] items-center">
             <div className="hidden md:flex items-center justify-center">
               <div className="w-full max-w-2xl bg-white rounded-2xl shadow-2xl border-2 border-blue-200 overflow-hidden relative">
-                <div className="h-3 w-full bg-nb-ink" />
+                <div className="h-3 w-full bg-ink" />
                 <div className="flex flex-col gap-0 px-10 pt-8 pb-4">
                   <div className="flex items-center justify-between mb-2">
                     <img src={asset('logo (1).png')} alt="Fullstackverse Logo" className="h-14 w-auto" />
@@ -899,11 +899,11 @@ const CoursePage = () => {
                       <div className="flex items-center gap-2">
                         <span className="text-sm line-through text-slate-400">₹39,990</span>
                         <span className="text-2xl font-extrabold text-green-600 animate-pulse drop-shadow">₹17,990</span>
-                        <span className="ml-2 px-2 py-1 rounded-full bg-emerald-100 text-emerald-700 text-xs font-bold border border-emerald-300 animate-bounce">LIMITED TIME OFFER</span>
+                        <span className="ml-2 px-2 py-1 rounded-sm bg-emerald-100 text-emerald-700 text-xs font-bold border border-emerald-300 animate-bounce">LIMITED TIME OFFER</span>
                       </div>
                       <button
                         onClick={handleRegisterClick}
-                        className="mt-2 px-6 py-2 bg-nb-blue text-white font-bold rounded-lg shadow hover:scale-105 transition text-base"
+                        className="mt-2 px-6 py-2 bg-ink text-white font-bold rounded-lg shadow hover:scale-105 transition text-base"
                       >
                         Pay Now
                       </button>
@@ -1028,7 +1028,7 @@ const CoursePage = () => {
             </div>
           </div>
 
-          <div className="mt-10 rounded-3xl bg-nb-blue p-8 text-white shadow-lg">
+          <div className="mt-10 rounded-3xl bg-ink p-8 text-white shadow-lg">
             <div className="text-sm font-semibold uppercase tracking-[0.32em] text-white/80 mb-4">
               Why Data Science & AI now
             </div>
@@ -1045,7 +1045,7 @@ const CoursePage = () => {
       </section>
 
       <section className="py-20">
-        <div className="container">
+        <div className="wrap">
           <div className="text-center max-w-3xl mx-auto mb-14 space-y-4">
             <span className="text-sm font-semibold uppercase tracking-[0.24em] text-blue-600">
               Program Curriculum
@@ -1086,7 +1086,7 @@ const CoursePage = () => {
       </section>
 
       <section className="py-20 bg-slate-50">
-        <div className="container">
+        <div className="wrap">
           <div className="text-center max-w-2xl mx-auto mb-14 space-y-4">
             <span className="text-sm font-semibold uppercase tracking-[0.24em] text-blue-600">
               Learning Experience
@@ -1114,8 +1114,8 @@ const CoursePage = () => {
       </section>
 
       <section className="py-20 bg-slate-900 text-white relative overflow-hidden">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_rgba(59,130,246,0.28),transparent_65%)]" />
-        <div className="relative container">
+        <div className="absolute inset-0" />
+        <div className="relative wrap">
           <div className="grid gap-10 lg:grid-cols-2 items-center">
             <div className="space-y-6">
               <span className="text-sm font-semibold uppercase tracking-[0.24em] text-blue-300">
@@ -1134,7 +1134,7 @@ const CoursePage = () => {
               {cohortTimeline.map((item) => (
                 <div
                   key={item.phase}
-                  className="rounded-2xl border border-white/15 bg-white/5 backdrop-blur px-6 py-5 flex flex-col gap-2"
+                  className="rounded-2xl border border-white/15 bg-white/5 px-6 py-5 flex flex-col gap-2"
                 >
                   <div className="flex items-center gap-3 text-sm uppercase tracking-wide text-blue-200">
                     <CalendarRange className="h-5 w-5" />
@@ -1149,7 +1149,7 @@ const CoursePage = () => {
       </section>
 
       <section className="py-20">
-        <div className="container">
+        <div className="wrap">
           <div className="text-center max-w-2xl mx-auto mb-14 space-y-4">
             <span className="text-sm font-semibold uppercase tracking-[0.24em] text-blue-600">
               Portfolio Projects
@@ -1172,7 +1172,7 @@ const CoursePage = () => {
               >
                 <div className="flex items-center justify-between">
                   <h3 className="text-lg font-semibold text-slate-900">{project.title}</h3>
-                  <span className="inline-flex items-center rounded-full bg-blue-100 px-3 py-1 text-xs font-semibold text-blue-700">
+                  <span className="inline-flex items-center rounded-sm bg-blue-100 px-3 py-1 text-xs font-semibold text-blue-700">
                     {project.level}
                   </span>
                 </div>
@@ -1184,7 +1184,7 @@ const CoursePage = () => {
       </section>
 
       <section className="py-20 bg-slate-900 text-white">
-        <div className="container">
+        <div className="wrap">
           <div className="text-center max-w-3xl mx-auto mb-14 space-y-4">
             <span className="text-sm font-semibold uppercase tracking-[0.24em] text-blue-200">
               Live Industry Projects
@@ -1199,7 +1199,7 @@ const CoursePage = () => {
           </div>
           <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
             {liveProjectTracks.map((track) => (
-              <div key={track.title} className="rounded-3xl border border-white/10 bg-white/5 p-6 backdrop-blur">
+              <div key={track.title} className="rounded-3xl border border-white/10 bg-white/5 p-6">
                 <h3 className="text-xl font-semibold mb-2 text-white">{track.title}</h3>
                 <p className="text-sm text-white/80 leading-relaxed">{track.detail}</p>
               </div>
@@ -1209,7 +1209,7 @@ const CoursePage = () => {
       </section>
 
       <section className="py-20 bg-slate-50">
-        <div className="container">
+        <div className="wrap">
           <div className="grid gap-10 lg:grid-cols-2 items-start">
             <div className="space-y-5">
               <span className="text-sm font-semibold uppercase tracking-[0.24em] text-blue-600">
@@ -1255,15 +1255,15 @@ const CoursePage = () => {
         <div className="absolute top-0 right-0 w-64 h-64 bg-blue-100 rounded-full blur-3xl" />
         <div className="absolute bottom-0 left-0 w-52 h-52 bg-indigo-100 rounded-full blur-3xl" />
 
-        <div className="container relative">
+        <div className="wrap relative">
           <div className="max-w-5xl mx-auto space-y-10">
             <div className="text-center space-y-3">
               <div className="flex justify-center mb-2">
-                <span className="inline-block bg-green-100 text-green-700 font-bold px-4 py-1 rounded-full border border-green-300 text-lg animate-bounce shadow">
+                <span className="inline-block bg-green-100 text-green-700 font-bold px-4 py-1 rounded-sm border border-green-300 text-lg animate-bounce shadow">
                   Internship Fee: ₹17,990
                 </span>
               </div>
-              <div className="inline-flex items-center gap-2 bg-white/70 backdrop-blur-sm px-4 py-2 rounded-full border border-slate-200/60">
+              <div className="inline-flex items-center gap-2 bg-white/70 px-4 py-2 rounded-sm border border-slate-200/60">
                 <span className="h-2 w-2 rounded-full bg-emerald-500 animate-pulse" />
                 <span className="text-sm font-semibold text-slate-700">Meet Your Faculty Team</span>
               </div>
@@ -1273,9 +1273,9 @@ const CoursePage = () => {
               </p>
             </div>
 
-            <div className="grid gap-8 lg:grid-cols-[2fr,3fr] items-center bg-white/85 backdrop-blur-sm rounded-3xl border border-slate-200/50 shadow-xl shadow-slate-200/30 p-6 lg:p-10">
+            <div className="grid gap-8 lg:grid-cols-[2fr,3fr] items-center bg-white/85 rounded-3xl border border-slate-200/50 shadow-xl shadow-slate-200/30 p-6 lg:p-10">
               <div className="space-y-6">
-                <div className="relative mx-auto h-56 w-56 rounded-3xl bg-nb-blue p-[4px] shadow-2xl shadow-blue-500/30">
+                <div className="relative mx-auto h-56 w-56 rounded-3xl bg-ink p-[4px] shadow-2xl shadow-blue-500/30">
                   <div className="h-full w-full rounded-3xl bg-slate-950/95 flex items-center justify-center overflow-hidden">
                     <div className="flex flex-col items-center gap-3 text-center text-white px-6">
                       <span className="text-5xl">🤝</span>
@@ -1284,10 +1284,10 @@ const CoursePage = () => {
                       </p>
                     </div>
                   </div>
-                  <div className="absolute -top-3 -right-3 bg-nb-blue text-white px-3 py-1 rounded-full text-xs font-bold shadow-lg">
+                  <div className="absolute -top-3 -right-3 bg-ink text-white px-3 py-1 rounded-sm text-xs font-bold shadow-lg">
                     12+ Experts
                   </div>
-                  <div className="absolute -bottom-3 -left-3 bg-nb-blue text-white px-3 py-1 rounded-full text-xs font-bold shadow-lg">
+                  <div className="absolute -bottom-3 -left-3 bg-ink text-white px-3 py-1 rounded-sm text-xs font-bold shadow-lg">
                     Global Experience
                   </div>
                 </div>
@@ -1328,7 +1328,7 @@ const CoursePage = () => {
 
                 <div className="grid gap-6 sm:grid-cols-2">
                   {facultyFocusAreas.map(({ title, description }) => (
-                    <div key={title} className="bg-white/80 backdrop-blur-sm rounded-2xl border border-slate-200/60 p-5 shadow-lg shadow-slate-200/30">
+                    <div key={title} className="bg-white/80 rounded-2xl border border-slate-200/60 p-5 shadow-lg shadow-slate-200/30">
                       <h3 className="text-lg font-semibold text-slate-900 mb-1.5">{title}</h3>
                       <p className="text-sm text-slate-600 leading-relaxed">{description}</p>
                     </div>
@@ -1346,7 +1346,7 @@ const CoursePage = () => {
                 </div>
 
                 <div className="flex items-center justify-center lg:justify-start">
-                  <button onClick={handleRegisterClick} className="inline-flex items-center gap-3 px-6 py-3 bg-nb-blue text-white font-semibold rounded-xl shadow hover:scale-105 transition">
+                  <button onClick={handleRegisterClick} className="inline-flex items-center gap-3 px-6 py-3 bg-ink text-white font-semibold rounded-xl shadow hover:scale-105 transition">
                     Apply & Book a Mentor Review
                   </button>
                 </div>
@@ -1357,7 +1357,7 @@ const CoursePage = () => {
       </section>
 
       <section className="py-20 bg-slate-50">
-        <div className="container">
+        <div className="wrap">
           <div className="grid gap-10 lg:grid-cols-2 items-start">
             <div className="space-y-5">
               <span className="text-sm font-semibold uppercase tracking-[0.24em] text-blue-600">
@@ -1407,7 +1407,7 @@ const CoursePage = () => {
       </section>
 
       <section className="py-20">
-        <div className="container">
+        <div className="wrap">
           <div className="text-center max-w-2xl mx-auto mb-14 space-y-4">
             <span className="text-sm font-semibold uppercase tracking-[0.24em] text-blue-600">
               Career Support
@@ -1437,10 +1437,10 @@ const CoursePage = () => {
       </section>
 
       <section className="py-16 bg-slate-900 text-white">
-        <div className="container">
+        <div className="wrap">
           <div className="max-w-4xl mx-auto space-y-8">
             <div className="text-center space-y-3">
-              <span className="inline-flex items-center gap-2 rounded-full bg-white/10 px-4 py-2 text-xs font-semibold uppercase tracking-[0.28em] text-blue-200">
+              <span className="inline-flex items-center gap-2 rounded-sm bg-white/10 px-4 py-2 text-xs font-semibold uppercase tracking-[0.28em] text-blue-200">
                 <span className="h-2 w-2 rounded-full bg-emerald-400 animate-pulse" />
                 Limited Cohort Seats
               </span>
@@ -1482,7 +1482,7 @@ const CoursePage = () => {
       </section>
 
       <section className="py-20 bg-slate-50">
-        <div className="container">
+        <div className="wrap">
           <div className="grid gap-10 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)] items-start">
             <div className="space-y-6">
               <span className="text-sm font-semibold uppercase tracking-[0.24em] text-blue-600">
@@ -1492,7 +1492,7 @@ const CoursePage = () => {
                 Confirm your cohort seat after the mentor interview and payment
               </h2>
               <p className="text-lg text-slate-600">
-                <span className="inline-block bg-green-50 text-green-700 font-bold px-3 py-1 rounded-full mr-2 border border-green-200 animate-bounce">All-inclusive fee: ₹17,990</span>
+                <span className="inline-block bg-green-50 text-green-700 font-bold px-3 py-1 rounded-sm mr-2 border border-green-200 animate-bounce">All-inclusive fee: ₹17,990</span>
                 Submit the quick form to book your interview. Once you are cleared, settle the
                 program fee via QR to unlock onboarding, pre-work, and resource access. Seats remain
                 on hold for 48 hours after invoice.
@@ -1568,7 +1568,7 @@ const CoursePage = () => {
       </section>
 
       <section className="py-16">
-        <div className="container">
+        <div className="wrap">
           <div className="text-center max-w-3xl mx-auto space-y-4">
             <span className="text-sm font-semibold uppercase tracking-[0.24em] text-blue-600">
               Still Thinking?

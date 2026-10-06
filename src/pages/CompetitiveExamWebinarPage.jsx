@@ -80,11 +80,11 @@ const CompetitiveExamWebinarPage = () => {
   return (
     <div className="bg-slate-50">
       <section className="relative overflow-hidden">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(254,240,138,0.35),transparent_55%),radial-gradient(circle_at_bottom,_rgba(96,165,250,0.4),transparent_55%)]" />
+        <div className="absolute inset-0" />
         <div className="absolute -left-24 top-16 h-64 w-64 rounded-full bg-yellow-200/40 blur-3xl" />
         <div className="absolute -right-24 bottom-0 h-72 w-72 rounded-full bg-blue-200/30 blur-3xl" />
 
-        <div className="relative container pt-12 pb-16 lg:pt-16 lg:pb-20">
+        <div className="relative wrap pt-12 pb-16 lg:pt-16 lg:pb-20">
           <div className="mb-8 rounded-2xl bg-slate-900/90 px-5 py-4 shadow-xl shadow-slate-900/30 flex flex-col md:flex-row md:items-center md:justify-between gap-4 border border-slate-700/60">
             <div className="flex flex-col sm:flex-row sm:items-center gap-3 text-slate-100 text-left">
               <div className="flex h-10 w-10 items-center justify-center rounded-full bg-amber-500/20 text-amber-300 text-sm font-semibold">
@@ -133,7 +133,7 @@ const CompetitiveExamWebinarPage = () => {
                 {["Limited Seats", "Recording Included", "Exclusive Tips"].map((badge) => (
                   <span
                     key={badge}
-                    className="inline-flex items-center gap-2 bg-amber-100 text-amber-800 px-4 py-2 rounded-full text-sm font-semibold border border-amber-200"
+                    className="inline-flex items-center gap-2 bg-amber-100 text-amber-800 px-4 py-2 rounded-sm text-sm font-semibold border border-amber-200"
                   >
                     <span className="text-lg">🔥</span>
                     {badge}
@@ -144,7 +144,7 @@ const CompetitiveExamWebinarPage = () => {
               <div className="space-y-2">
                 <h1 className="text-4xl sm:text-5xl xl:text-6xl font-black text-slate-900 leading-tight">
                   Master Competitive Exams
-                  <span className="block text-transparent bg-clip-text nb-gradient-text">
+                  <span className="block text-emph">
                     Learn from a Multi-Qualified Topper
                   </span>
                 </h1>
@@ -176,7 +176,7 @@ const CompetitiveExamWebinarPage = () => {
 
               <div className="flex flex-wrap items-center gap-3">
                 <button
-                  className="bg-nb-blue text-white px-6 py-3 rounded-full font-bold shadow-lg hover:scale-105 transition w-full sm:w-auto text-center"
+                  className="bg-ink text-white px-6 py-3 rounded-sm font-bold shadow-lg hover:scale-105 transition w-full sm:w-auto text-center"
                   onClick={handleRegisterClick}
                   disabled={hasEnded}
                 >
@@ -205,7 +205,7 @@ const CompetitiveExamWebinarPage = () => {
                   </div>
                 </div>
                 <div className="rounded-3xl bg-white border border-slate-200 shadow-xl p-6 text-center space-y-4">
-                  <div className="inline-flex items-center gap-2 rounded-full bg-amber-100 px-3 py-1 text-xs font-semibold text-amber-700">
+                  <div className="inline-flex items-center gap-2 rounded-sm bg-amber-100 px-3 py-1 text-xs font-semibold text-amber-700">
                     <span className="h-2 w-2 rounded-full bg-amber-500 animate-pulse" />
                     Featured Mentor
                   </div>
@@ -230,10 +230,10 @@ const CompetitiveExamWebinarPage = () => {
         </div>
       </section>
 
-      <section className="container py-16 lg:py-20" ref={registrationRef}>
+      <section className="wrap py-16 lg:py-20" ref={registrationRef}>
         <div className="grid gap-10 lg:grid-cols-2 items-start">
           <div className="space-y-6">
-            <div className="inline-flex items-center gap-2 rounded-full bg-amber-100 px-4 py-2 text-sm font-semibold text-amber-700 border border-amber-200">
+            <div className="inline-flex items-center gap-2 rounded-sm bg-amber-100 px-4 py-2 text-sm font-semibold text-amber-700 border border-amber-200">
               Why Learn From Saket Choudhary?
             </div>
             <h2 className="text-3xl sm:text-4xl font-bold text-slate-900">
@@ -304,10 +304,10 @@ const CompetitiveExamWebinarPage = () => {
       <section className="bg-slate-900 text-white py-16 lg:py-20 relative overflow-hidden">
         <div className="absolute top-10 left-10 h-32 w-32 rounded-full bg-amber-400/20 blur-2xl" />
         <div className="absolute bottom-0 right-0 h-64 w-64 rounded-full bg-blue-500/20 blur-3xl" />
-        <div className="container relative z-10">
+        <div className="wrap relative z-10">
           <div className="grid gap-10 lg:grid-cols-[1.2fr_minmax(0,1fr)] items-center">
             <div className="space-y-6">
-              <div className="inline-flex items-center gap-2 bg-white/10 px-4 py-2 rounded-full text-xs uppercase tracking-[0.22em]">
+              <div className="inline-flex items-center gap-2 bg-white/10 px-4 py-2 rounded-sm text-xs uppercase tracking-[0.22em]">
                 <span>VALUE STACK</span>
                 <span className="text-amber-300">LIMITED TIME</span>
               </div>
@@ -338,7 +338,7 @@ const CompetitiveExamWebinarPage = () => {
                   </div>
                 </div>
                 <button
-                  className="mt-6 inline-flex items-center justify-center gap-2 rounded-full bg-white px-6 py-3 text-nb-blue font-semibold hover:bg-blue-50 transition"
+                  className="mt-6 inline-flex items-center justify-center gap-2 rounded-sm bg-white px-6 py-3 text-ink font-semibold hover:bg-blue-50 transition"
                   onClick={handleRegisterClick}
                   disabled={hasEnded}
                 >
@@ -393,7 +393,7 @@ const CompetitiveExamWebinarPage = () => {
         </div>
       </section>
 
-      <section className="container py-16 lg:py-20">
+      <section className="wrap py-16 lg:py-20">
         <div className="grid gap-10 lg:grid-cols-[minmax(0,1.2fr)_minmax(0,0.8fr)] items-start">
           <div className="space-y-6">
             <div className="rounded-3xl bg-white border border-slate-200 shadow-xl p-6">
@@ -486,10 +486,10 @@ const CompetitiveExamWebinarPage = () => {
 
       {showForm && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/40">
-          <div className="modal-panel max-w-md w-[90%] p-6 relative">
+          <div className="dialog-panel max-w-md w-[90%] p-6 relative">
             <button
               onClick={() => setShowForm(false)}
-              className="absolute right-3 top-3 rounded-full px-2 text-xs text-slate-500 hover:bg-slate-100"
+              className="absolute right-3 top-3 rounded-sm px-2 text-xs text-slate-500 hover:bg-slate-100"
               aria-label="Close registration form"
             >
               ✕
@@ -561,10 +561,10 @@ const CompetitiveExamWebinarPage = () => {
 
       {showConfirmation && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/40">
-          <div className="modal-panel max-w-lg w-[90%] p-6 relative">
+          <div className="dialog-panel max-w-lg w-[90%] p-6 relative">
             <button
               onClick={() => setShowConfirmation(false)}
-              className="absolute right-3 top-3 rounded-full px-2 text-xs text-slate-500 hover:bg-slate-100"
+              className="absolute right-3 top-3 rounded-sm px-2 text-xs text-slate-500 hover:bg-slate-100"
               aria-label="Close confirmation"
             >
               ✕
@@ -590,8 +590,8 @@ const CompetitiveExamWebinarPage = () => {
         </div>
       )}
 
-      <div className="fixed bottom-0 left-0 right-0 bg-nb-blue text-white py-4 shadow-2xl border-t-4 border-yellow-400 z-50">
-        <div className="container">
+      <div className="fixed bottom-0 left-0 right-0 bg-ink text-white py-4 shadow-2xl border-t-4 border-yellow-400 z-50">
+        <div className="wrap">
           <div className="flex flex-col md:flex-row items-center justify-between gap-4">
             <div className="flex items-center gap-4">
               <div className="bg-white/20 rounded-full p-2">
@@ -603,11 +603,11 @@ const CompetitiveExamWebinarPage = () => {
               </div>
             </div>
             <div className="flex items-center gap-4">
-              <div className="bg-red-500 text-white px-4 py-2 rounded-full font-bold animate-pulse">
+              <div className="bg-red-500 text-white px-4 py-2 rounded-sm font-bold animate-pulse">
                 🔥 Seats Filling Fast
               </div>
               <button
-                className="bg-white text-nb-blue px-6 py-3 rounded-lg font-bold hover:bg-blue-50 transition-all transform hover:scale-105 shadow-lg"
+                className="bg-white text-ink px-6 py-3 rounded-lg font-bold hover:bg-blue-50 transition-all transform hover:scale-105 shadow-lg"
                 onClick={handleRegisterClick}
                 disabled={hasEnded}
               >

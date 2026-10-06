@@ -1,87 +1,127 @@
-// Layout building blocks for the nextbrain-style design system.
-import React from 'react';
+// Editorial layout building blocks shared by every page.
+import React, { useEffect, useRef, useState } from 'react';
 import { ArrowUpRight, Star } from 'lucide-react';
 import { Dialog, DialogContent, DialogTrigger } from '@/components/ui/dialog';
 import ContactForm from '@/components/ContactForm';
 import { cn } from '@/lib/utils';
 
+// Fades content up once it scrolls into view (disabled for reduced motion via CSS).
+export function Reveal({ as: Tag = 'div', className, children, delay = 0 }) {
+  const ref = useRef(null);
+  const [shown, setShown] = useState(false);
+  useEffect(() => {
+    const el = ref.current;
+    if (!el || typeof IntersectionObserver === 'undefined') {
+      setShown(true);
+      return undefined;
+    }
+    const io = new IntersectionObserver(
+      ([e]) => {
+        if (e.isIntersecting) {
+          setShown(true);
+          io.disconnect();
+        }
+      },
+      { rootMargin: '0px 0px -8% 0px' }
+    );
+    io.observe(el);
+    return () => io.disconnect();
+  }, []);
+  return (
+    <Tag ref={ref} className={cn('reveal', shown && 'is-visible', className)} style={delay ? { transitionDelay: `${delay}ms` } : undefined}>
+      {children}
+    </Tag>
+  );
+}
+
 const toneClass = {
-  white: '',
-  soft: 'nb-section--soft',
-  dark: 'nb-section--dark',
+  white: 'section--rule',
+  soft: 'section--alt section--rule',
+  dark: 'section--ink',
 };
 
 export function Section({ tone = 'white', id, className, containerClassName, children }) {
   return (
-    <section id={id} className={cn('nb-section', toneClass[tone], className)}>
-      <div className={cn('nb-container', containerClassName)}>{children}</div>
-    </section>
-  );
-}
-
-export function SectionHeading({ eyebrow, title, lead, align = 'center', className }) {
-  const centered = align === 'center';
-  return (
-    <div className={cn('mb-10 md:mb-12', centered && 'mx-auto max-w-3xl text-center', className)}>
-      {eyebrow && <div className="nb-eyebrow mb-3">{eyebrow}</div>}
-      <h2 className="nb-h2">{title}</h2>
-      {lead && <p className={cn('nb-lead mt-4', centered && 'mx-auto max-w-2xl')}>{lead}</p>}
-    </div>
-  );
-}
-
-// Page hero. "light" is the soft peach-to-lilac wash used on the homepage;
-// "dark" is the ink band used on service pages.
-export function PageHero({ variant = 'light', eyebrow, title, highlight, lead, actions, aside, note }) {
-  const dark = variant === 'dark';
-  const centered = !aside;
-  return (
-    <section className={dark ? 'nb-hero--dark' : 'nb-hero'}>
-      <div
-        className={cn(
-          'nb-container py-16 md:py-24',
-          aside && 'grid items-center gap-12 lg:grid-cols-[1.1fr_0.9fr]'
-        )}
-      >
-        <div className={cn(centered && 'mx-auto max-w-4xl text-center')}>
-          {eyebrow && <div className={cn('nb-eyebrow mb-4', dark && 'nb-eyebrow--light')}>{eyebrow}</div>}
-          <h1 className={cn('nb-h1', dark && '!text-white')}>
-            {title}
-            {highlight && (
-              <>
-                {' '}
-                <span className="nb-gradient-text inline-block">{highlight}</span>
-              </>
-            )}
-          </h1>
-          {lead && (
-            <p
-              className={cn(
-                'mt-5 text-base md:text-lg leading-relaxed',
-                dark ? 'text-slate-300' : 'text-nb-muted',
-                centered && 'mx-auto max-w-2xl'
-              )}
-            >
-              {lead}
-            </p>
-          )}
-          {note && (
-            <p className={cn('mt-4 text-sm font-medium', dark ? 'text-slate-200' : 'text-nb-blue')}>{note}</p>
-          )}
-          {actions && (
-            <div className={cn('mt-8 flex flex-col gap-3 sm:flex-row', centered && 'sm:justify-center')}>
-              {actions}
-            </div>
-          )}
-        </div>
-        {aside && <div className="min-w-0">{aside}</div>}
+    <section id={id} className={cn('section', toneClass[tone], className)}>
+      <div className={cn('wrap', containerClassName)}>
+        <Reveal>{children}</Reveal>
       </div>
     </section>
   );
 }
 
-// Button that opens the business requirement form in a dialog.
-export function ContactDialogButton({ children, className = 'btn-solid', title, type }) {
+// "01 — Label" chapter marker.
+export function Eyebrow({ index, children, className }) {
+  return (
+    <div className={cn('eyebrow', className)}>
+      {index && <span className="eyebrow__index">{index}</span>}
+      {index && <span aria-hidden="true">—</span>}
+      <span>{children}</span>
+    </div>
+  );
+}
+
+// Asymmetric editorial heading: chapter label on the left, headline + lead on the right.
+export function SectionHeading({ index, eyebrow, title, lead, className }) {
+  return (
+    <div className={cn('mb-12 grid gap-6 md:mb-16 lg:grid-cols-12', className)}>
+      <div className="lg:col-span-3">{(eyebrow || index) && <Eyebrow index={index}>{eyebrow}</Eyebrow>}</div>
+      <div className="lg:col-span-9">
+        <h2 className="display-2 max-w-4xl">{title}</h2>
+        {lead && <p className="lead mt-6">{lead}</p>}
+      </div>
+    </div>
+  );
+}
+
+// Page hero: huge left-aligned headline, small eyebrow, short paragraph, one strong CTA.
+// `spec` renders a technical metadata list beside the copy.
+export function PageHero({ eyebrow, index = '00', title, highlight, lead, actions, aside, note, spec, meta }) {
+  return (
+    <section className="hero">
+      <div className="wrap pb-16 pt-16 md:pb-24 md:pt-28">
+        <div className={cn('grid gap-12', (aside || spec) && 'lg:grid-cols-12 lg:items-end')}>
+          <div className={cn((aside || spec) && 'lg:col-span-8')}>
+            {eyebrow && <Eyebrow index={index} className="mb-8">{eyebrow}</Eyebrow>}
+            <h1 className="display-1">
+              {title}
+              {highlight && (
+                <>
+                  {' '}
+                  <span className="text-emph">{highlight}</span>
+                </>
+              )}
+            </h1>
+            {lead && <p className="lead mt-8 md:text-lg">{lead}</p>}
+            {note && <p className="mt-4 max-w-xl border-l border-line-dark pl-4 text-sm text-ink-2">{note}</p>}
+            {actions && <div className="mt-10 flex flex-col gap-3 sm:flex-row sm:items-center">{actions}</div>}
+          </div>
+          {spec && (
+            <dl className="spec lg:col-span-4">
+              {spec.map(([k, val]) => (
+                <div key={k}>
+                  <dt>{k}</dt>
+                  <dd>{val}</dd>
+                </div>
+              ))}
+            </dl>
+          )}
+          {aside && <div className="min-w-0 lg:col-span-4">{aside}</div>}
+        </div>
+        {meta && (
+          <div className="meta mt-16 flex flex-wrap justify-between gap-4 border-t border-line pt-4 md:mt-24">
+            {meta.map((m) => (
+              <span key={m}>{m}</span>
+            ))}
+          </div>
+        )}
+      </div>
+    </section>
+  );
+}
+
+// Opens the business requirement form in a dialog.
+export function ContactDialogButton({ children, className = 'btn btn-primary', title, type }) {
   return (
     <Dialog>
       <DialogTrigger asChild>
@@ -89,23 +129,20 @@ export function ContactDialogButton({ children, className = 'btn-solid', title, 
           {children}
         </button>
       </DialogTrigger>
-      <DialogContent className="max-w-2xl max-h-[90vh] overflow-y-auto p-0">
+      <DialogContent className="max-h-[90vh] max-w-2xl overflow-y-auto p-0">
         <ContactForm title={title} type={type} embedded />
       </DialogContent>
     </Dialog>
   );
 }
 
-export function FeatureCard({ icon: Icon, title, description, children, className }) {
+// Numbered editorial entry (replaces icon cards).
+export function FeatureCard({ index, title, description, children, className }) {
   return (
-    <div className={cn('nb-card h-full', className)}>
-      {Icon && (
-        <span className="nb-icon mb-4">
-          <Icon className="h-5 w-5" />
-        </span>
-      )}
-      <h3 className="text-lg font-semibold text-nb-text">{title}</h3>
-      {description && <p className="mt-2 text-sm leading-relaxed text-nb-muted">{description}</p>}
+    <div className={cn('border-t border-line-dark pt-6', className)}>
+      {index && <div className="meta mb-6">{index}</div>}
+      <h3 className="display-3">{title}</h3>
+      {description && <p className="mt-3 max-w-md text-[15px] leading-relaxed text-ink-2">{description}</p>}
       {children}
     </div>
   );
@@ -113,53 +150,52 @@ export function FeatureCard({ icon: Icon, title, description, children, classNam
 
 export function FeatureGrid({ items, columns = 3 }) {
   const cols = {
-    2: 'sm:grid-cols-2',
-    3: 'sm:grid-cols-2 lg:grid-cols-3',
-    4: 'sm:grid-cols-2 lg:grid-cols-4',
+    2: 'md:grid-cols-2',
+    3: 'md:grid-cols-2 lg:grid-cols-3',
+    4: 'md:grid-cols-2 lg:grid-cols-4',
   }[columns];
   return (
-    <div className={cn('grid gap-5', cols)}>
-      {items.map((item) => (
-        <FeatureCard key={item.title} {...item} />
+    <div className={cn('grid gap-x-10 gap-y-14', cols)}>
+      {items.map((item, i) => (
+        <FeatureCard key={item.title} index={String(i + 1).padStart(2, '0')} title={item.title} description={item.description}>
+          {item.children}
+        </FeatureCard>
       ))}
     </div>
   );
 }
 
-// Service card with an "Explore More" link, as on the nextbrain homepage.
-export function ServiceLinkCard({ icon: Icon, title, description, href, LinkComponent }) {
+// Full-width index row linking to a service page.
+export function ServiceLinkCard({ index, title, description, href, LinkComponent }) {
   return (
-    <LinkComponent to={href} className="nb-card group flex h-full flex-col">
-      {Icon && (
-        <span className="nb-icon mb-4">
-          <Icon className="h-5 w-5" />
-        </span>
-      )}
-      <h3 className="text-lg font-semibold text-nb-text">{title}</h3>
-      <p className="mt-2 flex-1 text-sm leading-relaxed text-nb-muted">{description}</p>
-      <span className="nb-link-arrow mt-5 group-hover:text-nb-blue">
-        Explore More <ArrowUpRight className="h-4 w-4" />
+    <LinkComponent
+      to={href}
+      className="group grid items-baseline gap-3 border-t border-line py-7 transition-colors duration-200 hover:bg-surface md:grid-cols-12 md:gap-6 md:px-3"
+    >
+      <span className="meta md:col-span-1">{index}</span>
+      <h3 className="display-3 md:col-span-5">{title}</h3>
+      <p className="text-[15px] text-ink-2 md:col-span-5">{description}</p>
+      <span className="hidden justify-end md:col-span-1 md:flex">
+        <ArrowUpRight className="h-5 w-5 transition-transform duration-200 group-hover:-translate-y-0.5 group-hover:translate-x-1" />
       </span>
     </LinkComponent>
   );
 }
 
-// Dark "proof of impact" band with stat tiles.
-export function StatsBand({ eyebrow, title, lead, stats }) {
+// Proof row: large serif figures separated by hairlines.
+export function StatsBand({ index, eyebrow, title, lead, stats }) {
   return (
-    <Section tone="dark">
-      {(eyebrow || title) && (
-        <div className="mb-10 max-w-2xl">
-          {eyebrow && <div className="nb-eyebrow mb-3">{eyebrow}</div>}
-          {title && <h2 className="nb-h2">{title}</h2>}
-          {lead && <p className="nb-lead mt-3">{lead}</p>}
-        </div>
+    <Section>
+      {title ? (
+        <SectionHeading index={index} eyebrow={eyebrow} title={title} lead={lead} />
+      ) : (
+        eyebrow && <Eyebrow index={index} className="mb-10">{eyebrow}</Eyebrow>
       )}
-      <div className="grid grid-cols-2 gap-4 lg:grid-cols-4">
-        {stats.map((stat) => (
-          <div key={stat.label} className="nb-card--dark">
-            <div className="text-3xl font-semibold md:text-4xl">{stat.value}</div>
-            <div className="mt-2 text-sm text-slate-400">{stat.label}</div>
+      <div className="grid grid-cols-2 border-t border-line-dark lg:grid-cols-4">
+        {stats.map((stat, i) => (
+          <div key={stat.label} className={cn('py-8 md:py-10', i % 2 === 1 ? 'border-l border-line pl-5' : 'pr-5', 'lg:px-8 lg:first:pl-0', i > 0 && 'lg:border-l lg:border-line')}>
+            <div className="font-display text-[clamp(2.5rem,5vw,4.5rem)] leading-none tracking-[-0.04em]">{stat.value}</div>
+            <div className="meta mt-4">{stat.label}</div>
           </div>
         ))}
       </div>
@@ -169,21 +205,16 @@ export function StatsBand({ eyebrow, title, lead, stats }) {
 
 export function TestimonialCard({ quote, name, role }) {
   return (
-    <figure className="nb-card flex h-full flex-col">
-      <div className="mb-3 flex gap-0.5" aria-label="5 out of 5 stars">
+    <figure className="flex h-full flex-col border-t border-line pt-6">
+      <div className="mb-4 flex gap-0.5" aria-label="Rated 5 out of 5">
         {[...Array(5)].map((_, i) => (
-          <Star key={i} className="h-4 w-4 fill-amber-400 text-amber-400" />
+          <Star key={i} className="h-3 w-3 fill-ink text-ink" />
         ))}
       </div>
-      <blockquote className="flex-1 text-sm leading-relaxed text-nb-muted">{quote}</blockquote>
-      <figcaption className="mt-5 flex items-center gap-3 border-t border-nb-line pt-4">
-        <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-[#E6ECF8] text-sm font-semibold text-nb-blue">
-          {name.replace(/^(Dr\.|Prof\.)\s*/, '').charAt(0)}
-        </span>
-        <span>
-          <span className="block text-sm font-semibold text-nb-text">{name}</span>
-          <span className="block text-xs text-slate-500">{role}</span>
-        </span>
+      <blockquote className="flex-1 font-display text-[1.15rem] italic leading-snug tracking-[-0.01em] text-ink md:text-[1.25rem]">{quote}</blockquote>
+      <figcaption className="mt-6">
+        <span className="block text-sm font-medium text-ink">{name}</span>
+        <span className="meta mt-1 block">{role}</span>
       </figcaption>
     </figure>
   );
@@ -191,7 +222,7 @@ export function TestimonialCard({ quote, name, role }) {
 
 export function TestimonialGrid({ items }) {
   return (
-    <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+    <div className="grid gap-x-12 gap-y-12 md:grid-cols-2 xl:grid-cols-4">
       {items.map((t) => (
         <TestimonialCard key={t.name + t.quote} {...t} />
       ))}
@@ -199,15 +230,22 @@ export function TestimonialGrid({ items }) {
   );
 }
 
-// Closing call-to-action band.
-export function CtaBand({ title, lead, children }) {
+// Closing chapter on ink: large statement left, action right.
+export function CtaBand({ index, title, lead, children }) {
   return (
-    <Section>
-      <div className="mx-auto max-w-3xl rounded-2xl bg-nb-ink px-6 py-12 text-center md:px-12 md:py-14">
-        <h2 className="nb-h2 !text-white">{title}</h2>
-        {lead && <p className="mx-auto mt-4 max-w-xl text-slate-300">{lead}</p>}
-        {children && <div className="mt-8 flex flex-col justify-center gap-3 sm:flex-row">{children}</div>}
+    <section className="section section--ink">
+      <div className="wrap">
+        <Reveal className="grid gap-10 lg:grid-cols-12 lg:items-end">
+          <div className="lg:col-span-8">
+            {index && <Eyebrow index={index} className="mb-8">Contact</Eyebrow>}
+            <h2 className="display-2">{title}</h2>
+          </div>
+          <div className="lg:col-span-4">
+            {lead && <p className="lead mb-8">{lead}</p>}
+            {children && <div className="flex flex-col gap-3 sm:flex-row lg:flex-col lg:items-start">{children}</div>}
+          </div>
+        </Reveal>
       </div>
-    </Section>
+    </section>
   );
 }

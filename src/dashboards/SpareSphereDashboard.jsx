@@ -161,11 +161,11 @@ export default function SpareSphereDashboard({ project }) {
             <div className="mt-5 space-y-3">
               <label className="block text-sm">
                 <span className="text-slate-600">Quote amount (₹)</span>
-                <input className="nb-input mt-1" value={quote.price} onChange={(e) => setQuote({ ...quote, price: e.target.value.replace(/\D/g, '') })} />
+                <input className="field mt-1" value={quote.price} onChange={(e) => setQuote({ ...quote, price: e.target.value.replace(/\D/g, '') })} />
               </label>
               <label className="block text-sm">
                 <span className="text-slate-600">Dispatch within</span>
-                <select className="nb-input mt-1" value={quote.days} onChange={(e) => setQuote({ ...quote, days: e.target.value })}>
+                <select className="field mt-1" value={quote.days} onChange={(e) => setQuote({ ...quote, days: e.target.value })}>
                   {['1', '3', '5', '7', '14'].map((d) => (
                     <option key={d} value={d}>{d} days</option>
                   ))}

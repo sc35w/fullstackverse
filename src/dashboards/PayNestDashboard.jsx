@@ -119,7 +119,7 @@ export default function PayNestDashboard({ project }) {
           <Panel title="Fraud review queue" subtitle={live ? 'New risk signals arrive automatically' : 'Paused'}>
             <ul className="divide-y divide-slate-100">
               {fraud.slice(0, 14).map((f) => (
-                <li key={f.id} className={`flex flex-wrap items-center gap-3 py-2.5 ${f.fresh ? 'bg-blue-50/40' : ''}`}>
+                <li key={f.id} className={`flex flex-wrap items-center gap-3 py-2.5 ${f.fresh ? 'bg-surface-alt/60' : ''}`}>
                   <div className="w-24">
                     <StatusPill tone={f.score >= 85 ? 'critical' : 'serious'}>Risk {f.score}</StatusPill>
                   </div>

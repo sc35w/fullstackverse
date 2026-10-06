@@ -1,27 +1,32 @@
 // Chart colour roles for the portfolio dashboards.
-// Categorical order is the dataviz reference palette, validated (light mode,
-// white surface): all checks pass; slots 3-5 are below 3:1 contrast, so every
-// chart ships a legend for >= 2 series and a table view.
+// Categorical order is the dataviz reference palette, validated (light mode):
+// all checks pass; slots 3-5 are below 3:1 contrast, so every chart ships a
+// legend for >= 2 series and a table view. Used only for multi-series charts.
 export const SERIES = ['#2a78d6', '#eb6834', '#1baf7a', '#eda100', '#e87ba4', '#008300', '#4a3aa7', '#e34948'];
 
-// Reserved status colours, always shown with an icon + label.
+// Reserved status colours (muted earth tones), always shown with an icon + label.
 export const STATUS = {
-  good: '#0ca30c',
-  warning: '#fab219',
-  serious: '#ec835a',
-  critical: '#d03b3b',
+  good: '#56603A',
+  warning: '#C29331',
+  serious: '#B0623A',
+  critical: '#9B2C22',
 };
 
-// Sequential blue ramp (100 -> 700) for heatmaps and magnitude.
-export const SEQ = ['#cde2fb', '#b7d3f6', '#9ec5f4', '#86b6ef', '#6da7ec', '#5598e7', '#3987e5', '#2a78d6', '#256abf', '#1c5cab', '#184f95', '#104281', '#0d366b'];
+// Sequential warm ramp (light stone -> ink), monotonic in lightness; one hue
+// family, used for heatmaps and magnitude.
+export const SEQ = ['#EDE7DC', '#D6D0C6', '#C3BDB4', '#B1ACA3', '#A19C93', '#918C84', '#817D75', '#726E67', '#646059', '#55514B', '#47433E', '#393630', '#2B2823'];
+
+// Single-series mark colour: data in ink, so colour appears only where
+// several series must be told apart (then SERIES, the validated palette).
+export const MARK = '#3A3630';
 
 export const INK = {
-  primary: '#0F172A',
-  secondary: '#475569',
-  muted: '#898781',
-  grid: '#EEF0F3',
-  axis: '#CBD5E1',
-  deEmphasis: '#CBD5E1',
+  primary: '#211F1A',
+  secondary: '#686158',
+  muted: '#8A837A',
+  grid: '#E6E0D6',
+  axis: '#BEB5A8',
+  deEmphasis: '#BEB5A8',
 };
 
 export const fmt = {

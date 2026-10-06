@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { GraduationCap, Star, Users } from "lucide-react";
+import { ArrowRight, Star, Users } from "lucide-react";
+import { PageHero, Section } from "../../components/site/blocks";
 
 const allCourses = [
   {
@@ -73,46 +74,48 @@ const allCourses = [
 
 export default function SkillVerseCoursesPage() {
   return (
-    <div className="bg-white">
-      <section className="nb-hero">
-        <div className="nb-container py-14 text-center md:py-20">
-          <h1 className="nb-h1">All Courses</h1>
-          <p className="nb-lead mx-auto mt-4 max-w-2xl md:text-lg">Explore our comprehensive range of professional courses</p>
-        </div>
-      </section>
+    <div className="bg-canvas">
+      <PageHero
+        eyebrow="Courses"
+        title="All"
+        highlight="Courses"
+        lead="Explore our comprehensive range of professional courses"
+        spec={[
+          ['Courses', String(allCourses.length).padStart(2, '0')],
+          ['Payment', 'EMI available'],
+        ]}
+      />
 
-      <section className="nb-section nb-section--soft">
-        <div className="nb-container grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-          {allCourses.map((course) => (
-            <div key={course.id} className="nb-card flex flex-col">
-              <div className="mb-4 flex items-center justify-between gap-3">
-                <span className="nb-icon">
-                  <GraduationCap className="h-5 w-5" />
-                </span>
-                {course.trending && <span className="nb-chip">Trending 2025</span>}
+      <Section>
+        <ol className="border-b border-line">
+          {allCourses.map((course, i) => (
+            <li key={course.id} className="grid gap-4 border-t border-line py-10 md:grid-cols-12 md:gap-6">
+              <span className="meta md:col-span-1">{String(i + 1).padStart(2, '0')}</span>
+              <div className="md:col-span-4">
+                <h2 className="display-3 !text-[clamp(1.6rem,2.4vw,2.2rem)]">{course.title}</h2>
+                <div className="mono mt-3 flex flex-wrap items-center gap-x-3 gap-y-1 text-ink-2">
+                  <span className="inline-flex items-center gap-1"><Star className="h-3 w-3 fill-ink text-ink" />{course.rating}</span>
+                  <span>({course.reviews.toLocaleString()} reviews)</span>
+                  {course.trending && <span className="tag">Trending 2025</span>}
+                </div>
               </div>
-              <h3 className="text-xl font-semibold text-nb-text">{course.title}</h3>
-              <div className="mt-1 flex items-center gap-1.5 text-sm">
-                <Star className="h-4 w-4 fill-amber-400 text-amber-400" />
-                <span className="font-semibold">{course.rating}</span>
-                <span className="text-slate-500">({course.reviews.toLocaleString()} reviews)</span>
+              <div className="md:col-span-4">
+                <p className="text-[15px] leading-relaxed text-ink-2">{course.description}</p>
+                <p className="meta mt-4 flex items-center gap-2"><Users className="h-3.5 w-3.5" />{course.instructor}</p>
               </div>
-              <p className="mt-3 flex-1 text-sm leading-relaxed text-nb-muted">{course.description}</p>
-              <div className="mt-4 flex items-center gap-1.5 text-sm text-slate-500">
-                <Users className="h-4 w-4" />
-                {course.instructor}
+              <div className="flex flex-col items-start gap-4 md:col-span-3 md:items-end">
+                <div className="md:text-right">
+                  <div className="font-display text-3xl tracking-[-0.03em]">{course.price}</div>
+                  <div className="meta mt-1">EMI available</div>
+                </div>
+                <Link to={course.link} className="btn btn-secondary btn-sm">
+                  View Details <ArrowRight className="h-4 w-4" />
+                </Link>
               </div>
-              <div className="mt-4 flex items-baseline justify-between border-t border-nb-line pt-4">
-                <span className="text-2xl font-bold text-nb-text">{course.price}</span>
-                <span className="text-sm text-slate-500">EMI available</span>
-              </div>
-              <Link to={course.link} className="btn-solid btn-sm mt-4 w-full">
-                View Details
-              </Link>
-            </div>
+            </li>
           ))}
-        </div>
-      </section>
+        </ol>
+      </Section>
     </div>
   );
 }

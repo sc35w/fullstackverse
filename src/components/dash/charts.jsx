@@ -2,7 +2,7 @@
 // mark specs: 2px lines, bars <= 24px with 4px rounded data-ends, 2px surface
 // gaps, hairline solid grid, crosshair/hover tooltips, table view twins.
 import React, { useEffect, useMemo, useRef, useState } from 'react';
-import { INK, SERIES, fmt, seqColor } from './theme';
+import { INK, MARK, SERIES, fmt, seqColor } from './theme';
 import { cn } from '@/lib/utils';
 
 export function useWidth() {
@@ -48,7 +48,7 @@ function Tooltip({ x, y, width, children }) {
   const left = Math.min(Math.max(x + 12, 0), Math.max(width - 180, 0));
   return (
     <div
-      className="pointer-events-none absolute z-10 min-w-[140px] rounded-lg border border-slate-200 bg-white px-3 py-2 text-xs shadow-lg"
+      className="pointer-events-none absolute z-10 min-w-[140px] rounded-sm border border-line-dark bg-surface px-3 py-2 text-xs"
       style={{ left, top: Math.max(y - 10, 0) }}
     >
       {children}
@@ -70,22 +70,22 @@ function TooltipRow({ color, label, value }) {
 export function ChartCard({ title, subtitle, legend, table, actions, className, children }) {
   const [view, setView] = useState('chart');
   return (
-    <figure className={cn('min-w-0 rounded-xl border border-slate-200 bg-white p-4', className)}>
+    <figure className={cn('min-w-0 rounded-sm border border-line bg-surface p-5', className)}>
       <div className="mb-3 flex flex-wrap items-start justify-between gap-2">
         <figcaption className="min-w-0">
-          <div className="text-sm font-semibold text-slate-900">{title}</div>
+          <div className="text-[15px] font-medium text-ink">{title}</div>
           {subtitle && <div className="text-xs text-slate-500">{subtitle}</div>}
         </figcaption>
         <div className="flex items-center gap-2">
           {actions}
           {table && (
-            <div className="flex rounded-md border border-slate-200 p-0.5 text-[11px] font-medium">
+            <div className="flex rounded-sm border border-line p-0.5 font-mono text-[10px] uppercase tracking-wider">
               {['chart', 'table'].map((v) => (
                 <button
                   key={v}
                   type="button"
                   onClick={() => setView(v)}
-                  className={cn('rounded px-2 py-0.5 capitalize', view === v ? 'bg-slate-900 text-white' : 'text-slate-500 hover:text-slate-900')}
+                  className={cn('rounded-sm px-2 py-0.5', view === v ? 'bg-ink text-canvas' : 'text-ink-3 hover:text-ink')}
                 >
                   {v}
                 </button>
@@ -100,7 +100,7 @@ export function ChartCard({ title, subtitle, legend, table, actions, className, 
       ) : (
         <div className="max-h-72 overflow-auto">
           <table className="w-full text-left text-xs">
-            <thead className="sticky top-0 bg-white text-slate-500">
+            <thead className="sticky top-0 bg-surface font-mono text-[10px] uppercase tracking-wider text-ink-3">
               <tr>
                 {table.columns.map((c) => (
                   <th key={c} className="border-b border-slate-200 py-1.5 pr-3 font-medium">{c}</th>
@@ -124,10 +124,11 @@ export function ChartCard({ title, subtitle, legend, table, actions, className, 
 }
 
 // Multi-series line chart with crosshair tooltip. data: [{[xKey]: string, [series.key]: number}]
-export function LineChart({ data, xKey = 'date', series, height = 220, format = fmt.compact, xFormat = fmt.date, area = false, threshold, yMax, marker }) {
+export function LineChart({ data, xKey = 'date', series: seriesIn, height = 220, format = fmt.compact, xFormat = fmt.date, area = false, threshold, yMax, marker }) {
   const [ref, width] = useWidth();
   // threshold: {value, label, color?} or an array of them
   const thresholds = threshold ? [].concat(threshold) : [];
+  const series = seriesIn.length === 1 ? [{ ...seriesIn[0], color: MARK }] : seriesIn;
   const [hover, setHover] = useState(null);
   const pad = { l: 44, r: 16, t: 10, b: 24 };
   const w = Math.max(width - pad.l - pad.r, 10);
@@ -213,9 +214,10 @@ export function LineChart({ data, xKey = 'date', series, height = 220, format = 
 }
 
 // Vertical bar chart; several series stack. data: [{[xKey], [series.key]}]
-export function BarChart({ data, xKey = 'label', series, height = 220, format = fmt.compact, xFormat = (v) => v, onBarClick, activeX }) {
+export function BarChart({ data, xKey = 'label', series: seriesIn, height = 220, format = fmt.compact, xFormat = (v) => v, onBarClick, activeX }) {
   const [ref, width] = useWidth();
   const [hover, setHover] = useState(null);
+  const series = seriesIn.length === 1 ? [{ ...seriesIn[0], color: MARK }] : seriesIn;
   const pad = { l: 44, r: 8, t: 10, b: 24 };
   const w = Math.max(width - pad.l - pad.r, 10);
   const h = height - pad.t - pad.b;
@@ -289,7 +291,8 @@ export function BarChart({ data, xKey = 'label', series, height = 220, format = 
 }
 
 // Ranked horizontal bars (top-N). items: [{label, value, color?}]
-export function HBars({ items, format = fmt.compact, color = SERIES[0], onClick, active }) {
+export function HBars({ items, format = fmt.compact, onClick, active }) {
+  const color = MARK;
   const max = Math.max(...items.map((i) => i.value), 1);
   return (
     <div className="space-y-2">
@@ -365,7 +368,7 @@ export function Heatmap({ rows, cols, values, format = fmt.int, cellH = 22, colF
   );
 }
 
-export function Sparkline({ values, color = SERIES[0], width = 96, height = 28 }) {
+export function Sparkline({ values, color = MARK, width = 96, height = 28 }) {
   if (!values?.length) return null;
   const max = Math.max(...values);
   const min = Math.min(...values);

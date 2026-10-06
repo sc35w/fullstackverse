@@ -1,6 +1,5 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Mail, MessageCircle, Phone } from 'lucide-react';
 import { SkillVerseLogo } from './SkillVerseHeader';
 import { EMAIL, PHONE } from '@/lib/contact';
 
@@ -48,70 +47,55 @@ const columns = [
   { title: 'Support', links: support },
 ];
 
+const link = 'link-underline text-[15px] text-ink-2 hover:text-ink';
+
 const SkillVerseFooter = () => {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="bg-nb-footer text-white">
-      <div className="nb-container py-14">
-        <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-[2fr_repeat(5,1fr)]">
-          <div className="sm:col-span-2 lg:col-span-1">
-            <SkillVerseLogo light />
-            <p className="mt-4 max-w-xs text-sm leading-relaxed text-slate-400">
+    <footer className="border-t border-line bg-canvas">
+      <div className="wrap pb-10 pt-20 md:pt-28">
+        <div className="grid gap-14 lg:grid-cols-12">
+          <div className="lg:col-span-4">
+            <SkillVerseLogo />
+            <p className="mt-8 max-w-sm font-display text-2xl leading-snug tracking-[-0.03em] text-ink">
               India's #1 Career Accelerator. Industry-leading & career-focused training to enhance your skills.
             </p>
-            <ul className="mt-5 space-y-2.5 text-sm text-slate-400">
+            <ul className="mt-8 space-y-2 text-[15px] text-ink-2">
+              <li><a href={`tel:${PHONE}`} className={link}>Call Us: {PHONE}</a></li>
+              <li><a href={`mailto:${EMAIL}`} className={`${link} [overflow-wrap:anywhere]`}>{EMAIL}</a></li>
               <li>
-                <a href={`tel:${PHONE}`} className="flex items-center gap-3 hover:text-white">
-                  <Phone className="h-4 w-4 shrink-0" /> Call Us: {PHONE}
-                </a>
-              </li>
-              <li>
-                <a href={`mailto:${EMAIL}`} className="flex items-center gap-3 hover:text-white [overflow-wrap:anywhere]">
-                  <Mail className="h-4 w-4 shrink-0" /> {EMAIL}
-                </a>
-              </li>
-              <li>
-                <a
-                  href="https://wa.me/918296548156?text=Hello%20SkillVerse,%20I%27d%20like%20to%20learn%20more"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-3 hover:text-white"
-                >
-                  <MessageCircle className="h-4 w-4 shrink-0" /> WhatsApp
+                <a href="https://wa.me/918296548156?text=Hello%20SkillVerse,%20I%27d%20like%20to%20learn%20more" target="_blank" rel="noopener noreferrer" className={link}>
+                  WhatsApp
                 </a>
               </li>
             </ul>
           </div>
 
-          {columns.map((col) => (
-            <div key={col.title}>
-              <h2 className="mb-4 text-base font-semibold text-white">{col.title}</h2>
-              <ul className="space-y-2.5">
-                {col.links.map((link) => (
-                  <li key={link.name}>
-                    <Link to={link.href} className="text-sm text-slate-400 transition-colors hover:text-white">
-                      {link.name}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          ))}
-        </div>
-      </div>
-
-      <div className="border-t border-white/10">
-        <div className="nb-container py-5 text-sm text-slate-400">
-          <div className="flex flex-col gap-3 md:flex-row md:items-center md:justify-between">
-            <p>© {currentYear} SkillVerse by Fullstackverse. All rights reserved.</p>
-            <div className="flex flex-wrap gap-x-5 gap-y-2">
-              <Link to="#" className="hover:text-white">Terms of Service</Link>
-              <Link to="/skillverse/privacypolicy" className="hover:text-white">Privacy Policy</Link>
-              <Link to="#" className="hover:text-white">Cookie Policy</Link>
-            </div>
+          <div className="grid grid-cols-2 gap-10 sm:grid-cols-3 lg:col-span-8 lg:grid-cols-5">
+            {columns.map((col) => (
+              <nav key={col.title} aria-label={col.title}>
+                <h2 className="eyebrow mb-6 block">{col.title}</h2>
+                <ul className="space-y-3">
+                  {col.links.map((l) => (
+                    <li key={l.name}>
+                      <Link to={l.href} className={link}>{l.name}</Link>
+                    </li>
+                  ))}
+                </ul>
+              </nav>
+            ))}
           </div>
-          <p className="mt-3 text-xs text-slate-500">22,000+ Students Assisted | 100+ Industry Experts | 500+ University Partners</p>
+        </div>
+
+        <div className="meta mt-20 flex flex-col gap-3 border-t border-line pt-6 lg:flex-row lg:items-center lg:justify-between">
+          <span>© {currentYear} SkillVerse by Fullstackverse. All rights reserved.</span>
+          <span>22,000+ Students Assisted | 100+ Industry Experts | 500+ University Partners</span>
+          <span className="flex flex-wrap gap-6">
+            <Link to="#" className="hover:text-ink">Terms of Service</Link>
+            <Link to="/skillverse/privacypolicy" className="hover:text-ink">Privacy Policy</Link>
+            <Link to="#" className="hover:text-ink">Cookie Policy</Link>
+          </span>
         </div>
       </div>
     </footer>

@@ -37,8 +37,8 @@ function CameraTile({ cam, events, tick, big, onClick }) {
             <span className="absolute -top-3.5 left-0 rounded-[2px] bg-[#2a78d6] px-1 text-[8px] font-semibold text-white">person 0.94</span>
           </div>
           {recent.length > 0 && (
-            <div className="absolute rounded-[2px] border-2 border-[#d03b3b]" style={{ left: '58%', top: '30%', width: '14%', height: '48%' }}>
-              <span className="absolute -top-3.5 left-0 whitespace-nowrap rounded-[2px] bg-[#d03b3b] px-1 text-[8px] font-semibold text-white">
+            <div className="absolute rounded-[2px] border-2 border-[#9B2C22]" style={{ left: '58%', top: '30%', width: '14%', height: '48%' }}>
+              <span className="absolute -top-3.5 left-0 whitespace-nowrap rounded-[2px] bg-[#9B2C22] px-1 text-[8px] font-semibold text-white">
                 {recent[0].type}
               </span>
             </div>
@@ -137,7 +137,7 @@ export default function VigiloDashboard({ project }) {
             <Panel title="Alert stream" subtitle={live ? 'New detections arrive automatically' : 'Paused'}>
               <ul className="max-h-[460px] space-y-2 overflow-y-auto pr-1">
                 {events.filter(inZone).slice(0, 25).map((e) => (
-                  <li key={e.id} className={cn('rounded-lg border p-2.5', e.fresh ? 'border-[#2a78d6]/40 bg-blue-50/40' : 'border-slate-200')}>
+                  <li key={e.id} className={cn('rounded-lg border p-2.5', e.fresh ? 'border-ink bg-surface-alt/60' : 'border-slate-200')}>
                     <div className="flex flex-wrap items-center gap-2">
                       <StatusPill tone={SEV_TONE[e.severity]}>{e.type}</StatusPill>
                       <span className="text-[11px] text-slate-500">{e.camera} · {e.zone}</span>

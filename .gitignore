@@ -8,3 +8,6 @@ dist
 nextbrain/
 /backblue.gif
 /fade.gif
+
+# Python byproducts (site_config.py)
+__pycache__/

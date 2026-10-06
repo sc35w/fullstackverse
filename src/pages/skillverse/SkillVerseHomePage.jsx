@@ -2,20 +2,8 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { EMAIL, PHONE } from "../../lib/contact";
 import SkillVerseQuickApply from "../../components/SkillVerseQuickApply";
-import {
-  Rocket,
-  GraduationCap,
-  Users,
-  Award,
-  TrendingUp,
-  BookOpen,
-  Target,
-  Globe,
-  Star,
-  Phone,
-  Mail,
-  CheckCircle2,
-} from "lucide-react";
+import { CtaBand, Eyebrow, FeatureGrid, PageHero, Section, SectionHeading, TestimonialGrid } from "../../components/site/blocks";
+import { ArrowRight, Award, BookOpen, CheckCircle2, Globe, Mail, Phone, Star, Target, TrendingUp } from "lucide-react";
 
 const courses = [
   {
@@ -120,152 +108,84 @@ const stats = [
 
 export default function SkillVerseHomePage() {
   return (
-    <div className="bg-white">
-      {/* Hero */}
-      <section className="nb-hero">
-        <div className="nb-container py-16 text-center md:py-24">
-          <div className="nb-eyebrow mb-4">
-            <Rocket className="h-4 w-4" /> Exclusively Curated Programs
-          </div>
-          <h1 className="nb-h1 mx-auto max-w-3xl">
-            India's #1 <span className="nb-gradient-text inline-block">Career Accelerator</span>
-          </h1>
-          <p className="nb-lead mx-auto mt-5 max-w-2xl md:text-lg">
-            We offer industry-leading & career-focused training to enhance your skill, secure a meaningful career, and bring your study-abroad dream to reality.
-          </p>
-          <div className="mt-8 flex flex-col justify-center gap-3 sm:flex-row">
-            <Link to="/skillverse/courses" className="btn-solid">
-              <GraduationCap className="h-4 w-4" />
-              Explore Courses
+    <div className="bg-canvas">
+      <PageHero
+        eyebrow="Exclusively Curated Programs"
+        title="India's #1"
+        highlight="Career Accelerator"
+        lead="We offer industry-leading & career-focused training to enhance your skill, secure a meaningful career, and bring your study-abroad dream to reality."
+        spec={stats.map((st) => [st.label, st.number])}
+        actions={
+          <>
+            <Link to="/skillverse/courses" className="btn btn-primary">
+              Explore Courses <ArrowRight className="h-4 w-4" />
             </Link>
-            <Link to="/skillverse/workshops" className="btn-outline">
-              <BookOpen className="h-4 w-4" />
-              View Workshops
+            <Link to="/skillverse/workshops" className="link-arrow px-2 py-3">
+              View Workshops <ArrowRight className="h-4 w-4" />
             </Link>
-          </div>
-        </div>
-      </section>
+          </>
+        }
+      />
 
-      {/* Stats */}
-      <section className="nb-section nb-section--dark">
-        <div className="nb-container grid grid-cols-2 gap-4 lg:grid-cols-4">
-          {stats.map((stat, i) => (
-            <div key={i} className="nb-card--dark">
-              <div className="text-3xl font-semibold md:text-4xl">{stat.number}</div>
-              <div className="mt-2 text-sm text-slate-400">{stat.label}</div>
-            </div>
+      <Section>
+        <SectionHeading index="01" eyebrow="Courses" title="Mentorship Courses" lead="Unlock your potential with the right mentor" />
+        <ol className="border-b border-line">
+          {courses.map((course, i) => (
+            <li key={course.title} className="grid gap-3 border-t border-line py-8 md:grid-cols-12 md:gap-6">
+              <span className="meta md:col-span-1">{String(i + 1).padStart(2, '0')}</span>
+              <div className="md:col-span-4">
+                <h3 className="display-3">{course.title}</h3>
+                <div className="mono mt-2 flex flex-wrap items-center gap-x-3 gap-y-1 text-ink-2">
+                  <span className="inline-flex items-center gap-1"><Star className="h-3 w-3 fill-ink text-ink" />{course.rating}</span>
+                  <span>({course.reviews.toLocaleString()})</span>
+                  {course.trending && <span className="tag">Trending 2025</span>}
+                </div>
+              </div>
+              <p className="text-[15px] leading-relaxed text-ink-2 md:col-span-4">{course.description}</p>
+              <div className="flex flex-col items-start gap-3 md:col-span-3 md:items-end">
+                <span className="meta">Mentor · {course.instructor}</span>
+                <Link to="/skillverse/courses" className="link-arrow">
+                  Enroll Now <ArrowRight className="h-4 w-4" />
+                </Link>
+              </div>
+            </li>
           ))}
-        </div>
-      </section>
+        </ol>
+      </Section>
 
-      {/* Featured Courses */}
-      <section className="nb-section nb-section--soft">
-        <div className="nb-container">
-          <div className="mx-auto mb-12 max-w-3xl text-center">
-            <h2 className="nb-h2">Mentorship Courses</h2>
-            <p className="nb-lead mt-4">Unlock your potential with the right mentor</p>
-          </div>
-          <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-            {courses.map((course, i) => (
-              <div key={i} className="nb-card flex flex-col">
-                <div className="mb-4 flex items-center justify-between gap-3">
-                  <span className="nb-icon">
-                    <GraduationCap className="h-5 w-5" />
-                  </span>
-                  {course.trending && <span className="nb-chip">Trending 2025</span>}
-                </div>
-                <h3 className="text-lg font-semibold text-nb-text">{course.title}</h3>
-                <div className="mt-1 flex items-center gap-1.5 text-sm">
-                  <Star className="h-4 w-4 fill-amber-400 text-amber-400" />
-                  <span className="font-semibold">{course.rating}</span>
-                  <span className="text-slate-500">({course.reviews.toLocaleString()})</span>
-                </div>
-                <p className="mt-3 flex-1 text-sm leading-relaxed text-nb-muted">{course.description}</p>
-                <div className="mt-4 flex items-center gap-1.5 text-sm text-slate-500">
-                  <Users className="h-4 w-4" />
-                  {course.instructor}
-                </div>
-                <Link to="/skillverse/courses" className="btn-solid btn-sm mt-5 w-full">Enroll Now</Link>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+      <Section tone="soft">
+        <SectionHeading index="02" eyebrow="Why SkillVerse" title="Why Choose SkillVerse?" />
+        <FeatureGrid items={benefits.map((b) => ({ title: b.title, description: b.text }))} />
+      </Section>
 
-      {/* Benefits */}
-      <section className="nb-section">
-        <div className="nb-container">
-          <h2 className="nb-h2 mb-12 text-center">Why Choose SkillVerse?</h2>
-          <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-            {benefits.map(({ icon: Icon, title, text }) => (
-              <div key={title} className="nb-card">
-                <span className="nb-icon mb-4">
-                  <Icon className="h-5 w-5" />
-                </span>
-                <h3 className="text-lg font-semibold text-nb-text">{title}</h3>
-                <p className="mt-2 text-sm text-nb-muted">{text}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+      <Section>
+        <SectionHeading index="03" eyebrow="Students" title="Loved by thousands of students" />
+        <TestimonialGrid items={testimonials.map((t) => ({ quote: `"${t.text}"`, name: t.name, role: t.role }))} />
+      </Section>
 
-      {/* Testimonials */}
-      <section className="nb-section nb-section--soft">
-        <div className="nb-container">
-          <h2 className="nb-h2 mb-12 text-center">Loved by thousands of students</h2>
-          <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-            {testimonials.map((testimonial, i) => (
-              <figure key={i} className="nb-card flex flex-col">
-                <div className="mb-3 flex gap-0.5">
-                  {[...Array(5)].map((_, j) => (
-                    <Star key={j} className="h-4 w-4 fill-amber-400 text-amber-400" />
-                  ))}
-                </div>
-                <blockquote className="flex-1 text-sm leading-relaxed text-nb-muted">"{testimonial.text}"</blockquote>
-                <figcaption className="mt-5 border-t border-nb-line pt-4">
-                  <div className="text-sm font-semibold text-nb-text">{testimonial.name}</div>
-                  <div className="text-xs text-slate-500">{testimonial.role}</div>
-                </figcaption>
-              </figure>
-            ))}
+      <Section id="contact">
+        <div className="grid gap-12 lg:grid-cols-12">
+          <div className="lg:col-span-5">
+            <Eyebrow index="04" className="mb-8">Get started</Eyebrow>
+            <h2 className="display-2">Quick Apply</h2>
+            <p className="lead mt-6">Your journey starts here!</p>
+          </div>
+          <div className="lg:col-span-6 lg:col-start-7">
+            <SkillVerseQuickApply />
           </div>
         </div>
-      </section>
+      </Section>
 
-      {/* Quick Apply Form */}
-      <section id="contact" className="nb-section">
-        <div className="nb-container grid items-center gap-10 lg:grid-cols-2">
-          <div>
-            <div className="nb-eyebrow mb-3">Get started</div>
-            <h2 className="nb-h2">Quick Apply</h2>
-            <p className="nb-lead mt-4">Your journey starts here!</p>
-          </div>
-          <SkillVerseQuickApply />
-        </div>
-      </section>
-
-      {/* CTA */}
-      <section className="nb-section pt-0">
-        <div className="nb-container">
-          <div className="mx-auto max-w-3xl rounded-2xl bg-nb-ink px-6 py-12 text-center md:px-12">
-            <h2 className="nb-h2 !text-white">Ready to Transform Your Career?</h2>
-            <p className="mx-auto mt-4 max-w-xl text-slate-300">
-              Join 22,000+ students who have already started their journey with SkillVerse
-            </p>
-            <div className="mt-8 flex flex-col justify-center gap-3 sm:flex-row">
-              <a href={`tel:${PHONE}`} className="btn-light">
-                <Phone className="h-4 w-4" />
-                Call: {PHONE}
-              </a>
-              <a href={`mailto:${EMAIL}`} className="btn-outline-light">
-                <Mail className="h-4 w-4" />
-                Email Us
-              </a>
-            </div>
-          </div>
-        </div>
-      </section>
+      <CtaBand index="05" title="Ready to Transform Your Career?" lead="Join 22,000+ students who have already started their journey with SkillVerse">
+        <a href={`tel:${PHONE}`} className="btn btn-inverse">
+          <Phone className="h-4 w-4" />
+          Call: {PHONE}
+        </a>
+        <a href={`mailto:${EMAIL}`} className="btn btn-secondary-inverse">
+          <Mail className="h-4 w-4" />
+          Email Us
+        </a>
+      </CtaBand>
     </div>
   );
 }

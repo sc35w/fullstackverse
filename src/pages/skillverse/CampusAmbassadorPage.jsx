@@ -130,6 +130,10 @@ const CampusAmbassadorPage = () => {
         project_description: `Campus Ambassador Application - College: ${formData.college}, Course: ${formData.course}, Year: ${formData.year}, Why: ${formData.why_join}`,
         budget: 'Campus Ambassador',
         type: 'Campus Ambassador Application',
+        college: formData.college,
+        course: formData.course,
+        year: formData.year,
+        why_join: formData.why_join,
       });
 
       toast({
@@ -160,7 +164,7 @@ const CampusAmbassadorPage = () => {
 
   return (
     <div className="min-h-screen bg-white">
-      <section className="relative bg-nb-blue text-white py-20 px-6 overflow-hidden">
+      <section className="relative bg-ink text-white py-20 px-6 overflow-hidden">
         <div className="absolute inset-0 bg-black opacity-10" />
         <div className="relative max-w-6xl mx-auto text-center z-10">
           <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }}>
@@ -191,7 +195,7 @@ const CampusAmbassadorPage = () => {
               </p>
             </motion.div>
             <motion.div initial={{ opacity: 0, x: 30 }} whileInView={{ opacity: 1, x: 0 }} transition={{ duration: 0.6 }} viewport={{ once: true }} className="relative">
-              <div className="bg-nb-blue rounded-2xl p-12 flex items-center justify-center">
+              <div className="bg-ink rounded-2xl p-12 flex items-center justify-center">
                 <Play className="h-24 w-24 text-white" />
               </div>
             </motion.div>
@@ -236,7 +240,7 @@ const CampusAmbassadorPage = () => {
                 viewport={{ once: true }}
                 className="relative text-center"
               >
-                <div className="bg-nb-blue text-white rounded-full w-20 h-20 flex items-center justify-center text-3xl font-bold mx-auto mb-6">
+                <div className="bg-ink text-white rounded-full w-20 h-20 flex items-center justify-center text-3xl font-bold mx-auto mb-6">
                   {step.number}
                 </div>
                 <h3 className="text-2xl font-bold mb-3 text-gray-900">{step.title}</h3>
@@ -316,7 +320,7 @@ const CampusAmbassadorPage = () => {
         </div>
       </section>
 
-      <section className="py-16 px-6 bg-nb-blue text-white">
+      <section className="py-16 px-6 bg-ink text-white">
         <div className="max-w-6xl mx-auto">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             {stats.map((stat, i) => (
@@ -365,7 +369,7 @@ const CampusAmbassadorPage = () => {
         </div>
       </section>
 
-      <section className="py-16 px-6 bg-nb-blue text-white">
+      <section className="py-16 px-6 bg-ink text-white">
         <div className="max-w-2xl mx-auto">
           <h2 className="text-4xl font-bold text-center mb-4">Ready to Become an Ambassador? 🚀</h2>
           <p className="text-center text-lg mb-8">Join thousands of students who are already making an impact</p>

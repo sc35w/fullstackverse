@@ -1,13 +1,12 @@
 import React from 'react';
 import { Helmet } from 'react-helmet';
-import { ClipboardCheck, IndianRupee, Search } from 'lucide-react';
 import ContactForm from '@/components/ContactForm';
-import { PageHero, Section } from '@/components/site/blocks';
+import { Eyebrow, PageHero, Section } from '@/components/site/blocks';
 
 const reasons = [
-  { icon: Search, title: 'Detailed Analysis', description: "We'll perform an in-depth review of your needs." },
-  { icon: IndianRupee, title: 'Accurate Quoting', description: 'Get precise cost and timeline estimates.' },
-  { icon: ClipboardCheck, title: 'Tailored Solutions', description: 'Receive a proposal designed specifically for you.' },
+  { title: 'Detailed Analysis', description: "We'll perform an in-depth review of your needs." },
+  { title: 'Accurate Quoting', description: 'Get precise cost and timeline estimates.' },
+  { title: 'Tailored Solutions', description: 'Receive a proposal designed specifically for you.' },
 ];
 
 const RFPPage = () => (
@@ -21,33 +20,36 @@ const RFPPage = () => (
     </Helmet>
 
     <PageHero
-      title="Request for Proposal"
+      eyebrow="Request for Proposal"
+      title="Request for"
+      highlight="Proposal"
       lead="Ready to start a big project? Submit your RFP here, and our team will prepare a detailed proposal tailored to your needs."
     />
 
-    <Section tone="soft">
-      <div className="grid items-start gap-10 lg:grid-cols-[1fr_1.4fr]">
-        <div>
-          <h2 className="nb-h2">Why Submit an RFP?</h2>
-          <p className="nb-lead mt-4">
+    <Section>
+      <div className="grid gap-14 lg:grid-cols-12">
+        <div className="lg:col-span-5">
+          <Eyebrow index="01" className="mb-8">Process</Eyebrow>
+          <h2 className="display-2">Why Submit an RFP?</h2>
+          <p className="lead mt-6">
             Submitting an RFP allows us to provide you with a comprehensive, accurate, and competitive proposal that
             addresses all your project requirements.
           </p>
-          <div className="mt-8 space-y-4">
-            {reasons.map(({ icon: Icon, title, description }) => (
-              <div key={title} className="flex gap-4 rounded-2xl bg-white p-5">
-                <span className="nb-icon">
-                  <Icon className="h-5 w-5" />
-                </span>
+          <ol className="mt-12 border-t border-line">
+            {reasons.map(({ title, description }, i) => (
+              <li key={title} className="grid grid-cols-[48px_1fr] gap-4 border-b border-line py-6">
+                <span className="meta pt-1">{String(i + 1).padStart(2, '0')}</span>
                 <div>
-                  <h3 className="font-semibold text-nb-text">{title}</h3>
-                  <p className="mt-1 text-sm text-nb-muted">{description}</p>
+                  <h3 className="display-3">{title}</h3>
+                  <p className="mt-2 text-[15px] text-ink-2">{description}</p>
                 </div>
-              </div>
+              </li>
             ))}
-          </div>
+          </ol>
         </div>
-        <ContactForm title="Request for Proposal (RFP) Form" type="rfp" />
+        <div className="lg:col-span-6 lg:col-start-7">
+          <ContactForm title="Request for Proposal (RFP) Form" type="rfp" />
+        </div>
       </div>
     </Section>
   </>

@@ -1,8 +1,9 @@
-// Illustrated product preview for a portfolio project, drawn with plain
-// markup (no screenshots). The layout depends on `project.mockup` and the
-// colour on `project.accent`, so every project gets a distinct preview.
+// Monochrome technical figure for a portfolio project, drawn with plain markup
+// (no screenshots). The layout depends on `project.mockup`; every figure is
+// set in ink on a drafting grid with engineering-style labels.
 import React from 'react';
 import { cn } from '@/lib/utils';
+import { projects } from '@/lib/portfolio';
 
 const Bar = ({ w = '100%', h = 6, c = '#E2E8F0', className }) => (
   <div className={cn('rounded-full', className)} style={{ width: w, height: h, background: c }} />
@@ -10,7 +11,7 @@ const Bar = ({ w = '100%', h = 6, c = '#E2E8F0', className }) => (
 
 function BrowserFrame({ name, accent, children }) {
   return (
-    <div className="overflow-hidden rounded-xl border border-slate-200 bg-white shadow-lg">
+    <div className="overflow-hidden rounded-[3px] border border-ink/60 bg-surface">
       <div className="flex items-center gap-1.5 border-b border-slate-100 bg-slate-50 px-3 py-2">
         <span className="h-2 w-2 rounded-full bg-slate-300" />
         <span className="h-2 w-2 rounded-full bg-slate-300" />
@@ -28,7 +29,7 @@ function BrowserFrame({ name, accent, children }) {
 
 function PhoneFrame({ name, accent, children, className }) {
   return (
-    <div className={cn('w-[44%] max-w-[170px] overflow-hidden rounded-[22px] border-[5px] border-slate-900 bg-white shadow-xl', className)}>
+    <div className={cn('w-[44%] max-w-[170px] overflow-hidden rounded-[10px] border-[3px] border-ink bg-surface', className)}>
       <div className="flex items-center justify-between px-3 py-2 text-white" style={{ background: accent }}>
         <span className="truncate text-[10px] font-bold">{name}</span>
         <span className="h-3 w-3 rounded-full bg-white/40" />
@@ -250,7 +251,7 @@ function MapScreens({ project }) {
   const { name, accent } = project;
   return (
     <div className="flex items-end justify-center gap-4">
-      <div className="w-[56%] overflow-hidden rounded-xl border border-slate-200 bg-white shadow-lg">
+      <div className="w-[56%] overflow-hidden rounded-[3px] border border-ink/60 bg-surface">
         <div className="relative aspect-[4/3] bg-[#EEF2F7]">
           <svg viewBox="0 0 100 75" className="absolute inset-0 h-full w-full">
             <path d="M0 20 H100 M0 50 H100 M30 0 V75 M70 0 V75" stroke="#fff" strokeWidth="4" />
@@ -279,17 +280,17 @@ function MapScreens({ project }) {
 function GameScreen({ project }) {
   const { name, accent } = project;
   return (
-    <div className="mx-auto w-[92%] overflow-hidden rounded-[22px] border-[6px] border-slate-900 bg-slate-900 shadow-xl">
+    <div className="mx-auto w-[92%] overflow-hidden rounded-[10px] border-[4px] border-ink bg-ink">
       <div className="relative aspect-[16/9] overflow-hidden" style={{ background: `linear-gradient(180deg, ${accent}55 0%, ${accent}22 55%, #F1F5F9 55%)` }}>
         {/* HUD */}
         <div className="absolute inset-x-0 top-0 flex items-center justify-between px-3 py-2">
-          <span className="rounded-full bg-white/90 px-2 py-0.5 text-[9px] font-bold" style={{ color: accent }}>{name}</span>
+          <span className="rounded-sm bg-white/90 px-2 py-0.5 text-[9px] font-bold" style={{ color: accent }}>{name}</span>
           <span className="flex gap-1">
             {[0, 1, 2].map((i) => (
               <span key={i} className="h-2.5 w-2.5 rounded-full bg-amber-400" />
             ))}
           </span>
-          <span className="rounded-full bg-white/90 px-2 py-0.5 text-[9px] font-bold text-slate-700">1,250</span>
+          <span className="rounded-sm bg-white/90 px-2 py-0.5 text-[9px] font-bold text-slate-700">1,250</span>
         </div>
         {/* playfield tiles */}
         <div className="absolute left-1/2 top-[22%] grid -translate-x-1/2 grid-cols-6 gap-1">
@@ -327,17 +328,41 @@ const screens = {
   game: GameScreen,
 };
 
-export default function ProjectMockup({ project, className }) {
+const INK = '#3A3630';
+const FIG_INDEX = Object.fromEntries(projects.map((p, i) => [p.slug, String(i + 1).padStart(2, '0')]));
+
+export default function ProjectMockup({ project, className, figure }) {
   const Screen = screens[project.mockup] || DashboardScreen;
+  const drawn = { ...project, accent: INK };
   return (
     <div
-      className={cn('flex items-center justify-center overflow-hidden p-6 sm:p-8', className)}
-      style={{ background: `linear-gradient(135deg, ${project.accent}14 0%, #F3F5F9 60%, #FDF1E4 100%)` }}
+      className={cn('relative flex items-center justify-center overflow-hidden border border-line px-5 py-10 sm:p-12', className)}
+      style={{
+        backgroundColor: '#EFEBE3',
+        backgroundImage:
+          'linear-gradient(rgba(33,31,26,.06) 1px, transparent 1px), linear-gradient(90deg, rgba(33,31,26,.06) 1px, transparent 1px)',
+        backgroundSize: '24px 24px',
+      }}
       role="img"
-      aria-label={`${project.name} product preview`}
+      aria-label={`${project.name} product figure`}
     >
-      <div className="w-full max-w-[460px]">
-        <Screen project={project} />
+      {/* drawing-sheet furniture */}
+      <span className="meta absolute left-3 top-2.5 !text-[10px]">FIG. {figure || FIG_INDEX[project.slug] || '01'} — {project.name}</span>
+      <span className="meta absolute right-3 top-2.5 hidden !text-[10px] sm:block">{project.category}</span>
+      <span className="meta absolute bottom-2.5 left-3 hidden !text-[10px] sm:block">{project.platforms[0]}</span>
+      <span className="meta absolute bottom-2.5 right-3 !text-[10px]">SCALE 1:1</span>
+      {['left-0 top-0 border-l border-t', 'right-0 top-0 border-r border-t', 'left-0 bottom-0 border-l border-b', 'right-0 bottom-0 border-r border-b'].map((c) => (
+        <span key={c} className={cn('absolute h-3 w-3 border-ink-3', c)} aria-hidden="true" />
+      ))}
+      <div className="relative w-full max-w-[460px] grayscale-[0.2]">
+        <Screen project={drawn} />
+        <div className="mt-3 flex items-center gap-2 text-ink-3" aria-hidden="true">
+          <span className="h-2 w-px bg-ink-3" />
+          <span className="h-px flex-1 bg-ink-3" />
+          <span className="mono !text-[9px]">460</span>
+          <span className="h-px flex-1 bg-ink-3" />
+          <span className="h-2 w-px bg-ink-3" />
+        </div>
       </div>
     </div>
   );

@@ -116,9 +116,9 @@ const SectionCard = ({ title, icon: Icon, items }) => (
 export default function SkillVersePrivacyPolicyPage() {
   return (
     <div className="bg-gray-50 min-h-screen">
-      <section className="bg-nb-blue text-white py-14 px-6">
+      <section className="bg-ink text-white py-14 px-6">
         <div className="max-w-5xl mx-auto space-y-4">
-          <div className="inline-flex items-center gap-2 bg-white/10 px-3 py-1 rounded-full text-sm">
+          <div className="inline-flex items-center gap-2 bg-white/10 px-3 py-1 rounded-sm text-sm">
             <Shield className="h-4 w-4" />
             <span>Privacy Policy</span>
           </div>

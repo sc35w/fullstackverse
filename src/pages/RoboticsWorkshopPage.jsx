@@ -73,11 +73,11 @@ const RoboticsWorkshopPage = () => {
     <div className="bg-slate-50">
       {/* Hero + full-width countdown */}
       <section className="relative overflow-hidden">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(191,219,254,0.6),transparent_55%),radial-gradient(circle_at_bottom,_rgba(129,140,248,0.5),transparent_55%)]" />
+        <div className="absolute inset-0" />
         <div className="absolute -left-24 top-16 h-64 w-64 rounded-full bg-blue-200/40 blur-3xl" />
         <div className="absolute -right-24 bottom-0 h-72 w-72 rounded-full bg-indigo-300/30 blur-3xl" />
 
-        <div className="relative container pt-12 pb-16 lg:pt-16 lg:pb-20">
+        <div className="relative wrap pt-12 pb-16 lg:pt-16 lg:pb-20">
           {/* Countdown bar */}
           <div className="mb-8 rounded-2xl bg-slate-900/90 px-6 py-4 shadow-xl shadow-slate-900/30 flex flex-col md:flex-row items-center justify-between gap-4 border border-slate-700/60">
             <div className="flex items-center gap-3 text-slate-100">
@@ -122,7 +122,7 @@ const RoboticsWorkshopPage = () => {
           <div className="grid gap-10 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,1fr)] items-center">
             <div className="space-y-6">
               {/* Enhanced Badge */}
-              <div className="inline-flex items-center gap-3 rounded-full bg-nb-blue px-6 py-3 text-sm font-bold text-white shadow-xl border-2 border-white/20">
+              <div className="inline-flex items-center gap-3 rounded-sm bg-ink px-6 py-3 text-sm font-bold text-white shadow-xl border-2 border-white/20">
                 <span className="h-3 w-3 rounded-full bg-white animate-pulse shadow-lg"></span>
                 <span className="uppercase tracking-wider">LIVE WORKSHOP</span>
                 <span className="h-1 w-1 rounded-full bg-white/60"></span>
@@ -135,13 +135,13 @@ const RoboticsWorkshopPage = () => {
               <div className="space-y-2">
                 <h1 className="text-5xl lg:text-6xl font-black text-slate-900 leading-none">
                   Build Your First
-                  <span className="block text-transparent bg-clip-text nb-gradient-text">
+                  <span className="block text-emph">
                     Robot
                   </span>
                 </h1>
                 <div className="flex items-center gap-4">
                   <div className="text-3xl lg:text-4xl font-bold text-slate-700">in 2 Days</div>
-                  <div className="bg-nb-blue text-white px-4 py-2 rounded-full text-sm font-bold shadow-lg">
+                  <div className="bg-ink text-white px-4 py-2 rounded-sm text-sm font-bold shadow-lg">
                     Hands-On Learning
                   </div>
                 </div>
@@ -175,19 +175,19 @@ const RoboticsWorkshopPage = () => {
 
                 {/* Trust Badges */}
                 <div className="flex flex-wrap gap-3">
-                  <span className="inline-flex items-center gap-2 bg-emerald-100 text-emerald-800 px-4 py-2 rounded-full text-sm font-semibold border border-emerald-200">
+                  <span className="inline-flex items-center gap-2 bg-emerald-100 text-emerald-800 px-4 py-2 rounded-sm text-sm font-semibold border border-emerald-200">
                     <span className="text-lg">✅</span>
                     Zero Coding Required
                   </span>
-                  <span className="inline-flex items-center gap-2 bg-blue-100 text-blue-800 px-4 py-2 rounded-full text-sm font-semibold border border-blue-200">
+                  <span className="inline-flex items-center gap-2 bg-blue-100 text-blue-800 px-4 py-2 rounded-sm text-sm font-semibold border border-blue-200">
                     <span className="text-lg">🎯</span>
                     Step-by-Step Guidance
                   </span>
-                  <span className="inline-flex items-center gap-2 bg-purple-100 text-purple-800 px-4 py-2 rounded-full text-sm font-semibold border border-purple-200">
+                  <span className="inline-flex items-center gap-2 bg-purple-100 text-purple-800 px-4 py-2 rounded-sm text-sm font-semibold border border-purple-200">
                     <span className="text-lg">🚀</span>
                     Production-Ready Results
                   </span>
-                  <span className="inline-flex items-center gap-2 bg-orange-100 text-orange-800 px-4 py-2 rounded-full text-sm font-semibold border border-orange-200">
+                  <span className="inline-flex items-center gap-2 bg-orange-100 text-orange-800 px-4 py-2 rounded-sm text-sm font-semibold border border-orange-200">
                     <span className="text-lg">🎓</span>
                     FREE Certificate Included
                   </span>
@@ -272,21 +272,21 @@ const RoboticsWorkshopPage = () => {
 
               {/* Workshop Details Cards */}
               <div className="grid grid-cols-1 sm:grid-cols-4 gap-4">
-                <div className="card text-center p-4 bg-blue-50 border-blue-200">
+                <div className="panel text-center p-4 bg-blue-50 border-blue-200">
                   <div className="text-xs font-bold text-blue-600 uppercase tracking-wider mb-1">DATE</div>
                   <div className="text-lg font-bold text-slate-900">
                     {WORKSHOP_DATETIME.toLocaleDateString()}
                   </div>
                 </div>
-                <div className="card text-center p-4 bg-emerald-50 border-emerald-200">
+                <div className="panel text-center p-4 bg-emerald-50 border-emerald-200">
                   <div className="text-xs font-bold text-emerald-600 uppercase tracking-wider mb-1">DURATION</div>
                   <div className="text-lg font-bold text-slate-900">2 Days</div>
                 </div>
-                <div className="card text-center p-4 bg-purple-50 border-purple-200">
+                <div className="panel text-center p-4 bg-purple-50 border-purple-200">
                   <div className="text-xs font-bold text-purple-600 uppercase tracking-wider mb-1">FORMAT</div>
                   <div className="text-lg font-bold text-slate-900">Live Online</div>
                 </div>
-                <div className="card text-center p-4 bg-orange-50 border-orange-200">
+                <div className="panel text-center p-4 bg-orange-50 border-orange-200">
                   <div className="text-xs font-bold text-orange-600 uppercase tracking-wider mb-1">INVESTMENT</div>
                   <div className="text-2xl font-bold text-slate-900">₹399</div>
                   <div className="text-sm text-slate-500 line-through">₹2,999</div>
@@ -316,13 +316,13 @@ const RoboticsWorkshopPage = () => {
                 </div>
 
                 {/* Enhanced Social Proof */}
-                <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-4 border border-slate-200 shadow-lg">
+                <div className="bg-white/80 rounded-2xl p-4 border border-slate-200 shadow-lg">
                   <div className="flex items-center justify-center gap-4 mb-3">
                     <div className="flex -space-x-3">
-                      <div className="w-10 h-10 rounded-full bg-nb-blue border-3 border-white shadow-md"></div>
-                      <div className="w-10 h-10 rounded-full bg-nb-blue border-3 border-white shadow-md"></div>
-                      <div className="w-10 h-10 rounded-full bg-nb-blue border-3 border-white shadow-md"></div>
-                      <div className="w-10 h-10 rounded-full bg-nb-blue border-3 border-white flex items-center justify-center text-white text-sm font-bold">500+</div>
+                      <div className="w-10 h-10 rounded-full bg-ink border-3 border-white shadow-md"></div>
+                      <div className="w-10 h-10 rounded-full bg-ink border-3 border-white shadow-md"></div>
+                      <div className="w-10 h-10 rounded-full bg-ink border-3 border-white shadow-md"></div>
+                      <div className="w-10 h-10 rounded-full bg-ink border-3 border-white flex items-center justify-center text-white text-sm font-bold">500+</div>
                     </div>
                   </div>
                   <div className="text-center">
@@ -350,10 +350,10 @@ const RoboticsWorkshopPage = () => {
                 <div className="absolute top-0 right-0 w-64 h-64 bg-blue-100 rounded-full blur-3xl"></div>
                 <div className="absolute bottom-0 left-0 w-48 h-48 bg-indigo-100 rounded-full blur-3xl"></div>
 
-                <div className="container relative px-6">
+                <div className="wrap relative px-6">
                   <div className="space-y-8">
                     <div className="text-center">
-                      <div className="inline-flex items-center gap-2 bg-white/70 backdrop-blur-sm px-4 py-2 rounded-full border border-slate-200/50 mb-4">
+                      <div className="inline-flex items-center gap-2 bg-white/70 px-4 py-2 rounded-sm border border-slate-200/50 mb-4">
                         <span className="h-2 w-2 rounded-full bg-emerald-500 animate-pulse"></span>
                         <span className="text-sm font-semibold text-slate-700">Built by Specialists</span>
                       </div>
@@ -384,7 +384,7 @@ const RoboticsWorkshopPage = () => {
                       ].map(({ title, description }) => (
                         <div
                           key={title}
-                          className="bg-white/80 backdrop-blur-sm rounded-xl border border-slate-200/60 p-4 shadow-lg shadow-slate-200/30"
+                          className="bg-white/80 rounded-xl border border-slate-200/60 p-4 shadow-lg shadow-slate-200/30"
                         >
                           <h3 className="text-sm lg:text-base font-semibold text-slate-900 mb-2">{title}</h3>
                           <p className="text-xs lg:text-sm text-slate-600 leading-relaxed">{description}</p>
@@ -407,7 +407,7 @@ const RoboticsWorkshopPage = () => {
           {/* Additional Features Below Hero */}
           <div className="mt-12 grid grid-cols-1 lg:grid-cols-3 gap-6">
             {/* Deployment Guides */}
-            <div className="group rounded-lg bg-white/10 backdrop-blur-sm border border-green-400/30 p-4 hover:bg-green-400/30 transition-all duration-300 hover:scale-105">
+            <div className="group rounded-lg bg-white/10 border border-green-400/30 p-4 hover:bg-green-400/30 transition-all duration-300 hover:scale-105">
               <div className="text-center">
                 <div className="text-3xl mb-2">🚀</div>
                 <div className="text-xl font-bold text-slate-900">Complete</div>
@@ -416,12 +416,12 @@ const RoboticsWorkshopPage = () => {
             </div>
 
             {/* Premium Certificate - Enhanced */}
-            <div className="group rounded-xl bg-white/10 backdrop-blur-sm border-2 border-yellow-400/40 p-4 hover:bg-yellow-400/35 transition-all duration-300 hover:scale-105 shadow-lg">
+            <div className="group rounded-xl bg-white/10 border-2 border-yellow-400/40 p-4 hover:bg-yellow-400/35 transition-all duration-300 hover:scale-105 shadow-lg">
               <div className="text-center">
                 <div className="text-5xl mb-2">🏆</div>
                 <div className="text-xl font-black text-slate-900 mb-1">PREMIUM CERTIFICATE</div>
                 <div className="text-base font-bold text-orange-700 mb-1">Robotics Builder Certification</div>
-                <div className="text-sm text-orange-800 bg-yellow-400/30 rounded-full px-3 py-1 inline-block font-semibold">
+                <div className="text-sm text-orange-800 bg-yellow-400/30 rounded-sm px-3 py-1 inline-block font-semibold">
                   Industry Recognized • Lifetime Valid
                 </div>
               </div>
@@ -491,23 +491,23 @@ const RoboticsWorkshopPage = () => {
       </section>
 
       {/* Testimonials Section */}
-      <section className="bg-nb-ink py-16 lg:py-20 relative overflow-hidden">
+      <section className="bg-ink py-16 lg:py-20 relative overflow-hidden">
         {/* Animated background elements */}
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(120,119,198,0.3),transparent_50%),radial-gradient(circle_at_80%_80%,rgba(255,119,198,0.2),transparent_50%),radial-gradient(circle_at_40%_70%,rgba(120,219,226,0.2),transparent_50%)]" />
+        <div className="absolute inset-0" />
         <div className="absolute top-10 left-10 w-72 h-72 bg-blue-500/10 rounded-full blur-3xl animate-pulse" />
         <div className="absolute bottom-10 right-10 w-96 h-96 bg-purple-500/10 rounded-full blur-3xl animate-pulse" style={{animationDelay: '2s'}} />
 
-        <div className="container relative">
+        <div className="wrap relative">
           <div className="max-w-7xl mx-auto">
             {/* Section Header */}
             <div className="text-center mb-16">
-              <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm px-6 py-3 rounded-full border border-white/20 mb-6">
+              <div className="inline-flex items-center gap-2 bg-white/10 px-6 py-3 rounded-sm border border-white/20 mb-6">
                 <span className="h-3 w-3 rounded-full bg-emerald-400 animate-pulse shadow-lg"></span>
                 <span className="text-sm font-bold text-white uppercase tracking-wider">Success Stories</span>
                 <span className="h-3 w-3 rounded-full bg-blue-400 animate-pulse shadow-lg" style={{animationDelay: '0.5s'}}></span>
               </div>
               <h2 className="text-4xl lg:text-5xl font-black text-white mb-4 leading-tight">
-                What Our <span className="text-transparent bg-clip-text nb-gradient-text">Robot Builders</span> Say
+                What Our <span className=" text-emph">Robot Builders</span> Say
               </h2>
               <p className="text-xl text-blue-100 max-w-3xl mx-auto font-medium">
                 Join 500+ professionals who've transformed their careers with robotics expertise
@@ -517,7 +517,7 @@ const RoboticsWorkshopPage = () => {
             {/* Testimonials Grid */}
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
               {/* Testimonial 1 */}
-              <div className="group bg-white/10 backdrop-blur-md rounded-2xl p-6 border border-white/20 hover:bg-white/15 transition-all duration-500 hover:scale-105 hover:shadow-2xl hover:shadow-blue-500/20">
+              <div className="group bg-white/10 rounded-2xl p-6 border border-white/20 hover:bg-white/15 transition-all duration-500 hover:scale-105 hover:shadow-2xl hover:shadow-blue-500/20">
                 <div className="flex items-center gap-1 mb-4">
                   {[...Array(5)].map((_, i) => (
                     <span key={i} className="text-yellow-400 text-lg">⭐</span>
@@ -527,7 +527,7 @@ const RoboticsWorkshopPage = () => {
                   "This workshop completely changed my perspective on robotics. Built my first autonomous robot in just 90 minutes - no prior experience needed!"
                 </p>
                 <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-full bg-nb-blue flex items-center justify-center text-white font-bold text-sm">
+                  <div className="w-10 h-10 rounded-full bg-ink flex items-center justify-center text-white font-bold text-sm">
                     A
                   </div>
                   <div>
@@ -538,7 +538,7 @@ const RoboticsWorkshopPage = () => {
               </div>
 
               {/* Testimonial 2 */}
-              <div className="group bg-white/10 backdrop-blur-md rounded-2xl p-6 border border-white/20 hover:bg-white/15 transition-all duration-500 hover:scale-105 hover:shadow-2xl hover:shadow-emerald-500/20">
+              <div className="group bg-white/10 rounded-2xl p-6 border border-white/20 hover:bg-white/15 transition-all duration-500 hover:scale-105 hover:shadow-2xl hover:shadow-emerald-500/20">
                 <div className="flex items-center gap-1 mb-4">
                   {[...Array(5)].map((_, i) => (
                     <span key={i} className="text-yellow-400 text-lg">⭐</span>
@@ -548,7 +548,7 @@ const RoboticsWorkshopPage = () => {
                   "As a non-technical entrepreneur, I was skeptical. But the hands-on approach made it so simple. My autonomous robot now performs tasks that were previously impossible!"
                 </p>
                 <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-full bg-nb-blue flex items-center justify-center text-white font-bold text-sm">
+                  <div className="w-10 h-10 rounded-full bg-ink flex items-center justify-center text-white font-bold text-sm">
                     S
                   </div>
                   <div>
@@ -559,7 +559,7 @@ const RoboticsWorkshopPage = () => {
               </div>
 
               {/* Testimonial 3 */}
-              <div className="group bg-white/10 backdrop-blur-md rounded-2xl p-6 border border-white/20 hover:bg-white/15 transition-all duration-500 hover:scale-105 hover:shadow-2xl hover:shadow-purple-500/20">
+              <div className="group bg-white/10 rounded-2xl p-6 border border-white/20 hover:bg-white/15 transition-all duration-500 hover:scale-105 hover:shadow-2xl hover:shadow-purple-500/20">
                 <div className="flex items-center gap-1 mb-4">
                   {[...Array(5)].map((_, i) => (
                     <span key={i} className="text-yellow-400 text-lg">⭐</span>
@@ -569,7 +569,7 @@ const RoboticsWorkshopPage = () => {
                   "The AI agent templates are incredible! Saved me weeks of development time. The premium certificate also boosted my LinkedIn profile significantly."
                 </p>
                 <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-full bg-nb-blue flex items-center justify-center text-white font-bold text-sm">
+                  <div className="w-10 h-10 rounded-full bg-ink flex items-center justify-center text-white font-bold text-sm">
                     R
                   </div>
                   <div>
@@ -580,7 +580,7 @@ const RoboticsWorkshopPage = () => {
               </div>
 
               {/* Testimonial 4 */}
-              <div className="group bg-white/10 backdrop-blur-md rounded-2xl p-6 border border-white/20 hover:bg-white/15 transition-all duration-500 hover:scale-105 hover:shadow-2xl hover:shadow-orange-500/20">
+              <div className="group bg-white/10 rounded-2xl p-6 border border-white/20 hover:bg-white/15 transition-all duration-500 hover:scale-105 hover:shadow-2xl hover:shadow-orange-500/20">
                 <div className="flex items-center gap-1 mb-4">
                   {[...Array(5)].map((_, i) => (
                     <span key={i} className="text-yellow-400 text-lg">⭐</span>
@@ -590,7 +590,7 @@ const RoboticsWorkshopPage = () => {
                   "From zero to AI agent expert in 120 minutes! The step-by-step guidance was perfect. Now offering AI solutions to my clients."
                 </p>
                 <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-full bg-nb-blue flex items-center justify-center text-white font-bold text-sm">
+                  <div className="w-10 h-10 rounded-full bg-ink flex items-center justify-center text-white font-bold text-sm">
                     P
                   </div>
                   <div>
@@ -601,7 +601,7 @@ const RoboticsWorkshopPage = () => {
               </div>
 
               {/* Testimonial 5 */}
-              <div className="group bg-white/10 backdrop-blur-md rounded-2xl p-6 border border-white/20 hover:bg-white/15 transition-all duration-500 hover:scale-105 hover:shadow-2xl hover:shadow-cyan-500/20">
+              <div className="group bg-white/10 rounded-2xl p-6 border border-white/20 hover:bg-white/15 transition-all duration-500 hover:scale-105 hover:shadow-2xl hover:shadow-cyan-500/20">
                 <div className="flex items-center gap-1 mb-4">
                   {[...Array(5)].map((_, i) => (
                     <span key={i} className="text-yellow-400 text-lg">⭐</span>
@@ -611,7 +611,7 @@ const RoboticsWorkshopPage = () => {
                   "The community support is amazing! Got help deploying my first AI agent and now it's generating revenue. Best investment ever."
                 </p>
                 <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-full bg-nb-blue flex items-center justify-center text-white font-bold text-sm">
+                  <div className="w-10 h-10 rounded-full bg-ink flex items-center justify-center text-white font-bold text-sm">
                     V
                   </div>
                   <div>
@@ -622,7 +622,7 @@ const RoboticsWorkshopPage = () => {
               </div>
 
               {/* Testimonial 6 */}
-              <div className="group bg-white/10 backdrop-blur-md rounded-2xl p-6 border border-white/20 hover:bg-white/15 transition-all duration-500 hover:scale-105 hover:shadow-2xl hover:shadow-pink-500/20">
+              <div className="group bg-white/10 rounded-2xl p-6 border border-white/20 hover:bg-white/15 transition-all duration-500 hover:scale-105 hover:shadow-2xl hover:shadow-pink-500/20">
                 <div className="flex items-center gap-1 mb-4">
                   {[...Array(5)].map((_, i) => (
                     <span key={i} className="text-yellow-400 text-lg">⭐</span>
@@ -632,7 +632,7 @@ const RoboticsWorkshopPage = () => {
                   "As a marketing manager, I never thought I'd build AI agents. The no-code platform made it possible. Now automating my entire workflow!"
                 </p>
                 <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-full bg-nb-blue flex items-center justify-center text-white font-bold text-sm">
+                  <div className="w-10 h-10 rounded-full bg-ink flex items-center justify-center text-white font-bold text-sm">
                     K
                   </div>
                   <div>
@@ -643,7 +643,7 @@ const RoboticsWorkshopPage = () => {
               </div>
 
               {/* Testimonial 7 */}
-              <div className="group bg-white/10 backdrop-blur-md rounded-2xl p-6 border border-white/20 hover:bg-white/15 transition-all duration-500 hover:scale-105 hover:shadow-2xl hover:shadow-indigo-500/20">
+              <div className="group bg-white/10 rounded-2xl p-6 border border-white/20 hover:bg-white/15 transition-all duration-500 hover:scale-105 hover:shadow-2xl hover:shadow-indigo-500/20">
                 <div className="flex items-center gap-1 mb-4">
                   {[...Array(5)].map((_, i) => (
                     <span key={i} className="text-yellow-400 text-lg">⭐</span>
@@ -653,7 +653,7 @@ const RoboticsWorkshopPage = () => {
                   "The deployment guides are worth the price alone! Got my AI agent live in under an hour. The certificate opened new job opportunities."
                 </p>
                 <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-full bg-nb-blue flex items-center justify-center text-white font-bold text-sm">
+                  <div className="w-10 h-10 rounded-full bg-ink flex items-center justify-center text-white font-bold text-sm">
                     M
                   </div>
                   <div>
@@ -664,7 +664,7 @@ const RoboticsWorkshopPage = () => {
               </div>
 
               {/* Testimonial 8 */}
-              <div className="group bg-white/10 backdrop-blur-md rounded-2xl p-6 border border-white/20 hover:bg-white/15 transition-all duration-500 hover:scale-105 hover:shadow-2xl hover:shadow-teal-500/20">
+              <div className="group bg-white/10 rounded-2xl p-6 border border-white/20 hover:bg-white/15 transition-all duration-500 hover:scale-105 hover:shadow-2xl hover:shadow-teal-500/20">
                 <div className="flex items-center gap-1 mb-4">
                   {[...Array(5)].map((_, i) => (
                     <span key={i} className="text-yellow-400 text-lg">⭐</span>
@@ -674,7 +674,7 @@ const RoboticsWorkshopPage = () => {
                   "Started as a complete beginner, now building AI agents for clients. The 30-day support was crucial for my learning journey."
                 </p>
                 <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-full bg-nb-blue flex items-center justify-center text-white font-bold text-sm">
+                  <div className="w-10 h-10 rounded-full bg-ink flex items-center justify-center text-white font-bold text-sm">
                     N
                   </div>
                   <div>
@@ -685,7 +685,7 @@ const RoboticsWorkshopPage = () => {
               </div>
 
               {/* Testimonial 9 */}
-              <div className="group bg-white/10 backdrop-blur-md rounded-2xl p-6 border border-white/20 hover:bg-white/15 transition-all duration-500 hover:scale-105 hover:shadow-2xl hover:shadow-amber-500/20">
+              <div className="group bg-white/10 rounded-2xl p-6 border border-white/20 hover:bg-white/15 transition-all duration-500 hover:scale-105 hover:shadow-2xl hover:shadow-amber-500/20">
                 <div className="flex items-center gap-1 mb-4">
                   {[...Array(5)].map((_, i) => (
                     <span key={i} className="text-yellow-400 text-lg">⭐</span>
@@ -695,7 +695,7 @@ const RoboticsWorkshopPage = () => {
                   "The AI agent I built increased my productivity by 300%! From manual tasks to automated workflows - game changer for my business."
                 </p>
                 <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-full bg-nb-blue flex items-center justify-center text-white font-bold text-sm">
+                  <div className="w-10 h-10 rounded-full bg-ink flex items-center justify-center text-white font-bold text-sm">
                     D
                   </div>
                   <div>
@@ -706,7 +706,7 @@ const RoboticsWorkshopPage = () => {
               </div>
 
               {/* Testimonial 10 */}
-              <div className="group bg-white/10 backdrop-blur-md rounded-2xl p-6 border border-white/20 hover:bg-white/15 transition-all duration-500 hover:scale-105 hover:shadow-2xl hover:shadow-rose-500/20">
+              <div className="group bg-white/10 rounded-2xl p-6 border border-white/20 hover:bg-white/15 transition-all duration-500 hover:scale-105 hover:shadow-2xl hover:shadow-rose-500/20">
                 <div className="flex items-center gap-1 mb-4">
                   {[...Array(5)].map((_, i) => (
                     <span key={i} className="text-yellow-400 text-lg">⭐</span>
@@ -716,7 +716,7 @@ const RoboticsWorkshopPage = () => {
                   "Beautiful UI/UX on the platform! Made learning enjoyable. The chatbot blueprint I created now handles 1000+ conversations daily."
                 </p>
                 <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-full bg-nb-blue flex items-center justify-center text-white font-bold text-sm">
+                  <div className="w-10 h-10 rounded-full bg-ink flex items-center justify-center text-white font-bold text-sm">
                     I
                   </div>
                   <div>
@@ -727,7 +727,7 @@ const RoboticsWorkshopPage = () => {
               </div>
 
               {/* Testimonial 11 */}
-              <div className="group bg-white/10 backdrop-blur-md rounded-2xl p-6 border border-white/20 hover:bg-white/15 transition-all duration-500 hover:scale-105 hover:shadow-2xl hover:shadow-violet-500/20">
+              <div className="group bg-white/10 rounded-2xl p-6 border border-white/20 hover:bg-white/15 transition-all duration-500 hover:scale-105 hover:shadow-2xl hover:shadow-violet-500/20">
                 <div className="flex items-center gap-1 mb-4">
                   {[...Array(5)].map((_, i) => (
                     <span key={i} className="text-yellow-400 text-lg">⭐</span>
@@ -737,7 +737,7 @@ const RoboticsWorkshopPage = () => {
                   "As a CTO, I was impressed by the technical depth. The API integrations and deployment strategies are production-ready."
                 </p>
                 <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-full bg-nb-blue flex items-center justify-center text-white font-bold text-sm">
+                  <div className="w-10 h-10 rounded-full bg-ink flex items-center justify-center text-white font-bold text-sm">
                     A
                   </div>
                   <div>
@@ -748,7 +748,7 @@ const RoboticsWorkshopPage = () => {
               </div>
 
               {/* Testimonial 12 */}
-              <div className="group bg-white/10 backdrop-blur-md rounded-2xl p-6 border border-white/20 hover:bg-white/15 transition-all duration-500 hover:scale-105 hover:shadow-2xl hover:shadow-lime-500/20">
+              <div className="group bg-white/10 rounded-2xl p-6 border border-white/20 hover:bg-white/15 transition-all duration-500 hover:scale-105 hover:shadow-2xl hover:shadow-lime-500/20">
                 <div className="flex items-center gap-1 mb-4">
                   {[...Array(5)].map((_, i) => (
                     <span key={i} className="text-yellow-400 text-lg">⭐</span>
@@ -758,7 +758,7 @@ const RoboticsWorkshopPage = () => {
                   "Launched my AI SaaS business using the templates! The monetization strategies helped me reach profitability in month 1."
                 </p>
                 <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-full bg-nb-blue flex items-center justify-center text-white font-bold text-sm">
+                  <div className="w-10 h-10 rounded-full bg-ink flex items-center justify-center text-white font-bold text-sm">
                     T
                   </div>
                   <div>
@@ -769,7 +769,7 @@ const RoboticsWorkshopPage = () => {
               </div>
 
               {/* Testimonial 13 */}
-              <div className="group bg-white/10 backdrop-blur-md rounded-2xl p-6 border border-white/20 hover:bg-white/15 transition-all duration-500 hover:scale-105 hover:shadow-2xl hover:shadow-sky-500/20">
+              <div className="group bg-white/10 rounded-2xl p-6 border border-white/20 hover:bg-white/15 transition-all duration-500 hover:scale-105 hover:shadow-2xl hover:shadow-sky-500/20">
                 <div className="flex items-center gap-1 mb-4">
                   {[...Array(5)].map((_, i) => (
                     <span key={i} className="text-yellow-400 text-lg">⭐</span>
@@ -779,7 +779,7 @@ const RoboticsWorkshopPage = () => {
                   "The mobile apps I built with the templates are getting 50k+ downloads! Never thought AI development could be this accessible."
                 </p>
                 <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-full bg-nb-blue flex items-center justify-center text-white font-bold text-sm">
+                  <div className="w-10 h-10 rounded-full bg-ink flex items-center justify-center text-white font-bold text-sm">
                     L
                   </div>
                   <div>
@@ -790,7 +790,7 @@ const RoboticsWorkshopPage = () => {
               </div>
 
               {/* Testimonial 14 */}
-              <div className="group bg-white/10 backdrop-blur-md rounded-2xl p-6 border border-white/20 hover:bg-white/15 transition-all duration-500 hover:scale-105 hover:shadow-2xl hover:shadow-fuchsia-500/20">
+              <div className="group bg-white/10 rounded-2xl p-6 border border-white/20 hover:bg-white/15 transition-all duration-500 hover:scale-105 hover:shadow-2xl hover:shadow-fuchsia-500/20">
                 <div className="flex items-center gap-1 mb-4">
                   {[...Array(5)].map((_, i) => (
                     <span key={i} className="text-yellow-400 text-lg">⭐</span>
@@ -800,7 +800,7 @@ const RoboticsWorkshopPage = () => {
                   "From data analyst to AI solutions provider! The skills I learned here increased my consulting rates by 5x."
                 </p>
                 <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-full bg-nb-blue flex items-center justify-center text-white font-bold text-sm">
+                  <div className="w-10 h-10 rounded-full bg-ink flex items-center justify-center text-white font-bold text-sm">
                     R
                   </div>
                   <div>
@@ -811,7 +811,7 @@ const RoboticsWorkshopPage = () => {
               </div>
 
               {/* Testimonial 15 */}
-              <div className="group bg-white/10 backdrop-blur-md rounded-2xl p-6 border border-white/20 hover:bg-white/15 transition-all duration-500 hover:scale-105 hover:shadow-2xl hover:shadow-emerald-500/20">
+              <div className="group bg-white/10 rounded-2xl p-6 border border-white/20 hover:bg-white/15 transition-all duration-500 hover:scale-105 hover:shadow-2xl hover:shadow-emerald-500/20">
                 <div className="flex items-center gap-1 mb-4">
                   {[...Array(5)].map((_, i) => (
                     <span key={i} className="text-yellow-400 text-lg">⭐</span>
@@ -821,7 +821,7 @@ const RoboticsWorkshopPage = () => {
                   "The website templates are stunning! Built my AI agency's site in hours. Clients love the professional look."
                 </p>
                 <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-full bg-nb-blue flex items-center justify-center text-white font-bold text-sm">
+                  <div className="w-10 h-10 rounded-full bg-ink flex items-center justify-center text-white font-bold text-sm">
                     S
                   </div>
                   <div>
@@ -832,7 +832,7 @@ const RoboticsWorkshopPage = () => {
               </div>
 
               {/* Testimonial 16 */}
-              <div className="group bg-white/10 backdrop-blur-md rounded-2xl p-6 border border-white/20 hover:bg-white/15 transition-all duration-500 hover:scale-105 hover:shadow-2xl hover:shadow-orange-500/20">
+              <div className="group bg-white/10 rounded-2xl p-6 border border-white/20 hover:bg-white/15 transition-all duration-500 hover:scale-105 hover:shadow-2xl hover:shadow-orange-500/20">
                 <div className="flex items-center gap-1 mb-4">
                   {[...Array(5)].map((_, i) => (
                     <span key={i} className="text-yellow-400 text-lg">⭐</span>
@@ -842,7 +842,7 @@ const RoboticsWorkshopPage = () => {
                   "90 minutes that changed my career trajectory! The automation scripts I built save me 20 hours per week. Pure gold!"
                 </p>
                 <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-full bg-nb-blue flex items-center justify-center text-white font-bold text-sm">
+                  <div className="w-10 h-10 rounded-full bg-ink flex items-center justify-center text-white font-bold text-sm">
                     Y
                   </div>
                   <div>
@@ -855,7 +855,7 @@ const RoboticsWorkshopPage = () => {
 
             {/* Call to Action */}
             <div className="text-center mt-16">
-              <div className="inline-flex items-center gap-3 bg-nb-blue px-8 py-4 rounded-2xl text-white font-bold text-lg shadow-2xl shadow-blue-500/30 hover:shadow-3xl hover:scale-105 transition-all duration-300 cursor-pointer">
+              <div className="inline-flex items-center gap-3 bg-ink px-8 py-4 rounded-2xl text-white font-bold text-lg shadow-2xl shadow-blue-500/30 hover:shadow-3xl hover:scale-105 transition-all duration-300 cursor-pointer">
                 <span className="animate-pulse">⭐</span>
                 Join 500+ Successful Robot Builders
                 <span className="animate-pulse">⭐</span>
@@ -868,7 +868,7 @@ const RoboticsWorkshopPage = () => {
 
       {/* What you'll learn */}
       <section className="bg-white/80 border-y border-slate-100 py-10 lg:py-14">
-        <div className="container">
+        <div className="wrap">
           <h2 className="text-2xl font-semibold tracking-tight text-slate-900 mb-2">
             What You Will Learn
           </h2>
@@ -880,7 +880,7 @@ const RoboticsWorkshopPage = () => {
           <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
             {["Core robotics principles: sensors, actuators, and control systems","Building autonomous robots with Arduino/Raspberry Pi","Computer vision and object detection for robots","Path planning and obstacle avoidance algorithms","IoT integration for remote monitoring and control","Real-world projects: self-driving cars, robotic arms, drones"].map(
               (item) => (
-                <div key={item} className="service-card flex items-start gap-3">
+                <div key={item} className="panel flex items-start gap-3">
                   <span className="mt-1 h-5 w-5 flex items-center justify-center rounded-full bg-blue-100 text-[12px] text-blue-600 font-semibold">
                     ✓
                   </span>
@@ -893,7 +893,7 @@ const RoboticsWorkshopPage = () => {
       </section>
 
       {/* Who should attend & Agenda */}
-      <section className="container py-10 lg:py-14">
+      <section className="wrap py-10 lg:py-14">
         <div className="grid gap-10 lg:grid-cols-2">
           <div>
             <h2 className="text-xl font-semibold tracking-tight text-slate-900 mb-2">
@@ -943,7 +943,7 @@ const RoboticsWorkshopPage = () => {
 
       {/* Why FullStackverse / credibility */}
       <section className="bg-white py-10 lg:py-14">
-        <div className="container">
+        <div className="wrap">
           <div className="max-w-4xl mx-auto">
             <h2 className="text-2xl font-semibold tracking-tight text-slate-900 mb-6">
               Why FullStackverse
@@ -951,9 +951,9 @@ const RoboticsWorkshopPage = () => {
 
             {/* Pricing Banner */}
             <div className="relative mb-8">
-              <div className="bg-nb-blue rounded-2xl p-6 text-center text-white shadow-xl">
+              <div className="bg-ink rounded-2xl p-6 text-center text-white shadow-xl">
                 <div className="absolute -top-3 left-1/2 transform -translate-x-1/2">
-                  <div className="bg-yellow-400 text-slate-900 px-4 py-1 rounded-full text-sm font-bold animate-bounce">
+                  <div className="bg-yellow-400 text-slate-900 px-4 py-1 rounded-sm text-sm font-bold animate-bounce">
                     🔥 LIMITED TIME
                   </div>
                 </div>
@@ -979,7 +979,7 @@ const RoboticsWorkshopPage = () => {
             </p>
 
             <div className="space-y-8">
-              <div className="card bg-blue-50 border border-blue-200 p-6">
+              <div className="panel bg-blue-50 border border-blue-200 p-6">
                 <h3 className="text-xl font-semibold text-slate-900 mb-4 flex items-center gap-2">
                   🔥 🎁 You Get 100+ Ready-Made Website Templates
                 </h3>
@@ -998,7 +998,7 @@ const RoboticsWorkshopPage = () => {
                 </p>
               </div>
 
-              <div className="card bg-emerald-50 border border-emerald-200 p-6">
+              <div className="panel bg-emerald-50 border border-emerald-200 p-6">
                 <h3 className="text-xl font-semibold text-slate-900 mb-4 flex items-center gap-2">
                   🔥 🚀 You Get 50+ Ready-to-Use SaaS Softwares & Applications
                 </h3>
@@ -1020,7 +1020,7 @@ const RoboticsWorkshopPage = () => {
                 </p>
               </div>
 
-              <div className="card bg-cyan-50 border border-cyan-200 p-6">
+              <div className="panel bg-cyan-50 border border-cyan-200 p-6">
                 <h3 className="text-xl font-semibold text-slate-900 mb-4 flex items-center gap-2">
                   🔥 🌐 You Get 50+ Production-Ready Web Apps (Source Code Included)
                 </h3>
@@ -1040,7 +1040,7 @@ const RoboticsWorkshopPage = () => {
                 </p>
               </div>
 
-              <div className="card bg-purple-50 border border-purple-200 p-6">
+              <div className="panel bg-purple-50 border border-purple-200 p-6">
                 <h3 className="text-xl font-semibold text-slate-900 mb-4 flex items-center gap-2">
                   🔥 📱 You Get 50+ Mobile Apps (Source Code Included)
                 </h3>
@@ -1060,7 +1060,7 @@ const RoboticsWorkshopPage = () => {
                 </p>
               </div>
 
-              <div className="card bg-green-50 border border-green-200 p-6">
+              <div className="panel bg-green-50 border border-green-200 p-6">
                 <h3 className="text-xl font-semibold text-slate-900 mb-4 flex items-center gap-2">
                   🔥 📚 Building AI Agent Ebook (₹1500 Value - FREE!)
                 </h3>
@@ -1080,7 +1080,7 @@ const RoboticsWorkshopPage = () => {
                 </p>
               </div>
 
-              <div className="card bg-orange-50 border border-orange-200 p-6">
+              <div className="panel bg-orange-50 border border-orange-200 p-6">
                 <h3 className="text-xl font-semibold text-slate-900 mb-4 flex items-center gap-2">
                   🔥 🤖 Learn How to Build AI Agents That Work Like Real Employees
                 </h3>
@@ -1099,7 +1099,7 @@ const RoboticsWorkshopPage = () => {
                 </p>
               </div>
 
-              <div className="card bg-cyan-50 border border-cyan-200 p-6">
+              <div className="panel bg-cyan-50 border border-cyan-200 p-6">
                 <h3 className="text-xl font-semibold text-slate-900 mb-4 flex items-center gap-2">
                   🔥 🧩 Proven Roadmap to Build & Launch Your Own Software or SaaS
                 </h3>
@@ -1114,7 +1114,7 @@ const RoboticsWorkshopPage = () => {
                 </ul>
               </div>
 
-              <div className="card bg-yellow-50 border border-yellow-200 p-6">
+              <div className="panel bg-yellow-50 border border-yellow-200 p-6">
                 <h3 className="text-xl font-semibold text-slate-900 mb-4 flex items-center gap-2">
                   🔥 💼 Perfect for Students, Professionals & Founders
                 </h3>
@@ -1130,7 +1130,7 @@ const RoboticsWorkshopPage = () => {
                 </ul>
               </div>
 
-              <div className="card bg-slate-50 border border-slate-200 p-6">
+              <div className="panel bg-slate-50 border border-slate-200 p-6">
                 <h3 className="text-xl font-semibold text-slate-900 mb-4 flex items-center gap-2">
                   🤖 The Goal of This Workshop
                 </h3>
@@ -1180,9 +1180,9 @@ const RoboticsWorkshopPage = () => {
         <div className="absolute top-0 left-0 w-32 h-32 bg-yellow-100 rounded-full blur-2xl"></div>
         <div className="absolute bottom-0 right-0 w-40 h-40 bg-orange-100 rounded-full blur-2xl"></div>
 
-        <div className="container relative">
+        <div className="wrap relative">
           <div className="text-center mb-12">
-            <div className="inline-flex items-center gap-2 bg-amber-100 px-4 py-2 rounded-full border border-amber-200 mb-4">
+            <div className="inline-flex items-center gap-2 bg-amber-100 px-4 py-2 rounded-sm border border-amber-200 mb-4">
               <span className="text-amber-600">🏆</span>
               <span className="text-sm font-semibold text-amber-800">FREE Certificate Included</span>
             </div>
@@ -1198,7 +1198,7 @@ const RoboticsWorkshopPage = () => {
           <div className="max-w-4xl mx-auto">
             <div className="relative">
               {/* Certificate Design */}
-              <div className="bg-white rounded-3xl border-4 border-gradient-to-r bg-nb-blue p-8 shadow-2xl shadow-amber-500/20 relative overflow-hidden">
+              <div className="bg-white rounded-3xl border-4 border-gradient-to-r bg-ink p-8 shadow-2xl shadow-amber-500/20 relative overflow-hidden">
                 {/* Decorative border */}
                 <div className="absolute inset-0 rounded-3xl border-2 border-dashed border-amber-300/50"></div>
 
@@ -1206,7 +1206,7 @@ const RoboticsWorkshopPage = () => {
                 <div className="relative text-center space-y-6">
                   {/* Header */}
                   <div className="space-y-2">
-                    <div className="inline-flex items-center gap-2 bg-nb-blue text-white px-6 py-2 rounded-full text-sm font-bold">
+                    <div className="inline-flex items-center gap-2 bg-ink text-white px-6 py-2 rounded-sm text-sm font-bold">
                       <span>🎓</span>
                       OFFICIAL CERTIFICATE
                     </div>
@@ -1262,15 +1262,15 @@ const RoboticsWorkshopPage = () => {
                 </div>
 
                 {/* Corner decorations */}
-                <div className="absolute top-4 left-4 w-8 h-8 bg-nb-blue rounded-full opacity-20"></div>
-                <div className="absolute top-4 right-4 w-8 h-8 bg-nb-blue rounded-full opacity-20"></div>
-                <div className="absolute bottom-4 left-4 w-8 h-8 bg-nb-blue rounded-full opacity-20"></div>
-                <div className="absolute bottom-4 right-4 w-8 h-8 bg-nb-blue rounded-full opacity-20"></div>
+                <div className="absolute top-4 left-4 w-8 h-8 bg-ink rounded-full opacity-20"></div>
+                <div className="absolute top-4 right-4 w-8 h-8 bg-ink rounded-full opacity-20"></div>
+                <div className="absolute bottom-4 left-4 w-8 h-8 bg-ink rounded-full opacity-20"></div>
+                <div className="absolute bottom-4 right-4 w-8 h-8 bg-ink rounded-full opacity-20"></div>
               </div>
 
               {/* Benefits of Certificate */}
               <div className="mt-8 grid md:grid-cols-2 gap-6">
-                <div className="bg-white/80 backdrop-blur-sm rounded-xl p-6 border border-amber-200">
+                <div className="bg-white/80 rounded-xl p-6 border border-amber-200">
                   <h4 className="font-semibold text-slate-900 mb-3 flex items-center gap-2">
                     <span className="text-amber-500">💼</span>
                     Career Advancement
@@ -1283,7 +1283,7 @@ const RoboticsWorkshopPage = () => {
                   </ul>
                 </div>
 
-                <div className="bg-white/80 backdrop-blur-sm rounded-xl p-6 border border-amber-200">
+                <div className="bg-white/80 rounded-xl p-6 border border-amber-200">
                   <h4 className="font-semibold text-slate-900 mb-3 flex items-center gap-2">
                     <span className="text-amber-500">🚀</span>
                     Business Opportunities
@@ -1302,11 +1302,11 @@ const RoboticsWorkshopPage = () => {
       </section>
 
       {/* Urgency & Social Proof Section */}
-      <section className="bg-nb-blue py-8 relative overflow-hidden">
+      <section className="bg-ink py-8 relative overflow-hidden">
         <div className="absolute inset-0 bg-black/10"></div>
-        <div className="container relative">
+        <div className="wrap relative">
           <div className="text-center text-white">
-            <div className="inline-flex items-center gap-2 bg-white/20 backdrop-blur-sm px-4 py-2 rounded-full mb-4">
+            <div className="inline-flex items-center gap-2 bg-white/20 px-4 py-2 rounded-sm mb-4">
               <span className="animate-pulse">⏰</span>
               <span className="font-semibold">LIMITED TIME OFFER</span>
             </div>
@@ -1314,15 +1314,15 @@ const RoboticsWorkshopPage = () => {
               Don't Miss Out on ₹2,51,500+ Worth of Assets
             </h2>
             <div className="grid md:grid-cols-3 gap-6 max-w-4xl mx-auto mb-6">
-              <div className="bg-white/10 backdrop-blur-sm rounded-xl p-4">
+              <div className="bg-white/10 rounded-xl p-4">
                 <div className="text-3xl font-bold">₹399</div>
                 <div className="text-sm opacity-90">Today Only</div>
               </div>
-              <div className="bg-white/10 backdrop-blur-sm rounded-xl p-4">
+              <div className="bg-white/10 rounded-xl p-4">
                 <div className="text-3xl font-bold">₹2,600</div>
                 <div className="text-sm opacity-90">You Save</div>
               </div>
-              <div className="bg-white/10 backdrop-blur-sm rounded-xl p-4">
+              <div className="bg-white/10 rounded-xl p-4">
                 <div className="text-3xl font-bold">83%</div>
                 <div className="text-sm opacity-90">Discount</div>
               </div>
@@ -1332,7 +1332,7 @@ const RoboticsWorkshopPage = () => {
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
               <button
-                className="bg-white text-red-600 px-8 py-3 rounded-full font-bold text-lg shadow-lg hover:bg-gray-100 transition-all transform hover:scale-105"
+                className="bg-white text-red-600 px-8 py-3 rounded-sm font-bold text-lg shadow-lg hover:bg-gray-100 transition-all transform hover:scale-105"
                 onClick={handleRegisterClick}
                 disabled={hasEnded}
               >
@@ -1347,7 +1347,7 @@ const RoboticsWorkshopPage = () => {
       </section>
 
       {/* FAQ */}
-      <section className="container py-10 lg:py-14">
+      <section className="wrap py-10 lg:py-14">
         <h2 className="text-2xl font-semibold tracking-tight text-slate-900 mb-4">
           Frequently Asked Questions
         </h2>
@@ -1390,7 +1390,7 @@ const RoboticsWorkshopPage = () => {
         </div>
 
         <div className="space-y-4 text-sm text-slate-700">
-          <details className="card bg-white/90">
+          <details className="panel bg-white/90">
             <summary className="cursor-pointer list-none font-medium text-slate-900">
               Do I get a replay recording?
             </summary>
@@ -1400,7 +1400,7 @@ const RoboticsWorkshopPage = () => {
               format. Join live to get the most value.
             </p>
           </details>
-          <details className="card bg-white/90">
+          <details className="panel bg-white/90">
             <summary className="cursor-pointer list-none font-medium text-slate-900">
               When do I see the payment QR code?
             </summary>
@@ -1410,7 +1410,7 @@ const RoboticsWorkshopPage = () => {
               so you can complete payment.
             </p>
           </details>
-          <details className="card bg-white/90">
+          <details className="panel bg-white/90">
             <summary className="cursor-pointer list-none font-medium text-slate-900">
               What tools or setup do I need?
             </summary>
@@ -1420,7 +1420,7 @@ const RoboticsWorkshopPage = () => {
               and demos a bigger screen helps.
             </p>
           </details>
-          <details className="card bg-white/90">
+          <details className="panel bg-white/90">
             <summary className="cursor-pointer list-none font-medium text-slate-900">
               Is this session only for technical people?
             </summary>
@@ -1435,7 +1435,7 @@ const RoboticsWorkshopPage = () => {
 
       {/* Final CTA */}
       <section className="bg-white/90 border-t border-slate-100 py-8 lg:py-10">
-        <div className="container flex flex-col items-center gap-3 text-center">
+        <div className="wrap flex flex-col items-center gap-3 text-center">
           <h2 className="text-xl font-semibold tracking-tight text-slate-900">
             Ready to build AI-powered systems for your business?
           </h2>
@@ -1456,10 +1456,10 @@ const RoboticsWorkshopPage = () => {
       {/* Registration modal */}
       {showForm && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/40">
-          <div className="modal-panel max-w-md w-[90%] p-6 relative">
+          <div className="dialog-panel max-w-md w-[90%] p-6 relative">
             <button
               onClick={() => setShowForm(false)}
-              className="absolute right-3 top-3 rounded-full px-2 text-xs text-slate-500 hover:bg-slate-100"
+              className="absolute right-3 top-3 rounded-sm px-2 text-xs text-slate-500 hover:bg-slate-100"
               aria-label="Close registration form"
             >
               ✕
@@ -1533,10 +1533,10 @@ const RoboticsWorkshopPage = () => {
       {/* Confirmation + QR modal */}
       {showConfirmation && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/40">
-          <div className="modal-panel max-w-lg w-[90%] p-6 relative">
+          <div className="dialog-panel max-w-lg w-[90%] p-6 relative">
             <button
               onClick={() => setShowConfirmation(false)}
-              className="absolute right-3 top-3 rounded-full px-2 text-xs text-slate-500 hover:bg-slate-100"
+              className="absolute right-3 top-3 rounded-sm px-2 text-xs text-slate-500 hover:bg-slate-100"
               aria-label="Close confirmation"
             >
               ✕
@@ -1569,8 +1569,8 @@ const RoboticsWorkshopPage = () => {
       )}
 
       {/* Final Conversion Booster - Sticky Bottom */}
-      <div className="fixed bottom-0 left-0 right-0 bg-nb-blue text-white py-4 shadow-2xl border-t-4 border-yellow-400 z-50">
-        <div className="container">
+      <div className="fixed bottom-0 left-0 right-0 bg-ink text-white py-4 shadow-2xl border-t-4 border-yellow-400 z-50">
+        <div className="wrap">
           <div className="flex flex-col md:flex-row items-center justify-between gap-4">
             <div className="flex items-center gap-4">
               <div className="bg-white/20 rounded-full p-2">
@@ -1582,11 +1582,11 @@ const RoboticsWorkshopPage = () => {
               </div>
             </div>
             <div className="flex items-center gap-4">
-              <div className="bg-red-500 text-white px-4 py-2 rounded-full font-bold animate-pulse">
+              <div className="bg-red-500 text-white px-4 py-2 rounded-sm font-bold animate-pulse">
                 🔥 83% OFF - Limited Time
               </div>
               <button
-                className="bg-white text-nb-blue px-6 py-3 rounded-lg font-bold hover:bg-blue-50 transition-all transform hover:scale-105 shadow-lg"
+                className="bg-white text-ink px-6 py-3 rounded-lg font-bold hover:bg-blue-50 transition-all transform hover:scale-105 shadow-lg"
                 onClick={handleRegisterClick}
                 disabled={hasEnded}
               >

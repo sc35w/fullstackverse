@@ -170,7 +170,7 @@ export default function CasaloomDashboard({ project }) {
                 const reached = ['New', 'Packed', 'Shipped', 'Delivered'].indexOf(sel.status) >= i;
                 return (
                   <li key={s} className="flex items-center gap-2">
-                    <span className={`h-2.5 w-2.5 rounded-full ${reached ? 'bg-[#0ca30c]' : 'bg-slate-200'}`} />
+                    <span className={`h-2.5 w-2.5 rounded-full ${reached ? 'bg-[#56603A]' : 'bg-slate-200'}`} />
                     <span className={reached ? 'text-slate-900' : 'text-slate-400'}>{s}</span>
                   </li>
                 );

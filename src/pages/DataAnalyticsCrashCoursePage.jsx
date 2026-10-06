@@ -125,7 +125,7 @@ export default function DataAnalyticsCrashCoursePage() {
           <div className="mt-4 text-green-700 font-semibold">Get Free Career Counseling by our experts</div>
         </div>
         <div className="flex-1 flex justify-center">
-          <div className="bg-nb-blue rounded-xl shadow-xl w-full max-w-md h-80 flex items-center justify-center">
+          <div className="bg-ink rounded-xl shadow-xl w-full max-w-md h-80 flex items-center justify-center">
             <BarChart3 className="h-32 w-32 text-white" />
           </div>
         </div>
@@ -241,7 +241,7 @@ export default function DataAnalyticsCrashCoursePage() {
         <div className="flex flex-wrap justify-center gap-8">
           {mentors.map((mentor, i) => (
             <div key={i} className="bg-blue-50 rounded-lg shadow p-6 flex flex-col items-center w-72">
-              <div className="w-24 h-24 rounded-full mb-4 bg-nb-blue flex items-center justify-center">
+              <div className="w-24 h-24 rounded-full mb-4 bg-ink flex items-center justify-center">
                 <Users className="h-12 w-12 text-white" />
               </div>
               <h3 className="font-semibold text-blue-700 text-lg">{mentor.name}</h3>

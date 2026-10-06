@@ -80,7 +80,7 @@ function Annotator() {
         </div>
         <div className="mt-2 flex gap-[2px]">
           {[...Array(data.frames)].map((_, i) => (
-            <button key={i} type="button" onClick={() => setFrame(i)} aria-label={`Frame ${i + 1}`} className={cn('h-2 flex-1 rounded-[1px]', i === frame ? 'bg-slate-900' : mine.some((m) => m.frame === i) ? 'bg-[#eda100]' : 'bg-slate-200')} />
+            <button key={i} type="button" onClick={() => setFrame(i)} aria-label={`Frame ${i + 1}`} className={cn('h-2 flex-1 rounded-[1px]', i === frame ? 'bg-slate-900' : mine.some((m) => m.frame === i) ? 'bg-[#C29331]' : 'bg-slate-200')} />
           ))}
         </div>
         <p className="mt-1 text-[11px] text-slate-500">Tracked objects are interpolated between keyframes; yellow ticks mark frames with your boxes.</p>

@@ -111,10 +111,11 @@ const ContactForm = ({ title = "Business Requirement Form", type = "business", e
   };
 
   return (
-    <div className={embedded ? "p-6 md:p-8" : "nb-card mx-auto max-w-2xl p-6 md:p-8"}>
-      <h3 className="mb-1 text-2xl font-bold text-nb-text">{title}</h3>
-      <p className="mb-6 text-sm text-nb-muted">We'll get back to you within 24 hours.</p>
-      <form onSubmit={handleSubmit} className="space-y-5" noValidate>
+    <div className={embedded ? "p-6 md:p-10" : "panel mx-auto max-w-2xl p-6 md:p-10"}>
+      <div className="eyebrow mb-4">Enquiry</div>
+      <h3 className="display-3 mb-2">{title}</h3>
+      <p className="mb-8 text-sm text-ink-2">We'll get back to you within 24 hours.</p>
+      <form onSubmit={handleSubmit} className="space-y-6" noValidate>
         <div className="grid grid-cols-1 gap-5 md:grid-cols-2">
           <div className="space-y-2">
             <Label htmlFor="full_name">Full Name *</Label>
@@ -186,7 +187,7 @@ const ContactForm = ({ title = "Business Requirement Form", type = "business", e
         <button
           type="submit"
           disabled={isSubmitting}
-          className="btn-solid w-full"
+          className="btn btn-primary w-full"
         >
           {isSubmitting ? "Submitting..." : "Submit Request"}
         </button>

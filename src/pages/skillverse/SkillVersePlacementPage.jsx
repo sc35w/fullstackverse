@@ -24,7 +24,7 @@ const programs = [
 
 export default function SkillVersePlacementPage() {
   return (
-    <div className="bg-white">
+    <div className="bg-canvas">
       <Helmet>
         <title>Placement Accelerator - SkillVerse</title>
         <meta
@@ -40,10 +40,10 @@ export default function SkillVersePlacementPage() {
         lead="100% job assistance and interview preparation. Mentorship and tools to fast-track your growth, from your resume to your first offer."
         actions={
           <>
-            <a href="#apply" className="btn-solid">
+            <a href="#apply" className="btn btn-primary">
               Apply Now <ArrowRight className="h-4 w-4" />
             </a>
-            <Link to="/skillverse/courses" className="btn-outline">
+            <Link to="/skillverse/courses" className="btn btn-secondary">
               Explore Courses
             </Link>
           </>
@@ -59,10 +59,10 @@ export default function SkillVersePlacementPage() {
         <SectionHeading title="Programs with placement support" lead="Choose a program and get career support built in" />
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {programs.map((p) => (
-            <Link key={p.href} to={p.href} className="nb-card group flex h-full flex-col">
-              <h3 className="text-lg font-semibold text-nb-text group-hover:text-nb-blue">{p.title}</h3>
-              <p className="mt-2 flex-1 text-sm text-nb-muted">{p.note}</p>
-              <span className="nb-link-arrow mt-5 group-hover:text-nb-blue">
+            <Link key={p.href} to={p.href} className="panel group flex h-full flex-col">
+              <h3 className="text-lg font-semibold text-ink group-hover:text-ink">{p.title}</h3>
+              <p className="mt-2 flex-1 text-sm text-ink-2">{p.note}</p>
+              <span className="link-arrow mt-5 group-hover:text-ink">
                 View Program <ArrowUpRight className="h-4 w-4" />
               </span>
             </Link>
@@ -73,9 +73,9 @@ export default function SkillVersePlacementPage() {
       <Section tone="soft" id="apply">
         <div className="grid items-center gap-10 lg:grid-cols-2">
           <div>
-            <div className="nb-eyebrow mb-3">Get started</div>
-            <h2 className="nb-h2">Join the Placement Accelerator</h2>
-            <p className="nb-lead mt-4">Share your details and our team will call you to plan your path to placement.</p>
+            <div className="eyebrow mb-3">Get started</div>
+            <h2 className="display-2">Join the Placement Accelerator</h2>
+            <p className="lead mt-4">Share your details and our team will call you to plan your path to placement.</p>
           </div>
           <SkillVerseQuickApply defaultService="Placement Accelerator" />
         </div>

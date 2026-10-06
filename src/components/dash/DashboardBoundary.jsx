@@ -18,7 +18,7 @@ export default class DashboardBoundary extends React.Component {
   render() {
     if (this.state.failed) {
       return (
-        <div className="flex min-h-[200px] items-center justify-center rounded-2xl border border-slate-200 bg-[#F7F8FA] p-6 text-center text-sm text-slate-500">
+        <div className="flex min-h-[200px] items-center justify-center border border-line bg-surface p-6 text-center text-sm text-ink-2">
           The interactive demo could not be loaded. Please refresh the page to try again.
         </div>
       );

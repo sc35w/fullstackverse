@@ -72,7 +72,7 @@ export default function PipeTrackDashboard({ project }) {
                     </div>
                     <div className="space-y-2">
                       {(expanded[stage] ? col : col.slice(0, 5)).map((d) => (
-                        <div key={d.id} className={cn('rounded-lg border bg-white p-2 text-[11px]', overdue(d) ? 'border-[#fab219]' : 'border-slate-200')}>
+                        <div key={d.id} className={cn('rounded-lg border bg-white p-2 text-[11px]', overdue(d) ? 'border-[#C29331]' : 'border-slate-200')}>
                           <div className="font-semibold text-slate-900">{d.company}</div>
                           <div className="text-slate-500">{fmt.inr(d.value)} · {d.owner.split(' ')[0]}</div>
                           <div className="mt-1 text-slate-600">Next: {d.nextStep}</div>

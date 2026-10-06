@@ -305,7 +305,7 @@ const USAWebinarPage = () => {
       });
 
       /* 2️⃣ Trigger confirmation email via Google Apps Script */
-      await submitToAppsScript('send_webinar_email', { name, email });
+      await submitToAppsScript('send_webinar_email', { webinar_slug: WORKSHOP_SLUG, name, email });
 
       /* 3️⃣ Success */
       setSuccessMessage(
@@ -325,11 +325,11 @@ const USAWebinarPage = () => {
   return (
     <div className="bg-slate-50">
       <section className="relative overflow-hidden">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(191,219,254,0.5),transparent_55%),radial-gradient(circle_at_bottom,_rgba(129,140,248,0.45),transparent_55%)]" />
+        <div className="absolute inset-0" />
         <div className="absolute -left-24 top-16 h-64 w-64 rounded-full bg-blue-200/40 blur-3xl" />
         <div className="absolute -right-24 bottom-0 h-72 w-72 rounded-full bg-indigo-300/30 blur-3xl" />
 
-        <div className="relative container pt-12 pb-16 lg:pt-16 lg:pb-20">
+        <div className="relative wrap pt-12 pb-16 lg:pt-16 lg:pb-20">
           <div className="mb-8 rounded-2xl bg-slate-900/90 px-6 py-4 shadow-xl shadow-slate-900/30 flex flex-col md:flex-row items-center justify-between gap-4 border border-slate-700/60">
             <div className="flex items-center gap-3 text-slate-100">
               <div className="flex h-10 w-10 items-center justify-center rounded-full bg-emerald-500/20 text-emerald-300 text-sm font-semibold">
@@ -371,7 +371,7 @@ const USAWebinarPage = () => {
 
           <div className="grid gap-12 lg:grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)] items-center">
             <div className="space-y-6">
-              <div className="inline-flex items-center gap-3 rounded-full bg-nb-blue px-6 py-3 text-sm font-bold text-white shadow-xl border-2 border-white/20">
+              <div className="inline-flex items-center gap-3 rounded-sm bg-ink px-6 py-3 text-sm font-bold text-white shadow-xl border-2 border-white/20">
                 <span className="h-3 w-3 rounded-full bg-white animate-pulse shadow-lg"></span>
                 <span className="uppercase tracking-wider">Live Masterclass</span>
                 <span className="h-1 w-1 rounded-full bg-white/60"></span>
@@ -420,11 +420,11 @@ const USAWebinarPage = () => {
               </div>
 
               <div className="flex flex-wrap items-center gap-3 text-xs text-slate-500">
-                <div className="flex items-center gap-2 bg-white/80 border border-slate-200 rounded-full px-3 py-1">
+                <div className="flex items-center gap-2 bg-white/80 border border-slate-200 rounded-sm px-3 py-1">
                   <span className="text-base">🛡</span>
                   Razorpay Secure - UPI Accepted
                 </div>
-                <div className="flex items-center gap-2 bg-white/80 border border-slate-200 rounded-full px-3 py-1">
+                <div className="flex items-center gap-2 bg-white/80 border border-slate-200 rounded-sm px-3 py-1">
                   <span className="text-base">🎓</span>
                   Alumni from MIT, Stanford, UIUC, UC Berkeley
                 </div>
@@ -432,7 +432,7 @@ const USAWebinarPage = () => {
             </div>
 
             <div className="relative">
-              <div className="rounded-3xl bg-white/90 border border-slate-200 p-6 shadow-2xl backdrop-blur-sm space-y-6">
+              <div className="rounded-3xl bg-white/90 border border-slate-200 p-6 shadow-2xl space-y-6">
                 <div className="text-center space-y-2">
                   <h3 className="text-2xl font-black text-slate-900">Roadmap Snapshot</h3>
                   <p className="text-sm text-slate-600">A single playbook covering what overseas education consultants charge ₹150000 for.</p>
@@ -482,7 +482,7 @@ const USAWebinarPage = () => {
       </section>
 
       <section className="bg-white py-14" id="intro-video">
-        <div className="container space-y-10">
+        <div className="wrap space-y-10">
           <div className="text-center space-y-4 max-w-3xl mx-auto">
             <h2 className="text-3xl font-bold text-slate-900">This Webinar Can Transform Your Life</h2>
             <p className="text-sm text-slate-600">
@@ -513,8 +513,8 @@ const USAWebinarPage = () => {
         </div>
       </section>
 
-      <section className="bg-nb-ink py-16">
-        <div className="container text-white space-y-12">
+      <section className="bg-ink py-16">
+        <div className="wrap text-white space-y-12">
           <div className="text-center max-w-3xl mx-auto space-y-3">
             <h2 className="text-3xl font-bold">What You Will Master</h2>
             <p className="text-sm text-slate-200">
@@ -523,7 +523,7 @@ const USAWebinarPage = () => {
           </div>
           <div className="grid gap-6 lg:grid-cols-2">
             {modules.map(({ title, points }) => (
-              <div key={title} className="rounded-2xl border border-white/10 bg-white/10 backdrop-blur-sm p-6 shadow-lg">
+              <div key={title} className="rounded-2xl border border-white/10 bg-white/10 p-6 shadow-lg">
                 <h3 className="text-lg font-semibold mb-3">{title}</h3>
                 <ul className="space-y-2 text-sm text-slate-100/90">
                   {points.map((point) => (
@@ -537,7 +537,7 @@ const USAWebinarPage = () => {
             ))}
           </div>
           <div className="grid gap-6 lg:grid-cols-2">
-            <div className="rounded-2xl border border-white/10 bg-white/10 backdrop-blur-sm p-6 shadow-lg space-y-4">
+            <div className="rounded-2xl border border-white/10 bg-white/10 p-6 shadow-lg space-y-4">
               <h3 className="text-lg font-semibold">MODULE 6 - H1B Made Simple</h3>
               <p className="text-sm text-slate-200">Understand the lottery odds and build an employer-attractive profile.</p>
               <p className="text-sm text-emerald-200 font-semibold">Breakthrough insight: start with cap-exempt roles, move to cap after securing experience.</p>
@@ -562,7 +562,7 @@ const USAWebinarPage = () => {
                 </table>
               </div>
             </div>
-            <div className="rounded-2xl border border-white/10 bg-white/10 backdrop-blur-sm p-6 shadow-lg space-y-4">
+            <div className="rounded-2xl border border-white/10 bg-white/10 p-6 shadow-lg space-y-4">
               <h3 className="text-lg font-semibold">MODULE 7 - Green Card Pathways</h3>
               <p className="text-sm text-slate-200">Build a twelve-year view from day one and shorten it with strategic evidence.</p>
               <div className="overflow-hidden rounded-xl border border-white/10">
@@ -596,7 +596,7 @@ const USAWebinarPage = () => {
       </section>
 
       <section className="bg-white py-14">
-        <div className="container space-y-10">
+        <div className="wrap space-y-10">
           <div className="text-center space-y-3 max-w-3xl mx-auto">
             <h2 className="text-3xl font-bold text-slate-900">Bonuses Included</h2>
             <p className="text-sm text-slate-600">Downloadable templates keep you executing long after the session ends.</p>
@@ -613,7 +613,7 @@ const USAWebinarPage = () => {
       </section>
 
       <section className="bg-slate-50 py-14">
-        <div className="container space-y-12">
+        <div className="wrap space-y-12">
           <div className="grid gap-6 lg:grid-cols-3">
             {audienceGroups.map(({ title, items }) => (
               <div key={title} className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm space-y-3">
@@ -650,11 +650,11 @@ const USAWebinarPage = () => {
       </section>
 
       <section className="bg-white py-14">
-        <div className="container space-y-10">
-          <div className="rounded-3xl border border-slate-200 bg-nb-blue p-8 text-white shadow-xl">
+        <div className="wrap space-y-10">
+          <div className="rounded-3xl border border-slate-200 bg-ink p-8 text-white shadow-xl">
             <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-6">
               <div className="space-y-2">
-                <div className="bg-yellow-400 text-slate-900 px-4 py-1 rounded-full text-xs font-bold inline-block animate-bounce">Limited Offer</div>
+                <div className="bg-yellow-400 text-slate-900 px-4 py-1 rounded-sm text-xs font-bold inline-block animate-bounce">Limited Offer</div>
                 <h3 className="text-3xl font-bold">Price & Offer</h3>
                 <p className="text-sm text-white/80">Actual guidance value over ₹30,000. Today only ₹399.</p>
               </div>
@@ -704,14 +704,14 @@ const USAWebinarPage = () => {
         </div>
       </section>
 
-      <section className="bg-nb-blue py-12 text-white">
-        <div className="container text-center space-y-4">
+      <section className="bg-ink py-12 text-white">
+        <div className="wrap text-center space-y-4">
           <h2 className="text-2xl font-bold">Ready to launch your USA journey the smart way?</h2>
           <p className="text-sm text-white/80 max-w-3xl mx-auto">
             Join the masterclass, execute the roadmap, and stay ahead with our community support.
           </p>
           <button
-            className="bg-white text-slate-900 px-8 py-4 rounded-full font-bold shadow-lg hover:bg-slate-100"
+            className="bg-white text-slate-900 px-8 py-4 rounded-sm font-bold shadow-lg hover:bg-slate-100"
             onClick={handleRegisterClick}
             disabled={hasEnded}
           >
@@ -722,10 +722,10 @@ const USAWebinarPage = () => {
 
       {showForm && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/40">
-          <div className="modal-panel max-w-md w-[90%] p-6 relative">
+          <div className="dialog-panel max-w-md w-[90%] p-6 relative">
             <button
               onClick={() => setShowForm(false)}
-              className="absolute right-3 top-3 rounded-full px-2 text-xs text-slate-500 hover:bg-slate-100"
+              className="absolute right-3 top-3 rounded-sm px-2 text-xs text-slate-500 hover:bg-slate-100"
               aria-label="Close registration form"
             >
               ✕
@@ -795,10 +795,10 @@ const USAWebinarPage = () => {
 
       {showConfirmation && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/40">
-          <div className="modal-panel max-w-lg w-[90%] p-6 relative">
+          <div className="dialog-panel max-w-lg w-[90%] p-6 relative">
             <button
               onClick={() => setShowConfirmation(false)}
-              className="absolute right-3 top-3 rounded-full px-2 text-xs text-slate-500 hover:bg-slate-100"
+              className="absolute right-3 top-3 rounded-sm px-2 text-xs text-slate-500 hover:bg-slate-100"
               aria-label="Close confirmation"
             >
               ✕
@@ -822,8 +822,8 @@ const USAWebinarPage = () => {
         </div>
       )}
 
-      <div className="fixed bottom-0 left-0 right-0 bg-nb-blue text-white py-4 shadow-2xl border-t-4 border-yellow-400 z-50">
-        <div className="container">
+      <div className="fixed bottom-0 left-0 right-0 bg-ink text-white py-4 shadow-2xl border-t-4 border-yellow-400 z-50">
+        <div className="wrap">
           <div className="flex flex-col md:flex-row items-center justify-between gap-4">
             <div className="flex items-center gap-4">
               <div className="bg-white/20 rounded-full p-2">
@@ -835,11 +835,11 @@ const USAWebinarPage = () => {
               </div>
             </div>
             <div className="flex items-center gap-4">
-              <div className="bg-red-500 text-white px-4 py-2 rounded-full font-bold animate-pulse">
+              <div className="bg-red-500 text-white px-4 py-2 rounded-sm font-bold animate-pulse">
                 🔥 Seats Filling Fast
               </div>
               <button
-                className="bg-white text-nb-blue px-6 py-3 rounded-lg font-bold hover:bg-blue-50 transition-all transform hover:scale-105 shadow-lg"
+                className="bg-white text-ink px-6 py-3 rounded-lg font-bold hover:bg-blue-50 transition-all transform hover:scale-105 shadow-lg"
                 onClick={handleRegisterClick}
                 disabled={hasEnded}
               >

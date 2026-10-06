@@ -47,14 +47,14 @@ const Header = () => {
   const servicesActive = services.some((s) => isActive(s.href));
 
   return (
-    <header className="nb-header">
-      <nav className="nb-container flex h-16 items-center justify-between gap-6 md:h-[72px]">
+    <header className="site-header">
+      <nav className="wrap flex h-16 items-center justify-between gap-8 md:h-[76px]">
         <Link to="/" className="shrink-0" aria-label="Fullstackverse home">
           <Logo />
         </Link>
 
         {/* Desktop navigation */}
-        <ul className="hidden items-center gap-6 whitespace-nowrap lg:flex xl:gap-8">
+        <ul className="hidden items-center gap-7 whitespace-nowrap lg:flex xl:gap-10">
           {navigation.map((item) =>
             item.dropdown ? (
               <li
@@ -66,22 +66,22 @@ const Header = () => {
               >
                 <button
                   type="button"
-                  className={`nb-nav-link ${servicesActive ? "is-active" : ""}`}
+                  className={`nav-link ${servicesActive ? "is-active" : ""}`}
                   aria-expanded={isServicesOpen}
                   onClick={() => setIsServicesOpen((v) => !v)}
                 >
                   {item.name}
-                  <ChevronDown className="h-4 w-4" />
+                  <ChevronDown className="h-3.5 w-3.5" />
                 </button>
                 {isServicesOpen && (
-                  <div className="absolute left-0 top-full w-60 pt-2">
-                    <div className="rounded-xl border border-nb-line bg-white p-2 shadow-lg">
+                  <div className="absolute -left-4 top-full w-64 pt-3">
+                    <div className="rounded border border-line bg-surface py-2">
                       {item.dropdown.map((sub) => (
                         <Link
                           key={sub.href}
                           to={sub.href}
-                          className={`block rounded-lg px-3 py-2 text-sm font-medium hover:bg-nb-soft hover:text-nb-blue ${
-                            isActive(sub.href) ? "bg-nb-soft text-nb-blue" : "text-nb-text"
+                          className={`flex items-center justify-between px-4 py-2.5 text-sm transition-colors hover:bg-surface-alt ${
+                            isActive(sub.href) ? "text-ink" : "text-ink-2 hover:text-ink"
                           }`}
                         >
                           {sub.name}
@@ -93,7 +93,7 @@ const Header = () => {
               </li>
             ) : (
               <li key={item.id}>
-                <Link to={item.href} className={`nb-nav-link ${isActive(item.href) ? "is-active" : ""}`}>
+                <Link to={item.href} className={`nav-link ${isActive(item.href) ? "is-active" : ""}`}>
                   {item.name}
                 </Link>
               </li>
@@ -103,41 +103,38 @@ const Header = () => {
 
         {/* Desktop actions */}
         <div className="hidden shrink-0 items-center gap-5 lg:flex">
-          <a href={`tel:${PHONE}`} className="nb-nav-link hidden gap-2 whitespace-nowrap xl:inline-flex">
-            <Phone className="h-4 w-4" />
-            {PHONE}
+          <a href={`tel:${PHONE}`} className="mono hidden whitespace-nowrap text-ink-2 transition-colors hover:text-ink xl:inline">
+            +91 {PHONE}
           </a>
-          <ContactDialogButton className="btn-outline btn-sm uppercase tracking-wide">Contact us</ContactDialogButton>
+          <ContactDialogButton className="btn btn-primary btn-sm">Contact us</ContactDialogButton>
         </div>
 
         {/* Mobile toggle */}
         <button
           type="button"
           onClick={() => setIsMenuOpen((v) => !v)}
-          className="-mr-2 rounded-lg p-2 text-nb-text hover:bg-nb-soft lg:hidden"
+          className="-mr-2 p-2 text-ink lg:hidden"
           aria-label={isMenuOpen ? "Close menu" : "Open menu"}
           aria-expanded={isMenuOpen}
         >
-          {isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+          {isMenuOpen ? <X className="h-6 w-6" strokeWidth={1.5} /> : <Menu className="h-6 w-6" strokeWidth={1.5} />}
         </button>
       </nav>
 
       {/* Mobile menu */}
       {isMenuOpen && (
-        <div className="max-h-[calc(100vh-64px)] overflow-y-auto border-t border-nb-line bg-white lg:hidden">
-          <div className="nb-container py-4">
+        <div className="max-h-[calc(100vh-64px)] overflow-y-auto border-t border-line bg-canvas lg:hidden">
+          <div className="wrap py-6">
             {navigation.map((item) =>
               item.dropdown ? (
                 <div key={item.id} className="py-2">
-                  <div className="px-2 pb-1 text-xs font-semibold uppercase tracking-wider text-slate-500">
-                    {item.name}
-                  </div>
+                  <div className="eyebrow pb-2 pt-2">{item.name}</div>
                   {item.dropdown.map((sub) => (
                     <Link
                       key={sub.href}
                       to={sub.href}
-                      className={`block rounded-lg px-2 py-2.5 text-[15px] font-medium ${
-                        isActive(sub.href) ? "bg-nb-soft text-nb-blue" : "text-nb-text"
+                      className={`block border-b border-line py-3 pl-4 text-[15px] ${
+                        isActive(sub.href) ? "text-ink" : "text-ink-2"
                       }`}
                     >
                       {sub.name}
@@ -148,26 +145,26 @@ const Header = () => {
                 <Link
                   key={item.id}
                   to={item.href}
-                  className={`block rounded-lg px-2 py-2.5 text-[15px] font-medium ${
-                    isActive(item.href) ? "bg-nb-soft text-nb-blue" : "text-nb-text"
+                  className={`block border-b border-line py-3.5 font-display text-2xl tracking-[-0.03em] ${
+                    isActive(item.href) ? "text-ink" : "text-ink-2"
                   }`}
                 >
                   {item.name}
                 </Link>
               )
             )}
-            <div className="mt-4 grid grid-cols-3 gap-2 border-t border-nb-line pt-4">
-              <a href={`tel:${PHONE}`} className="btn-solid btn-sm">
+            <div className="mt-8 grid grid-cols-3 gap-2">
+              <a href={`tel:${PHONE}`} className="btn btn-primary btn-sm">
                 <Phone className="h-4 w-4" /> Call
               </a>
-              <a href={`mailto:${EMAIL}`} className="btn-outline btn-sm">
+              <a href={`mailto:${EMAIL}`} className="btn btn-secondary btn-sm">
                 <Mail className="h-4 w-4" /> Email
               </a>
               <a
                 href={WHATSAPP_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="btn-sm inline-flex items-center justify-center gap-2 rounded-lg bg-[#25D366] font-bold text-white"
+                className="btn btn-secondary btn-sm"
               >
                 <MessageCircle className="h-4 w-4" /> WhatsApp
               </a>

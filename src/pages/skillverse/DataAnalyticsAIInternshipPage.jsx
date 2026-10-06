@@ -68,7 +68,7 @@ export default function DataAnalyticsAIInternshipPage() {
   return (
     <div className="bg-purple-50 min-h-screen text-gray-900">
       {/* Hero Section */}
-      <section className="relative bg-nb-blue text-white py-16 px-6 overflow-hidden">
+      <section className="relative bg-ink text-white py-16 px-6 overflow-hidden">
         <div className="absolute inset-0 bg-black opacity-10" />
         <div className="relative max-w-6xl mx-auto z-10">
           <div className="grid md:grid-cols-2 gap-8 items-start">
@@ -98,15 +98,15 @@ export default function DataAnalyticsAIInternshipPage() {
                 </Button>
               </div>
               <div className="flex flex-wrap gap-4 text-sm">
-                <div className="flex items-center gap-2 bg-white/20 px-4 py-2 rounded-full">
+                <div className="flex items-center gap-2 bg-white/20 px-4 py-2 rounded-sm">
                   <CheckCircle2 className="h-5 w-5" />
                   <span>MSME Certified</span>
                 </div>
-                <div className="flex items-center gap-2 bg-white/20 px-4 py-2 rounded-full">
+                <div className="flex items-center gap-2 bg-white/20 px-4 py-2 rounded-sm">
                   <CheckCircle2 className="h-5 w-5" />
                   <span>100% Remote</span>
                 </div>
-                <div className="flex items-center gap-2 bg-white/20 px-4 py-2 rounded-full">
+                <div className="flex items-center gap-2 bg-white/20 px-4 py-2 rounded-sm">
                   <CheckCircle2 className="h-5 w-5" />
                   <span>Industry Projects</span>
                 </div>
@@ -361,7 +361,7 @@ export default function DataAnalyticsAIInternshipPage() {
       {/* Pricing Block */}
       <section className="py-16 px-6 bg-white">
         <div className="max-w-4xl mx-auto">
-          <div className="bg-nb-blue text-white rounded-2xl p-8 md:p-12 text-center">
+          <div className="bg-ink text-white rounded-2xl p-8 md:p-12 text-center">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">Internship Fee: ₹9,999</h2>
             <div className="grid md:grid-cols-3 gap-4 mb-8 text-sm">
               <div className="flex items-center justify-center gap-2">

@@ -32,6 +32,7 @@ export default function SkillVerseQuickApply({ defaultService = "" }) {
         contact_number: formData.phone,
         email: formData.email,
         project_description: `Service interested: ${formData.service}`,
+        service: formData.service,
         budget: "To be discussed",
         type: "SkillVerse Quick Apply",
       });
@@ -55,7 +56,7 @@ export default function SkillVerseQuickApply({ defaultService = "" }) {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="nb-card space-y-4 p-6 md:p-8">
+    <form onSubmit={handleSubmit} className="panel space-y-4 p-6 md:p-8">
       <div>
         <Label htmlFor="fullName">Full Name *</Label>
         <Input
@@ -95,7 +96,7 @@ export default function SkillVerseQuickApply({ defaultService = "" }) {
           value={formData.service}
           onChange={(e) => setFormData({ ...formData, service: e.target.value })}
           required
-          className="nb-input mt-1"
+          className="field mt-1"
         >
           <option value="">Select a service</option>
           {SERVICES.map((s) => (
@@ -103,7 +104,7 @@ export default function SkillVerseQuickApply({ defaultService = "" }) {
           ))}
         </select>
       </div>
-      <button type="submit" disabled={loading} className="btn-solid w-full">
+      <button type="submit" disabled={loading} className="btn btn-primary w-full">
         {loading ? "Submitting..." : "Submit Application"}
       </button>
     </form>

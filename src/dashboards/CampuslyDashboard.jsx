@@ -134,7 +134,7 @@ export default function CampuslyDashboard({ project }) {
               columns={[
                 { key: 'name', label: 'Student' },
                 { key: 'class', label: 'Class' },
-                ...data.subjects.map((sub) => ({ key: sub, label: sub, align: 'right', sortValue: (s) => s.scores[sub], render: (s) => <span className={cn(s.scores[sub] < 40 && 'font-semibold text-[#B42318]', sub === subject && 'font-semibold text-slate-900')}>{s.scores[sub]}</span> })),
+                ...data.subjects.map((sub) => ({ key: sub, label: sub, align: 'right', sortValue: (s) => s.scores[sub], render: (s) => <span className={cn(s.scores[sub] < 40 && 'font-semibold text-[#8E2A1C]', sub === subject && 'font-semibold text-slate-900')}>{s.scores[sub]}</span> })),
               ]}
             />
           </Panel>

@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { Rocket, Users, Calendar, MapPin, Mic } from "lucide-react";
+import { ArrowRight, Rocket, Users, Calendar, MapPin, Mic } from "lucide-react";
+import { PageHero, Section } from "../../components/site/blocks";
 
 const workshops = [
   {
@@ -53,53 +54,41 @@ const workshops = [
 
 export default function SkillVerseWorkshopsPage() {
   return (
-    <div className="bg-white">
-      <section className="nb-hero">
-        <div className="nb-container py-14 text-center md:py-20">
-          <h1 className="nb-h1">Workshops & Webinars</h1>
-          <p className="nb-lead mx-auto mt-4 max-w-2xl md:text-lg">Interactive sessions to boost your skills and knowledge</p>
-        </div>
-      </section>
+    <div className="bg-canvas">
+      <PageHero
+        eyebrow="Workshops"
+        title="Workshops &"
+        highlight="Webinars"
+        lead="Interactive sessions to boost your skills and knowledge"
+        spec={[['Sessions', String(workshops.length).padStart(2, '0')]]}
+      />
 
-      <section className="nb-section nb-section--soft">
-        <div className="nb-container grid gap-5 md:grid-cols-2">
-          {workshops.map((workshop) => (
-            <div
-              key={workshop.id}
-              className={`nb-card flex flex-col md:p-8 ${workshop.highlight ? "!border-nb-orange ring-1 ring-nb-orange" : ""}`}
-            >
-              <div className="mb-6 flex items-start gap-4">
-                <span className="nb-icon">
-                  {workshop.id === "speak-english" ? <Mic className="h-5 w-5" /> : <Rocket className="h-5 w-5" />}
-                </span>
-                <div className="flex-1">
-                  <h3 className="text-xl font-semibold text-nb-text">{workshop.title}</h3>
-                  <p className="mt-2 text-sm leading-relaxed text-nb-muted">{workshop.description}</p>
-                </div>
+      <Section>
+        <ol className="border-b border-line">
+          {workshops.map((workshop, i) => (
+            <li key={workshop.id} className="grid gap-4 border-t border-line py-10 md:grid-cols-12 md:gap-6">
+              <span className="meta md:col-span-1">{String(i + 1).padStart(2, '0')}</span>
+              <div className="md:col-span-5">
+                <h2 className="display-3 !text-[clamp(1.6rem,2.4vw,2.2rem)]">
+                  {workshop.id === 'speak-english' ? <Mic className="mb-3 h-5 w-5" /> : <Rocket className="mb-3 h-5 w-5" />}
+                  {workshop.title}
+                </h2>
+                <p className="mt-4 text-[15px] leading-relaxed text-ink-2">{workshop.description}</p>
               </div>
-
-              <ul className="mb-6 flex-1 space-y-2.5 text-sm text-nb-muted">
-                <li className="flex items-center gap-3">
-                  <Calendar className="h-4 w-4 text-nb-blue" />
-                  {workshop.date}
-                </li>
-                <li className="flex items-center gap-3">
-                  <Users className="h-4 w-4 text-nb-blue" />
-                  Duration: {workshop.duration}
-                </li>
-                <li className="flex items-center gap-3">
-                  <MapPin className="h-4 w-4 text-nb-blue" />
-                  Mode: {workshop.mode}
-                </li>
-              </ul>
-
-              <Link to={workshop.link} className="btn-solid btn-sm w-full">
-                Register Now
-              </Link>
-            </div>
+              <dl className="spec md:col-span-4">
+                <div><dt className="flex items-center gap-2"><Calendar className="h-3.5 w-3.5" />Schedule</dt><dd>{workshop.date}</dd></div>
+                <div><dt className="flex items-center gap-2"><Users className="h-3.5 w-3.5" />Duration</dt><dd>{workshop.duration}</dd></div>
+                <div><dt className="flex items-center gap-2"><MapPin className="h-3.5 w-3.5" />Mode</dt><dd>{workshop.mode}</dd></div>
+              </dl>
+              <div className="md:col-span-2 md:text-right">
+                <Link to={workshop.link} className="btn btn-primary btn-sm">
+                  Register Now <ArrowRight className="h-4 w-4" />
+                </Link>
+              </div>
+            </li>
           ))}
-        </div>
-      </section>
+        </ol>
+      </Section>
     </div>
   );
 }

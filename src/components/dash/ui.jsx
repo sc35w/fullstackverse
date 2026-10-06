@@ -35,15 +35,13 @@ export function useLive(fn, ms, on = true) {
 
 export function DashShell({ name, accent, views, view, onView, range, onRange, live, onLive, filters, children }) {
   return (
-    <div className="overflow-hidden rounded-2xl border border-slate-200 bg-[#F7F8FA] shadow-sm">
+    <div className="overflow-hidden rounded-sm border border-line-dark bg-canvas">
       <div className="flex min-h-[640px] flex-col md:flex-row">
         {/* Sidebar (tabs on small screens) */}
-        <aside className="shrink-0 border-b border-slate-200 bg-white md:w-52 md:border-b-0 md:border-r">
+        <aside className="shrink-0 border-b border-line bg-surface md:w-56 md:border-b-0 md:border-r">
           <div className="flex items-center gap-2 px-4 py-3 md:py-4">
-            <span className="flex h-7 w-7 items-center justify-center rounded-lg text-xs font-bold text-white" style={{ background: accent }}>
-              {name.charAt(0)}
-            </span>
-            <span className="truncate text-sm font-bold text-slate-900">{name}</span>
+            <span className="block h-2 w-2 bg-ink" aria-hidden="true" />
+            <span className="truncate font-display text-lg tracking-[-0.03em] text-ink">{name}</span>
           </div>
           <nav className="flex gap-1 overflow-x-auto px-2 pb-2 md:flex-col md:overflow-visible">
             {views.map((v) => {
@@ -55,14 +53,14 @@ export function DashShell({ name, accent, views, view, onView, range, onRange, l
                   type="button"
                   onClick={() => onView(v.id)}
                   className={cn(
-                    'flex shrink-0 items-center gap-2 rounded-lg px-3 py-2 text-left text-sm font-medium transition-colors',
-                    on ? 'bg-slate-900 text-white' : 'text-slate-600 hover:bg-slate-100'
+                    'flex shrink-0 items-center gap-2.5 rounded-sm px-3 py-2 text-left text-sm transition-colors',
+                    on ? 'bg-ink text-canvas' : 'text-ink-2 hover:bg-surface-alt hover:text-ink'
                   )}
                 >
                   {Icon && <Icon className="h-4 w-4" />}
                   {v.label}
                   {v.badge ? (
-                    <span className={cn('ml-auto rounded-full px-1.5 text-[10px] font-bold', on ? 'bg-white text-slate-900' : 'bg-slate-200 text-slate-700')}>
+                    <span className={cn('ml-auto font-mono text-[10px]', on ? 'text-line-dark' : 'text-ink-3')}>
                       {v.badge}
                     </span>
                   ) : null}
@@ -74,15 +72,15 @@ export function DashShell({ name, accent, views, view, onView, range, onRange, l
 
         <div className="min-w-0 flex-1">
           {/* Filter row: date range first, then project filters, then live toggle */}
-          <div className="flex flex-wrap items-center gap-2 border-b border-slate-200 bg-white px-4 py-2.5">
+          <div className="flex flex-wrap items-center gap-2 border-b border-line bg-surface px-4 py-2.5">
             {onRange && (
-              <div className="flex rounded-lg border border-slate-200 p-0.5" role="group" aria-label="Date range">
+              <div className="flex rounded-sm border border-line p-0.5" role="group" aria-label="Date range">
                 {RANGES.map((r) => (
                   <button
                     key={r.id}
                     type="button"
                     onClick={() => onRange(r.id)}
-                    className={cn('rounded-md px-2.5 py-1 text-xs font-medium', range === r.id ? 'bg-slate-900 text-white' : 'text-slate-600 hover:bg-slate-100')}
+                    className={cn('rounded-sm px-2.5 py-1 text-xs', range === r.id ? 'bg-ink text-canvas' : 'text-ink-2 hover:text-ink')}
                   >
                     {r.label}
                   </button>
@@ -95,7 +93,7 @@ export function DashShell({ name, accent, views, view, onView, range, onRange, l
                 <button
                   type="button"
                   onClick={() => onLive(!live)}
-                  className="inline-flex items-center gap-1.5 rounded-lg border border-slate-200 px-2.5 py-1 text-xs font-medium text-slate-600 hover:bg-slate-50"
+                  className="inline-flex items-center gap-1.5 rounded-sm border border-line px-2.5 py-1 text-xs text-ink-2 hover:border-ink-3"
                 >
                   {live ? (
                     <>
@@ -110,7 +108,7 @@ export function DashShell({ name, accent, views, view, onView, range, onRange, l
                   )}
                 </button>
               )}
-              <span className="rounded-md bg-amber-50 px-2 py-1 text-[11px] font-medium text-amber-800 ring-1 ring-amber-200">Sample data</span>
+              <span className="meta rounded-sm border border-line px-2 py-1 !text-[10px]">Sample data</span>
             </div>
           </div>
           <div className="space-y-4 p-4">{children}</div>
@@ -127,7 +125,7 @@ export function Select({ value, onChange, options, label }) {
       <select
         value={value}
         onChange={(e) => onChange(e.target.value)}
-        className="rounded-lg border border-slate-200 bg-white px-2 py-1 text-xs font-medium text-slate-800 outline-none focus:border-slate-400"
+        className="rounded-sm border border-line bg-surface px-2 py-1 text-xs text-ink outline-none focus:border-ink"
       >
         {options.map((o) => (
           <option key={o} value={o}>{o}</option>
@@ -141,19 +139,19 @@ export function StatTile({ label, value, deltaPct, deltaUnit = '%', upIsGood = t
   const up = deltaPct >= 0;
   const good = up === upIsGood;
   return (
-    <div className="min-w-0 rounded-xl border border-slate-200 bg-white p-4">
-      <div className="text-xs font-medium text-slate-500">{label}</div>
+    <div className="min-w-0 rounded-sm border border-line bg-surface p-5">
+      <div className="meta">{label}</div>
       <div className="mt-1 flex items-end justify-between gap-2">
-        <div className={cn('font-semibold text-slate-900', hero ? 'text-4xl' : 'text-2xl')}>{value}</div>
+        <div className={cn('mt-1 font-display tracking-[-0.03em] text-ink', hero ? 'text-5xl' : 'text-[2rem] leading-tight')}>{value}</div>
         {spark && <Sparkline values={spark} />}
       </div>
       {deltaPct != null && Number.isFinite(deltaPct) && (
-        <div className={cn('mt-1 inline-flex items-center gap-0.5 text-xs font-medium', good ? 'text-[#006300]' : 'text-[#b42318]')}>
+        <div className={cn('mt-1 inline-flex items-center gap-0.5 text-xs font-medium', good ? 'text-[#3E5424]' : 'text-[#8E2A1C]')}>
           {up ? <ArrowUp className="h-3 w-3" /> : <ArrowDown className="h-3 w-3" />}
-          {Math.abs(deltaPct).toFixed(1)}{deltaUnit === 'pts' ? ' pts' : '%'} <span className="font-normal text-slate-500">vs previous period</span>
+          {Math.abs(deltaPct).toFixed(1)}{deltaUnit === 'pts' ? ' pts' : '%'} <span className="font-normal text-ink-3">vs previous period</span>
         </div>
       )}
-      {hint && <div className="mt-1 text-xs text-slate-500">{hint}</div>}
+      {hint && <div className="mt-1 text-xs text-ink-3">{hint}</div>}
     </div>
   );
 }
@@ -164,18 +162,18 @@ export function KpiRow({ children }) {
 
 // Status pill: colour + icon + label, never colour alone.
 const STATUS_MAP = {
-  good: { icon: CheckCircle2, color: STATUS.good, bg: '#ECFDF3', fg: '#05603A' },
-  warning: { icon: Clock, color: STATUS.warning, bg: '#FFFAEB', fg: '#93370D' },
-  serious: { icon: AlertTriangle, color: STATUS.serious, bg: '#FFF4ED', fg: '#9C2A10' },
-  critical: { icon: AlertOctagon, color: STATUS.critical, bg: '#FEF3F2', fg: '#B42318' },
-  neutral: { icon: Circle, color: '#94A3B8', bg: '#F1F5F9', fg: '#334155' },
+  good: { icon: CheckCircle2, color: '#4F6B2E', bg: '#E9EBDD', fg: '#3E5424' },
+  warning: { icon: Clock, color: '#9A6B16', bg: '#F2E8CF', fg: '#6E4C10' },
+  serious: { icon: AlertTriangle, color: '#A4532A', bg: '#F2E1D3', fg: '#7A3D1F' },
+  critical: { icon: AlertOctagon, color: '#9B2C22', bg: '#F1DAD4', fg: '#7C231B' },
+  neutral: { icon: Circle, color: '#8A837A', bg: '#EAE4DA', fg: '#4A453E' },
 };
 
 export function StatusPill({ tone = 'neutral', children }) {
   const s = STATUS_MAP[tone] || STATUS_MAP.neutral;
   const Icon = s.icon;
   return (
-    <span className="inline-flex items-center gap-1 whitespace-nowrap rounded-full px-2 py-0.5 text-[11px] font-medium" style={{ background: s.bg, color: s.fg }}>
+    <span className="inline-flex items-center gap-1 whitespace-nowrap rounded-sm px-1.5 py-0.5 text-[11px] font-medium" style={{ background: s.bg, color: s.fg }}>
       <Icon className="h-3 w-3" style={{ color: s.color }} />
       {children}
     </span>
@@ -184,18 +182,18 @@ export function StatusPill({ tone = 'neutral', children }) {
 
 export function Meter({ value, max = 100, label, right, tone }) {
   const pct = Math.max(0, Math.min(100, (value / max) * 100));
-  const fill = tone === 'critical' ? STATUS.critical : tone === 'warning' ? STATUS.warning : tone === 'good' ? STATUS.good : '#2a78d6';
-  const track = tone === 'critical' ? '#FDE4E4' : tone === 'warning' ? '#FEF0C7' : tone === 'good' ? '#DCFCE0' : '#cde2fb';
+  const fill = tone === 'critical' ? '#9B2C22' : tone === 'warning' ? '#B07A1B' : tone === 'good' ? '#56603A' : '#3A3630';
+  const track = '#E6E0D6';
   return (
     <div className="min-w-0">
       {(label || right) && (
         <div className="mb-1 flex justify-between gap-2 text-xs">
-          <span className="truncate text-slate-600">{label}</span>
-          <span className="font-semibold tabular-nums text-slate-900">{right}</span>
+          <span className="truncate text-ink-2">{label}</span>
+          <span className="font-mono text-[11px] tabular-nums text-ink">{right}</span>
         </div>
       )}
-      <div className="h-2 rounded-full" style={{ background: track }}>
-        <div className="h-2 rounded-full transition-[width] duration-500" style={{ width: `${pct}%`, background: fill }} />
+      <div className="h-1.5" style={{ background: track }}>
+        <div className="h-1.5 transition-[width] duration-500" style={{ width: `${pct}%`, background: fill }} />
       </div>
     </div>
   );
@@ -208,12 +206,12 @@ export function Btn({ children, onClick, variant = 'primary', size = 'sm', disab
       onClick={onClick}
       disabled={disabled}
       className={cn(
-        'inline-flex items-center justify-center gap-1.5 rounded-lg font-semibold transition-colors disabled:cursor-not-allowed disabled:opacity-50',
+        'inline-flex items-center justify-center gap-1.5 rounded-sm font-medium transition-colors disabled:cursor-not-allowed disabled:opacity-45',
         size === 'sm' ? 'px-2.5 py-1 text-xs' : 'px-3.5 py-2 text-sm',
-        variant === 'primary' && 'bg-slate-900 text-white hover:bg-slate-700',
-        variant === 'outline' && 'border border-slate-300 bg-white text-slate-800 hover:bg-slate-50',
-        variant === 'danger' && 'border border-[#FECDCA] bg-white text-[#B42318] hover:bg-[#FEF3F2]',
-        variant === 'ghost' && 'text-slate-600 hover:bg-slate-100',
+        variant === 'primary' && 'bg-ink text-canvas hover:bg-ink-hover',
+        variant === 'outline' && 'border border-line-dark bg-transparent text-ink hover:border-ink',
+        variant === 'danger' && 'border border-[#D9B7AE] bg-transparent text-[#8E2A1C] hover:border-[#8E2A1C]',
+        variant === 'ghost' && 'text-ink-2 hover:text-ink',
         className
       )}
     >
@@ -259,7 +257,7 @@ export function DataTable({ columns, rows, searchKeys, onRowClick, pageSize = 8,
                 value={q}
                 onChange={(e) => setQ(e.target.value)}
                 placeholder="Search…"
-                className="w-44 rounded-lg border border-slate-200 py-1 pl-7 pr-2 text-xs outline-none focus:border-slate-400"
+                className="w-44 rounded-sm border border-line bg-surface py-1 pl-7 pr-2 text-xs outline-none focus:border-ink"
               />
             </label>
           )}
@@ -270,7 +268,7 @@ export function DataTable({ columns, rows, searchKeys, onRowClick, pageSize = 8,
       <div className="overflow-x-auto">
         <table className="w-full min-w-[560px] text-left text-xs">
           <thead>
-            <tr className="border-b border-slate-200 text-slate-500">
+            <tr className="border-b border-line-dark font-mono text-[10px] uppercase tracking-wider text-ink-3">
               {columns.map((c) => (
                 <th key={c.key} className={cn('py-2 pr-3 font-medium', c.align === 'right' && 'text-right')}>
                   {c.sort === false ? (
@@ -278,7 +276,7 @@ export function DataTable({ columns, rows, searchKeys, onRowClick, pageSize = 8,
                   ) : (
                     <button
                       type="button"
-                      className="inline-flex items-center gap-0.5 hover:text-slate-900"
+                      className="inline-flex items-center gap-0.5 uppercase hover:text-ink"
                       onClick={() => setSort((s) => (s?.key === c.key ? { key: c.key, dir: s.dir === 'asc' ? 'desc' : 'asc' } : { key: c.key, dir: 'desc' }))}
                     >
                       {c.label}
@@ -289,15 +287,15 @@ export function DataTable({ columns, rows, searchKeys, onRowClick, pageSize = 8,
               ))}
             </tr>
           </thead>
-          <tbody className="tabular-nums text-slate-700">
+          <tbody className="tabular-nums text-ink-2">
             {shown.map((row) => (
               <tr
                 key={row[rowKey]}
                 onClick={onRowClick ? () => onRowClick(row) : undefined}
                 className={cn(
-                  'border-b border-slate-100',
-                  onRowClick && 'cursor-pointer hover:bg-slate-50',
-                  selectedKey != null && selectedKey === row[rowKey] && 'bg-blue-50/60'
+                  'border-b border-line',
+                  onRowClick && 'cursor-pointer hover:bg-surface-alt/60',
+                  selectedKey != null && selectedKey === row[rowKey] && 'bg-surface-alt'
                 )}
               >
                 {columns.map((c) => (
@@ -332,16 +330,16 @@ export function DataTable({ columns, rows, searchKeys, onRowClick, pageSize = 8,
 export function Drawer({ open, title, onClose, children }) {
   if (!open) return null;
   return (
-    <div className="fixed inset-0 z-[70] flex justify-end bg-slate-900/30" onClick={onClose}>
+    <div className="fixed inset-0 z-[70] flex justify-end bg-[#211F1A]/35" onClick={onClose}>
       <div
         role="dialog"
         aria-label={title}
-        className="h-full w-full max-w-md overflow-y-auto bg-white p-5 shadow-2xl"
+        className="h-full w-full max-w-md overflow-y-auto border-l border-line bg-surface p-6"
         onClick={(e) => e.stopPropagation()}
       >
         <div className="mb-4 flex items-start justify-between gap-3">
-          <h3 className="text-base font-semibold text-slate-900">{title}</h3>
-          <button type="button" onClick={onClose} className="rounded-md p-1 text-slate-500 hover:bg-slate-100" aria-label="Close">
+          <div className="display-3 !text-2xl">{title}</div>
+          <button type="button" onClick={onClose} className="rounded-sm p-1 text-ink-2 hover:text-ink" aria-label="Close">
             <X className="h-4 w-4" />
           </button>
         </div>
@@ -353,21 +351,21 @@ export function Drawer({ open, title, onClose, children }) {
 
 export function Field({ label, children }) {
   return (
-    <div className="flex justify-between gap-4 border-b border-slate-100 py-2 text-sm">
-      <span className="text-slate-500">{label}</span>
-      <span className="text-right font-medium text-slate-900">{children}</span>
+    <div className="flex justify-between gap-4 border-b border-line py-2.5 text-sm">
+      <span className="text-ink-3">{label}</span>
+      <span className="text-right text-ink">{children}</span>
     </div>
   );
 }
 
 export function Panel({ title, subtitle, actions, children, className }) {
   return (
-    <section className={cn('min-w-0 rounded-xl border border-slate-200 bg-white p-4', className)}>
+    <section className={cn('min-w-0 rounded-sm border border-line bg-surface p-5', className)}>
       {(title || actions) && (
         <div className="mb-3 flex flex-wrap items-start justify-between gap-2">
           <div>
-            <h3 className="text-sm font-semibold text-slate-900">{title}</h3>
-            {subtitle && <p className="text-xs text-slate-500">{subtitle}</p>}
+            <div className="text-[15px] font-medium text-ink">{title}</div>
+            {subtitle && <p className="text-xs text-ink-3">{subtitle}</p>}
           </div>
           {actions}
         </div>
@@ -380,7 +378,7 @@ export function Panel({ title, subtitle, actions, children, className }) {
 // Event feed for "live" streams.
 export function Feed({ items, render, max = 8 }) {
   return (
-    <ul className="divide-y divide-slate-100">
+    <ul className="divide-y divide-line">
       {items.slice(0, max).map((it) => (
         <li key={it.id} className="py-2 first:pt-0 last:pb-0">{render(it)}</li>
       ))}

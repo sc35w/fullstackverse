@@ -66,15 +66,15 @@ export default function MindMoveDashboard({ project }) {
                       <button
                         type="button"
                         onClick={() => toggle(h.id)}
-                        className={cn('flex w-full items-center gap-3 rounded-lg border p-2.5 text-left transition-colors', done ? 'border-[#0ca30c]/40 bg-[#ECFDF3]' : 'border-slate-200 hover:bg-slate-50')}
+                        className={cn('flex w-full items-center gap-3 rounded-lg border p-2.5 text-left transition-colors', done ? 'border-[#56603A]/40 bg-[#E9EBDD]' : 'border-slate-200 hover:bg-slate-50')}
                       >
-                        <span className={cn('flex h-5 w-5 items-center justify-center rounded-full border-2 text-[11px] font-bold', done ? 'border-[#0ca30c] bg-[#0ca30c] text-white' : 'border-slate-300')}>{done ? '✓' : ''}</span>
+                        <span className={cn('flex h-5 w-5 items-center justify-center rounded-full border-2 text-[11px] font-bold', done ? 'border-[#56603A] bg-[#56603A] text-white' : 'border-slate-300')}>{done ? '✓' : ''}</span>
                         <span className="flex-1 text-sm text-slate-900">{h.name}</span>
                         <span className="text-xs text-slate-500">🔥 {streak(log[h.id])} day streak</span>
                       </button>
                       <div className="mt-1 flex gap-[3px] pl-8">
                         {log[h.id].slice(-21).map((v, i) => (
-                          <span key={i} className="h-1.5 flex-1 rounded-full" style={{ background: v ? '#0ca30c' : '#E2E8F0' }} />
+                          <span key={i} className="h-1.5 flex-1 rounded-full" style={{ background: v ? '#56603A' : '#E2E8F0' }} />
                         ))}
                       </div>
                     </li>
@@ -132,13 +132,13 @@ export default function MindMoveDashboard({ project }) {
             <div className="space-y-3">
               <label className="block text-sm">
                 <span className="text-slate-600">Type</span>
-                <select className="nb-input mt-1" value={form.kind} onChange={(e) => setForm({ ...form, kind: e.target.value })}>
+                <select className="field mt-1" value={form.kind} onChange={(e) => setForm({ ...form, kind: e.target.value })}>
                   {['Run', 'Walk', 'HIIT', 'Yoga flow', 'Strength – upper', 'Strength – lower', 'Cycling'].map((k) => <option key={k}>{k}</option>)}
                 </select>
               </label>
               <label className="block text-sm">
                 <span className="text-slate-600">Minutes</span>
-                <input className="nb-input mt-1" inputMode="numeric" value={form.minutes} onChange={(e) => setForm({ ...form, minutes: e.target.value.replace(/\D/g, '') })} />
+                <input className="field mt-1" inputMode="numeric" value={form.minutes} onChange={(e) => setForm({ ...form, minutes: e.target.value.replace(/\D/g, '') })} />
               </label>
               <Btn size="md" className="w-full" onClick={addWorkout}>Save workout</Btn>
             </div>
@@ -150,7 +150,7 @@ export default function MindMoveDashboard({ project }) {
           <Panel title="Recent workouts">
             <ul className="max-h-[420px] divide-y divide-slate-100 overflow-y-auto">
               {workouts.map((w) => (
-                <li key={w.id} className={cn('flex items-center gap-3 py-2', w.fresh && 'bg-blue-50/40')}>
+                <li key={w.id} className={cn('flex items-center gap-3 py-2', w.fresh && 'bg-surface-alt/60')}>
                   <span className="flex h-9 w-9 items-center justify-center rounded-lg bg-slate-100"><Dumbbell className="h-4 w-4 text-slate-600" /></span>
                   <div className="flex-1">
                     <div className="text-sm font-semibold text-slate-900">{w.kind}</div>

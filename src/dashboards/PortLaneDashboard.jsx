@@ -85,10 +85,10 @@ export default function PortLaneDashboard({ project }) {
         <>
           <Panel title="Track a shipment" subtitle="Enter a container or booking number (try one from My shipments)">
             <form onSubmit={search} className="flex flex-wrap gap-2">
-              <input className="nb-input max-w-xs font-mono text-sm" value={q} onChange={(e) => setQ(e.target.value)} aria-label="Container or booking number" />
+              <input className="field max-w-xs font-mono text-sm" value={q} onChange={(e) => setQ(e.target.value)} aria-label="Container or booking number" />
               <Btn type="submit" size="md"><Search className="h-4 w-4" />Track</Btn>
             </form>
-            {miss && <p className="mt-2 text-sm text-[#B42318]">No shipment found with that number.</p>}
+            {miss && <p className="mt-2 text-sm text-[#8E2A1C]">No shipment found with that number.</p>}
           </Panel>
           {found && (
             <div className="grid gap-4 xl:grid-cols-[1.3fr_1fr]">
@@ -104,7 +104,7 @@ export default function PortLaneDashboard({ project }) {
                   {data.milestones.map((m, i) => (
                     <li key={m} className="relative">
                       <span
-                        className={cn('absolute -left-[23px] top-0.5 h-3.5 w-3.5 rounded-full border-2 border-white', i < found.step ? 'bg-[#0ca30c]' : i === found.step ? (found.delayed ? 'bg-[#d03b3b]' : 'bg-[#2a78d6]') : 'bg-slate-200')}
+                        className={cn('absolute -left-[23px] top-0.5 h-3.5 w-3.5 rounded-full border-2 border-white', i < found.step ? 'bg-[#56603A]' : i === found.step ? (found.delayed ? 'bg-[#9B2C22]' : 'bg-ink') : 'bg-slate-200')}
                       />
                       <div className={cn('text-sm', i <= found.step ? 'font-semibold text-slate-900' : 'text-slate-400')}>{m}</div>
                       {i === found.step && found.step !== last && <div className="text-xs text-slate-500">{found.delayed ? 'Delayed: congestion at port, new ETA being confirmed' : 'Current status'}</div>}

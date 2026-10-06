@@ -3,7 +3,7 @@ import { Activity, ListChecks, Pause, Play } from 'lucide-react';
 import data from '@/data/dashboards/respira-ai-respiratory-screening.json';
 import { ChartCard, HBars, LineChart } from '@/components/dash/charts';
 import { Btn, DashShell, DataTable, Field, KpiRow, Meter, Panel, Select, StatTile, StatusPill, delta, useLive, useRange } from '@/components/dash/ui';
-import { SERIES, fmt, seqColor, sum } from '@/components/dash/theme';
+import { MARK, fmt, seqColor, sum } from '@/components/dash/theme';
 
 const STATUS_TONE = { 'Awaiting review': 'warning', Reviewed: 'good', Referred: 'serious' };
 const riskTone = (s) => (s >= 0.6 ? 'critical' : s >= 0.35 ? 'warning' : 'good');
@@ -18,7 +18,7 @@ function Waveform({ wave, progress }) {
   return (
     <svg viewBox={`0 0 ${w} ${h}`} className="h-24 w-full" preserveAspectRatio="none" aria-label="Breath sound waveform">
       <line x1="0" x2={w} y1={h / 2} y2={h / 2} stroke="#E2E8F0" />
-      <polyline points={pts} fill="none" stroke={SERIES[0]} strokeWidth="1.2" />
+      <polyline points={pts} fill="none" stroke={MARK} strokeWidth="1.2" />
       <line x1={progress * w} x2={progress * w} y1="0" y2={h} stroke="#0F172A" strokeWidth="2" />
     </svg>
   );
@@ -167,7 +167,7 @@ export default function RespiraDashboard({ project }) {
             </Panel>
             <Panel title="Doctor's decision">
               <textarea
-                className="nb-input min-h-[80px] text-sm"
+                className="field min-h-[80px] text-sm"
                 placeholder="Notes for the health worker, e.g. start bronchodilator and recheck in 3 days"
                 value={note}
                 onChange={(e) => setNote(e.target.value)}

@@ -1,24 +1,25 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowUpRight } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 import ProjectMockup from './ProjectMockup';
 
-// Portfolio card: illustrated preview, industry | category line, title and arrow.
-export default function ProjectCard({ project }) {
+// Portfolio entry: technical figure, metadata line, serif title, editorial link.
+export default function ProjectCard({ project, size = 'md' }) {
   return (
     <Link to={`/portfolio/${project.slug}`} className="group flex h-full flex-col">
-      <ProjectMockup project={project} className="aspect-[4/3] rounded-2xl" />
-      <p className="mt-4 text-sm text-slate-500">
-        {project.industry} <span className="mx-1 text-slate-300">|</span> {project.category}
-      </p>
-      <div className="mt-1 flex items-start justify-between gap-4">
-        <h3 className="text-lg font-semibold leading-snug text-nb-text group-hover:text-nb-blue">
-          {project.name}: {project.title}
-        </h3>
-        <span className="mt-0.5 flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-nb-soft text-nb-blue transition-colors group-hover:bg-nb-blue group-hover:text-white">
-          <ArrowUpRight className="h-4 w-4" />
-        </span>
+      <div className="overflow-hidden">
+        <ProjectMockup project={project} className="aspect-[4/3] transition-[border-color] duration-300 group-hover:border-ink" />
       </div>
+      <div className="meta mt-5 flex flex-wrap gap-x-3 gap-y-1">
+        <span>{project.category}</span>
+        <span aria-hidden="true">/</span>
+        <span>{project.industry}</span>
+      </div>
+      <h3 className={size === 'lg' ? 'display-3 mt-3 !text-[clamp(1.75rem,2.6vw,2.4rem)]' : 'display-3 mt-3'}>{project.name}</h3>
+      <p className="mt-2 max-w-md text-[15px] leading-relaxed text-ink-2">{project.title}</p>
+      <span className="link-arrow mt-4 self-start">
+        View project <ArrowRight className="h-4 w-4" />
+      </span>
     </Link>
   );
 }

@@ -22,7 +22,7 @@ const support = [
 
 export default function SkillVerseStudyAbroadPage() {
   return (
-    <div className="bg-white">
+    <div className="bg-canvas">
       <Helmet>
         <title>Study Abroad - SkillVerse</title>
         <meta
@@ -38,10 +38,10 @@ export default function SkillVerseStudyAbroadPage() {
         lead="Embark on your global education journey with expert support at every step. From university selection to application strategy and visa assistance, we ensure you're prepared to succeed in top international academic destinations."
         actions={
           <>
-            <a href="#apply" className="btn-solid">
+            <a href="#apply" className="btn btn-primary">
               Get Guidance <ArrowRight className="h-4 w-4" />
             </a>
-            <Link to="/skillverse/usa-webinar" className="btn-outline">
+            <Link to="/skillverse/usa-webinar" className="btn btn-secondary">
               USA Study Webinar
             </Link>
           </>
@@ -56,21 +56,21 @@ export default function SkillVerseStudyAbroadPage() {
       </Section>
 
       <Section>
-        <div className="nb-card grid items-center gap-8 md:grid-cols-[1.4fr_1fr] md:p-10">
+        <div className="panel grid items-center gap-8 md:grid-cols-[1.4fr_1fr] md:p-10">
           <div>
-            <div className="nb-eyebrow mb-3">Free webinar</div>
-            <h2 className="nb-h2">USA Study Webinar</h2>
-            <p className="nb-lead mt-4">
+            <div className="eyebrow mb-3">Free webinar</div>
+            <h2 className="display-2">USA Study Webinar</h2>
+            <p className="lead mt-4">
               Learn about studying in top US universities. Get insights on admissions, scholarships, and visa process.
             </p>
-            <ul className="mt-5 flex flex-wrap gap-x-6 gap-y-2 text-sm text-nb-muted">
-              <li className="flex items-center gap-2"><Calendar className="h-4 w-4 text-nb-blue" /> Every Weekend</li>
-              <li className="flex items-center gap-2"><Users className="h-4 w-4 text-nb-blue" /> Duration: 2 hours</li>
-              <li className="flex items-center gap-2"><MapPin className="h-4 w-4 text-nb-blue" /> Mode: Online</li>
+            <ul className="mt-5 flex flex-wrap gap-x-6 gap-y-2 text-sm text-ink-2">
+              <li className="flex items-center gap-2"><Calendar className="h-4 w-4 text-ink" /> Every Weekend</li>
+              <li className="flex items-center gap-2"><Users className="h-4 w-4 text-ink" /> Duration: 2 hours</li>
+              <li className="flex items-center gap-2"><MapPin className="h-4 w-4 text-ink" /> Mode: Online</li>
             </ul>
           </div>
           <div className="md:text-right">
-            <Link to="/skillverse/usa-webinar" className="btn-solid">
+            <Link to="/skillverse/usa-webinar" className="btn btn-primary">
               Register Now <ArrowRight className="h-4 w-4" />
             </Link>
           </div>
@@ -80,9 +80,9 @@ export default function SkillVerseStudyAbroadPage() {
       <Section tone="soft" id="apply">
         <div className="grid items-center gap-10 lg:grid-cols-2">
           <div>
-            <div className="nb-eyebrow mb-3">Get started</div>
-            <h2 className="nb-h2">Talk to a study abroad expert</h2>
-            <p className="nb-lead mt-4">Share your details and our team will call you to plan your next steps.</p>
+            <div className="eyebrow mb-3">Get started</div>
+            <h2 className="display-2">Talk to a study abroad expert</h2>
+            <p className="lead mt-4">Share your details and our team will call you to plan your next steps.</p>
           </div>
           <SkillVerseQuickApply defaultService="Study Abroad" />
         </div>
