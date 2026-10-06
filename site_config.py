@@ -46,12 +46,11 @@ SITE = {
 # Form backend: Google Apps Script web app (code.gs).
 FORMS = {
     # /exec URL from Deploy > Manage deployments in the Apps Script editor.
-    "apps_script_url": "https://script.google.com/macros/s/AKfycbyVHjnZvZjt8uGgM8TE2xI26J9UkBtugFjyL8bDEEomJMeBO9W2Y1fJhRiVEJE490Ym/exec",
+    "apps_script_url": "https://script.google.com/macros/s/AKfycbwXappZKoZRh6IC7LDwxnEax0qz7vdnUxSGFllQSngi8V-5Ip-P17gC3KDSCdoYemTL/exec",
 
-    # Leave empty when code.gs is opened from the Sheet (Extensions > Apps Script).
-    # For a standalone script, paste the Sheet ID: the long code between /d/ and
-    # /edit in the Sheet's URL.
-    "spreadsheet_id": "",
+    # Google Sheet that receives submissions: the ID between /d/ and /edit in its URL.
+    # Leave empty only if code.gs is opened from that Sheet (Extensions > Apps Script).
+    "spreadsheet_id": "1jlGzulcP7h8yuVzm1I_MPHQcpOTSigJ94qz5ET63Rtw",
 
     # Email the team about every new submission (set to False to turn off).
     "notify_on_submit": True,
