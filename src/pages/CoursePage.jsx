@@ -675,7 +675,7 @@ const CoursePage = () => {
   };
 
   return (
-    <div className="bg-gradient-to-b from-slate-50 via-white to-slate-50">
+    <div className="bg-slate-50">
       <Helmet>
         <title>Paid Data Science Internship Program - Fullstackverse</title>
         <meta
@@ -692,7 +692,7 @@ const CoursePage = () => {
         <div className="relative container pt-10 pb-16 lg:pt-14 lg:pb-20">
           <div className="grid gap-10 lg:grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)] items-start">
             <div className="space-y-8 order-1 lg:order-1">
-              <div className="inline-flex items-center gap-3 rounded-full bg-gradient-to-r from-emerald-500 via-blue-600 to-purple-600 px-6 py-3 text-sm font-bold text-white shadow-xl border-2 border-white/20">
+              <div className="inline-flex items-center gap-3 rounded-full bg-nb-blue px-6 py-3 text-sm font-bold text-white shadow-xl border-2 border-white/20">
                 <span className="h-3 w-3 rounded-full bg-white animate-pulse shadow-lg" />
                 <span className="uppercase tracking-[0.22em] text-xs lg:text-sm">Certificate Program</span>
                 <span className="h-1 w-1 rounded-full bg-white/60" />
@@ -702,7 +702,7 @@ const CoursePage = () => {
               <div className="space-y-4">
                 <h1 className="text-4xl lg:text-5xl xl:text-[3.5rem] font-black text-slate-900 leading-tight">
                   Build Industry-Ready Data Science Skills in 12 Weeks
-                  <span className="block text-transparent bg-gradient-to-r from-blue-600 via-purple-600 to-indigo-700 bg-clip-text">
+                  <span className="block text-transparent bg-clip-text nb-gradient-text">
                     Invest in mentor-led mastery
                   </span>
                 </h1>
@@ -719,7 +719,7 @@ const CoursePage = () => {
               <div className="flex flex-col gap-4 sm:flex-row sm:items-center">
                 <button
                   onClick={handleRegisterClick}
-                  className="group relative inline-flex items-center justify-center px-8 py-4 text-lg font-bold text-white bg-gradient-to-r from-blue-600 to-purple-600 rounded-xl shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105"
+                  className="group relative inline-flex items-center justify-center px-8 py-4 text-lg font-bold text-white bg-nb-blue rounded-xl shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105"
                 >
                   <span>Apply for the next cohort</span>
                   <svg
@@ -792,7 +792,7 @@ const CoursePage = () => {
                   </div>
                 )}
               </div>
-              <div className="relative aspect-[4/5] rounded-3xl bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 shadow-2xl overflow-hidden border border-slate-700/40">
+              <div className="relative aspect-[4/5] rounded-3xl bg-nb-ink shadow-2xl overflow-hidden border border-slate-700/40">
                 <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(96,165,250,0.3),transparent_60%)]" />
                 <div className="relative h-full flex flex-col justify-between p-8">
                   <div>
@@ -829,7 +829,7 @@ const CoursePage = () => {
               </div>
             </div>
 
-            <div className="order-2 lg:order-3 lg:col-span-2 bg-gradient-to-br from-slate-50 via-blue-50/60 to-purple-50/60 rounded-3xl border border-slate-200 shadow-xl shadow-slate-200/60 p-6 space-y-8">
+            <div className="order-2 lg:order-3 lg:col-span-2 bg-slate-50 rounded-3xl border border-slate-200 shadow-xl shadow-slate-200/60 p-6 space-y-8">
               <div className="space-y-3">
                 <span className="inline-flex items-center gap-2 rounded-full bg-white/70 px-4 py-2 text-xs font-semibold uppercase tracking-[0.28em] text-blue-500 shadow-sm">
                   🎁 Included Toolkit
@@ -891,7 +891,7 @@ const CoursePage = () => {
           <div className="grid gap-6 md:grid-cols-[0.9fr_1.2fr] items-center">
             <div className="hidden md:flex items-center justify-center">
               <div className="w-full max-w-2xl bg-white rounded-2xl shadow-2xl border-2 border-blue-200 overflow-hidden relative">
-                <div className="h-3 w-full bg-gradient-to-r from-blue-900 via-blue-500 to-orange-400" />
+                <div className="h-3 w-full bg-nb-ink" />
                 <div className="flex flex-col gap-0 px-10 pt-8 pb-4">
                   <div className="flex items-center justify-between mb-2">
                     <img src={asset('logo (1).png')} alt="Fullstackverse Logo" className="h-14 w-auto" />
@@ -903,7 +903,7 @@ const CoursePage = () => {
                       </div>
                       <button
                         onClick={handleRegisterClick}
-                        className="mt-2 px-6 py-2 bg-gradient-to-r from-blue-600 to-purple-600 text-white font-bold rounded-lg shadow hover:scale-105 transition text-base"
+                        className="mt-2 px-6 py-2 bg-nb-blue text-white font-bold rounded-lg shadow hover:scale-105 transition text-base"
                       >
                         Pay Now
                       </button>
@@ -1028,7 +1028,7 @@ const CoursePage = () => {
             </div>
           </div>
 
-          <div className="mt-10 rounded-3xl bg-gradient-to-r from-blue-600 via-purple-600 to-indigo-600 p-8 text-white shadow-lg">
+          <div className="mt-10 rounded-3xl bg-nb-blue p-8 text-white shadow-lg">
             <div className="text-sm font-semibold uppercase tracking-[0.32em] text-white/80 mb-4">
               Why Data Science & AI now
             </div>
@@ -1251,9 +1251,9 @@ const CoursePage = () => {
         </div>
       </section>
 
-      <section className="py-20 bg-gradient-to-br from-slate-50 via-blue-50/30 to-indigo-50/50 relative overflow-hidden">
-        <div className="absolute top-0 right-0 w-64 h-64 bg-gradient-to-bl from-blue-200/30 to-transparent rounded-full blur-3xl" />
-        <div className="absolute bottom-0 left-0 w-52 h-52 bg-gradient-to-tr from-indigo-200/30 to-transparent rounded-full blur-3xl" />
+      <section className="py-20 bg-slate-50 relative overflow-hidden">
+        <div className="absolute top-0 right-0 w-64 h-64 bg-blue-100 rounded-full blur-3xl" />
+        <div className="absolute bottom-0 left-0 w-52 h-52 bg-indigo-100 rounded-full blur-3xl" />
 
         <div className="container relative">
           <div className="max-w-5xl mx-auto space-y-10">
@@ -1275,7 +1275,7 @@ const CoursePage = () => {
 
             <div className="grid gap-8 lg:grid-cols-[2fr,3fr] items-center bg-white/85 backdrop-blur-sm rounded-3xl border border-slate-200/50 shadow-xl shadow-slate-200/30 p-6 lg:p-10">
               <div className="space-y-6">
-                <div className="relative mx-auto h-56 w-56 rounded-3xl bg-gradient-to-br from-blue-500 via-purple-500 to-indigo-600 p-[4px] shadow-2xl shadow-blue-500/30">
+                <div className="relative mx-auto h-56 w-56 rounded-3xl bg-nb-blue p-[4px] shadow-2xl shadow-blue-500/30">
                   <div className="h-full w-full rounded-3xl bg-slate-950/95 flex items-center justify-center overflow-hidden">
                     <div className="flex flex-col items-center gap-3 text-center text-white px-6">
                       <span className="text-5xl">🤝</span>
@@ -1284,30 +1284,30 @@ const CoursePage = () => {
                       </p>
                     </div>
                   </div>
-                  <div className="absolute -top-3 -right-3 bg-gradient-to-r from-emerald-500 to-green-500 text-white px-3 py-1 rounded-full text-xs font-bold shadow-lg">
+                  <div className="absolute -top-3 -right-3 bg-nb-blue text-white px-3 py-1 rounded-full text-xs font-bold shadow-lg">
                     12+ Experts
                   </div>
-                  <div className="absolute -bottom-3 -left-3 bg-gradient-to-r from-blue-500 to-indigo-500 text-white px-3 py-1 rounded-full text-xs font-bold shadow-lg">
+                  <div className="absolute -bottom-3 -left-3 bg-nb-blue text-white px-3 py-1 rounded-full text-xs font-bold shadow-lg">
                     Global Experience
                   </div>
                 </div>
 
                 <div className="grid grid-cols-3 gap-4">
-                  <div className="text-center p-3 bg-gradient-to-br from-blue-50 to-indigo-50 rounded-xl border border-blue-100">
+                  <div className="text-center p-3 bg-blue-50 rounded-xl border border-blue-100">
                     <div className="text-2xl font-bold text-blue-600">200+</div>
                     <div className="text-xs text-slate-600">Mentor Hours</div>
                   </div>
-                  <div className="text-center p-3 bg-gradient-to-br from-emerald-50 to-green-50 rounded-xl border border-emerald-100">
+                  <div className="text-center p-3 bg-emerald-50 rounded-xl border border-emerald-100">
                     <div className="text-2xl font-bold text-emerald-600">10+</div>
                     <div className="text-xs text-slate-600">Hiring Partners</div>
                   </div>
-                  <div className="text-center p-3 bg-gradient-to-br from-purple-50 to-pink-50 rounded-xl border border-purple-100">
+                  <div className="text-center p-3 bg-purple-50 rounded-xl border border-purple-100">
                     <div className="text-2xl font-bold text-purple-600">Portfolio</div>
                     <div className="text-xs text-slate-600">Offer Coaching</div>
                   </div>
                 </div>
 
-                <div className="bg-gradient-to-r from-slate-50 to-blue-50 border-l-4 border-blue-500 p-4 rounded-r-xl">
+                <div className="bg-slate-50 border-l-4 border-blue-500 p-4 rounded-r-xl">
                   <blockquote className="text-slate-800 italic">
                     "Ship projects that hiring managers can evaluate — not just assignments. We coach you to demonstrate impact, not just write code."
                   </blockquote>
@@ -1316,7 +1316,7 @@ const CoursePage = () => {
               </div>
 
               <div className="space-y-5">
-                <div className="bg-gradient-to-r from-indigo-50 to-purple-50 p-4 rounded-xl border border-indigo-100">
+                <div className="bg-indigo-50 p-4 rounded-xl border border-indigo-100">
                   <h4 className="font-semibold text-slate-900 mb-2 flex items-center gap-2">
                     <span className="text-indigo-500">🎯</span>
                     What Your Mentors Deliver
@@ -1346,7 +1346,7 @@ const CoursePage = () => {
                 </div>
 
                 <div className="flex items-center justify-center lg:justify-start">
-                  <button onClick={handleRegisterClick} className="inline-flex items-center gap-3 px-6 py-3 bg-gradient-to-r from-blue-600 to-purple-600 text-white font-semibold rounded-xl shadow hover:scale-105 transition">
+                  <button onClick={handleRegisterClick} className="inline-flex items-center gap-3 px-6 py-3 bg-nb-blue text-white font-semibold rounded-xl shadow hover:scale-105 transition">
                     Apply & Book a Mentor Review
                   </button>
                 </div>
@@ -1586,7 +1586,7 @@ const CoursePage = () => {
       </section>
 
       <Dialog open={isDialogOpen} onOpenChange={handleDialogOpenChange}>
-        <DialogContent className="max-w-xl bg-gradient-to-br from-blue-50 via-white to-purple-50 border border-blue-200 shadow-2xl rounded-3xl">
+        <DialogContent className="max-w-xl bg-blue-50 border border-blue-200 shadow-2xl rounded-3xl">
           {showConfirmation ? (
             <div className="space-y-6 text-center">
               <DialogHeader>

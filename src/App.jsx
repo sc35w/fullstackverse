@@ -1,5 +1,6 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { MotionConfig } from 'framer-motion';
 import { Toaster } from '@/components/ui/toaster';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
@@ -31,9 +32,15 @@ import RoboticsInternshipPage from '@/pages/skillverse/RoboticsInternshipPage';
 import DataAnalyticsAIInternshipPage from '@/pages/skillverse/DataAnalyticsAIInternshipPage';
 import MechanicalEngineeringInternshipPage from '@/pages/skillverse/MechanicalEngineeringInternshipPage';
 import SpeakEnglishPage from '@/pages/skillverse/SpeakEnglishWithAleenaPage';
+import SkillVersePlacementPage from '@/pages/skillverse/SkillVersePlacementPage';
+import SkillVerseStudyAbroadPage from '@/pages/skillverse/SkillVerseStudyAbroadPage';
+import SkillVerseContactPage from '@/pages/skillverse/SkillVerseContactPage';
 
 function App() {
   return (
+    // reducedMotion="always" keeps fades but drops slide/scale/spring motion
+    // site-wide, so the existing landing pages stay calm and simple.
+    <MotionConfig reducedMotion="always">
     <Router basename={import.meta.env.BASE_URL}>
       <Routes>
         {/* SkillVerse Routes */}
@@ -57,6 +64,9 @@ function App() {
                 <Route path="/competitive-exam-webinar" element={<CompetitiveExamWebinarPage />} />
                 <Route path="/speak-english" element={<SpeakEnglishPage />} />
                 <Route path="/privacypolicy" element={<SkillVersePrivacyPolicyPage />} />
+                <Route path="/placement" element={<SkillVersePlacementPage />} />
+                <Route path="/study-abroad" element={<SkillVerseStudyAbroadPage />} />
+                <Route path="/contact" element={<SkillVerseContactPage />} />
               </Routes>
               <Toaster />
             </SkillVerseLayout>
@@ -67,9 +77,9 @@ function App() {
         <Route
           path="/*"
           element={
-            <div className="min-h-screen bg-white">
+            <div className="flex min-h-screen flex-col bg-white">
               <Header />
-              <main>
+              <main className="flex-1">
                 <Routes>
                   <Route path="/" element={<HomePage />} />
                   <Route path="/web-development" element={<WebDevelopmentPage />} />
@@ -90,6 +100,7 @@ function App() {
         />
       </Routes>
     </Router>
+    </MotionConfig>
   );
 }
 

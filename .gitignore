@@ -3,3 +3,8 @@ dist
 .env
 .env.*
 !.env.example
+
+# nextbrain design reference (HTTrack mirror), not part of the site
+nextbrain/
+/backblue.gif
+/fade.gif

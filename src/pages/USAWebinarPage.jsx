@@ -323,7 +323,7 @@ const USAWebinarPage = () => {
   };
 
   return (
-    <div className="bg-gradient-to-b from-slate-50 via-white to-slate-50">
+    <div className="bg-slate-50">
       <section className="relative overflow-hidden">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(191,219,254,0.5),transparent_55%),radial-gradient(circle_at_bottom,_rgba(129,140,248,0.45),transparent_55%)]" />
         <div className="absolute -left-24 top-16 h-64 w-64 rounded-full bg-blue-200/40 blur-3xl" />
@@ -371,7 +371,7 @@ const USAWebinarPage = () => {
 
           <div className="grid gap-12 lg:grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)] items-center">
             <div className="space-y-6">
-              <div className="inline-flex items-center gap-3 rounded-full bg-gradient-to-r from-emerald-500 via-blue-600 to-purple-600 px-6 py-3 text-sm font-bold text-white shadow-xl border-2 border-white/20">
+              <div className="inline-flex items-center gap-3 rounded-full bg-nb-blue px-6 py-3 text-sm font-bold text-white shadow-xl border-2 border-white/20">
                 <span className="h-3 w-3 rounded-full bg-white animate-pulse shadow-lg"></span>
                 <span className="uppercase tracking-wider">Live Masterclass</span>
                 <span className="h-1 w-1 rounded-full bg-white/60"></span>
@@ -387,7 +387,7 @@ const USAWebinarPage = () => {
                 <p className="text-lg text-slate-600 font-medium leading-relaxed">
                   Discover exact strategies to study affordably, secure work visas with or without the H1B lottery, and plan your green card from the very first semester.
                 </p>
-                <p className="bg-gradient-to-r from-blue-100 to-indigo-100 text-blue-900 px-4 py-3 rounded-xl text-sm font-semibold inline-flex items-center gap-2">
+                <p className="bg-blue-100 text-blue-900 px-4 py-3 rounded-xl text-sm font-semibold inline-flex items-center gap-2">
                   <span>💡</span>
                   From admission to H1B to permanent residency - everything you need in one ₹399 masterclass.
                 </p>
@@ -513,7 +513,7 @@ const USAWebinarPage = () => {
         </div>
       </section>
 
-      <section className="bg-gradient-to-br from-slate-900 via-indigo-900 to-blue-900 py-16">
+      <section className="bg-nb-ink py-16">
         <div className="container text-white space-y-12">
           <div className="text-center max-w-3xl mx-auto space-y-3">
             <h2 className="text-3xl font-bold">What You Will Master</h2>
@@ -651,7 +651,7 @@ const USAWebinarPage = () => {
 
       <section className="bg-white py-14">
         <div className="container space-y-10">
-          <div className="rounded-3xl border border-slate-200 bg-gradient-to-r from-blue-600 via-purple-600 to-indigo-700 p-8 text-white shadow-xl">
+          <div className="rounded-3xl border border-slate-200 bg-nb-blue p-8 text-white shadow-xl">
             <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-6">
               <div className="space-y-2">
                 <div className="bg-yellow-400 text-slate-900 px-4 py-1 rounded-full text-xs font-bold inline-block animate-bounce">Limited Offer</div>
@@ -704,7 +704,7 @@ const USAWebinarPage = () => {
         </div>
       </section>
 
-      <section className="bg-gradient-to-r from-emerald-500 via-blue-500 to-purple-600 py-12 text-white">
+      <section className="bg-nb-blue py-12 text-white">
         <div className="container text-center space-y-4">
           <h2 className="text-2xl font-bold">Ready to launch your USA journey the smart way?</h2>
           <p className="text-sm text-white/80 max-w-3xl mx-auto">
@@ -822,7 +822,7 @@ const USAWebinarPage = () => {
         </div>
       )}
 
-      <div className="fixed bottom-0 left-0 right-0 bg-gradient-to-r from-blue-600 via-purple-600 to-indigo-700 text-white py-4 shadow-2xl border-t-4 border-yellow-400 z-50">
+      <div className="fixed bottom-0 left-0 right-0 bg-nb-blue text-white py-4 shadow-2xl border-t-4 border-yellow-400 z-50">
         <div className="container">
           <div className="flex flex-col md:flex-row items-center justify-between gap-4">
             <div className="flex items-center gap-4">
@@ -839,7 +839,7 @@ const USAWebinarPage = () => {
                 🔥 Seats Filling Fast
               </div>
               <button
-                className="bg-yellow-400 text-slate-900 px-6 py-3 rounded-full font-bold hover:bg-yellow-300 transition-all transform hover:scale-105 shadow-lg"
+                className="bg-white text-nb-blue px-6 py-3 rounded-lg font-bold hover:bg-blue-50 transition-all transform hover:scale-105 shadow-lg"
                 onClick={handleRegisterClick}
                 disabled={hasEnded}
               >

@@ -78,7 +78,7 @@ const CompetitiveExamWebinarPage = () => {
   };
 
   return (
-    <div className="bg-gradient-to-b from-slate-50 via-white to-slate-50">
+    <div className="bg-slate-50">
       <section className="relative overflow-hidden">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(254,240,138,0.35),transparent_55%),radial-gradient(circle_at_bottom,_rgba(96,165,250,0.4),transparent_55%)]" />
         <div className="absolute -left-24 top-16 h-64 w-64 rounded-full bg-yellow-200/40 blur-3xl" />
@@ -144,7 +144,7 @@ const CompetitiveExamWebinarPage = () => {
               <div className="space-y-2">
                 <h1 className="text-4xl sm:text-5xl xl:text-6xl font-black text-slate-900 leading-tight">
                   Master Competitive Exams
-                  <span className="block text-transparent bg-gradient-to-r from-amber-500 via-orange-500 to-red-500 bg-clip-text">
+                  <span className="block text-transparent bg-clip-text nb-gradient-text">
                     Learn from a Multi-Qualified Topper
                   </span>
                 </h1>
@@ -157,14 +157,14 @@ const CompetitiveExamWebinarPage = () => {
               </div>
 
               <div className="grid gap-4 sm:grid-cols-2">
-                <div className="bg-gradient-to-r from-amber-50 to-orange-50 p-4 rounded-xl border border-amber-200">
+                <div className="bg-amber-50 p-4 rounded-xl border border-amber-200">
                   <div className="text-sm font-semibold text-amber-700 uppercase tracking-[0.14em] mb-1">
                     Featured Mentor
                   </div>
                   <h2 className="text-2xl font-bold text-slate-900">Saket Choudhary</h2>
                   <p className="text-sm text-slate-600">Competitive Exam Expert • Multi-Qualified Topper</p>
                 </div>
-                <div className="bg-gradient-to-r from-emerald-50 to-green-50 p-4 rounded-xl border border-emerald-200">
+                <div className="bg-emerald-50 p-4 rounded-xl border border-emerald-200">
                   <div className="text-sm font-semibold text-emerald-700 uppercase tracking-[0.14em] mb-1">
                     Seats Filling Fast
                   </div>
@@ -176,7 +176,7 @@ const CompetitiveExamWebinarPage = () => {
 
               <div className="flex flex-wrap items-center gap-3">
                 <button
-                  className="bg-gradient-to-r from-amber-500 to-orange-500 text-white px-6 py-3 rounded-full font-bold shadow-lg hover:scale-105 transition w-full sm:w-auto text-center"
+                  className="bg-nb-blue text-white px-6 py-3 rounded-full font-bold shadow-lg hover:scale-105 transition w-full sm:w-auto text-center"
                   onClick={handleRegisterClick}
                   disabled={hasEnded}
                 >
@@ -281,7 +281,7 @@ const CompetitiveExamWebinarPage = () => {
                 ))}
               </ul>
             </div>
-            <div className="rounded-3xl bg-gradient-to-r from-amber-500/10 via-orange-500/10 to-red-500/10 border border-amber-200 p-6">
+            <div className="rounded-3xl bg-white/10 border border-amber-200 p-6">
               <h3 className="text-xl font-semibold text-slate-900 mb-3">Your Journey to Success</h3>
               <div className="grid gap-4 sm:grid-cols-3">
                 {[
@@ -338,7 +338,7 @@ const CompetitiveExamWebinarPage = () => {
                   </div>
                 </div>
                 <button
-                  className="mt-6 inline-flex items-center justify-center gap-2 rounded-full bg-amber-400 px-6 py-3 text-slate-900 font-semibold hover:bg-amber-300 transition"
+                  className="mt-6 inline-flex items-center justify-center gap-2 rounded-full bg-white px-6 py-3 text-nb-blue font-semibold hover:bg-blue-50 transition"
                   onClick={handleRegisterClick}
                   disabled={hasEnded}
                 >
@@ -433,7 +433,7 @@ const CompetitiveExamWebinarPage = () => {
               <div className="text-xl font-semibold">7 PM - 9 PM Live Session</div>
               <p className="text-sm text-white/80 mt-2">Limited Seats Available</p>
               <div className="mt-4 space-y-2 text-xs text-white/70">
-                <p>For queries: support@webinar.com | WhatsApp: +91 8296548156</p>
+                <p>For queries: info@fullstackverse.in | WhatsApp: +91 8296548156</p>
                 <p className="flex flex-wrap gap-2">
                   <span>Privacy Policy</span>
                   <span>Terms & Conditions</span>
@@ -466,7 +466,7 @@ const CompetitiveExamWebinarPage = () => {
                 {hasEnded ? "Webinar Ended" : "Register & Pay - ₹399"}
               </button>
               <p className="text-xs text-slate-500">
-                Need help? Email support@webinar.com or WhatsApp +91 8296548156.
+                Need help? Email info@fullstackverse.in or WhatsApp +91 8296548156.
               </p>
             </div>
             <div className="rounded-3xl bg-white border border-slate-200 shadow-xl p-6 space-y-3">
@@ -590,7 +590,7 @@ const CompetitiveExamWebinarPage = () => {
         </div>
       )}
 
-      <div className="fixed bottom-0 left-0 right-0 bg-gradient-to-r from-amber-500 via-orange-500 to-red-500 text-white py-4 shadow-2xl border-t-4 border-yellow-400 z-50">
+      <div className="fixed bottom-0 left-0 right-0 bg-nb-blue text-white py-4 shadow-2xl border-t-4 border-yellow-400 z-50">
         <div className="container">
           <div className="flex flex-col md:flex-row items-center justify-between gap-4">
             <div className="flex items-center gap-4">
@@ -607,7 +607,7 @@ const CompetitiveExamWebinarPage = () => {
                 🔥 Seats Filling Fast
               </div>
               <button
-                className="bg-yellow-400 text-slate-900 px-6 py-3 rounded-full font-bold hover:bg-yellow-300 transition-all transform hover:scale-105 shadow-lg"
+                className="bg-white text-nb-blue px-6 py-3 rounded-lg font-bold hover:bg-blue-50 transition-all transform hover:scale-105 shadow-lg"
                 onClick={handleRegisterClick}
                 disabled={hasEnded}
               >

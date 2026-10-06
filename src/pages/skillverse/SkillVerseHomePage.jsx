@@ -1,10 +1,7 @@
-import React, { useState } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
-import { Button } from "../../components/ui/button";
-import { Input } from "../../components/ui/input";
-import { Label } from "../../components/ui/label";
-import { useToast } from "../../components/ui/use-toast";
-import { submitToAppsScript } from "../../lib/appsScript";
+import { EMAIL, PHONE } from "../../lib/contact";
+import SkillVerseQuickApply from "../../components/SkillVerseQuickApply";
 import {
   Rocket,
   GraduationCap,
@@ -15,8 +12,6 @@ import {
   Target,
   Globe,
   Star,
-  ChevronLeft,
-  ChevronRight,
   Phone,
   Mail,
   CheckCircle2,
@@ -107,6 +102,15 @@ const testimonials = [
   },
 ];
 
+const benefits = [
+  { icon: Target, title: "Career Launchpad", text: "Mentorship and tools to fast-track your growth" },
+  { icon: BookOpen, title: "Professional Courses", text: "Industry-aligned curriculum with hands-on projects" },
+  { icon: Globe, title: "Study Abroad", text: "500+ Universities across the globe" },
+  { icon: Award, title: "Industry Experts", text: "100+ experienced mentors from top companies" },
+  { icon: TrendingUp, title: "Placement Support", text: "100% job assistance and interview preparation" },
+  { icon: CheckCircle2, title: "Certification", text: "Industry-recognized certificates upon completion" },
+];
+
 const stats = [
   { number: "22K+", label: "Students Assisted" },
   { number: "30+", label: "Years of Combined Experience" },
@@ -115,284 +119,150 @@ const stats = [
 ];
 
 export default function SkillVerseHomePage() {
-  const [formData, setFormData] = useState({
-    fullName: "",
-    phone: "",
-    email: "",
-    service: "",
-  });
-  const [loading, setLoading] = useState(false);
-  const { toast } = useToast();
-
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    setLoading(true);
-
-    try {
-      await submitToAppsScript('submit_contact', {
-        full_name: formData.fullName,
-        contact_number: formData.phone,
-        email: formData.email,
-        project_description: `Service interested: ${formData.service}`,
-        budget: "To be discussed",
-        type: "SkillVerse Quick Apply",
-      });
-
-      toast({
-        title: "Success!",
-        description: "Your application has been submitted successfully.",
-      });
-
-      setFormData({ fullName: "", phone: "", email: "", service: "" });
-    } catch (error) {
-      console.error("Supabase error:", error);
-      toast({
-        title: "Error",
-        description: error.message || "Something went wrong. Please try again.",
-        variant: "destructive",
-      });
-    } finally {
-      setLoading(false);
-    }
-  };
-
   return (
     <div className="bg-white">
-      {/* Hero Section */}
-      <section className="relative bg-gradient-to-br from-red-500 via-red-600 to-red-700 text-white py-20 px-6 overflow-hidden">
-        <div className="absolute inset-0 bg-black opacity-10"></div>
-        <div className="max-w-6xl mx-auto relative z-10">
-          <div className="flex items-center gap-2 mb-4">
-            <Rocket className="h-8 w-8" />
-            <span className="text-xl font-semibold">Exclusively Curated Programs</span>
+      {/* Hero */}
+      <section className="nb-hero">
+        <div className="nb-container py-16 text-center md:py-24">
+          <div className="nb-eyebrow mb-4">
+            <Rocket className="h-4 w-4" /> Exclusively Curated Programs
           </div>
-          <h1 className="text-5xl md:text-7xl font-bold mb-6">
-            India's #1
-            <br />
-            Career Accelerator
+          <h1 className="nb-h1 mx-auto max-w-3xl">
+            India's #1 <span className="nb-gradient-text inline-block">Career Accelerator</span>
           </h1>
-          <p className="text-xl md:text-2xl mb-8 max-w-3xl">
+          <p className="nb-lead mx-auto mt-5 max-w-2xl md:text-lg">
             We offer industry-leading & career-focused training to enhance your skill, secure a meaningful career, and bring your study-abroad dream to reality.
           </p>
-          <div className="flex flex-wrap gap-4">
-            <Link to="/skillverse/courses">
-              <Button size="lg" className="bg-white text-red-600 hover:bg-gray-100">
-                <GraduationCap className="mr-2 h-5 w-5" />
-                Explore Courses
-              </Button>
+          <div className="mt-8 flex flex-col justify-center gap-3 sm:flex-row">
+            <Link to="/skillverse/courses" className="btn-solid">
+              <GraduationCap className="h-4 w-4" />
+              Explore Courses
             </Link>
-            <Link to="/skillverse/workshops">
-              <Button size="lg" variant="outline" className="border-white text-white hover:bg-white/20">
-                <BookOpen className="mr-2 h-5 w-5" />
-                View Workshops
-              </Button>
+            <Link to="/skillverse/workshops" className="btn-outline">
+              <BookOpen className="h-4 w-4" />
+              View Workshops
             </Link>
           </div>
         </div>
       </section>
 
-      {/* Stats Section */}
-      <section className="py-12 px-6 bg-gray-50">
-        <div className="max-w-6xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-8">
+      {/* Stats */}
+      <section className="nb-section nb-section--dark">
+        <div className="nb-container grid grid-cols-2 gap-4 lg:grid-cols-4">
           {stats.map((stat, i) => (
-            <div key={i} className="text-center">
-              <div className="text-4xl md:text-5xl font-bold text-red-600 mb-2">{stat.number}</div>
-              <div className="text-gray-700 font-medium">{stat.label}</div>
+            <div key={i} className="nb-card--dark">
+              <div className="text-3xl font-semibold md:text-4xl">{stat.number}</div>
+              <div className="mt-2 text-sm text-slate-400">{stat.label}</div>
             </div>
           ))}
         </div>
       </section>
 
       {/* Featured Courses */}
-      <section className="py-16 px-6">
-        <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-12">
-            <h2 className="text-4xl font-bold text-gray-900 mb-4">Mentorship Courses</h2>
-            <p className="text-xl text-gray-600">Unlock your potential with the right mentor</p>
+      <section className="nb-section nb-section--soft">
+        <div className="nb-container">
+          <div className="mx-auto mb-12 max-w-3xl text-center">
+            <h2 className="nb-h2">Mentorship Courses</h2>
+            <p className="nb-lead mt-4">Unlock your potential with the right mentor</p>
           </div>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
             {courses.map((course, i) => (
-              <div
-                key={i}
-                className="bg-white border border-gray-200 rounded-xl shadow-lg hover:shadow-xl transition-shadow overflow-hidden"
-              >
-                <div className="bg-gradient-to-br from-red-500 to-red-700 h-40 flex items-center justify-center">
-                  <GraduationCap className="h-16 w-16 text-white" />
+              <div key={i} className="nb-card flex flex-col">
+                <div className="mb-4 flex items-center justify-between gap-3">
+                  <span className="nb-icon">
+                    <GraduationCap className="h-5 w-5" />
+                  </span>
+                  {course.trending && <span className="nb-chip">Trending 2025</span>}
                 </div>
-                <div className="p-6">
-                  {course.trending && (
-                    <span className="inline-block bg-red-100 text-red-600 text-xs font-semibold px-3 py-1 rounded-full mb-3">
-                      Trending 2025
-                    </span>
-                  )}
-                  <h3 className="text-xl font-bold text-gray-900 mb-2">{course.title}</h3>
-                  <div className="flex items-center gap-2 mb-3">
-                    <Star className="h-4 w-4 text-yellow-500 fill-yellow-500" />
-                    <span className="font-semibold">{course.rating}</span>
-                    <span className="text-gray-500 text-sm">({course.reviews.toLocaleString()})</span>
-                  </div>
-                  <p className="text-gray-600 text-sm mb-4">{course.description}</p>
-                  <div className="text-sm text-gray-500 mb-4">
-                    <Users className="h-4 w-4 inline mr-1" />
-                    {course.instructor}
-                  </div>
-                  <Button className="w-full bg-red-600 hover:bg-red-700">Enroll Now</Button>
+                <h3 className="text-lg font-semibold text-nb-text">{course.title}</h3>
+                <div className="mt-1 flex items-center gap-1.5 text-sm">
+                  <Star className="h-4 w-4 fill-amber-400 text-amber-400" />
+                  <span className="font-semibold">{course.rating}</span>
+                  <span className="text-slate-500">({course.reviews.toLocaleString()})</span>
                 </div>
+                <p className="mt-3 flex-1 text-sm leading-relaxed text-nb-muted">{course.description}</p>
+                <div className="mt-4 flex items-center gap-1.5 text-sm text-slate-500">
+                  <Users className="h-4 w-4" />
+                  {course.instructor}
+                </div>
+                <Link to="/skillverse/courses" className="btn-solid btn-sm mt-5 w-full">Enroll Now</Link>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Benefits Section */}
-      <section className="py-16 px-6 bg-gradient-to-br from-red-50 to-red-100">
-        <div className="max-w-6xl mx-auto">
-          <h2 className="text-4xl font-bold text-center text-gray-900 mb-12">Why Choose SkillVerse?</h2>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <div className="bg-white rounded-xl p-6 shadow-lg">
-              <Target className="h-12 w-12 text-red-600 mb-4" />
-              <h3 className="text-xl font-bold mb-3">Career Launchpad</h3>
-              <p className="text-gray-600">Mentorship and tools to fast-track your growth</p>
-            </div>
-            <div className="bg-white rounded-xl p-6 shadow-lg">
-              <BookOpen className="h-12 w-12 text-red-600 mb-4" />
-              <h3 className="text-xl font-bold mb-3">Professional Courses</h3>
-              <p className="text-gray-600">Industry-aligned curriculum with hands-on projects</p>
-            </div>
-            <div className="bg-white rounded-xl p-6 shadow-lg">
-              <Globe className="h-12 w-12 text-red-600 mb-4" />
-              <h3 className="text-xl font-bold mb-3">Study Abroad</h3>
-              <p className="text-gray-600">500+ Universities across the globe</p>
-            </div>
-            <div className="bg-white rounded-xl p-6 shadow-lg">
-              <Award className="h-12 w-12 text-red-600 mb-4" />
-              <h3 className="text-xl font-bold mb-3">Industry Experts</h3>
-              <p className="text-gray-600">100+ experienced mentors from top companies</p>
-            </div>
-            <div className="bg-white rounded-xl p-6 shadow-lg">
-              <TrendingUp className="h-12 w-12 text-red-600 mb-4" />
-              <h3 className="text-xl font-bold mb-3">Placement Support</h3>
-              <p className="text-gray-600">100% job assistance and interview preparation</p>
-            </div>
-            <div className="bg-white rounded-xl p-6 shadow-lg">
-              <CheckCircle2 className="h-12 w-12 text-red-600 mb-4" />
-              <h3 className="text-xl font-bold mb-3">Certification</h3>
-              <p className="text-gray-600">Industry-recognized certificates upon completion</p>
-            </div>
+      {/* Benefits */}
+      <section className="nb-section">
+        <div className="nb-container">
+          <h2 className="nb-h2 mb-12 text-center">Why Choose SkillVerse?</h2>
+          <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+            {benefits.map(({ icon: Icon, title, text }) => (
+              <div key={title} className="nb-card">
+                <span className="nb-icon mb-4">
+                  <Icon className="h-5 w-5" />
+                </span>
+                <h3 className="text-lg font-semibold text-nb-text">{title}</h3>
+                <p className="mt-2 text-sm text-nb-muted">{text}</p>
+              </div>
+            ))}
           </div>
         </div>
       </section>
 
       {/* Testimonials */}
-      <section className="py-16 px-6">
-        <div className="max-w-6xl mx-auto">
-          <h2 className="text-4xl font-bold text-center text-gray-900 mb-4">
-            Loved by thousands of students
-          </h2>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mt-12">
+      <section className="nb-section nb-section--soft">
+        <div className="nb-container">
+          <h2 className="nb-h2 mb-12 text-center">Loved by thousands of students</h2>
+          <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
             {testimonials.map((testimonial, i) => (
-              <div key={i} className="bg-gradient-to-br from-red-50 to-red-100 rounded-xl p-6 shadow-lg">
-                <div className="flex items-center gap-2 mb-4">
+              <figure key={i} className="nb-card flex flex-col">
+                <div className="mb-3 flex gap-0.5">
                   {[...Array(5)].map((_, j) => (
-                    <Star key={j} className="h-5 w-5 text-yellow-500 fill-yellow-500" />
+                    <Star key={j} className="h-4 w-4 fill-amber-400 text-amber-400" />
                   ))}
                 </div>
-                <p className="text-gray-700 mb-4 italic">"{testimonial.text}"</p>
-                <div>
-                  <div className="font-bold text-gray-900">{testimonial.name}</div>
-                  <div className="text-sm text-gray-600">{testimonial.role}</div>
-                </div>
-              </div>
+                <blockquote className="flex-1 text-sm leading-relaxed text-nb-muted">"{testimonial.text}"</blockquote>
+                <figcaption className="mt-5 border-t border-nb-line pt-4">
+                  <div className="text-sm font-semibold text-nb-text">{testimonial.name}</div>
+                  <div className="text-xs text-slate-500">{testimonial.role}</div>
+                </figcaption>
+              </figure>
             ))}
           </div>
         </div>
       </section>
 
       {/* Quick Apply Form */}
-      <section className="py-16 px-6 bg-gradient-to-br from-red-600 to-red-700 text-white">
-        <div className="max-w-2xl mx-auto">
-          <h2 className="text-4xl font-bold text-center mb-4">Quick Apply</h2>
-          <p className="text-xl text-center mb-8">Your journey starts here!</p>
-          <form onSubmit={handleSubmit} className="bg-white rounded-xl p-8 text-gray-900">
-            <div className="space-y-4">
-              <div>
-                <Label htmlFor="fullName">Full Name *</Label>
-                <Input
-                  id="fullName"
-                  value={formData.fullName}
-                  onChange={(e) => setFormData({ ...formData, fullName: e.target.value })}
-                  required
-                  className="mt-1"
-                />
-              </div>
-              <div>
-                <Label htmlFor="phone">Phone Number *</Label>
-                <Input
-                  id="phone"
-                  type="tel"
-                  value={formData.phone}
-                  onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                  required
-                  className="mt-1"
-                />
-              </div>
-              <div>
-                <Label htmlFor="email">Email Id *</Label>
-                <Input
-                  id="email"
-                  type="email"
-                  value={formData.email}
-                  onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                  required
-                  className="mt-1"
-                />
-              </div>
-              <div>
-                <Label htmlFor="service">Service you are interested in *</Label>
-                <select
-                  id="service"
-                  value={formData.service}
-                  onChange={(e) => setFormData({ ...formData, service: e.target.value })}
-                  required
-                  className="w-full mt-1 px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-red-500"
-                >
-                  <option value="">Select a service</option>
-                  <option value="AI & Machine Learning">AI & Machine Learning</option>
-                  <option value="Web Development">Web Development</option>
-                  <option value="Data Science">Data Science</option>
-                  <option value="Cyber Security">Cyber Security</option>
-                  <option value="Study Abroad">Study Abroad</option>
-                  <option value="Other">Other</option>
-                </select>
-              </div>
-              <Button
-                type="submit"
-                disabled={loading}
-                className="w-full bg-red-600 hover:bg-red-700 text-white"
-              >
-                {loading ? "Submitting..." : "Submit Application"}
-              </Button>
-            </div>
-          </form>
+      <section id="contact" className="nb-section">
+        <div className="nb-container grid items-center gap-10 lg:grid-cols-2">
+          <div>
+            <div className="nb-eyebrow mb-3">Get started</div>
+            <h2 className="nb-h2">Quick Apply</h2>
+            <p className="nb-lead mt-4">Your journey starts here!</p>
+          </div>
+          <SkillVerseQuickApply />
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section className="py-16 px-6 bg-gray-900 text-white text-center">
-        <div className="max-w-4xl mx-auto">
-          <h2 className="text-4xl font-bold mb-6">Ready to Transform Your Career?</h2>
-          <p className="text-xl mb-8">
-            Join 22,000+ students who have already started their journey with SkillVerse
-          </p>
-          <div className="flex flex-wrap justify-center gap-4">
-            <Button size="lg" className="bg-blue-600 hover:bg-blue-700">
-              <Phone className="mr-2 h-5 w-5" />
-              Call: 8296548156
-            </Button>
-            <Button size="lg" variant="outline" className="border-white text-white hover:bg-white/20">
-              <Mail className="mr-2 h-5 w-5" />
-              Email Us
-            </Button>
+      {/* CTA */}
+      <section className="nb-section pt-0">
+        <div className="nb-container">
+          <div className="mx-auto max-w-3xl rounded-2xl bg-nb-ink px-6 py-12 text-center md:px-12">
+            <h2 className="nb-h2 !text-white">Ready to Transform Your Career?</h2>
+            <p className="mx-auto mt-4 max-w-xl text-slate-300">
+              Join 22,000+ students who have already started their journey with SkillVerse
+            </p>
+            <div className="mt-8 flex flex-col justify-center gap-3 sm:flex-row">
+              <a href={`tel:${PHONE}`} className="btn-light">
+                <Phone className="h-4 w-4" />
+                Call: {PHONE}
+              </a>
+              <a href={`mailto:${EMAIL}`} className="btn-outline-light">
+                <Mail className="h-4 w-4" />
+                Email Us
+              </a>
+            </div>
           </div>
         </div>
       </section>

@@ -116,7 +116,7 @@ const SectionCard = ({ title, icon: Icon, items }) => (
 export default function SkillVersePrivacyPolicyPage() {
   return (
     <div className="bg-gray-50 min-h-screen">
-      <section className="bg-gradient-to-br from-red-600 via-red-500 to-red-700 text-white py-14 px-6">
+      <section className="bg-nb-blue text-white py-14 px-6">
         <div className="max-w-5xl mx-auto space-y-4">
           <div className="inline-flex items-center gap-2 bg-white/10 px-3 py-1 rounded-full text-sm">
             <Shield className="h-4 w-4" />
@@ -145,8 +145,8 @@ export default function SkillVersePrivacyPolicyPage() {
             </h3>
             <p className="text-gray-700 text-sm leading-relaxed">
               For privacy requests or questions (including access, corrections, or opt-outs), contact us at
-              <a href="mailto:fullstackverse2021@gmail.com" className="text-red-600 font-semibold ml-1">
-                fullstackverse2021@gmail.com
+              <a href="mailto:info@fullstackverse.in" className="text-red-600 font-semibold ml-1">
+                info@fullstackverse.in
               </a>
               .
             </p>

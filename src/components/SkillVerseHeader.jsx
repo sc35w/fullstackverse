@@ -1,195 +1,178 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { motion } from "framer-motion";
-import { Menu, X, Phone, Mail, MessageCircle, GraduationCap } from "lucide-react";
+import { ChevronDown, GraduationCap, Menu, MessageCircle, Phone, X } from "lucide-react";
+import { SKILLVERSE_CALL, SKILLVERSE_WHATSAPP_URL } from "@/lib/contact";
+
+const internships = [
+  { name: "Robotics Internship", href: "/skillverse/robotics-internship" },
+  { name: "Data Analytics & AI", href: "/skillverse/data-analytics-ai-internship" },
+  { name: "Mechanical Engineering", href: "/skillverse/mechanical-engineering-internship" },
+];
+
+const navigation = [
+  { id: "home", name: "Home", href: "/skillverse" },
+  { id: "courses", name: "Courses", href: "/skillverse/courses" },
+  { id: "workshops", name: "Workshops", href: "/skillverse/workshops" },
+  { id: "internships", name: "Internships", dropdown: internships },
+  { id: "placement", name: "Placement Accelerator", href: "/skillverse/placement" },
+  { id: "study-abroad", name: "Study Abroad", href: "/skillverse/study-abroad" },
+  { id: "campus-ambassador", name: "Campus Ambassador", href: "/skillverse/campus-ambassador" },
+  { id: "contact", name: "Contact Us", href: "/skillverse/contact" },
+];
+
+export const SkillVerseLogo = ({ light = false }) => (
+  <span className="flex items-center gap-2">
+    <span className="flex h-9 w-9 items-center justify-center rounded-lg bg-nb-blue text-white">
+      <GraduationCap className="h-5 w-5" />
+    </span>
+    <span className="leading-tight">
+      <span className={`block text-xl font-bold tracking-tight ${light ? "text-white" : "text-nb-text"}`}>SkillVerse</span>
+      <span className={`block text-[11px] font-medium ${light ? "text-slate-400" : "text-slate-500"}`}>
+        Learn. Grow. Excel.
+      </span>
+    </span>
+  </span>
+);
 
 const SkillVerseHeader = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [isScrolled, setIsScrolled] = useState(false);
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const location = useLocation();
 
   useEffect(() => {
-    const handleScroll = () => setIsScrolled(window.scrollY > 8);
-    handleScroll();
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+    setIsMenuOpen(false);
+    setIsDropdownOpen(false);
+  }, [location.pathname]);
 
-  const handleContact = (type) => {
-    if (type === "phone") {
-      window.open("tel:8296548156", "_self");
-    } else if (type === "email") {
-      window.open("mailto:fullstackverse2021@gmail.com", "_self");
-    } else if (type === "whatsapp") {
-      window.open(
-        "https://wa.me/918296548156?text=Hello%20SkillVerse,%20I%27d%20like%20to%20learn%20more%20about%20your%20courses.",
-        "_blank"
-      );
-    }
-  };
-
-  const navigation = [
-    { id: "home", name: "Home", href: "/skillverse" },
-    { id: "courses", name: "Courses", href: "/skillverse/courses" },
-    { id: "workshops", name: "Workshops", href: "/skillverse/workshops" },    { 
-      id: "internships", 
-      name: "Internships", 
-      href: "/skillverse/internships",
-      dropdown: [
-        { name: "Robotics Internship", href: "/skillverse/robotics-internship" },
-        { name: "Data Analytics & AI", href: "/skillverse/data-analytics-ai-internship" },
-        { name: "Mechanical Engineering", href: "/skillverse/mechanical-engineering-internship" },
-      ]
-    },    { id: "placement", name: "Placement Accelerator", href: "/skillverse/placement" },
-    { id: "study-abroad", name: "Study Abroad", href: "/skillverse/study-abroad" },
-    { id: "campus-ambassador", name: "Campus Ambassador", href: "/skillverse/campus-ambassador" },
-    { id: "contact", name: "Contact Us", href: "/skillverse/contact" },
-  ];
-
-  const linkBase = "text-sm font-medium text-gray-700 hover:text-red-500 transition-colors";
-  const linkActive = "text-red-500";
+  const isActive = (href) => location.pathname === href;
 
   return (
-    <motion.header
-      className="sticky top-0 z-50 bg-white shadow-md border-b-2 border-red-500"
-      initial={{ y: -80, opacity: 0 }}
-      animate={{ y: 0, opacity: 1 }}
-      transition={{ duration: 0.45 }}
-    >
-      <nav className="max-w-7xl mx-auto px-4">
-        <div className="flex items-center justify-between py-4 gap-4">
-          {/* Logo */}
-          <Link to="/skillverse" className="flex items-center gap-2 shrink-0">
-            <motion.div
-              whileHover={{ scale: 1.05 }}
-              transition={{ type: "spring", stiffness: 300, damping: 18 }}
-              className="flex items-center gap-2"
-            >
-              <GraduationCap className="h-10 w-10 text-red-500" />
-              <div>
-                <div className="text-2xl font-bold text-gray-900">SkillVerse</div>
-                <div className="text-xs text-red-500">Learn. Grow. Excel.</div>
-              </div>
-            </motion.div>
-          </Link>
+    <header className="nb-header">
+      <nav className="nb-container flex h-16 items-center justify-between gap-4 md:h-[72px] xl:max-w-[1320px]">
+        <Link to="/skillverse" className="shrink-0" aria-label="SkillVerse home">
+          <SkillVerseLogo />
+        </Link>
 
-          {/* Desktop Nav */}
-          <ul className="hidden lg:flex flex-1 justify-center gap-6">
-            {navigation.map((item) => (
-              <li key={item.id} className={item.dropdown ? "relative group" : ""}>
-                {item.dropdown ? (
-                  <>
-                    <button className={`${linkBase} flex items-center gap-1`}>
-                      {item.name}
-                      <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                      </svg>
-                    </button>
-                    <div className="absolute left-0 mt-1 w-56 bg-white rounded-md shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50 border border-gray-200">
-                      {item.dropdown.map((subItem) => (
+        {/* Desktop navigation */}
+        <ul className="hidden items-center gap-3.5 whitespace-nowrap xl:flex 2xl:gap-5">
+          {navigation.map((item) =>
+            item.dropdown ? (
+              <li
+                key={item.id}
+                className="relative"
+                onMouseEnter={() => setIsDropdownOpen(true)}
+                onMouseLeave={() => setIsDropdownOpen(false)}
+              >
+                <button
+                  type="button"
+                  className={`nb-nav-link !text-[14px] ${item.dropdown.some((d) => isActive(d.href)) ? "is-active" : ""}`}
+                  aria-expanded={isDropdownOpen}
+                  onClick={() => setIsDropdownOpen((v) => !v)}
+                >
+                  {item.name}
+                  <ChevronDown className="h-4 w-4" />
+                </button>
+                {isDropdownOpen && (
+                  <div className="absolute left-0 top-full w-60 pt-2">
+                    <div className="rounded-xl border border-nb-line bg-white p-2 shadow-lg">
+                      {item.dropdown.map((sub) => (
                         <Link
-                          key={subItem.href}
-                          to={subItem.href}
-                          className="block px-4 py-2 text-sm text-gray-700 hover:bg-red-50 hover:text-red-600 first:rounded-t-md last:rounded-b-md"
+                          key={sub.href}
+                          to={sub.href}
+                          className={`block rounded-lg px-3 py-2 text-sm font-medium hover:bg-nb-soft hover:text-nb-blue ${
+                            isActive(sub.href) ? "bg-nb-soft text-nb-blue" : "text-nb-text"
+                          }`}
                         >
-                          {subItem.name}
+                          {sub.name}
                         </Link>
                       ))}
                     </div>
-                  </>
-                ) : (
-                  <Link
-                    to={item.href}
-                    className={`${linkBase} ${
-                      location.pathname === item.href ? linkActive : ""
-                    }`}
-                  >
-                    {item.name}
-                  </Link>
+                  </div>
                 )}
               </li>
-            ))}
-          </ul>
+            ) : (
+              <li key={item.id}>
+                <Link to={item.href} className={`nb-nav-link !text-[14px] ${isActive(item.href) ? "is-active" : ""}`}>
+                  {item.name}
+                </Link>
+              </li>
+            )
+          )}
+        </ul>
 
-          {/* Desktop Actions */}
-          <div className="hidden items-center gap-2 lg:flex shrink-0">
-            <a
-              href="tel:7042709578"
-              className="px-4 py-2 rounded-lg bg-red-500 text-white hover:bg-red-600 transition-colors flex items-center gap-2"
-            >
-              <Phone className="h-4 w-4" />
-              Call
-            </a>
-            <button
-              onClick={() => handleContact("whatsapp")}
-              className="px-4 py-2 rounded-lg bg-green-600 text-white hover:bg-green-700 transition-colors flex items-center gap-2"
-            >
-              <MessageCircle className="h-4 w-4" />
-              WhatsApp
-            </button>
-          </div>
-
-          {/* Mobile Toggle */}
-          <div className="lg:hidden">
-            <button
-              onClick={() => setIsMenuOpen((v) => !v)}
-              className="p-2 rounded-lg hover:bg-gray-100"
-              aria-label="Toggle menu"
-            >
-              {isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
-            </button>
-          </div>
+        {/* Desktop actions */}
+        <div className="hidden shrink-0 items-center gap-2 xl:flex">
+          <a href={`tel:${SKILLVERSE_CALL}`} className="btn-outline btn-sm !px-3">
+            <Phone className="h-4 w-4" /> Call
+          </a>
+          <a
+            href={SKILLVERSE_WHATSAPP_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="btn-solid btn-sm !px-3"
+          >
+            <MessageCircle className="h-4 w-4" /> WhatsApp
+          </a>
         </div>
 
-        {/* Mobile Menu */}
-        {isMenuOpen && (
-          <motion.div
-            className="lg:hidden pb-4"
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: "auto" }}
-            exit={{ opacity: 0, height: 0 }}
-            transition={{ duration: 0.25 }}
-          >
-            <div className="flex flex-col gap-2">
-              {navigation.map((item) => (
+        {/* Mobile toggle */}
+        <button
+          type="button"
+          onClick={() => setIsMenuOpen((v) => !v)}
+          className="-mr-2 rounded-lg p-2 text-nb-text hover:bg-nb-soft xl:hidden"
+          aria-label={isMenuOpen ? "Close menu" : "Open menu"}
+          aria-expanded={isMenuOpen}
+        >
+          {isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+        </button>
+      </nav>
+
+      {/* Mobile menu */}
+      {isMenuOpen && (
+        <div className="max-h-[calc(100vh-64px)] overflow-y-auto border-t border-nb-line bg-white xl:hidden">
+          <div className="nb-container py-4">
+            {navigation.map((item) =>
+              item.dropdown ? (
+                <div key={item.id} className="py-2">
+                  <div className="px-2 pb-1 text-xs font-semibold uppercase tracking-wider text-slate-500">
+                    {item.name}
+                  </div>
+                  {item.dropdown.map((sub) => (
+                    <Link
+                      key={sub.href}
+                      to={sub.href}
+                      className={`block rounded-lg px-2 py-2.5 text-[15px] font-medium ${
+                        isActive(sub.href) ? "bg-nb-soft text-nb-blue" : "text-nb-text"
+                      }`}
+                    >
+                      {sub.name}
+                    </Link>
+                  ))}
+                </div>
+              ) : (
                 <Link
                   key={item.id}
                   to={item.href}
-                  className={`block rounded-md px-3 py-2 text-sm font-medium ${
-                    location.pathname === item.href
-                      ? "bg-red-50 text-red-500"
-                      : "text-gray-700 hover:bg-gray-100"
+                  className={`block rounded-lg px-2 py-2.5 text-[15px] font-medium ${
+                    isActive(item.href) ? "bg-nb-soft text-nb-blue" : "text-nb-text"
                   }`}
-                  onClick={() => setIsMenuOpen(false)}
                 >
                   {item.name}
                 </Link>
-              ))}
-              <div className="flex gap-2 mt-2">
-                <a
-                  href="tel:7042709578"
-                  className="flex-1 px-4 py-2 rounded-lg bg-red-500 text-white text-center"
-                  onClick={() => setIsMenuOpen(false)}
-                >
-                  <Phone className="inline h-4 w-4 mr-2" />
-                  Call
-                </a>
-                <button
-                  onClick={() => {
-                    handleContact("whatsapp");
-                    setIsMenuOpen(false);
-                  }}
-                  className="flex-1 px-4 py-2 rounded-lg bg-green-600 text-white"
-                >
-                  <MessageCircle className="inline h-4 w-4 mr-2" />
-                  WhatsApp
-                </button>
-              </div>
+              )
+            )}
+            <div className="mt-4 grid grid-cols-2 gap-2 border-t border-nb-line pt-4">
+              <a href={`tel:${SKILLVERSE_CALL}`} className="btn-outline btn-sm">
+                <Phone className="h-4 w-4" /> Call
+              </a>
+              <a href={SKILLVERSE_WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className="btn-solid btn-sm">
+                <MessageCircle className="h-4 w-4" /> WhatsApp
+              </a>
             </div>
-          </motion.div>
-        )}
-      </nav>
-    </motion.header>
+          </div>
+        </div>
+      )}
+    </header>
   );
 };
 

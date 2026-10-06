@@ -1,6 +1,4 @@
-
 import React from 'react';
-import { motion } from 'framer-motion';
 import { MessageCircle } from 'lucide-react';
 
 const WhatsAppFloat = () => {
@@ -10,22 +8,9 @@ const WhatsAppFloat = () => {
   };
 
   return (
-    <motion.button
-      className="floating-whatsapp"
-      onClick={handleWhatsAppClick}
-      whileHover={{ scale: 1.1 }}
-      whileTap={{ scale: 0.9 }}
-      initial={{ scale: 0 }}
-      animate={{ scale: 1 }}
-      transition={{
-        type: "spring",
-        stiffness: 260,
-        damping: 20,
-        delay: 1
-      }}
-    >
-      <MessageCircle className="h-7 w-7 text-white" />
-    </motion.button>
+    <button type="button" className="floating-whatsapp" onClick={handleWhatsAppClick} aria-label="Chat on WhatsApp">
+      <MessageCircle className="h-6 w-6 text-white" />
+    </button>
   );
 };
 

@@ -160,7 +160,7 @@ const CampusAmbassadorPage = () => {
 
   return (
     <div className="min-h-screen bg-white">
-      <section className="relative bg-gradient-to-br from-red-500 via-red-600 to-red-700 text-white py-20 px-6 overflow-hidden">
+      <section className="relative bg-nb-blue text-white py-20 px-6 overflow-hidden">
         <div className="absolute inset-0 bg-black opacity-10" />
         <div className="relative max-w-6xl mx-auto text-center z-10">
           <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }}>
@@ -191,7 +191,7 @@ const CampusAmbassadorPage = () => {
               </p>
             </motion.div>
             <motion.div initial={{ opacity: 0, x: 30 }} whileInView={{ opacity: 1, x: 0 }} transition={{ duration: 0.6 }} viewport={{ once: true }} className="relative">
-              <div className="bg-gradient-to-br from-red-500 to-red-700 rounded-2xl p-12 flex items-center justify-center">
+              <div className="bg-nb-blue rounded-2xl p-12 flex items-center justify-center">
                 <Play className="h-24 w-24 text-white" />
               </div>
             </motion.div>
@@ -199,7 +199,7 @@ const CampusAmbassadorPage = () => {
         </div>
       </section>
 
-      <section className="py-16 px-6 bg-gradient-to-br from-red-50 to-red-100">
+      <section className="py-16 px-6 bg-red-50">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-4xl font-bold text-center text-gray-900 mb-4">Perks & Incentives</h2>
           <p className="text-center text-gray-600 mb-12 text-lg">Unlock exclusive benefits and rewards as a Campus Ambassador</p>
@@ -236,7 +236,7 @@ const CampusAmbassadorPage = () => {
                 viewport={{ once: true }}
                 className="relative text-center"
               >
-                <div className="bg-gradient-to-br from-red-500 to-red-700 text-white rounded-full w-20 h-20 flex items-center justify-center text-3xl font-bold mx-auto mb-6">
+                <div className="bg-nb-blue text-white rounded-full w-20 h-20 flex items-center justify-center text-3xl font-bold mx-auto mb-6">
                   {step.number}
                 </div>
                 <h3 className="text-2xl font-bold mb-3 text-gray-900">{step.title}</h3>
@@ -248,7 +248,7 @@ const CampusAmbassadorPage = () => {
         </div>
       </section>
 
-      <section className="py-16 px-6 bg-gradient-to-br from-red-50 to-red-100">
+      <section className="py-16 px-6 bg-red-50">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-4xl font-bold text-center text-gray-900 mb-4">A Day in the Life</h2>
           <p className="text-center text-gray-600 mb-12 text-lg">Experience the daily journey of a SkillVerse Ambassador</p>
@@ -280,7 +280,7 @@ const CampusAmbassadorPage = () => {
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.6 }}
               viewport={{ once: true }}
-              className="bg-gradient-to-br from-red-50 to-red-100 rounded-xl p-8"
+              className="bg-red-50 rounded-xl p-8"
             >
               <Globe className="h-12 w-12 text-red-600 mb-4" />
               <h3 className="text-2xl font-bold mb-4 text-gray-900">Study Abroad</h3>
@@ -299,7 +299,7 @@ const CampusAmbassadorPage = () => {
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.6 }}
               viewport={{ once: true }}
-              className="bg-gradient-to-br from-red-50 to-red-100 rounded-xl p-8"
+              className="bg-red-50 rounded-xl p-8"
             >
               <BookOpen className="h-12 w-12 text-red-600 mb-4" />
               <h3 className="text-2xl font-bold mb-4 text-gray-900">Mentorship Programs</h3>
@@ -316,7 +316,7 @@ const CampusAmbassadorPage = () => {
         </div>
       </section>
 
-      <section className="py-16 px-6 bg-gradient-to-br from-red-600 to-red-700 text-white">
+      <section className="py-16 px-6 bg-nb-blue text-white">
         <div className="max-w-6xl mx-auto">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             {stats.map((stat, i) => (
@@ -347,7 +347,7 @@ const CampusAmbassadorPage = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: i * 0.1 }}
                 viewport={{ once: true }}
-                className="bg-gradient-to-br from-red-50 to-red-100 rounded-xl p-6 shadow-lg"
+                className="bg-red-50 rounded-xl p-6 shadow-lg"
               >
                 <div className="flex items-center gap-3 mb-4">
                   <div className="bg-red-600 text-white rounded-full w-12 h-12 flex items-center justify-center font-bold text-lg">
@@ -365,7 +365,7 @@ const CampusAmbassadorPage = () => {
         </div>
       </section>
 
-      <section className="py-16 px-6 bg-gradient-to-br from-red-600 to-red-700 text-white">
+      <section className="py-16 px-6 bg-nb-blue text-white">
         <div className="max-w-2xl mx-auto">
           <h2 className="text-4xl font-bold text-center mb-4">Ready to Become an Ambassador? 🚀</h2>
           <p className="text-center text-lg mb-8">Join thousands of students who are already making an impact</p>
@@ -441,7 +441,7 @@ const CampusAmbassadorPage = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: i * 0.1 }}
                 viewport={{ once: true }}
-                className="bg-gradient-to-br from-red-50 to-red-100 rounded-lg p-6"
+                className="bg-red-50 rounded-lg p-6"
               >
                 <h3 className="text-lg font-bold text-gray-900 mb-2">{faq.question}</h3>
                 <p className="text-gray-700">{faq.answer}</p>
@@ -451,7 +451,7 @@ const CampusAmbassadorPage = () => {
         </div>
       </section>
 
-      <section className="py-16 px-6 bg-gradient-to-br from-red-50 to-red-100">
+      <section className="py-16 px-6 bg-red-50">
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="text-3xl font-bold text-gray-900 mb-8">Have Questions? We're Here to Help!</h2>
           <div className="flex flex-wrap justify-center gap-6">
@@ -459,9 +459,9 @@ const CampusAmbassadorPage = () => {
               <Phone className="h-5 w-5 text-red-600" />
               <span className="text-gray-900">8296548156</span>
             </a>
-            <a href="mailto:fullstackverse2021@gmail.com" className="flex items-center gap-2 bg-white px-6 py-3 rounded-lg shadow-md hover:shadow-lg transition-shadow">
+            <a href="mailto:info@fullstackverse.in" className="flex items-center gap-2 bg-white px-6 py-3 rounded-lg shadow-md hover:shadow-lg transition-shadow">
               <Mail className="h-5 w-5 text-red-600" />
-              <span className="text-gray-900">fullstackverse2021@gmail.com</span>
+              <span className="text-gray-900">info@fullstackverse.in</span>
             </a>
           </div>
         </div>

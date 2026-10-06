@@ -5,9 +5,9 @@ import WhatsAppFloat from "../../components/WhatsAppFloat";
 
 export default function SkillVerseLayout({ children }) {
   return (
-    <div className="min-h-screen bg-white">
+    <div className="flex min-h-screen flex-col bg-white">
       <SkillVerseHeader />
-      <main>{children}</main>
+      <main className="flex-1">{children}</main>
       <SkillVerseFooter />
       <WhatsAppFloat />
     </div>

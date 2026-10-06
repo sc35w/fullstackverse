@@ -1,7 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { Rocket, Users, Calendar, MapPin, Mic } from "lucide-react";
-import { Button } from "../../components/ui/button";
 
 const workshops = [
   {
@@ -54,54 +53,53 @@ const workshops = [
 
 export default function SkillVerseWorkshopsPage() {
   return (
-    <div className="min-h-screen bg-gradient-to-b from-blue-50 to-white py-12 px-6">
-      <div className="max-w-6xl mx-auto">
-        <div className="text-center mb-12">
-          <h1 className="text-5xl font-bold text-gray-900 mb-4">Workshops & Webinars</h1>
-          <p className="text-xl text-gray-600">Interactive sessions to boost your skills and knowledge</p>
+    <div className="bg-white">
+      <section className="nb-hero">
+        <div className="nb-container py-14 text-center md:py-20">
+          <h1 className="nb-h1">Workshops & Webinars</h1>
+          <p className="nb-lead mx-auto mt-4 max-w-2xl md:text-lg">Interactive sessions to boost your skills and knowledge</p>
         </div>
+      </section>
 
-        <div className="grid md:grid-cols-2 gap-8">
+      <section className="nb-section nb-section--soft">
+        <div className="nb-container grid gap-5 md:grid-cols-2">
           {workshops.map((workshop) => (
             <div
               key={workshop.id}
-              className={`bg-white border rounded-xl shadow-lg hover:shadow-xl transition-all p-8 ${workshop.highlight ? 'border-yellow-400 ring-2 ring-yellow-100' : 'border-gray-200'}`}
+              className={`nb-card flex flex-col md:p-8 ${workshop.highlight ? "!border-nb-orange ring-1 ring-nb-orange" : ""}`}
             >
-              <div className="flex items-start gap-4 mb-6">
-                <div className={`p-4 rounded-lg bg-gradient-to-br ${workshop.highlight ? 'from-yellow-400 to-yellow-600 text-black' : 'from-red-500 to-red-700 text-white'}`}>
-                  {workshop.id === 'speak-english' ? <Mic className="h-8 w-8" /> : <Rocket className="h-8 w-8" />}
-                </div>
+              <div className="mb-6 flex items-start gap-4">
+                <span className="nb-icon">
+                  {workshop.id === "speak-english" ? <Mic className="h-5 w-5" /> : <Rocket className="h-5 w-5" />}
+                </span>
                 <div className="flex-1">
-                  <h3 className="text-2xl font-bold text-gray-900 mb-2">{workshop.title}</h3>
-                  <p className="text-gray-600">{workshop.description}</p>
+                  <h3 className="text-xl font-semibold text-nb-text">{workshop.title}</h3>
+                  <p className="mt-2 text-sm leading-relaxed text-nb-muted">{workshop.description}</p>
                 </div>
               </div>
 
-              <div className="space-y-3 mb-6">
-                <div className="flex items-center gap-3 text-gray-700">
-                  <Calendar className={`h-5 w-5 ${workshop.highlight ? 'text-yellow-600' : 'text-red-600'}`} />
-                  <span>{workshop.date}</span>
-                </div>
-                <div className="flex items-center gap-3 text-gray-700">
-                  <Users className={`h-5 w-5 ${workshop.highlight ? 'text-yellow-600' : 'text-red-600'}`} />
-                  <span>Duration: {workshop.duration}</span>
-                </div>
-                <div className="flex items-center gap-3 text-gray-700">
-                  <MapPin className={`h-5 w-5 ${workshop.highlight ? 'text-yellow-600' : 'text-red-600'}`} />
-                  <span>Mode: {workshop.mode}</span>
-                </div>
-              </div>
+              <ul className="mb-6 flex-1 space-y-2.5 text-sm text-nb-muted">
+                <li className="flex items-center gap-3">
+                  <Calendar className="h-4 w-4 text-nb-blue" />
+                  {workshop.date}
+                </li>
+                <li className="flex items-center gap-3">
+                  <Users className="h-4 w-4 text-nb-blue" />
+                  Duration: {workshop.duration}
+                </li>
+                <li className="flex items-center gap-3">
+                  <MapPin className="h-4 w-4 text-nb-blue" />
+                  Mode: {workshop.mode}
+                </li>
+              </ul>
 
-              <Link to={workshop.link}>
-                <Button className={`w-full bg-gradient-to-r ${workshop.highlight ? 'from-yellow-500 to-yellow-600 hover:from-yellow-600 hover:to-yellow-700 text-black' : 'from-red-600 to-red-700 hover:from-red-700 hover:to-red-800'}`}>
-                  Register Now
-                </Button>
+              <Link to={workshop.link} className="btn-solid btn-sm w-full">
+                Register Now
               </Link>
             </div>
           ))}
         </div>
-      </div>
+      </section>
     </div>
   );
 }
-

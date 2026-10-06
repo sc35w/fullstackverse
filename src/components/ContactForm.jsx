@@ -1,12 +1,11 @@
 import React, { useState } from 'react';
-import { motion } from 'framer-motion';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { Label } from '@/components/ui/label';
 import { useToast } from '@/components/ui/use-toast';
 import { submitToAppsScript } from '@/lib/appsScript';
 
-const ContactForm = ({ title = "Business Requirement Form", type = "business" }) => {
+const ContactForm = ({ title = "Business Requirement Form", type = "business", embedded = false }) => {
   const [formData, setFormData] = useState({
     full_name: '',
     email: '',
@@ -112,15 +111,11 @@ const ContactForm = ({ title = "Business Requirement Form", type = "business" })
   };
 
   return (
-    <motion.div
-      className="bg-white rounded-2xl shadow-xl p-4 md:p-8 max-w-2xl mx-auto"
-      initial={{ opacity: 0, y: 20 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.6 }}
-    >
-      <h3 className="text-2xl font-bold text-gray-900 mb-6 text-center">{title}</h3>
-      <form onSubmit={handleSubmit} className="space-y-6" noValidate>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+    <div className={embedded ? "p-6 md:p-8" : "nb-card mx-auto max-w-2xl p-6 md:p-8"}>
+      <h3 className="mb-1 text-2xl font-bold text-nb-text">{title}</h3>
+      <p className="mb-6 text-sm text-nb-muted">We'll get back to you within 24 hours.</p>
+      <form onSubmit={handleSubmit} className="space-y-5" noValidate>
+        <div className="grid grid-cols-1 gap-5 md:grid-cols-2">
           <div className="space-y-2">
             <Label htmlFor="full_name">Full Name *</Label>
             <Input
@@ -146,7 +141,7 @@ const ContactForm = ({ title = "Business Requirement Form", type = "business" })
           </div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div className="grid grid-cols-1 gap-5 md:grid-cols-2">
           <div className="space-y-2">
             <Label htmlFor="contact_number">Contact Number *</Label>
             <Input
@@ -191,12 +186,12 @@ const ContactForm = ({ title = "Business Requirement Form", type = "business" })
         <button
           type="submit"
           disabled={isSubmitting}
-          className="btn btn-primary w-full"
+          className="btn-solid w-full"
         >
           {isSubmitting ? "Submitting..." : "Submit Request"}
         </button>
       </form>
-    </motion.div>
+    </div>
   );
 };
 

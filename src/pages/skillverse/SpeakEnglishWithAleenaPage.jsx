@@ -83,9 +83,9 @@ export default function SpeakEnglishPage() {
   };
 
   return (
-    <div className="font-sans text-gray-200 bg-black min-h-screen pb-20 md:pb-0">
+    <div className="font-sans text-gray-200 bg-nb-ink min-h-screen pb-20 md:pb-0">
       {/* Header */}
-      <header className="bg-black text-white body-font border-b border-gray-800">
+      <header className="bg-nb-ink text-white body-font border-b border-gray-800">
         <div className="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center justify-between">
             <a className="flex title-font font-medium items-center text-white mb-4 md:mb-0">
              <span className="ml-3 text-2xl font-black tracking-tighter">Speak English</span>
@@ -94,7 +94,7 @@ export default function SpeakEnglishPage() {
             <button
               onClick={handleRegisterClick}
               disabled={hasEnded}
-              className="inline-flex items-center bg-yellow-500 border-0 py-2 px-6 focus:outline-none hover:bg-yellow-600 rounded text-black font-bold mt-4 md:mt-0 disabled:opacity-50 disabled:cursor-not-allowed"
+              className="inline-flex items-center bg-yellow-500 border-0 py-2 px-6 focus:outline-none hover:bg-yellow-600 rounded text-nb-text font-bold mt-4 md:mt-0 disabled:opacity-50 disabled:cursor-not-allowed"
             >
               {hasEnded ? "Enrollment Closed" : "Enroll Now"}
             </button>
@@ -105,7 +105,7 @@ export default function SpeakEnglishPage() {
 
       <main>
         {/* Hero Section */}
-        <section className="text-gray-200 bg-black py-16 body-font">
+        <section className="text-gray-200 bg-nb-ink py-16 body-font">
           <div className="container mx-auto flex px-5 py-6 items-center justify-center flex-col">
             <div className="text-center w-full">
               <h1 className="title-font sm:text-5xl text-3xl mb-4 font-bold text-white leading-tight">
@@ -135,7 +135,7 @@ export default function SpeakEnglishPage() {
 
               <div className="flex flex-col md:flex-row items-stretch justify-center gap-8 w-full max-w-5xl mx-auto mt-8">
                 {/* Features & Instructor */}
-                <div className="bg-[#222] rounded-3xl p-6 md:w-1/2 flex flex-col justify-between">
+                <div className="bg-nb-ink2 rounded-3xl p-6 md:w-1/2 flex flex-col justify-between">
                   <div className="grid grid-cols-2 gap-4 mb-8">
                     {[
                       "100+ Videos", "Speaking Partners", "Practice with AI", "Lifetime Access"
@@ -144,7 +144,7 @@ export default function SpeakEnglishPage() {
                          <div className="hidden sm:block">
                             <Check className="h-5 w-5 text-blue-500" />
                          </div>
-                         <span className="text-black font-bold text-sm leading-tight">{feat}</span>
+                         <span className="text-nb-text font-bold text-sm leading-tight">{feat}</span>
                       </div>
                     ))}
                   </div>
@@ -164,9 +164,9 @@ export default function SpeakEnglishPage() {
 
                 {/* Offer & Reserve */}
                 <div className="md:w-1/2 flex flex-col justify-between">
-                   <div className="flex-grow bg-[#222] rounded-xl mb-4 p-2 relative group cursor-pointer shadow-lg border border-gray-800">
+                   <div className="flex-grow bg-nb-ink2 rounded-xl mb-4 p-2 relative group cursor-pointer shadow-lg border border-gray-800">
                       {/* Video Embed Placeholder */}
-                       <div className="w-full h-full bg-black rounded-lg flex flex-col items-center justify-center min-h-[200px]">
+                       <div className="w-full h-full bg-nb-ink rounded-lg flex flex-col items-center justify-center min-h-[200px]">
                            <div className="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center backdrop-blur-sm group-hover:scale-110 transition-transform">
                              <div className="w-0 h-0 border-t-8 border-b-8 border-l-12 border-transparent border-l-white ml-1"></div>
                            </div>
@@ -183,7 +183,7 @@ export default function SpeakEnglishPage() {
                    <button 
                       onClick={handleRegisterClick}
                       disabled={hasEnded}
-                      className="w-full bg-[#58a1e6] hover:bg-blue-500 text-white font-bold py-4 px-6 rounded-2xl flex items-center justify-between text-lg transition-all"
+                      className="w-full bg-nb-blue hover:bg-blue-500 text-white font-bold py-4 px-6 rounded-2xl flex items-center justify-between text-lg transition-all"
                     >
                       <span className="font-medium text-xl">Reserve Seat for Rs 399</span>
                       <span className="line-through text-xs opacity-80">Rs 20,000</span>
@@ -197,28 +197,28 @@ export default function SpeakEnglishPage() {
         {/* Sections removed as requested */}
 
         {/* Who is this for */}
-        <section className="bg-[#f3f9ff] pb-16 text-gray-600 body-font">
+        <section className="bg-nb-soft pb-16 text-gray-600 body-font">
            <div className="container px-5 mx-auto">
-              <h2 className="sm:text-4xl text-2xl font-bold text-center mb-8 text-black">Who is this course for?</h2>
+              <h2 className="sm:text-4xl text-2xl font-bold text-center mb-8 text-nb-text">Who is this course for?</h2>
               <div className="flex flex-wrap mx-auto md:max-w-[90%] justify-center">
                  {[
                     "Working Professionals", "Students", "Solopreneurs and Freelancers", "Entrepreneurs", "Sales Executives", "Managers and Team Leaders"
                  ].map((item) => (
                     <div key={item} className="p-3 md:w-1/2 w-full">
                        <div className="bg-white rounded-xl flex p-6 px-8 h-full items-center shadow-sm">
-                          <span className="text-black mr-5 rounded-full inline-flex items-center justify-center">
-                             <Check className="w-6 h-6 text-[#099ac3]" strokeWidth={3} />
+                          <span className="text-nb-text mr-5 rounded-full inline-flex items-center justify-center">
+                             <Check className="w-6 h-6 text-nb-blue" strokeWidth={3} />
                           </span>
-                          <span className="font-medium text-lg text-black">{item}</span>
+                          <span className="font-medium text-lg text-nb-text">{item}</span>
                        </div>
                     </div>
                  ))}
                  <div className="p-3 w-full">
                     <div className="bg-white rounded-xl flex p-6 px-8 h-full items-center justify-center shadow-sm">
-                       <span className="text-black mr-5 rounded-full inline-flex items-center justify-center">
-                          <Check className="w-6 h-6 text-[#099ac3]" strokeWidth={3} />
+                       <span className="text-nb-text mr-5 rounded-full inline-flex items-center justify-center">
+                          <Check className="w-6 h-6 text-nb-blue" strokeWidth={3} />
                        </span>
-                       <span className="font-medium text-lg text-black">Anyone who is interested in improving English Speaking Skills</span>
+                       <span className="font-medium text-lg text-nb-text">Anyone who is interested in improving English Speaking Skills</span>
                     </div>
                  </div>
               </div>
@@ -227,7 +227,7 @@ export default function SpeakEnglishPage() {
                 <button 
                   onClick={handleRegisterClick}
                   disabled={hasEnded}
-                  className="bg-[#58a1e6] text-white text-xl md:text-2xl font-medium py-5 px-16 rounded-2xl hover:bg-blue-600 transition-all shadow-lg mx-auto w-full md:w-auto"
+                  className="bg-nb-blue text-white text-xl md:text-2xl font-medium py-5 px-16 rounded-2xl hover:bg-blue-600 transition-all shadow-lg mx-auto w-full md:w-auto"
                 >
                     Join Speak English course for just Rs 399
                     <span className="block text-sm line-through mt-1 opacity-80">Rs 20,000</span>
@@ -240,7 +240,7 @@ export default function SpeakEnglishPage() {
         </section>
 
         {/* What is included */}
-        <section className="bg-black py-16 text-gray-400">
+        <section className="bg-nb-ink py-16 text-gray-400">
            <div className="container px-5 mx-auto">
               <h2 className="sm:text-4xl text-3xl font-bold text-center mb-10 text-white">What is included in this bundle?</h2>
               <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-3 mb-8 max-w-7xl mx-auto">
@@ -251,7 +251,7 @@ export default function SpeakEnglishPage() {
                     { title: "PDF eBook to improve your communication skills", val: "1,000", imageColor: "bg-yellow-100" },
                     { title: "Lifetime Access to LMS for all major English exams like TOEFL, GRE, IELTS etc", val: "5,000", imageColor: "bg-red-100" },
                  ].map((item, idx) => (
-                    <div key={idx} className="bg-white rounded-xl text-black p-3 flex flex-col h-full shadow-lg">
+                    <div key={idx} className="bg-white rounded-xl text-nb-text p-3 flex flex-col h-full shadow-lg">
                        <div className={`rounded-lg w-full h-[100px] object-cover ${item.imageColor} flex items-center justify-center mb-3`}>
                            <span className="text-5xl font-black opacity-10">{idx + 1}</span>
                        </div>
@@ -259,14 +259,14 @@ export default function SpeakEnglishPage() {
                           <h2 className="font-bold text-xs leading-tight mb-2 min-h-[2rem]">{item.title}</h2>
                           <div>
                              <span className="text-[10px] font-medium text-gray-500 uppercase tracking-wide">worth</span>
-                             <h2 className="text-lg font-bold text-black">Rs {item.val}</h2>
+                             <h2 className="text-lg font-bold text-nb-text">Rs {item.val}</h2>
                           </div>
                        </div>
                     </div>
                  ))}
                  
                  {/* Locked Bonus */}
-                 <div className="relative bg-white rounded-xl text-black p-3 flex flex-col h-full overflow-hidden shadow-lg">
+                 <div className="relative bg-white rounded-xl text-nb-text p-3 flex flex-col h-full overflow-hidden shadow-lg">
                     <div className="rounded-lg w-full h-[100px] bg-gray-200 flex items-center justify-center mb-3">
                         <Lock className="h-10 w-10 text-gray-400 opacity-50" />
                     </div>
@@ -274,10 +274,10 @@ export default function SpeakEnglishPage() {
                         <h2 className="font-bold text-xs leading-tight mb-2 min-h-[2rem]">Mystery Bonus Content Unlocked</h2>
                         <div>
                             <span className="text-[10px] font-medium text-gray-500 uppercase tracking-wide">worth</span>
-                            <h2 className="text-lg font-bold text-black">Rs 5,000</h2>
+                            <h2 className="text-lg font-bold text-nb-text">Rs 5,000</h2>
                         </div>
                     </div>
-                    <div className="absolute inset-0 bg-black/50 backdrop-blur-sm flex items-center justify-center z-10 text-center p-2">
+                    <div className="absolute inset-0 bg-nb-ink/50 backdrop-blur-sm flex items-center justify-center z-10 text-center p-2">
                        <div>
                           <Lock className="h-8 w-8 text-white mx-auto mb-1" />
                           <span className="text-sm font-bold text-white leading-tight">Unlocks after <br/> purchase</span>
@@ -291,12 +291,12 @@ export default function SpeakEnglishPage() {
               <button 
                   onClick={handleRegisterClick}
                   disabled={hasEnded}
-                  className="text-white bg-gradient-to-r from-blue-400 to-blue-600 max-w-[90%] md:max-w-[400px] mx-auto flex items-center justify-center gap-2 py-[20px] mt-8 px-14 text-lg font-medium rounded-2xl"
+                  className="text-white bg-nb-blue max-w-[90%] md:max-w-[400px] mx-auto flex items-center justify-center gap-2 py-[20px] mt-8 px-14 text-lg font-medium rounded-2xl"
               >
                 Reserve your seat now!!!
               </button>
 
-              <div className="border-2 rounded-[14px] border-dashed mt-5 border-[#1291c4] font-medium w-full md:w-2/5 mx-auto text-center p-2 text-gray-100 text-sm">
+              <div className="border-2 rounded-[14px] border-dashed mt-5 border-nb-blue font-medium w-full md:w-2/5 mx-auto text-center p-2 text-gray-100 text-sm">
                 ATTENTION: Register before midnight of <span className="font-bold">{WORKSHOP_DATETIME.toLocaleDateString()}</span>, to unlock bonuses.<br/>
                 This is a never heard before offer.
               </div>
@@ -319,9 +319,9 @@ export default function SpeakEnglishPage() {
         </section>
 
         {/* What will you learn */}
-        <section className="bg-[#f3f9ff] py-16 text-gray-600">
+        <section className="bg-nb-soft py-16 text-gray-600">
            <div className="container px-5 mx-auto">
-              <h1 className="sm:text-4xl text-3xl font-bold text-center text-black mb-12">What will you learn in the course?</h1>
+              <h1 className="sm:text-4xl text-3xl font-bold text-center text-nb-text mb-12">What will you learn in the course?</h1>
               <div className="flex flex-wrap gap-4 items-stretch justify-center">
                  {[
                     { t: "Master the Basics", d: "Build a strong foundation with essential English grammar and vocabulary to kickstart your learning journey." },
@@ -335,20 +335,20 @@ export default function SpeakEnglishPage() {
                  ].map((item, i) => (
                     <div key={i} className="min-w-[300px] max-w-[600px] md:w-[calc(50%-1rem)] lg:w-[calc(25%-1rem)] bg-transparent">
                         <div className="p-4 h-full border border-gray-200 rounded-xl bg-white shadow-sm">
-                           <h2 className="text-[#09679c] text-2xl font-bold mb-2">{item.t}</h2>
-                           <p className="text-base font-medium text-black">{item.d}</p>
+                           <h2 className="text-nb-blue text-2xl font-bold mb-2">{item.t}</h2>
+                           <p className="text-base font-medium text-nb-text">{item.d}</p>
                         </div>
                     </div>
                  ))}
               </div>
               <div className="my-8 text-center w-full">
-                  <h2 className="text-[#09679c] text-2xl font-bold">and a lot more...</h2>
+                  <h2 className="text-nb-blue text-2xl font-bold">and a lot more...</h2>
               </div>
            </div>
         </section>
 
         {/* Reviews */}
-        <section className="bg-black py-16 text-gray-400">
+        <section className="bg-nb-ink py-16 text-gray-400">
             <div className="container px-5 mx-auto">
                 <h1 className="sm:text-4xl text-3xl font-medium text-white text-center mb-8">Reviews from Students</h1>
                 <div className="flex flex-wrap md:w-4/5 mx-auto">
@@ -358,7 +358,7 @@ export default function SpeakEnglishPage() {
                             { text: "“Thank you instructor for helping me with my English. I passed my first job interview just because of the guidance. I will forever be indebted.”", author: "Prachi" },
                             { text: "“The course has been life changing for me. I had lost all hope about ever being fluent in English. This is the only course I think which focuses on speaking ability of the person instead of theory.”", author: "Sohail" },
                         ].map((review, i) => (
-                           <div key={i} className="flex rounded-xl bg-[#e3eaec] text-black font-semibold px-8 py-6 flex-col">
+                           <div key={i} className="flex rounded-xl bg-slate-100 text-nb-text font-semibold px-8 py-6 flex-col">
                                <p className="text-[17px]">{review.text}</p>
                                <div className="flex items-center justify-between mt-4">
                                    <div className="flex text-yellow-500">
@@ -375,7 +375,7 @@ export default function SpeakEnglishPage() {
                             { text: "“I used to hesitate a lot while speaking English and in fact I used to avoid situations requiring me to speak in English. But the instructor gave me tips and a new mindset to improve. The instructor also got me English speaking partners. Thank you. :)”", author: "Neeraj" },
                             { text: "“I have completed half of the course till now and I already feel much more confident in English and otherwise in life too. I am happy.”", author: "Santosh" },
                         ].map((review, i) => (
-                           <div key={i} className="flex rounded-xl bg-[#e3eaec] text-black font-semibold px-8 py-6 flex-col">
+                           <div key={i} className="flex rounded-xl bg-slate-100 text-nb-text font-semibold px-8 py-6 flex-col">
                                <p className="text-[17px]">{review.text}</p>
                                <div className="flex items-center justify-between mt-4">
                                    <div className="flex text-yellow-500">
@@ -391,7 +391,7 @@ export default function SpeakEnglishPage() {
         </section>
 
         {/* Checklist: Still Wondering */}
-        <section className="bg-gray-100 py-16 text-black">
+        <section className="bg-gray-100 py-16 text-nb-text">
             <div className="container px-5 mx-auto">
                 <div className="flex flex-col text-center w-full mb-4">
                     <h1 className="sm:text-4xl text-3xl font-bold mb-2">Still Wondering If the Course is for YOU?</h1>
@@ -408,7 +408,7 @@ export default function SpeakEnglishPage() {
                         "You’ve tried to learn English by yourself, but haven’t been consistent and all the information seems scattered.",
                     ].map((text, i) => (
                         <div key={i} className="p-1 md:w-1/2 w-full flex flex-col">
-                            <div className="flex items-center rounded-2xl bg-white text-black font-semibold p-4 px-5 border shadow-sm h-full">
+                            <div className="flex items-center rounded-2xl bg-white text-nb-text font-semibold p-4 px-5 border shadow-sm h-full">
                                 <div className="flex-shrink-0 mr-4">
                                     <input type="checkbox" className="w-6 h-6 border-2 border-blue-400 rounded text-blue-500 focus:ring-blue-500" defaultChecked />
                                 </div>
@@ -424,11 +424,11 @@ export default function SpeakEnglishPage() {
                     <button 
                         onClick={handleRegisterClick}
                         disabled={hasEnded}
-                        className="text-white bg-[#58a1e6] flex items-center justify-center gap-2 py-[14px] px-16 mx-auto rounded-2xl mt-5 hover:bg-blue-600 transition-colors"
+                        className="text-white bg-nb-blue flex items-center justify-center gap-2 py-[14px] px-16 mx-auto rounded-2xl mt-5 hover:bg-blue-600 transition-colors"
                     >
                         <span className="text-xl font-medium">Join Now</span>
                     </button>
-                    <div className="border-2 rounded-[14px] border-dashed border-[#1291c4] font-bold my-8 w-[90%] md:w-[60%] mx-auto text-center p-3 text-black bg-[#e9e8e9] text-sm md:text-base">
+                    <div className="border-2 rounded-[14px] border-dashed border-nb-blue font-bold my-8 w-[90%] md:w-[60%] mx-auto text-center p-3 text-nb-text bg-slate-100 text-sm md:text-base">
                         ATTENTION: Register before midnight of <span className="font-bold">{WORKSHOP_DATETIME.toLocaleDateString()}</span>, to unlock bonuses.<br/>
                         This is a never heard before offer.
                     </div>
@@ -437,12 +437,12 @@ export default function SpeakEnglishPage() {
         </section>
         
         {/* Certificate Section */}
-        <section className="bg-[#f3f9ff] py-16 text-gray-400">
+        <section className="bg-nb-soft py-16 text-gray-400">
           <div className="container px-5 mx-auto max-w-6xl">
              <div className="flex flex-col md:flex-row items-center justify-between gap-12">
                 <div className="md:w-1/2">
-                    <h1 className="sm:text-4xl text-3xl mb-2 font-bold text-[#1291c4] text-center md:text-left">Get Certified</h1>
-                    <p className="mb-8 leading-relaxed text-[20px] font-medium text-[#13181d] text-center md:text-left">
+                    <h1 className="sm:text-4xl text-3xl mb-2 font-bold text-nb-blue text-center md:text-left">Get Certified</h1>
+                    <p className="mb-8 leading-relaxed text-[20px] font-medium text-nb-text text-center md:text-left">
                         Yes! You will be certified for this workshop once you submit your assignment.
                     </p>
                     <div className="space-y-8">
@@ -453,10 +453,10 @@ export default function SpeakEnglishPage() {
                         ].map((item,i) => (
                             <div key={i} className="flex relative">
                                 <div className="flex-shrink-0 w-10 h-10 rounded-md bg-cyan-100 flex items-center justify-center text-white relative z-10">
-                                    <Check className="w-5 h-5 text-[#099ac3]" />
+                                    <Check className="w-5 h-5 text-nb-blue" />
                                 </div>
-                                <div className="flex-grow pl-4 text-black">
-                                    <h2 className="font-bold text-xl mb-1 text-[#1299d0]">{item.t}</h2>
+                                <div className="flex-grow pl-4 text-nb-text">
+                                    <h2 className="font-bold text-xl mb-1 text-nb-blue">{item.t}</h2>
                                     <p className="leading-relaxed max-w-[360px] font-medium">{item.d}</p>
                                 </div>
                             </div>
@@ -502,10 +502,10 @@ export default function SpeakEnglishPage() {
         </section>
 
         {/* Final Offer */}
-        <section className="bg-[#f3f9ff] py-16 text-gray-600">
+        <section className="bg-nb-soft py-16 text-gray-600">
             <div className="container px-5 mx-auto">
                 <div className="flex flex-col text-center w-full mb-12">
-                     <h1 className="sm:text-4xl text-3xl font-bold text-black">Get the offer while it lasts!</h1>
+                     <h1 className="sm:text-4xl text-3xl font-bold text-nb-text">Get the offer while it lasts!</h1>
                 </div>
                 <div className="flex flex-col md:flex-row items-stretch justify-center w-full md:w-[90%] mx-auto gap-12">
                     {/* Offer Left Panel */}
@@ -517,20 +517,20 @@ export default function SpeakEnglishPage() {
                                     <span className="text-gray-500 text-xl font-normal">(Save Rs 18,000)</span>
                                 </h2>
                                 <div>
-                                    <span className="font-bold text-5xl text-[#1291c4]">Rs 399</span>
-                                    <span className="font-medium text-sm text-[#1291c4] line-through ml-2">Rs 20,000</span>
+                                    <span className="font-bold text-5xl text-nb-blue">Rs 399</span>
+                                    <span className="font-medium text-sm text-nb-blue line-through ml-2">Rs 20,000</span>
                                 </div>
                             </div>
                             <nav className="flex flex-col space-y-4 mb-8">
-                                <div className="flex items-start text-black">
+                                <div className="flex items-start text-nb-text">
                                     <Check className="w-5 h-5 mr-2 mt-1 flex-shrink-0" />
                                     <span>Enroll now and get bonuses worth Rs 18,000 absolutely free. There was never a better time to grab this course.</span>
                                 </div>
-                                <div className="flex items-start text-black">
+                                <div className="flex items-start text-nb-text">
                                     <Check className="w-5 h-5 mr-2 mt-1 flex-shrink-0" />
                                     <span>Enjoy the discounted price of Rs 399 and save a total of Rs 18,000.</span>
                                 </div>
-                                <div className="flex items-start text-black">
+                                <div className="flex items-start text-nb-text">
                                     <Check className="w-5 h-5 mr-2 mt-1 flex-shrink-0" />
                                     <span>The launch offer expires on midnight of: <b>{WORKSHOP_DATETIME.toLocaleDateString()}</b></span>
                                 </div>
@@ -541,7 +541,7 @@ export default function SpeakEnglishPage() {
                             <button 
                                 onClick={handleRegisterClick}
                                 disabled={hasEnded}
-                                className="text-white w-full bg-[#58a1e6] flex items-center justify-center gap-2 py-[18px] rounded-2xl mt-auto hover:bg-blue-600 transition-colors"
+                                className="text-white w-full bg-nb-blue flex items-center justify-center gap-2 py-[18px] rounded-2xl mt-auto hover:bg-blue-600 transition-colors"
                             >
                                 <span className="text-xl font-medium">Join Now!!!</span>
                             </button>
@@ -551,7 +551,7 @@ export default function SpeakEnglishPage() {
                     {/* Offer Right Panel - Lists */}
                     <div className="md:w-1/2 pl-0 md:pl-8 flex flex-col justify-center">
                         <div className="p-4">
-                            <h2 className="font-bold text-2xl text-[#58a1e6] mb-4">What you’ll get...</h2>
+                            <h2 className="font-bold text-2xl text-nb-blue mb-4">What you’ll get...</h2>
                             <nav className="flex flex-col space-y-3">
                                 {[
                                     "Speak English Confidently and Fluently",
@@ -561,8 +561,8 @@ export default function SpeakEnglishPage() {
                                     "Learn how to think in english",
                                     "Learn strategies on how to overcome the fear of speaking in English"
                                 ].map((item, i) => (
-                                    <div key={i} className="pb-2 border-b border-gray-400 w-full text-black font-medium flex items-center">
-                                        <span className="text-black mr-2 bg-cyan-100 w-5 h-5 rounded-full inline-flex items-center justify-center flex-shrink-0">
+                                    <div key={i} className="pb-2 border-b border-gray-400 w-full text-nb-text font-medium flex items-center">
+                                        <span className="text-nb-text mr-2 bg-cyan-100 w-5 h-5 rounded-full inline-flex items-center justify-center flex-shrink-0">
                                             <Check className="w-3 h-3" />
                                         </span>
                                         {item}
@@ -571,7 +571,7 @@ export default function SpeakEnglishPage() {
                             </nav>
                         </div>
                         <div className="p-4 mt-6">
-                            <h2 className="text-[#58a1e6] text-2xl font-bold mb-4">And bonuses too...</h2>
+                            <h2 className="text-nb-blue text-2xl font-bold mb-4">And bonuses too...</h2>
                             <nav className="flex flex-col space-y-3">
                                 {[
                                     "English Speaking Partner",
@@ -580,8 +580,8 @@ export default function SpeakEnglishPage() {
                                     "Lesson Notes",
                                     "and much more"
                                 ].map((item, i) => (
-                                    <div key={i} className="pb-2 border-b border-gray-400 w-full text-black font-medium flex items-center">
-                                        <span className="text-black mr-2 bg-cyan-100 w-5 h-5 rounded-full inline-flex items-center justify-center flex-shrink-0">
+                                    <div key={i} className="pb-2 border-b border-gray-400 w-full text-nb-text font-medium flex items-center">
+                                        <span className="text-nb-text mr-2 bg-cyan-100 w-5 h-5 rounded-full inline-flex items-center justify-center flex-shrink-0">
                                             <Check className="w-3 h-3" />
                                         </span>
                                         {item}
@@ -612,7 +612,7 @@ export default function SpeakEnglishPage() {
                             <div key={i} className="bg-white w-full border rounded-xl shadow">
                                 <button className="w-full px-6 md:px-10 py-6 font-semibold text-left text-lg md:text-xl focus:outline-none flex justify-between items-center" onClick={() => toggleFaq(i)}>
                                     <span>{faq.q}</span>
-                                    {openFaqIndex === i ? <ChevronUp className="text-[#58a1e6]" /> : <ChevronDown className="text-[#58a1e6]" />}
+                                    {openFaqIndex === i ? <ChevronUp className="text-nb-blue" /> : <ChevronDown className="text-nb-blue" />}
                                 </button>
                                 {openFaqIndex === i && (
                                     <div className="px-6 md:px-10 pb-5 text-lg font-medium text-gray-700">
@@ -625,7 +625,7 @@ export default function SpeakEnglishPage() {
                     <button 
                         onClick={handleRegisterClick}
                         disabled={hasEnded}
-                        className="text-white w-full max-w-[600px] bg-[#58a1e6] flex items-center justify-center gap-2 py-[20px] px-16 mx-auto mt-12 rounded-3xl hover:bg-blue-600 transition-colors"
+                        className="text-white w-full max-w-[600px] bg-nb-blue flex items-center justify-center gap-2 py-[20px] px-16 mx-auto mt-12 rounded-3xl hover:bg-blue-600 transition-colors"
                     >
                         <span className="text-xl font-semibold">Reserve My Seat Now!!!</span>
                     </button>
@@ -637,15 +637,15 @@ export default function SpeakEnglishPage() {
         <div className="fixed bottom-0 left-0 right-0 bg-white border-t border-gray-200 p-2 shadow-[0_-5px_15px_rgba(0,0,0,0.1)] z-40 md:hidden flex justify-between items-center px-4">
              <div>
                 <div className="flex gap-2 items-center">
-                    <span className="font-bold text-lg text-black">Rs 399</span>
-                    <span className="line-through text-xs text-black">Rs 20,000</span>
+                    <span className="font-bold text-lg text-nb-text">Rs 399</span>
+                    <span className="line-through text-xs text-nb-text">Rs 20,000</span>
                 </div>
                 <div className="text-xs text-red-500 font-semibold">Offer ends in {hours}:{minutes}:{seconds}</div>
              </div>
              <button 
                 onClick={handleRegisterClick}
                 disabled={hasEnded}
-                className="bg-yellow-500 text-black px-6 py-2 rounded-lg font-bold"
+                className="bg-yellow-500 text-nb-text px-6 py-2 rounded-lg font-bold"
              >
                 Buy Now!!!
              </button>
@@ -653,7 +653,7 @@ export default function SpeakEnglishPage() {
 
         {/* Footer Main */}
         <footer className="w-full text-white">
-            <div className="flex items-center justify-center gap-8 py-8 bg-gradient-to-r from-[#212121] to-[#191919]">
+            <div className="flex items-center justify-center gap-8 py-8">
                 <div className="w-auto">
                     <span className="text-2xl font-black tracking-tighter text-white">Speak English</span>
                 </div>
@@ -663,7 +663,7 @@ export default function SpeakEnglishPage() {
                     <a href="#" className="text-2xl hover:text-blue-600"><Linkedin /></a>
                 </div>
             </div>
-            <div className="bg-[#141414] text-center px-4 py-4">
+            <div className="bg-nb-ink2 text-center px-4 py-4">
                 <p className="mb-2 text-base text-gray-400">
                     <a href="#" className="hover:text-white">Contact</a> | <a href="#" className="hover:text-white">Privacy Policy</a>
                 </p>
@@ -677,7 +677,7 @@ export default function SpeakEnglishPage() {
       
         {/* Registration Modal */}
         {showForm && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm p-4">
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-nb-ink/60 backdrop-blur-sm p-4">
           <div className="bg-white rounded-3xl p-8 max-w-md w-full relative">
             <button
               onClick={() => setShowForm(false)}
@@ -755,7 +755,7 @@ export default function SpeakEnglishPage() {
 
       {/* Confirmation Modal */}
       {showConfirmation && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm p-4">
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-nb-ink/60 backdrop-blur-sm p-4">
           <div className="bg-white rounded-3xl p-8 max-w-5xl w-full relative">
             <button
               onClick={() => setShowConfirmation(false)}
@@ -767,8 +767,8 @@ export default function SpeakEnglishPage() {
                 <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
                     <Check className="h-8 w-8 text-green-600" />
                 </div>
-                <h2 className="text-3xl font-bold text-black">Registration Confirmed!</h2>
-                <p className="text-black mt-2 text-lg">
+                <h2 className="text-3xl font-bold text-nb-text">Registration Confirmed!</h2>
+                <p className="text-nb-text mt-2 text-lg">
                 Complete the payment to receive the course dashboard access instantly via email.
                 </p>
             </div>
@@ -778,28 +778,28 @@ export default function SpeakEnglishPage() {
               <div className="md:w-1/2 space-y-6">
                 {/* Payment Details */}
                 <div className="bg-gray-50 rounded-2xl p-6 border border-gray-200">
-                    <h3 className="text-xl font-bold text-black mb-4">Course Instructor</h3>
-                    <h4 className="text-lg font-semibold text-black mb-3">Payment Details</h4>
+                    <h3 className="text-xl font-bold text-nb-text mb-4">Course Instructor</h3>
+                    <h4 className="text-lg font-semibold text-nb-text mb-3">Payment Details</h4>
                     <div className="space-y-3 text-base">
                         <div className="flex justify-between">
-                            <span className="font-medium text-black">Amount</span>
-                            <span className="font-bold text-black">₹399.00</span>
+                            <span className="font-medium text-nb-text">Amount</span>
+                            <span className="font-bold text-nb-text">₹399.00</span>
                         </div>
                         <div className="flex justify-between">
-                            <span className="font-medium text-black">Email</span>
-                            <span className="text-black">{email}</span>
+                            <span className="font-medium text-nb-text">Email</span>
+                            <span className="text-nb-text">{email}</span>
                         </div>
                         <div className="flex justify-between">
-                            <span className="font-medium text-black">Phone</span>
-                            <span className="text-black">8296548156</span>
+                            <span className="font-medium text-nb-text">Phone</span>
+                            <span className="text-nb-text">8296548156</span>
                         </div>
                     </div>
                     <div className="mt-6 text-center">
                         <span className="text-xl font-bold text-blue-600">Speak English</span>
                     </div>
                     <div className="mt-6">
-                        <h5 className="font-semibold text-black mb-3 text-lg">You’ll get instant access to</h5>
-                        <ul className="text-base space-y-2 text-black">
+                        <h5 className="font-semibold text-nb-text mb-3 text-lg">You’ll get instant access to</h5>
+                        <ul className="text-base space-y-2 text-nb-text">
                             <li>✅ 100+ Videos</li>
                             <li>✅ English Speaking Partners</li>
                             <li>✅ Talk with AI</li>
@@ -811,12 +811,12 @@ export default function SpeakEnglishPage() {
                 </div>
                 
                 {/* Contact and Terms */}
-                <div className="text-center text-sm text-black">
-                    <p className="mb-2"><strong>Contact Us:</strong> support@skillverse.com | 8296548156</p>
+                <div className="text-center text-sm text-nb-text">
+                    <p className="mb-2"><strong>Contact Us:</strong> info@fullstackverse.in | 8296548156</p>
                     <p><strong>Terms & Conditions:</strong> You agree to share information entered on this page with SkillVerse and Razorpay, adhering to applicable laws.</p>
                 </div>
                 
-                <div className="flex flex-col gap-2 text-sm text-black text-center">
+                <div className="flex flex-col gap-2 text-sm text-nb-text text-center">
                   <p>• Verify the receiver name before confirming the payment in your UPI app.</p>
                   <p>• Course access is automated once payment is verified.</p>
                 </div>

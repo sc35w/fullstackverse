@@ -1,92 +1,56 @@
 import React from 'react';
 import { Helmet } from 'react-helmet';
-import { motion } from 'framer-motion';
-import { FileText } from 'lucide-react';
+import { ClipboardCheck, IndianRupee, Search } from 'lucide-react';
 import ContactForm from '@/components/ContactForm';
+import { PageHero, Section } from '@/components/site/blocks';
 
-const RFPPage = () => {
-  return (
-    <>
-      <Helmet>
-        <title>Request for Proposal (RFP) - Fullstackverse</title>
-        <meta name="description" content="Submit your Request for Proposal (RFP) to Fullstackverse. Provide your project details and budget, and our team will get back to you with a comprehensive proposal." />
-      </Helmet>
+const reasons = [
+  { icon: Search, title: 'Detailed Analysis', description: "We'll perform an in-depth review of your needs." },
+  { icon: IndianRupee, title: 'Accurate Quoting', description: 'Get precise cost and timeline estimates.' },
+  { icon: ClipboardCheck, title: 'Tailored Solutions', description: 'Receive a proposal designed specifically for you.' },
+];
 
-      {/* Hero Section */}
-      <section className="hero">
-        <div className="left">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-          >
-            <div className="inline-flex items-center justify-center w-20 h-20 bg-orange-100 rounded-full mb-6">
-              <FileText className="h-10 w-10 text-orange-600" />
-            </div>
-            <h1 className="hero-title">
-              Request for Proposal
-            </h1>
-            <p className="hero-sub">
-              Ready to start a big project? Submit your RFP here, and our team will prepare a detailed proposal tailored to your needs.
-            </p>
-          </motion.div>
-        </div>
-        <div className="right">
-          <div className="hero-visual">
-            <div className="hero-visual-inner">
-              <div className="hero-cube blue">
-                <div className="hero-cube-line"></div>
-                <div className="hero-cube-line"></div>
-                <div className="hero-cube-line dark"></div>
+const RFPPage = () => (
+  <>
+    <Helmet>
+      <title>Request for Proposal (RFP) - Fullstackverse</title>
+      <meta
+        name="description"
+        content="Submit your Request for Proposal (RFP) to Fullstackverse. Provide your project details and budget, and our team will get back to you with a comprehensive proposal."
+      />
+    </Helmet>
+
+    <PageHero
+      title="Request for Proposal"
+      lead="Ready to start a big project? Submit your RFP here, and our team will prepare a detailed proposal tailored to your needs."
+    />
+
+    <Section tone="soft">
+      <div className="grid items-start gap-10 lg:grid-cols-[1fr_1.4fr]">
+        <div>
+          <h2 className="nb-h2">Why Submit an RFP?</h2>
+          <p className="nb-lead mt-4">
+            Submitting an RFP allows us to provide you with a comprehensive, accurate, and competitive proposal that
+            addresses all your project requirements.
+          </p>
+          <div className="mt-8 space-y-4">
+            {reasons.map(({ icon: Icon, title, description }) => (
+              <div key={title} className="flex gap-4 rounded-2xl bg-white p-5">
+                <span className="nb-icon">
+                  <Icon className="h-5 w-5" />
+                </span>
+                <div>
+                  <h3 className="font-semibold text-nb-text">{title}</h3>
+                  <p className="mt-1 text-sm text-nb-muted">{description}</p>
+                </div>
               </div>
-              <div className="hero-cube red">
-                <div className="hero-cube-line"></div>
-                <div className="hero-cube-line dark"></div>
-              </div>
-              <div className="hero-cube white">
-                <div className="hero-cube-line dark"></div>
-                <div className="hero-cube-line dark"></div>
-              </div>
-              <div className="hero-cube small">
-                <div className="hero-cube-line dark"></div>
-              </div>
-            </div>
+            ))}
           </div>
         </div>
-      </section>
-
-      {/* Form Section */}
-      <section className="py-20">
-        <div className="container">
-          <ContactForm title="Request for Proposal (RFP) Form" type="rfp" />
-        </div>
-      </section>
-
-      {/* Why Submit an RFP Section */}
-      <section className="py-20">
-        <div className="container text-center">
-            <h2 className="text-4xl font-bold mb-6">Why Submit an RFP?</h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto mb-12">
-              Submitting an RFP allows us to provide you with a comprehensive, accurate, and competitive proposal that addresses all your project requirements.
-            </p>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }}>
-                    <h3 className="text-2xl font-semibold mb-2">Detailed Analysis</h3>
-                    <p className="text-gray-600">We'll perform an in-depth review of your needs.</p>
-                </motion.div>
-                <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: 0.1 }}>
-                    <h3 className="text-2xl font-semibold mb-2">Accurate Quoting</h3>
-                    <p className="text-gray-600">Get precise cost and timeline estimates.</p>
-                </motion.div>
-                <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: 0.2 }}>
-                    <h3 className="text-2xl font-semibold mb-2">Tailored Solutions</h3>
-                    <p className="text-gray-600">Receive a proposal designed specifically for you.</p>
-                </motion.div>
-            </div>
-        </div>
-      </section>
-    </>
-  );
-};
+        <ContactForm title="Request for Proposal (RFP) Form" type="rfp" />
+      </div>
+    </Section>
+  </>
+);
 
 export default RFPPage;

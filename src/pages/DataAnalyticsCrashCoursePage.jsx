@@ -71,15 +71,15 @@ const mentors = [
 const faqs = [
   {
     q: "Is the course available online and offline?",
-    a: "This course will be entirely conducted online, and all resources and content will be available on pwskills.com."
+    a: "This course will be entirely conducted online, and all resources and content will be shared with you by SkillVerse after you enrol."
   },
   {
     q: "Will I receive a certificate upon completion of the course?",
-    a: "Yes, you will receive a certificate upon successful completion of the course. To qualify, you must complete at least 60% of the lectures and assignments and finish at least one medium-level difficulty project on the experience portal."
+    a: "Yes, you will receive a certificate upon successful completion of the course. To qualify, you must complete at least 60% of the lectures and assignments and finish at least one medium-level difficulty project."
   },
   {
     q: "What kind of support will I receive during the course?",
-    a: "We are here to support you throughout your learning journey with us. If you encounter any issues, please click on 'Support' when you log in to your account at pwskills.com. Most questions are addressed in our FAQs. If you don't find an answer there, feel free to raise a ticket under the appropriate category (Academics, Technical issues, Others, etc.). You can also reach out to us via email at support@pwskills.com."
+    a: "We are here to support you throughout your learning journey with us. Most questions are addressed in our FAQs. If you don't find an answer there, reach out to us via email at info@fullstackverse.in or call/WhatsApp 8296548156 and our team will help you with academic, technical or any other issues."
   },
   {
     q: "What are the prerequisites for enrolling in the Data Analytics course?",
@@ -93,7 +93,7 @@ const faqs = [
 
 export default function DataAnalyticsCrashCoursePage() {
   return (
-    <div className="bg-gradient-to-b from-blue-50 to-white min-h-screen text-gray-900">
+    <div className="bg-blue-50 min-h-screen text-gray-900">
       {/* Hero Section */}
       <section className="flex flex-col md:flex-row items-center justify-between gap-8 px-6 py-12 max-w-6xl mx-auto">
         <div className="flex-1 space-y-6">
@@ -125,7 +125,7 @@ export default function DataAnalyticsCrashCoursePage() {
           <div className="mt-4 text-green-700 font-semibold">Get Free Career Counseling by our experts</div>
         </div>
         <div className="flex-1 flex justify-center">
-          <div className="bg-gradient-to-br from-blue-600 to-purple-600 rounded-xl shadow-xl w-full max-w-md h-80 flex items-center justify-center">
+          <div className="bg-nb-blue rounded-xl shadow-xl w-full max-w-md h-80 flex items-center justify-center">
             <BarChart3 className="h-32 w-32 text-white" />
           </div>
         </div>
@@ -148,7 +148,7 @@ export default function DataAnalyticsCrashCoursePage() {
       </section>
 
       {/* Why Choose Section */}
-      <section className="py-10 px-6 bg-gradient-to-r from-blue-100 to-blue-50">
+      <section className="py-10 px-6 bg-blue-100">
         <h2 className="text-2xl font-bold text-center mb-6 text-blue-800">Why Get Data Analytics Certification From Skillverse?</h2>
         <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
           <div className="bg-white rounded-lg shadow p-6 flex flex-col gap-2">
@@ -198,7 +198,7 @@ export default function DataAnalyticsCrashCoursePage() {
       </section>
 
       {/* Benefits Section */}
-      <section className="py-10 px-6 bg-gradient-to-r from-blue-50 to-blue-100">
+      <section className="py-10 px-6 bg-blue-50">
         <h2 className="text-2xl font-bold text-center mb-6 text-blue-800">Advantages of Skillverse Data Analytics Program</h2>
         <ul className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto list-disc ml-6 text-gray-700">
           <li>Practice Exercises</li>
@@ -220,15 +220,15 @@ export default function DataAnalyticsCrashCoursePage() {
           The global Data Analytics market size was valued at <span className="font-bold text-blue-700">USD 154.2 billion in 2023</span> and is anticipated to reach <span className="font-bold text-blue-700">USD 495.2 billion by 2030</span>, exhibiting a compound annual growth rate (CAGR) of <span className="font-bold text-blue-700">16.4%</span> during the forecast period (2023-2030).
         </div>
         <div className="flex flex-wrap justify-center gap-8">
-          <div className="bg-gradient-to-br from-blue-50 to-blue-100 rounded-lg shadow p-6 w-60 h-32 flex flex-col items-center justify-center">
+          <div className="bg-blue-50 rounded-lg shadow p-6 w-60 h-32 flex flex-col items-center justify-center">
             <Users className="h-8 w-8 text-blue-700 mb-2" />
             <span className="font-bold text-blue-700">Hiring Companies</span>
           </div>
-          <div className="bg-gradient-to-br from-green-50 to-green-100 rounded-lg shadow p-6 w-60 h-32 flex flex-col items-center justify-center">
+          <div className="bg-green-50 rounded-lg shadow p-6 w-60 h-32 flex flex-col items-center justify-center">
             <TrendingUp className="h-8 w-8 text-green-700 mb-2" />
             <span className="font-bold text-green-700">Annual Salary</span>
           </div>
-          <div className="bg-gradient-to-br from-purple-50 to-purple-100 rounded-lg shadow p-6 w-60 h-32 flex flex-col items-center justify-center">
+          <div className="bg-purple-50 rounded-lg shadow p-6 w-60 h-32 flex flex-col items-center justify-center">
             <Award className="h-8 w-8 text-purple-700 mb-2" />
             <span className="font-bold text-purple-700">Sample Certificate</span>
           </div>
@@ -241,7 +241,7 @@ export default function DataAnalyticsCrashCoursePage() {
         <div className="flex flex-wrap justify-center gap-8">
           {mentors.map((mentor, i) => (
             <div key={i} className="bg-blue-50 rounded-lg shadow p-6 flex flex-col items-center w-72">
-              <div className="w-24 h-24 rounded-full mb-4 bg-gradient-to-br from-blue-500 to-purple-500 flex items-center justify-center">
+              <div className="w-24 h-24 rounded-full mb-4 bg-nb-blue flex items-center justify-center">
                 <Users className="h-12 w-12 text-white" />
               </div>
               <h3 className="font-semibold text-blue-700 text-lg">{mentor.name}</h3>
@@ -254,7 +254,7 @@ export default function DataAnalyticsCrashCoursePage() {
       </section>
 
       {/* Pricing Section */}
-      <section className="py-10 px-6 bg-gradient-to-r from-blue-100 to-blue-50">
+      <section className="py-10 px-6 bg-blue-100">
         <div className="max-w-2xl mx-auto text-center">
           <div className="text-3xl font-bold text-blue-800 mb-2">₹ 25,000</div>
           <div className="text-lg text-gray-700 mb-2">No Cost EMI starting from 4999/month</div>

@@ -66,9 +66,9 @@ const comparison = [
 
 export default function RoboticsInternshipPage() {
   return (
-    <div className="bg-gradient-to-b from-blue-50 to-white min-h-screen text-gray-900">
+    <div className="bg-blue-50 min-h-screen text-gray-900">
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-br from-blue-600 to-blue-800 text-white py-16 px-6 overflow-hidden">
+      <section className="relative bg-nb-blue text-white py-16 px-6 overflow-hidden">
         <div className="absolute inset-0 bg-black opacity-10" />
         <div className="relative max-w-6xl mx-auto z-10">
           <div className="grid md:grid-cols-2 gap-8 items-start">
@@ -147,7 +147,7 @@ export default function RoboticsInternshipPage() {
       </section>
 
       {/* Key Skills Covered */}
-      <section className="py-16 px-6 bg-gradient-to-r from-blue-50 to-blue-100">
+      <section className="py-16 px-6 bg-blue-50">
         <div className="max-w-6xl mx-auto">
           <div className="grid md:grid-cols-2 gap-12">
             <div>
@@ -193,16 +193,16 @@ export default function RoboticsInternshipPage() {
           <h2 className="text-3xl font-bold mb-6 text-blue-800">3-Month Industry Internship Program – Robotics</h2>
           
           {/* Sample Certificate */}
-          <div className="bg-gradient-to-br from-blue-50 via-white to-blue-50 rounded-xl p-8 mb-8 border-8 border-double border-blue-800 shadow-2xl">
-            <div className="bg-white p-8 rounded-lg">
+          <div className="bg-blue-50 rounded-xl p-2 sm:p-8 mb-8 border-8 border-double border-blue-800 shadow-2xl">
+            <div className="bg-white p-4 sm:p-8 rounded-lg">
               {/* Certificate Header */}
-              <div className="flex items-center justify-between mb-6">
-                <img src={asset('msme-official-logo.jpg')} alt="MSME" className="h-12 w-auto" />
+              <div className="flex items-center justify-between gap-2 mb-6">
+                <img src={asset('msme-official-logo.jpg')} alt="MSME" className="h-8 w-auto max-w-[25%] object-contain sm:h-12" />
                 <div className="text-center flex-1">
-                  <h3 className="text-3xl font-bold text-blue-800 mb-1">CERTIFICATE OF COMPLETION</h3>
+                  <h3 className="text-base sm:text-3xl font-bold text-blue-800 mb-1">CERTIFICATE OF COMPLETION</h3>
                   <p className="text-sm text-gray-600">Robotics Internship Program</p>
                 </div>
-                <img src={asset('skillverse-logo.svg')} alt="SkillVerse" className="h-16 w-auto" />
+                <img src={asset('skillverse-logo.svg')} alt="SkillVerse" className="h-8 w-auto max-w-[25%] object-contain sm:h-16" />
               </div>
               
               {/* Certificate Body */}
@@ -249,9 +249,9 @@ export default function RoboticsInternshipPage() {
             </div>
           </div>
           
-          <div className="bg-gradient-to-br from-blue-50 to-blue-100 rounded-xl p-8 mb-6">
+          <div className="bg-blue-50 rounded-xl p-8 mb-6">
             <div className="flex items-center justify-center gap-4 mb-6">
-              <img src={asset('msme-official-logo.jpg')} alt="MSME Government of India" className="h-16 w-auto" />
+              <img src={asset('msme-official-logo.jpg')} alt="MSME Government of India" className="h-12 w-auto max-w-[40%] object-contain sm:h-16" />
               <div className="flex flex-col">
                 <span className="text-2xl font-bold text-blue-800">MSME certified Organisation</span>
               </div>
@@ -275,7 +275,7 @@ export default function RoboticsInternshipPage() {
       </section>
 
       {/* Testimonials */}
-      <section className="py-16 px-6 bg-gradient-to-b from-blue-50 to-white">
+      <section className="py-16 px-6 bg-blue-50">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-3xl font-bold text-center mb-12 text-blue-800">What Our Students Say</h2>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -348,7 +348,7 @@ export default function RoboticsInternshipPage() {
       </section>
 
       {/* Career Support */}
-      <section className="py-16 px-6 bg-gradient-to-r from-blue-50 to-blue-100">
+      <section className="py-16 px-6 bg-blue-50">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-3xl font-bold text-center mb-12 text-blue-800">Career Support Included</h2>
           <div className="grid md:grid-cols-2 gap-6">
@@ -365,7 +365,7 @@ export default function RoboticsInternshipPage() {
       {/* Pricing Block */}
       <section className="py-16 px-6 bg-white">
         <div className="max-w-4xl mx-auto">
-          <div className="bg-gradient-to-br from-blue-600 to-blue-800 text-white rounded-2xl p-8 md:p-12 text-center">
+          <div className="bg-nb-blue text-white rounded-2xl p-8 md:p-12 text-center">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">Internship Fee: ₹9,999</h2>
             <div className="grid md:grid-cols-3 gap-4 mb-8 text-sm">
               <div className="flex items-center justify-center gap-2">
@@ -404,7 +404,7 @@ export default function RoboticsInternshipPage() {
       </section>
 
       {/* Competitor Comparison */}
-      <section className="py-16 px-6 bg-gradient-to-r from-blue-50 to-blue-100">
+      <section className="py-16 px-6 bg-blue-50">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-3xl font-bold text-center mb-12 text-blue-800">Why Choose Skill Verse?</h2>
           <div className="overflow-x-auto">
