@@ -1,15 +1,13 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowRight } from 'lucide-react';
-import ProjectMockup from './ProjectMockup';
+import ProjectShot from './ProjectShot';
 
-// Portfolio entry: technical figure, metadata line, serif title, editorial link.
+// Portfolio entry: dashboard screenshot, metadata line, serif title, editorial link.
 export default function ProjectCard({ project, size = 'md' }) {
   return (
     <Link to={`/portfolio/${project.slug}`} className="group flex h-full flex-col">
-      <div className="overflow-hidden">
-        <ProjectMockup project={project} className="aspect-[4/3] transition-[border-color] duration-300 group-hover:border-ink" />
-      </div>
+      <ProjectShot project={project} size={size === 'lg' ? 'lg' : 'sm'} className="transition-[border-color] duration-300 group-hover:border-ink" />
       <div className="meta mt-5 flex flex-wrap gap-x-3 gap-y-1">
         <span>{project.category}</span>
         <span aria-hidden="true">/</span>

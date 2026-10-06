@@ -2,8 +2,8 @@
 // team to show the kind of products we build. They are product concepts,
 // not client engagements, so no client names or results are claimed.
 //
-// mockup: which illustrated preview to draw (see components/site/ProjectMockup.jsx)
-//   'dashboard' | 'store' | 'phone' | 'video' | 'map' | 'site' | 'chart' | 'game'
+// shots: which demo-dashboard screenshot (public/portfolio/<slug>-<n>.webp, made by
+//   `npm run screens`) is the hero/card image and which illustrates key features.
 
 export const PORTFOLIO_CATEGORIES = ['All', 'AI & Computer Vision', 'E-commerce', 'Mobile Apps', 'Enterprise Software', 'Websites', 'Games'];
 
@@ -16,7 +16,7 @@ export const projects = [
     industry: 'Industrial Supplies',
     platforms: ['Web App', 'Admin Panel'],
     accent: '#1F3C88',
-    mockup: 'store',
+    shots: { hero: 3, feature: 2 },
     summary:
       'SpareSphere is a B2B ordering platform for construction and mining equipment parts. Fleet operators find the exact part by machine model or part number, request bulk quotes, and track every order from warehouse to site, while suppliers manage stock across multiple depots from one dashboard.',
     stack: ['React', 'Node.js', 'PostgreSQL', 'Elasticsearch', 'Razorpay', 'AWS'],
@@ -56,7 +56,7 @@ export const projects = [
     industry: 'Manufacturing & Warehousing',
     platforms: ['Web Dashboard', 'Edge AI', 'Mobile Alerts'],
     accent: '#0F766E',
-    mockup: 'video',
+    shots: { hero: 2, feature: 3 },
     summary:
       'Vigilo turns existing CCTV cameras into a safety assistant. Computer-vision models watch live feeds for missing helmets and vests, forklift near-misses, blocked fire exits and smoke, and send instant alerts to supervisors with a short clip of the event.',
     stack: ['Python', 'PyTorch', 'YOLO', 'OpenCV', 'FastAPI', 'React', 'NVIDIA Jetson'],
@@ -96,7 +96,7 @@ export const projects = [
     industry: 'AI & Data',
     platforms: ['Web App', 'Review Portal'],
     accent: '#7C3AED',
-    mockup: 'video',
+    shots: { hero: 2, feature: 3 },
     summary:
       'Framewise is a collaborative tool for labelling video data. Teams draw boxes and polygons, track objects across frames, and review each other\'s work, then export clean datasets in standard formats ready for model training.',
     stack: ['React', 'TypeScript', 'Canvas API', 'Python', 'Django', 'PostgreSQL', 'S3'],
@@ -136,7 +136,7 @@ export const projects = [
     industry: 'Healthcare',
     platforms: ['Android App', 'iOS App', 'Doctor Portal'],
     accent: '#0369A1',
-    mockup: 'phone',
+    shots: { hero: 2, feature: 3 },
     summary:
       'Respira helps clinics in small towns screen patients for respiratory problems. A health worker records breathing and cough sounds on a phone, the app shows a clear sound visual and an AI screening hint, and the recording is shared securely with a doctor for review.',
     stack: ['Flutter', 'TensorFlow Lite', 'Python', 'FastAPI', 'PostgreSQL', 'AWS'],
@@ -177,7 +177,7 @@ export const projects = [
     industry: 'Energy & Utilities',
     platforms: ['Website', 'CMS'],
     accent: '#B45309',
-    mockup: 'site',
+    shots: { hero: 1, feature: 3 },
     summary:
       'A corporate website concept for a company that sells monitoring and automation software to solar parks and power utilities. The site explains complex products in plain language, showcases use cases by industry, and turns technical visitors into demo requests.',
     stack: ['Next.js', 'Tailwind CSS', 'Headless CMS', 'Vercel', 'Google Analytics'],
@@ -217,7 +217,7 @@ export const projects = [
     industry: 'Marketplace',
     platforms: ['Android App', 'iOS App', 'Web App', 'Admin Panel'],
     accent: '#C2410C',
-    mockup: 'phone',
+    shots: { hero: 2, feature: 1 },
     summary:
       'Bazaarly is a classifieds app where people post ads for used phones, furniture, vehicles, rentals and services in their city. Buyers chat with sellers in the app, and sellers can pay to promote listings for more visibility.',
     stack: ['React Native', 'Node.js', 'MongoDB', 'Firebase', 'Google Maps', 'Razorpay'],
@@ -257,7 +257,7 @@ export const projects = [
     industry: 'Construction & Home Services',
     platforms: ['Android App', 'iOS App', 'Admin Panel'],
     accent: '#A16207',
-    mockup: 'phone',
+    shots: { hero: 3, feature: 2 },
     summary:
       'BuildBridge helps homeowners find trusted masons, electricians, plumbers and interior contractors nearby. Customers compare profiles, past work and ratings, request quotes, and track the job, while contractors get a steady stream of local leads.',
     stack: ['Flutter', 'Firebase', 'Node.js', 'PostgreSQL', 'Google Maps', 'Razorpay'],
@@ -297,7 +297,7 @@ export const projects = [
     industry: 'Retail',
     platforms: ['Web Store', 'Admin Panel'],
     accent: '#9D174D',
-    mockup: 'store',
+    shots: { hero: 1, feature: 2 },
     summary:
       'Casaloom is an online store concept for a home décor brand selling cushions, rugs, lamps and tableware. It focuses on beautiful product pages, shopping by room and style, quick checkout, and simple tools for the team to run offers and manage stock.',
     stack: ['Next.js', 'Shopify Storefront API', 'Tailwind CSS', 'Algolia', 'Razorpay'],
@@ -337,7 +337,7 @@ export const projects = [
     industry: 'B2B Sales',
     platforms: ['Web App', 'Android App'],
     accent: '#1F3C88',
-    mockup: 'dashboard',
+    shots: { hero: 2, feature: 3 },
     summary:
       'PipeTrack gives sales and pre-sales teams one place to log meetings, demos and proposals, and gives managers a live view of activity, pipeline and targets. It replaces scattered spreadsheets and end-of-week status emails.',
     stack: ['React', 'Node.js', 'PostgreSQL', 'Redis', 'Chart.js', 'Google Workspace API'],
@@ -377,7 +377,7 @@ export const projects = [
     industry: 'Fashion & Handicrafts',
     platforms: ['Web Store', 'Artisan Portal'],
     accent: '#B91C1C',
-    mockup: 'store',
+    shots: { hero: 1, feature: 2 },
     summary:
       'Kalaghar brings handcrafted silver, brass and terracotta jewellery from Indian artisans to shoppers online. Each product tells the maker\'s story, and artisans manage their own listings and orders through a simple portal.',
     stack: ['React', 'Node.js', 'MongoDB', 'Cloudinary', 'Razorpay', 'Shiprocket'],
@@ -417,7 +417,7 @@ export const projects = [
     industry: 'Fintech',
     platforms: ['Android App', 'iOS App', 'Admin Panel'],
     accent: '#047857',
-    mockup: 'phone',
+    shots: { hero: 3, feature: 2 },
     summary:
       'PayNest is a wallet app concept for everyday payments: utility bills, mobile recharges, parking, and sending money to friends. It focuses on security, a clean interface, and spending insights that help users understand where their money goes.',
     stack: ['Kotlin', 'Swift', 'Node.js', 'PostgreSQL', 'Redis', 'Payment gateway APIs'],
@@ -457,7 +457,7 @@ export const projects = [
     industry: 'Real Estate & Facilities',
     platforms: ['Guard Tablet App', 'Resident App', 'Web Admin'],
     accent: '#1F3C88',
-    mockup: 'dashboard',
+    shots: { hero: 2, feature: 3 },
     summary:
       'GatePass replaces paper visitor registers at apartment gates. Guards check in guests, deliveries and staff on a tablet, residents approve entries from their phone, and the committee gets a searchable log of everyone who came in and out.',
     stack: ['React Native', 'React', 'Node.js', 'PostgreSQL', 'Firebase Cloud Messaging'],
@@ -497,7 +497,7 @@ export const projects = [
     industry: 'Logistics',
     platforms: ['Customer App', 'Rider App', 'Admin Panel'],
     accent: '#C2410C',
-    mockup: 'map',
+    shots: { hero: 2, feature: 3 },
     summary:
       'DashDrop lets people and small businesses book a rider to pick up and deliver parcels across the city within hours. Customers see the price upfront and track the rider live, riders get optimised routes, and the admin team manages fleet and payouts.',
     stack: ['Flutter', 'Node.js', 'PostgreSQL', 'Redis', 'Google Maps Platform', 'Razorpay'],
@@ -537,7 +537,7 @@ export const projects = [
     industry: 'Equipment & HVAC Services',
     platforms: ['Web Admin', 'Technician App', 'Customer Portal'],
     accent: '#0F766E',
-    mockup: 'dashboard',
+    shots: { hero: 2, feature: 3 },
     summary:
       'FieldPro manages the full life of installed equipment such as air-conditioning units, generators and industrial machines: installation jobs, scheduled maintenance, breakdown tickets and annual maintenance contracts, with a mobile app for technicians in the field.',
     stack: ['React', 'React Native', 'Node.js', 'PostgreSQL', 'Firebase', 'Google Maps'],
@@ -577,7 +577,7 @@ export const projects = [
     industry: 'FMCG Distribution',
     platforms: ['Android App', 'Web Admin'],
     accent: '#1F3C88',
-    mockup: 'phone',
+    shots: { hero: 2, feature: 3 },
     summary:
       'TradeLink lets retailers and dealers order stock directly from a distributor on their phone: browse the catalogue, see their own prices and schemes, place orders, track deliveries and check outstanding payments, without waiting for a sales rep visit.',
     stack: ['Kotlin', 'React', 'Node.js', 'PostgreSQL', 'Tally integration', 'Firebase'],
@@ -617,7 +617,7 @@ export const projects = [
     industry: 'Real Estate',
     platforms: ['Web App', 'Android App', 'iOS App'],
     accent: '#0369A1',
-    mockup: 'map',
+    shots: { hero: 2, feature: 3 },
     summary:
       'NestFinder helps tenants find verified rental homes and helps owners manage them after move-in. Tenants search on a map, schedule visits and sign agreements online; owners collect rent, log maintenance requests and keep documents in one place.',
     stack: ['React', 'React Native', 'Node.js', 'PostgreSQL', 'Mapbox', 'Razorpay'],
@@ -657,7 +657,7 @@ export const projects = [
     industry: 'Education',
     platforms: ['Web App', 'Parent App', 'Teacher App'],
     accent: '#7C3AED',
-    mockup: 'dashboard',
+    shots: { hero: 3, feature: 4 },
     summary:
       'Campusly brings a school\'s daily operations onto one platform: admissions, attendance, timetables, exams, fees and communication. Teachers save time on paperwork and parents follow their child\'s progress from a mobile app.',
     stack: ['React', 'Flutter', 'Node.js', 'PostgreSQL', 'Razorpay', 'Firebase'],
@@ -697,7 +697,7 @@ export const projects = [
     industry: 'Shipping & Logistics',
     platforms: ['Website', 'Customer Portal'],
     accent: '#0F172A',
-    mockup: 'site',
+    shots: { hero: 3, feature: 2 },
     summary:
       'A corporate website concept for a freight forwarding company handling sea and air cargo. Besides presenting services and offices, it gives customers a portal to track shipments, download documents and request quotes online.',
     stack: ['Next.js', 'Tailwind CSS', 'Node.js', 'PostgreSQL', 'Headless CMS'],
@@ -737,7 +737,7 @@ export const projects = [
     industry: 'Government & Disaster Management',
     platforms: ['Web Dashboard', 'Alert Service'],
     accent: '#0369A1',
-    mockup: 'chart',
+    shots: { hero: 1, feature: 3 },
     summary:
       'FloodWatch brings rainfall gauges, river-level sensors and weather feeds onto one live map for district disaster-management teams. It visualises trends, highlights rising risk early, and sends alerts to officials and communities when thresholds are crossed.',
     stack: ['React', 'Leaflet', 'D3.js', 'Python', 'TimescaleDB', 'MQTT'],
@@ -777,7 +777,7 @@ export const projects = [
     industry: 'Interior Design',
     platforms: ['Website', 'CMS'],
     accent: '#44403C',
-    mockup: 'site',
+    shots: { hero: 2, feature: 1 },
     summary:
       'A website concept for a high-end interior design studio. Large, calm imagery puts completed homes and offices centre stage, project pages tell the story from brief to handover, and a refined enquiry flow captures serious leads.',
     stack: ['Next.js', 'Sanity CMS', 'Tailwind CSS', 'Vercel', 'Cloudinary'],
@@ -817,7 +817,7 @@ export const projects = [
     industry: 'Health & Wellness',
     platforms: ['iOS App', 'Android App'],
     accent: '#047857',
-    mockup: 'phone',
+    shots: { hero: 2, feature: 3 },
     summary:
       'MindMove combines workouts, daily habits and short mindfulness sessions in one app. Users set goals, follow guided routines, track streaks and moods, and join friendly challenges with friends to stay consistent.',
     stack: ['React Native', 'Node.js', 'MongoDB', 'Apple HealthKit', 'Google Fit', 'Firebase'],
@@ -857,7 +857,7 @@ export const projects = [
     industry: 'Casual Gaming',
     platforms: ['Android', 'iOS'],
     accent: '#C2410C',
-    mockup: 'game',
+    shots: { hero: 2, feature: 3 },
     summary:
       'Rangoli Rush is a colourful match-and-clear puzzle game inspired by Indian festivals. Players complete rangoli patterns across hundreds of short levels, unlock seasonal festival events, and compete with friends on weekly leaderboards.',
     stack: ['Unity', 'C#', 'Firebase', 'Google Play Games Services', 'Game Center', 'AdMob'],
@@ -897,7 +897,7 @@ export const projects = [
     industry: 'Sports Gaming',
     platforms: ['Android', 'iOS', 'Web'],
     accent: '#047857',
-    mockup: 'game',
+    shots: { hero: 2, feature: 3 },
     summary:
       'Gully Strikers captures the fun of street cricket in quick arcade matches. Players build a team from their neighbourhood, play two-over matches against friends in real time, and climb city and national leagues.',
     stack: ['Unity', 'C#', 'Photon Multiplayer', 'Node.js', 'Redis', 'PlayFab'],
@@ -937,7 +937,7 @@ export const projects = [
     industry: 'EdTech',
     platforms: ['Web', 'Android Tablet', 'iPad'],
     accent: '#7C3AED',
-    mockup: 'game',
+    shots: { hero: 2, feature: 1 },
     summary:
       'LexiQuest turns reading and vocabulary practice into an adventure. Children aged 6 to 12 explore story worlds by solving word puzzles, while parents and teachers follow progress from a simple dashboard.',
     stack: ['Phaser', 'TypeScript', 'React', 'Node.js', 'PostgreSQL', 'Text-to-speech API'],

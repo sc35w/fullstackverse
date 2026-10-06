@@ -35,7 +35,7 @@ export function useLive(fn, ms, on = true) {
 
 export function DashShell({ name, accent, views, view, onView, range, onRange, live, onLive, filters, children }) {
   return (
-    <div className="overflow-hidden rounded-sm border border-line-dark bg-canvas">
+    <div data-dashboard className="overflow-hidden rounded-sm border border-line-dark bg-canvas">
       <div className="flex min-h-[640px] flex-col md:flex-row">
         {/* Sidebar (tabs on small screens) */}
         <aside className="shrink-0 border-b border-line bg-surface md:w-56 md:border-b-0 md:border-r">

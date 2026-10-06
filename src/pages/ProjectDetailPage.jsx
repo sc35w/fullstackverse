@@ -3,7 +3,7 @@ import { Helmet } from 'react-helmet';
 import { Link, Navigate, useParams } from 'react-router-dom';
 import { ArrowRight } from 'lucide-react';
 import { ContactDialogButton, CtaBand, Eyebrow, Reveal, Section, SectionHeading } from '@/components/site/blocks';
-import ProjectMockup from '@/components/site/ProjectMockup';
+import ProjectShot from '@/components/site/ProjectShot';
 import ProjectCard from '@/components/site/ProjectCard';
 import { getProject, projects } from '@/lib/portfolio';
 import { getDashboard } from '@/dashboards';
@@ -55,7 +55,11 @@ const ProjectDetailPage = () => {
         </div>
         <div className="wrap">
           <Reveal>
-            <ProjectMockup project={project} className="aspect-[4/3] md:aspect-[21/9]" />
+            <ProjectShot project={project} use="hero" eager />
+            <div className="meta mt-3 flex justify-between gap-4">
+              <span>FIG. 01 — {project.name} dashboard</span>
+              <a href="#demo" className="link-underline hover:text-ink">Try the live demo ↓</a>
+            </div>
           </Reveal>
         </div>
       </section>
@@ -159,7 +163,7 @@ const ProjectDetailPage = () => {
           <div className="lg:sticky lg:top-28 lg:col-span-5">
             <Eyebrow index="05" className="mb-8">Key features</Eyebrow>
             <h2 className="display-2">Built for everyday use</h2>
-            <ProjectMockup project={project} className="mt-10 aspect-[4/3]" />
+            <ProjectShot project={project} use="feature" className="mt-10" />
           </div>
           <ol className="border-t border-line lg:col-span-6 lg:col-start-7">
             {project.features.map((f, i) => (
